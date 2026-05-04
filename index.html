@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>PlantApp</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"/>
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+:root {
+  --white: #FFFFFF;
+  --bg: #F7F7F5;
+  --bg2: #EFEFEC;
+  --line: #E8E8E4;
+  --ink: #1A1A18;
+  --ink2: #5A5A54;
+  --ink3: #9A9A92;
+  --green: #2D5A3D;
+  --green-light: #EAF1EC;
+  --green-mid: #B8D4BF;
+  --accent: #4A7C59;
+  --red-soft: #F5EAE8;
+  --red: #C0573A;
+  --yellow-soft: #FBF3E2;
+  --yellow: #B8860B;
+  --blue-soft: #E8F4FA;
+  --blue: #2A7BAD;
+  --r: 16px;
+  --r-sm: 10px;
+  --r-xs: 6px;
+}
+html, body, #root {
+  height: 100%;
+  background: #1A1A18;
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+::-webkit-scrollbar { display: none; }
+
+/* ── PHONE SHELL ── */
+.shell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: #1A1A18;
+}
+.phone {
+  width: 375px;
+  height: 812px;
+  background: var(--bg);
+  border-radius: 50px;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.06), 0 32px 80px rgba(0,0,0,0.6);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 28px 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+}
+.notch {
+  width: 90px; height: 20px;
+  background: var(--ink);
+  border-radius: 20px;
+}
+.screen-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 80px;
+}
+
+/* ── BOTTOM NAV ── */
+.bottom-nav {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 80px;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 4px 14px;
+  z-index: 100;
+}
+.nav-item {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 3px;
+  padding: 8px 12px;
+  border-radius: var(--r-sm);
+  cursor: pointer; flex: 1;
+  transition: opacity 0.15s;
+}
+.nav-item:active { opacity: 0.6; }
+.nav-icon { font-size: 22px; line-height: 1; filter: grayscale(1) opacity(0.4); transition: filter 0.2s; }
+.nav-label { font-size: 9px; font-weight: 500; color: var(--ink3); letter-spacing: 0.3px; transition: color 0.2s; }
+.nav-item.active .nav-icon { filter: none; }
+.nav-item.active .nav-label { color: var(--green); font-weight: 600; }
+.nav-add {
+  width: 48px; height: 48px;
+  background: var(--green);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; color: white; flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(45,90,61,0.4);
+  cursor: pointer; margin-bottom: 6px;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.nav-add:active { transform: scale(0.93); box-shadow: 0 2px 8px rgba(45,90,61,0.3); }
+
+/* ── SHARED ── */
+.section-label {
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 1.2px; text-transform: uppercase;
+  color: var(--ink3); margin-bottom: 10px;
+}
+.card {
+  background: var(--white);
+  border-radius: var(--r);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+.serif { font-family: 'Instrument Serif', serif; }
+
+/* ── LOGIN ── */
+.login-wrap {
+  height: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 40px 32px;
+  background: var(--white);
+  gap: 0;
+}
+.login-logo {
+  width: 80px; height: 80px;
+  background: var(--green-light);
+  border-radius: 24px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 38px; margin-bottom: 28px;
+  border: 1.5px solid var(--green-mid);
+}
+.login-title { font-family: 'Instrument Serif', serif; font-size: 38px; color: var(--ink); letter-spacing: -0.5px; line-height: 1; margin-bottom: 8px; }
+.login-sub { font-size: 15px; color: var(--ink3); text-align: center; line-height: 1.5; margin-bottom: 52px; }
+.google-btn {
+  width: 100%; padding: 15px 20px;
+  background: var(--white);
+  border: 1.5px solid var(--line);
+  border-radius: var(--r);
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  font-size: 15px; font-weight: 500; color: var(--ink);
+  cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  font-family: 'DM Sans', sans-serif;
+  transition: background 0.15s, box-shadow 0.15s;
+}
+.google-btn:hover { background: var(--bg); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.login-note { font-size: 11px; color: var(--ink3); text-align: center; margin-top: 20px; line-height: 1.6; }
+
+/* ── DASHBOARD ── */
+.dash-header {
+  background: var(--white);
+  padding: 18px 24px 16px;
+  border-bottom: 1px solid var(--line);
+}
+.dash-greeting { font-size: 11px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--ink3); margin-bottom: 2px; }
+.dash-title { font-family: 'Instrument Serif', serif; font-size: 28px; color: var(--ink); letter-spacing: -0.3px; }
+
+.today-section { padding: 16px 24px 8px; }
+.task-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 6px 12px; border-radius: 999px;
+  font-size: 12px; font-weight: 500;
+  cursor: pointer; transition: transform 0.1s;
+}
+.chip:active { transform: scale(0.95); }
+.chip.urgent { background: var(--red-soft); color: var(--red); }
+.chip.soon { background: var(--yellow-soft); color: var(--yellow); }
+.chip.good { background: var(--green-light); color: var(--green); }
+
+.plant-list { padding: 0 24px; display: flex; flex-direction: column; gap: 10px; }
+.plant-row {
+  background: var(--white); border-radius: var(--r);
+  padding: 14px 16px;
+  display: flex; align-items: center; gap: 14px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  cursor: pointer; transition: transform 0.15s, box-shadow 0.15s;
+}
+.plant-row:active { transform: scale(0.98); box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+.plant-avatar {
+  width: 46px; height: 46px; border-radius: var(--r-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; flex-shrink: 0;
+}
+.plant-info { flex: 1; min-width: 0; }
+.plant-name { font-size: 14px; font-weight: 600; color: var(--ink); }
+.plant-species { font-size: 11px; color: var(--ink3); margin-top: 1px; font-style: italic; }
+.plant-status { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.status-dot { width: 8px; height: 8px; border-radius: 50%; }
+.status-dot.urgent { background: var(--red); }
+.status-dot.soon { background: var(--yellow); }
+.status-dot.good { background: #4CAF70; }
+.status-text { font-size: 10px; font-weight: 500; color: var(--ink3); }
+
+/* ── PLANT DETAIL ── */
+.detail-hero {
+  height: 200px;
+  background: var(--green-light);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  flex-shrink: 0;
+}
+.detail-hero-emoji { font-size: 80px; line-height: 1; }
+.back-btn {
+  position: absolute; top: 60px; left: 18px;
+  width: 34px; height: 34px;
+  background: rgba(255,255,255,0.88);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; cursor: pointer; backdrop-filter: blur(4px);
+  border: none; font-family: inherit;
+  transition: background 0.15s;
+}
+.back-btn:hover { background: white; }
+.detail-body { padding: 20px 24px; }
+.detail-name { font-family: 'Instrument Serif', serif; font-size: 30px; color: var(--ink); letter-spacing: -0.3px; }
+.detail-species { font-size: 12px; color: var(--ink3); margin-top: 2px; margin-bottom: 18px; font-style: italic; }
+.env-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+.env-chip { background: var(--green-light); color: var(--green); font-size: 11px; font-weight: 500; padding: 5px 10px; border-radius: 999px; }
+.care-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+.care-tile { background: var(--bg); border-radius: var(--r-sm); padding: 14px; }
+.care-tile-icon { font-size: 18px; margin-bottom: 6px; }
+.care-tile-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--ink3); margin-bottom: 2px; }
+.care-tile-value { font-size: 13px; font-weight: 600; color: var(--ink); }
+.care-tile-value.urgent { color: var(--red); }
+.care-tile-next { font-size: 11px; color: var(--ink3); margin-top: 2px; }
+.log-label { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--ink3); margin-bottom: 10px; }
+.log-item { display: flex; align-items: flex-start; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+.log-item:last-child { border-bottom: none; }
+.log-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green-mid); margin-top: 5px; flex-shrink: 0; }
+.log-text { font-size: 12px; color: var(--ink2); flex: 1; }
+.log-date { font-size: 11px; color: var(--ink3); }
+.do-btn {
+  width: 100%; padding: 15px;
+  background: var(--green); color: white;
+  border: none; border-radius: var(--r);
+  font-size: 15px; font-weight: 600;
+  font-family: 'DM Sans', sans-serif; cursor: pointer;
+  margin-bottom: 16px;
+  transition: background 0.15s;
+}
+.do-btn:active { background: var(--accent); }
+
+/* ── ADD PLANT ── */
+.add-header {
+  background: var(--white);
+  padding: 16px 24px 14px;
+  border-bottom: 1px solid var(--line);
+  display: flex; align-items: center; gap: 12px;
+}
+.add-back {
+  width: 34px; height: 34px;
+  background: var(--bg); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; cursor: pointer; border: none; font-family: inherit;
+  flex-shrink: 0;
+}
+.add-title { font-family: 'Instrument Serif', serif; font-size: 22px; color: var(--ink); }
+.add-body { padding: 20px 24px; display: flex; flex-direction: column; gap: 20px; }
+.field-group { display: flex; flex-direction: column; gap: 6px; }
+.field-label { font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--ink3); }
+.field-input {
+  background: var(--bg); border: 1.5px solid transparent;
+  border-radius: var(--r-sm); padding: 12px 14px;
+  font-size: 14px; color: var(--ink);
+  font-family: 'DM Sans', sans-serif; outline: none;
+  width: 100%; transition: border-color 0.15s;
+}
+.field-input:focus { border-color: var(--accent); background: var(--white); }
+.search-results { background: var(--bg); border-radius: var(--r-sm); overflow: hidden; margin-top: 2px; }
+.search-result {
+  padding: 11px 14px; display: flex; align-items: center; gap: 10px;
+  background: var(--white); border-bottom: 1px solid var(--bg);
+  cursor: pointer; transition: background 0.1s;
+}
+.search-result:last-child { border-bottom: none; }
+.search-result:hover, .search-result.selected { background: var(--green-light); }
+.result-emoji { font-size: 20px; }
+.result-name { font-size: 13px; font-weight: 500; color: var(--ink); }
+.result-species { font-size: 11px; color: var(--ink3); }
+.env-selector { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+.env-opt {
+  background: var(--bg); border-radius: var(--r-sm);
+  padding: 12px 8px; text-align: center; cursor: pointer;
+  border: 1.5px solid transparent; transition: all 0.15s;
+}
+.env-opt.selected { background: var(--green-light); border-color: var(--accent); }
+.env-opt-icon { font-size: 20px; margin-bottom: 5px; }
+.env-opt-label { font-size: 11px; font-weight: 500; color: var(--ink2); }
+.submit-btn {
+  width: 100%; padding: 15px;
+  background: var(--green); color: white;
+  border: none; border-radius: var(--r);
+  font-size: 15px; font-weight: 600;
+  font-family: 'DM Sans', sans-serif; cursor: pointer;
+  transition: background 0.15s;
+}
+.submit-btn:active { background: var(--accent); }
+
+/* ── ALERTS ── */
+.page-header {
+  background: var(--white);
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.page-title { font-family: 'Instrument Serif', serif; font-size: 28px; color: var(--ink); }
+.badge-pill { background: var(--red); color: white; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 999px; }
+.alerts-body { padding: 14px 24px; display: flex; flex-direction: column; gap: 8px; }
+.day-label { font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--ink3); padding: 6px 0 4px; }
+.alert-card {
+  background: var(--white); border-radius: var(--r);
+  padding: 14px 16px;
+  display: flex; align-items: center; gap: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  position: relative; overflow: hidden;
+}
+.alert-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; }
+.alert-card.urgent::before { background: var(--red); }
+.alert-card.soon::before { background: var(--yellow); }
+.alert-card.done { opacity: 0.45; }
+.alert-card.done::before { background: var(--green-mid); }
+.alert-icon { width: 40px; height: 40px; border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+.alert-info { flex: 1; min-width: 0; }
+.alert-title { font-size: 13px; font-weight: 500; color: var(--ink); }
+.alert-sub { font-size: 11px; color: var(--ink3); margin-top: 2px; }
+.alert-btn {
+  padding: 6px 12px; border-radius: 999px;
+  font-size: 12px; font-weight: 600; border: none;
+  cursor: pointer; font-family: 'DM Sans', sans-serif;
+  flex-shrink: 0; transition: opacity 0.15s;
+}
+.alert-btn:active { opacity: 0.7; }
+.alert-btn.urgent { background: var(--red-soft); color: var(--red); }
+.alert-btn.soon { background: var(--yellow-soft); color: var(--yellow); }
+.alert-btn.done { background: var(--bg2); color: var(--ink3); }
+
+/* ── SCHEMA ── */
+.schema-header { background: var(--white); padding: 20px 24px 16px; border-bottom: 1px solid var(--line); }
+.schema-title { font-family: 'Instrument Serif', serif; font-size: 28px; color: var(--ink); margin-bottom: 12px; }
+.month-nav { display: flex; align-items: center; justify-content: space-between; }
+.month-arrow { width: 30px; height: 30px; background: var(--bg); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; color: var(--ink2); cursor: pointer; border: none; font-family: inherit; transition: background 0.15s; }
+.month-arrow:hover { background: var(--bg2); }
+.month-label { font-size: 14px; font-weight: 600; color: var(--ink); }
+.cal-wrap { padding: 14px 24px 0; }
+.cal-days-row { display: grid; grid-template-columns: repeat(7,1fr); margin-bottom: 4px; }
+.cal-day-name { text-align: center; font-size: 10px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; color: var(--ink3); padding: 4px 0; }
+.cal-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 2px; }
+.cal-cell { aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: var(--r-xs); cursor: pointer; transition: background 0.1s; }
+.cal-cell:hover { background: var(--bg2); }
+.cal-num { font-size: 13px; color: var(--ink); line-height: 1; }
+.cal-cell.today { background: var(--green); }
+.cal-cell.today .cal-num { color: white; font-weight: 700; }
+.cal-cell.other .cal-num { color: var(--ink3); }
+.cal-dots { display: flex; gap: 2px; margin-top: 2px; }
+.dot { width: 4px; height: 4px; border-radius: 50%; }
+.dot.water { background: #6BAED6; }
+.dot.feed { background: #74C476; }
+.dot.rotate { background: var(--yellow); }
+.cal-legend { display: flex; gap: 14px; padding: 10px 0 4px; align-items: center; }
+.legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--ink3); }
+.upcoming-list { padding: 14px 24px; }
+.upcoming-item { display: flex; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--line); }
+.upcoming-item:last-child { border-bottom: none; }
+.up-date { width: 36px; text-align: center; flex-shrink: 0; }
+.up-day-num { font-family: 'Instrument Serif', serif; font-size: 22px; color: var(--ink); line-height: 1; }
+.up-day-name { font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--ink3); }
+.up-divider { width: 1px; height: 32px; background: var(--line); flex-shrink: 0; }
+.up-info { flex: 1; }
+.up-action { font-size: 13px; font-weight: 500; color: var(--ink); }
+.up-plant { font-size: 11px; color: var(--ink3); margin-top: 2px; }
+.up-chip { font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 999px; flex-shrink: 0; }
+.up-chip.water { background: var(--blue-soft); color: var(--blue); }
+.up-chip.feed { background: var(--green-light); color: var(--green); }
+.up-chip.rotate { background: var(--yellow-soft); color: var(--yellow); }
+
+/* ── PROFIEL ── */
+.profiel-header { background: var(--white); padding: 24px 24px 20px; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.avatar { width: 68px; height: 68px; border-radius: 50%; background: var(--green-light); display: flex; align-items: center; justify-content: center; font-size: 30px; border: 2px solid var(--green-mid); }
+.profiel-name { font-family: 'Instrument Serif', serif; font-size: 22px; color: var(--ink); }
+.profiel-email { font-size: 12px; color: var(--ink3); margin-top: -4px; }
+.stats-row { display: flex; justify-content: center; gap: 36px; padding: 16px 24px; background: var(--white); border-bottom: 1px solid var(--line); }
+.stat { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.stat-num { font-family: 'Instrument Serif', serif; font-size: 26px; color: var(--ink); line-height: 1; }
+.stat-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--ink3); }
+.settings-wrap { padding: 16px 24px 0; }
+.settings-block { background: var(--white); border-radius: var(--r); overflow: hidden; margin-bottom: 12px; }
+.settings-row { display: flex; align-items: center; padding: 14px 16px; border-bottom: 1px solid var(--line); gap: 12px; cursor: pointer; transition: background 0.1s; }
+.settings-row:last-child { border-bottom: none; }
+.settings-row:hover { background: var(--bg); }
+.s-icon { width: 34px; height: 34px; border-radius: var(--r-xs); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+.s-text { flex: 1; }
+.s-label { font-size: 14px; color: var(--ink); }
+.s-sub { font-size: 11px; color: var(--ink3); margin-top: 1px; }
+.s-arrow { font-size: 13px; color: var(--ink3); }
+.toggle { width: 44px; height: 26px; border-radius: 999px; position: relative; flex-shrink: 0; transition: background 0.2s; cursor: pointer; }
+.toggle.on { background: var(--green); }
+.toggle.off { background: var(--bg2); }
+.toggle::after { content: ''; position: absolute; width: 20px; height: 20px; background: white; border-radius: 50%; top: 3px; box-shadow: 0 1px 3px rgba(0,0,0,0.2); transition: left 0.2s; }
+.toggle.on::after { left: calc(100% - 23px); }
+.toggle.off::after { left: 3px; }
+.logout-btn { width: calc(100% - 48px); margin: 0 24px 20px; padding: 14px; background: var(--red-soft); border: none; border-radius: var(--r); color: var(--red); font-size: 14px; font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: background 0.15s; }
+.logout-btn:hover { background: #f0dcd8; }
+
+/* ── TRANSITIONS ── */
+.screen-enter { animation: slideUp 0.25s ease forwards; }
+@keyframes slideUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect } = React;
+
+// ── DATA ──
+const PLANTS_DATA = [
+  { id: 1, name: 'Monstera', species: 'Monstera deliciosa', room: 'Woonkamer', emoji: '🌿', bg: '#EAF1EC', status: 'urgent', statusText: 'Water nu', light: 'Fel indirect', humidity: 'Medium', waterEvery: 8, feedEvery: 28, nextWater: 'Vandaag', nextFeed: '28 apr', nextRotate: 'Over 4d', nextRepot: 'Jun 2026', log: [{type:'💧',text:'Water gegeven',date:'14 apr'},{type:'🔄',text:'Gedraaid',date:'10 apr'},{type:'🌿',text:'Voeding',date:'2 apr'}] },
+  { id: 2, name: 'Pothos', species: 'Epipremnum aureum', room: 'Studio', emoji: '🪴', bg: '#F0EDE8', status: 'soon', statusText: '2 dagen', light: 'Indirect', humidity: 'Laag', waterEvery: 10, feedEvery: 30, nextWater: 'Over 2d', nextFeed: '5 mei', nextRotate: 'Over 7d', nextRepot: 'Sep 2026', log: [{type:'💧',text:'Water gegeven',date:'23 apr'},{type:'🔄',text:'Gedraaid',date:'18 apr'}] },
+  { id: 3, name: 'Snake Plant', species: 'Dracaena trifasciata', room: 'Slaapkamer', emoji: '🌵', bg: '#F0F4EE', status: 'good', statusText: 'Prima', light: 'Weinig', humidity: 'Laag', waterEvery: 21, feedEvery: 60, nextWater: 'Over 11d', nextFeed: '14 mei', nextRotate: 'Over 20d', nextRepot: 'Jul 2026', log: [{type:'💧',text:'Water gegeven',date:'8 apr'},{type:'🌿',text:'Voeding',date:'15 mrt'}] },
+  { id: 4, name: 'Calathea', species: 'Calathea ornata', room: 'Slaapkamer', emoji: '🌺', bg: '#F5EEED', status: 'soon', statusText: '3 dagen', light: 'Indirect', humidity: 'Hoog', waterEvery: 7, feedEvery: 28, nextWater: 'Over 3d', nextFeed: 'Vandaag', nextRotate: 'Over 5d', nextRepot: 'Aug 2026', log: [{type:'💧',text:'Water gegeven',date:'1 mei'},{type:'🌿',text:'Voeding',date:'7 apr'}] },
+];
+
+const PLANT_DB = [
+  { name: 'Monstera', species: 'Monstera deliciosa', emoji: '🌿' },
+  { name: 'Monstera adansonii', species: 'Gatenplant klein', emoji: '🍃' },
+  { name: 'Pothos', species: 'Epipremnum aureum', emoji: '🪴' },
+  { name: 'Snake Plant', species: 'Dracaena trifasciata', emoji: '🌵' },
+  { name: 'Calathea', species: 'Calathea ornata', emoji: '🌺' },
+  { name: 'Fiddle Leaf', species: 'Ficus lyrata', emoji: '🌳' },
+  { name: 'Peace Lily', species: 'Spathiphyllum', emoji: '🌸' },
+  { name: 'ZZ Plant', species: 'Zamioculcas zamiifolia', emoji: '🌱' },
+  { name: 'Rubber Plant', species: 'Ficus elastica', emoji: '🍀' },
+  { name: 'Cactus', species: 'Cactaceae', emoji: '🌵' },
+];
+
+// ── SCREENS ──
+
+function LoginScreen({ onLogin }) {
+  return (
+    <div className="login-wrap screen-enter">
+      <div className="login-logo">🌿</div>
+      <div className="login-title serif">PlantApp</div>
+      <div className="login-sub">Houd je planten gezond.<br/>Slim en automatisch.</div>
+      <button className="google-btn" onClick={onLogin}>
+        <svg width="18" height="18" viewBox="0 0 18 18">
+          <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908C16.658 14.013 17.64 11.705 17.64 9.2z" fill="#4285F4"/>
+          <path d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z" fill="#34A853"/>
+          <path d="M3.964 10.707A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.707V4.961H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.039l3.007-2.332z" fill="#FBBC05"/>
+          <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.961L3.964 7.293C4.672 5.163 6.656 3.58 9 3.58z" fill="#EA4335"/>
+        </svg>
+        Doorgaan met Google
+      </button>
+      <p className="login-note">Door in te loggen ga je akkoord met onze<br/>gebruikersvoorwaarden en privacybeleid.</p>
+    </div>
+  );
+}
+
+function Dashboard({ plants, onPlantClick, onAdd }) {
+  const today = new Date().toLocaleDateString('nl-NL', { weekday: 'long', day: 'numeric', month: 'long' });
+  const todayCapital = today.charAt(0).toUpperCase() + today.slice(1);
+  const urgent = plants.filter(p => p.status === 'urgent');
+  const soon = plants.filter(p => p.status === 'soon');
+  const good = plants.filter(p => p.status === 'good');
+
+  return (
+    <div className="screen-enter">
+      <div className="dash-header">
+        <div className="dash-greeting">{todayCapital}</div>
+        <div className="dash-title serif">Mijn tuin</div>
+      </div>
+      <div className="today-section">
+        <div className="section-label">Vandaag</div>
+        <div className="task-chips">
+          {urgent.map(p => <span key={p.id} className="chip urgent" onClick={() => onPlantClick(p)}>💧 {p.name}</span>)}
+          {soon.map(p => <span key={p.id} className="chip soon" onClick={() => onPlantClick(p)}>🌿 {p.name}</span>)}
+          {good.map(p => <span key={p.id} className="chip good" onClick={() => onPlantClick(p)}>✓ {p.name}</span>)}
+        </div>
+      </div>
+      <div style={{padding:'8px 24px 8px'}}>
+        <div className="section-label">Alle planten ({plants.length})</div>
+      </div>
+      <div className="plant-list">
+        {plants.map(p => (
+          <div key={p.id} className="plant-row" onClick={() => onPlantClick(p)}>
+            <div className="plant-avatar" style={{background: p.bg}}>{p.emoji}</div>
+            <div className="plant-info">
+              <div className="plant-name">{p.name}</div>
+              <div className="plant-species">{p.species}</div>
+            </div>
+            <div className="plant-status">
+              <div className={`status-dot ${p.status}`}></div>
+              <div className="status-text">{p.statusText}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div style={{height: 16}}/>
+    </div>
+  );
+}
+
+function PlantDetail({ plant, onBack }) {
+  return (
+    <div className="screen-enter">
+      <div style={{position:'sticky',top:0,zIndex:5}}>
+        <div className="detail-hero" style={{background: plant.bg}}>
+          <button className="back-btn" onClick={onBack}>←</button>
+          <div className="detail-hero-emoji">{plant.emoji}</div>
+        </div>
+      </div>
+      <div className="detail-body">
+        <div className="detail-name serif">{plant.name}</div>
+        <div className="detail-species">{plant.species}</div>
+        <div className="env-chips">
+          <span className="env-chip">☀️ {plant.light}</span>
+          <span className="env-chip">💧 {plant.humidity}</span>
+          <span className="env-chip">🏠 {plant.room}</span>
+        </div>
+        <button className="do-btn">💧 Water geven — markeer als gedaan</button>
+        <div className="care-grid">
+          <div className="care-tile">
+            <div className="care-tile-icon">💧</div>
+            <div className="care-tile-label">Water</div>
+            <div className={`care-tile-value ${plant.status === 'urgent' ? 'urgent' : ''}`}>{plant.nextWater}</div>
+            <div className="care-tile-next">elke ~{plant.waterEvery} dagen</div>
+          </div>
+          <div className="care-tile">
+            <div className="care-tile-icon">🌿</div>
+            <div className="care-tile-label">Voeding</div>
+            <div className="care-tile-value">{plant.nextFeed}</div>
+            <div className="care-tile-next">elke {plant.feedEvery} dagen</div>
+          </div>
+          <div className="care-tile">
+            <div className="care-tile-icon">🔄</div>
+            <div className="care-tile-label">Draaien</div>
+            <div className="care-tile-value">{plant.nextRotate}</div>
+            <div className="care-tile-next">elke 14 dagen</div>
+          </div>
+          <div className="care-tile">
+            <div className="care-tile-icon">🪴</div>
+            <div className="care-tile-label">Verpotten</div>
+            <div className="care-tile-value">{plant.nextRepot}</div>
+            <div className="care-tile-next">per jaar</div>
+          </div>
+        </div>
+        <div className="log-label">Geschiedenis</div>
+        {plant.log.map((l, i) => (
+          <div key={i} className="log-item">
+            <div className="log-dot"></div>
+            <div className="log-text">{l.type} {l.text}</div>
+            <div className="log-date">{l.date}</div>
+          </div>
+        ))}
+        <div style={{height:8}}/>
+      </div>
+    </div>
+  );
+}
+
+function AddPlant({ onBack, onAdd }) {
+  const [query, setQuery] = useState('');
+  const [selected, setSelected] = useState(null);
+  const [nick, setNick] = useState('');
+  const [light, setLight] = useState('Indirect');
+  const [humidity, setHumidity] = useState('Normaal');
+
+  const results = query.length > 0
+    ? PLANT_DB.filter(p => p.name.toLowerCase().includes(query.toLowerCase()) || p.species.toLowerCase().includes(query.toLowerCase())).slice(0, 4)
+    : [];
+
+  const handleAdd = () => {
+    if (!selected) return;
+    onAdd({ name: selected.name, species: selected.species, emoji: selected.emoji, nick, light, humidity });
+  };
+
+  return (
+    <div className="screen-enter">
+      <div className="add-header">
+        <button className="add-back" onClick={onBack}>←</button>
+        <div className="add-title serif">Plant toevoegen</div>
+      </div>
+      <div className="add-body">
+        <div className="field-group">
+          <div className="field-label">Zoek plant</div>
+          <input
+            className="field-input"
+            placeholder="bv. Monstera, Pothos..."
+            value={query}
+            onChange={e => { setQuery(e.target.value); setSelected(null); }}
+          />
+          {results.length > 0 && (
+            <div className="search-results">
+              {results.map((p, i) => (
+                <div key={i} className={`search-result ${selected?.name === p.name ? 'selected' : ''}`} onClick={() => { setSelected(p); setQuery(p.name); }}>
+                  <span className="result-emoji">{p.emoji}</span>
+                  <div>
+                    <div className="result-name">{p.name}</div>
+                    <div className="result-species">{p.species}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+        <div className="field-group">
+          <div className="field-label">Bijnaam (optioneel)</div>
+          <input className="field-input" placeholder="bv. Mijn kleine monstertje" value={nick} onChange={e => setNick(e.target.value)} />
+        </div>
+        <div className="field-group">
+          <div className="field-label">Lichtomstandigheden</div>
+          <div className="env-selector">
+            {[{v:'Weinig',icon:'🌑'},{v:'Indirect',icon:'🌤'},{v:'Direct',icon:'☀️'}].map(o => (
+              <div key={o.v} className={`env-opt ${light === o.v ? 'selected' : ''}`} onClick={() => setLight(o.v)}>
+                <div className="env-opt-icon">{o.icon}</div>
+                <div className="env-opt-label">{o.v}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="field-group">
+          <div className="field-label">Luchtvochtigheid</div>
+          <div className="env-selector">
+            {[{v:'Droog',icon:'🏜'},{v:'Normaal',icon:'🌿'},{v:'Vochtig',icon:'💦'}].map(o => (
+              <div key={o.v} className={`env-opt ${humidity === o.v ? 'selected' : ''}`} onClick={() => setHumidity(o.v)}>
+                <div className="env-opt-icon">{o.icon}</div>
+                <div className="env-opt-label">{o.v}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <button className="submit-btn" onClick={handleAdd} disabled={!selected} style={{opacity: selected ? 1 : 0.4}}>
+          Plant toevoegen →
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function AlertsScreen() {
+  const [done, setDone] = useState([]);
+  const toggle = (id) => setDone(d => d.includes(id) ? d.filter(x => x !== id) : [...d, id]);
+  const alerts = [
+    { id:1, type:'urgent', icon:'💧', iconBg:'#FFF0ED', title:'Water geven — Monstera', sub:'2 dagen te laat · Woonkamer' },
+    { id:2, type:'urgent', icon:'🌿', iconBg:'#FFF0ED', title:'Voeding — Calathea', sub:'Vandaag verwacht · Slaapkamer' },
+    { id:3, type:'soon',   icon:'💧', iconBg:'#FFFBF0', title:'Water geven — Pothos', sub:'Morgen verwacht · Studio' },
+    { id:4, type:'soon',   icon:'🔄', iconBg:'#FFFBF0', title:'Draaien — Fiddle Leaf', sub:'Overmorgen · Woonkamer' },
+    { id:5, type:'done',   icon:'💧', iconBg:'#F2F2EF', title:'Water geven — Snake Plant', sub:'Gisteren gedaan' },
+  ];
+  const urgentList = alerts.filter(a => a.type === 'urgent');
+  const soonList = alerts.filter(a => a.type === 'soon');
+  const doneList = alerts.filter(a => a.type === 'done');
+  const newCount = urgentList.filter(a => !done.includes(a.id)).length + soonList.filter(a => !done.includes(a.id)).length;
+
+  return (
+    <div className="screen-enter">
+      <div className="page-header">
+        <div className="page-title serif">Meldingen</div>
+        {newCount > 0 && <span className="badge-pill">{newCount} nieuw</span>}
+      </div>
+      <div className="alerts-body">
+        <div className="day-label">Vandaag</div>
+        {urgentList.map(a => (
+          <div key={a.id} className={`alert-card ${done.includes(a.id) ? 'done' : 'urgent'}`}>
+            <div className="alert-icon" style={{background: a.iconBg}}>{a.icon}</div>
+            <div className="alert-info">
+              <div className="alert-title">{a.title}</div>
+              <div className="alert-sub">{a.sub}</div>
+            </div>
+            <button className={`alert-btn ${done.includes(a.id) ? 'done' : 'urgent'}`} onClick={() => toggle(a.id)}>
+              {done.includes(a.id) ? '✓' : 'Gedaan'}
+            </button>
+          </div>
+        ))}
+        <div className="day-label">Binnenkort</div>
+        {soonList.map(a => (
+          <div key={a.id} className={`alert-card ${done.includes(a.id) ? 'done' : 'soon'}`}>
+            <div className="alert-icon" style={{background: a.iconBg}}>{a.icon}</div>
+            <div className="alert-info">
+              <div className="alert-title">{a.title}</div>
+              <div className="alert-sub">{a.sub}</div>
+            </div>
+            <button className={`alert-btn ${done.includes(a.id) ? 'done' : 'soon'}`} onClick={() => toggle(a.id)}>
+              {done.includes(a.id) ? '✓' : 'Vooruit'}
+            </button>
+          </div>
+        ))}
+        <div className="day-label">Afgerond</div>
+        {doneList.map(a => (
+          <div key={a.id} className="alert-card done">
+            <div className="alert-icon" style={{background: a.iconBg}}>{a.icon}</div>
+            <div className="alert-info">
+              <div className="alert-title">{a.title}</div>
+              <div className="alert-sub">{a.sub}</div>
+            </div>
+            <button className="alert-btn done">✓</button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function SchemaScreen() {
+  const days = ['Ma','Di','Wo','Do','Vr','Za','Zo'];
+  const cal = [
+    {n:'28',other:true},{n:'29',other:true},{n:'30',other:true},{n:'1',other:true},{n:'2',dots:['water']},{n:'3'},{n:'4'},
+    {n:'5',today:true,dots:['water','feed']},{n:'6'},{n:'7',dots:['water']},{n:'8'},{n:'9',dots:['rotate']},{n:'10'},{n:'11'},
+    {n:'12',dots:['water','water']},{n:'13'},{n:'14',dots:['feed']},{n:'15'},{n:'16',dots:['water']},{n:'17'},{n:'18'},
+    {n:'19',dots:['rotate']},{n:'20'},{n:'21',dots:['water','water']},{n:'22'},{n:'23',dots:['water']},{n:'24'},{n:'25'},
+    {n:'26',dots:['feed']},{n:'27'},{n:'28',dots:['water']},{n:'29'},{n:'30',dots:['rotate']},{n:'31'},{n:'1',other:true},
+  ];
+  const upcoming = [
+    {day:'5',name:'Ma',action:'💧 Water geven',plant:'Monstera · Woonkamer',type:'water',chip:'Water'},
+    {day:'5',name:'Ma',action:'🌿 Voeding',plant:'Calathea · Slaapkamer',type:'feed',chip:'Voeding'},
+    {day:'7',name:'Wo',action:'💧 Water geven',plant:'Pothos · Studio',type:'water',chip:'Water'},
+    {day:'9',name:'Vr',action:'🔄 Draaien',plant:'Fiddle Leaf · Woonkamer',type:'rotate',chip:'Draaien'},
+    {day:'12',name:'Ma',action:'💧 Water geven',plant:'Monstera + Snake Plant',type:'water',chip:'Water'},
+  ];
+
+  return (
+    <div className="screen-enter">
+      <div className="schema-header">
+        <div className="schema-title serif">Schema</div>
+        <div className="month-nav">
+          <button className="month-arrow">‹</button>
+          <div className="month-label">Mei 2026</div>
+          <button className="month-arrow">›</button>
+        </div>
+      </div>
+      <div className="cal-wrap">
+        <div className="cal-days-row">
+          {days.map(d => <div key={d} className="cal-day-name">{d}</div>)}
+        </div>
+        <div className="cal-grid">
+          {cal.map((c, i) => (
+            <div key={i} className={`cal-cell ${c.today ? 'today' : ''} ${c.other ? 'other' : ''}`}>
+              <div className="cal-num">{c.n}</div>
+              {c.dots && (
+                <div className="cal-dots">
+                  {c.dots.map((d, j) => <div key={j} className={`dot ${d}`} style={c.today ? {background:'rgba(255,255,255,0.6)'} : {}}/>)}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+        <div className="cal-legend">
+          <div className="legend-item"><div className="dot water" style={{width:7,height:7}}/> Water</div>
+          <div className="legend-item"><div className="dot feed" style={{width:7,height:7}}/> Voeding</div>
+          <div className="legend-item"><div className="dot rotate" style={{width:7,height:7}}/> Draaien</div>
+        </div>
+      </div>
+      <div className="upcoming-list">
+        <div className="section-label" style={{padding:'4px 0 8px'}}>Aankomend</div>
+        {upcoming.map((u, i) => (
+          <div key={i} className="upcoming-item">
+            <div className="up-date">
+              <div className="up-day-num serif">{u.day}</div>
+              <div className="up-day-name">{u.name}</div>
+            </div>
+            <div className="up-divider"/>
+            <div className="up-info">
+              <div className="up-action">{u.action}</div>
+              <div className="up-plant">{u.plant}</div>
+            </div>
+            <span className={`up-chip ${u.type}`}>{u.chip}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ProfielScreen({ onLogout }) {
+  const [notifs, setNotifs] = useState(true);
+  const [digest, setDigest] = useState(false);
+
+  return (
+    <div className="screen-enter">
+      <div className="profiel-header">
+        <div className="avatar">🌿</div>
+        <div className="profiel-name serif">Emma de Vries</div>
+        <div className="profiel-email">emma@gmail.com</div>
+      </div>
+      <div className="stats-row">
+        <div className="stat"><div className="stat-num serif">4</div><div className="stat-label">Planten</div></div>
+        <div className="stat"><div className="stat-num serif">38</div><div className="stat-label">Acties</div></div>
+        <div className="stat"><div className="stat-num serif">12w</div><div className="stat-label">Actief</div></div>
+      </div>
+      <div className="settings-wrap">
+        <div className="section-label" style={{paddingBottom:8}}>Meldingen</div>
+        <div className="settings-block">
+          <div className="settings-row">
+            <div className="s-icon" style={{background:'#EAF1EC'}}>🔔</div>
+            <div className="s-text"><div className="s-label">Push meldingen</div><div className="s-sub">Herinneringen per plant</div></div>
+            <div className={`toggle ${notifs ? 'on' : 'off'}`} onClick={() => setNotifs(!notifs)}/>
+          </div>
+          <div className="settings-row">
+            <div className="s-icon" style={{background:'#E8F4FA'}}>⏰</div>
+            <div className="s-text"><div className="s-label">Melding tijd</div><div className="s-sub">09:00</div></div>
+            <div className="s-arrow">›</div>
+          </div>
+          <div className="settings-row">
+            <div className="s-icon" style={{background:'#FBF3E2'}}>📅</div>
+            <div className="s-text"><div className="s-label">Dagelijkse samenvatting</div><div className="s-sub">Overzicht elke ochtend</div></div>
+            <div className={`toggle ${digest ? 'on' : 'off'}`} onClick={() => setDigest(!digest)}/>
+          </div>
+        </div>
+        <div className="section-label" style={{padding:'4px 0 8px'}}>Account</div>
+        <div className="settings-block">
+          <div className="settings-row">
+            <div className="s-icon" style={{background:'#F0EDE8'}}>🌍</div>
+            <div className="s-text"><div className="s-label">Taal</div><div className="s-sub">Nederlands</div></div>
+            <div className="s-arrow">›</div>
+          </div>
+          <div className="settings-row">
+            <div className="s-icon" style={{background:'#F5EAE8'}}>🗑</div>
+            <div className="s-text"><div className="s-label">Alle data verwijderen</div><div className="s-sub">Niet te herstellen</div></div>
+            <div className="s-arrow" style={{color:'var(--red)'}}>›</div>
+          </div>
+        </div>
+        <div style={{height:12}}/>
+        <button className="logout-btn" onClick={onLogout}>Uitloggen</button>
+      </div>
+    </div>
+  );
+}
+
+// ── MAIN APP ──
+function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [tab, setTab] = useState('home');
+  const [plants, setPlants] = useState(PLANTS_DATA);
+  const [selectedPlant, setSelectedPlant] = useState(null);
+  const [showAdd, setShowAdd] = useState(false);
+
+  const handleAdd = (newPlant) => {
+    const colors = ['#EAF1EC','#F0EDE8','#F0F4EE','#F5EEED','#EEF0F8'];
+    setPlants(prev => [...prev, {
+      ...newPlant, id: Date.now(),
+      bg: colors[Math.floor(Math.random()*colors.length)],
+      status: 'good', statusText: 'Nieuw',
+      waterEvery: 10, feedEvery: 28,
+      nextWater: 'Over 10d', nextFeed: 'Over 28d',
+      nextRotate: 'Over 14d', nextRepot: 'Over 1 jaar',
+      log: []
+    }]);
+    setShowAdd(false);
+    setTab('home');
+  };
+
+  const renderScreen = () => {
+    if (selectedPlant) return <PlantDetail plant={selectedPlant} onBack={() => setSelectedPlant(null)} />;
+    if (showAdd) return <AddPlant onBack={() => setShowAdd(false)} onAdd={handleAdd} />;
+    if (tab === 'home') return <Dashboard plants={plants} onPlantClick={setSelectedPlant} />;
+    if (tab === 'schema') return <SchemaScreen />;
+    if (tab === 'alerts') return <AlertsScreen />;
+    if (tab === 'profiel') return <ProfielScreen onLogout={() => setLoggedIn(false)} />;
+  };
+
+  const showNav = !selectedPlant && !showAdd;
+
+  if (!loggedIn) {
+    return (
+      <div className="shell">
+        <div className="phone">
+          <div className="status-bar"><span>9:41</span><div className="notch"/><span>●●●</span></div>
+          <div className="screen-content" style={{paddingBottom:0}}>
+            <LoginScreen onLogin={() => setLoggedIn(true)} />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="shell">
+      <div className="phone">
+        <div className="status-bar"><span>9:41</span><div className="notch"/><span>●●●</span></div>
+        <div className="screen-content">
+          {renderScreen()}
+        </div>
+        {showNav && (
+          <div className="bottom-nav">
+            <div className={`nav-item ${tab==='home'?'active':''}`} onClick={() => setTab('home')}>
+              <div className="nav-icon">🏡</div><div className="nav-label">Tuin</div>
+            </div>
+            <div className={`nav-item ${tab==='schema'?'active':''}`} onClick={() => setTab('schema')}>
+              <div className="nav-icon">📅</div><div className="nav-label">Schema</div>
+            </div>
+            <div className="nav-add" onClick={() => setShowAdd(true)}>+</div>
+            <div className={`nav-item ${tab==='alerts'?'active':''}`} onClick={() => setTab('alerts')}>
+              <div className="nav-icon">🔔</div><div className="nav-label">Alerts</div>
+            </div>
+            <div className={`nav-item ${tab==='profiel'?'active':''}`} onClick={() => setTab('profiel')}>
+              <div className="nav-icon">👤</div><div className="nav-label">Profiel</div>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
