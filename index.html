@@ -22,72 +22,56 @@
   --blue-soft:#E8F4FA;--blue:#2A7BAD;
   --r:16px;--r-sm:10px;--r-xs:6px;
 }
-html,body,#root{height:100%;background:#1A1A18;font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased}
+html,body,#root{height:100%;background:var(--bg);font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased}
 ::-webkit-scrollbar{display:none}
-.shell{display:flex;width:100%;min-height:100vh;background:var(--bg)}
-.phone{width:100%;max-width:430px;min-height:100vh;background:var(--bg);position:relative;display:flex;flex-direction:column;margin:0 auto}
-.status-bar{display:none}
-.notch{width:90px;height:20px;background:var(--ink);border-radius:20px}
+.app{width:100%;max-width:430px;min-height:100vh;background:var(--bg);position:relative;display:flex;flex-direction:column;margin:0 auto}
 .screen-content{flex:1;overflow-y:auto;overflow-x:hidden;padding-bottom:calc(80px + env(safe-area-inset-bottom));padding-top:env(safe-area-inset-top)}
-.bottom-nav{position:fixed;bottom:0;left:0;right:0;max-width:430px;margin:0 auto;height:calc(72px + env(safe-area-inset-bottom));background:rgba(255,255,255,0.96);backdrop-filter:blur(16px);border-top:1px solid var(--line);display:flex;align-items:flex-start;justify-content:space-around;padding:8px 4px env(safe-area-inset-bottom);z-index:100}
+.screen-content-notab{flex:1;overflow-y:auto;overflow-x:hidden;padding-bottom:24px}
+.bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;height:calc(72px + env(safe-area-inset-bottom));background:rgba(255,255,255,0.96);backdrop-filter:blur(16px);border-top:1px solid var(--line);display:flex;align-items:flex-start;justify-content:space-around;padding:8px 4px env(safe-area-inset-bottom);z-index:100}
 .nav-item{display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 12px;border-radius:var(--r-sm);cursor:pointer;flex:1;transition:opacity 0.15s}
 .nav-item:active{opacity:0.6}
 .nav-icon{font-size:22px;line-height:1;filter:grayscale(1) opacity(0.4);transition:filter 0.2s}
 .nav-label{font-size:9px;font-weight:500;color:var(--ink3);letter-spacing:0.3px;transition:color 0.2s}
 .nav-item.active .nav-icon{filter:none}
 .nav-item.active .nav-label{color:var(--green);font-weight:600}
-.nav-add{width:48px;height:48px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;color:white;flex-shrink:0;box-shadow:0 4px 16px rgba(45,90,61,0.4);cursor:pointer;margin-bottom:6px;transition:transform 0.15s,box-shadow 0.15s}
+.nav-add{width:48px;height:48px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;color:white;flex-shrink:0;box-shadow:0 4px 16px rgba(45,90,61,0.4);cursor:pointer;margin-bottom:6px;transition:transform 0.15s}
 .nav-add:active{transform:scale(0.93)}
 .serif{font-family:'Instrument Serif',serif}
-.section-label{font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--ink3);margin-bottom:10px}
-.screen-enter{animation:slideUp 0.22s ease forwards}
+.sec-label{font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--ink3);margin-bottom:10px}
+.card{background:var(--white);border-radius:var(--r);box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+.enter{animation:slideUp 0.22s ease forwards}
 @keyframes slideUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 
+/* PAGE HEADER */
+.page-hdr{background:var(--white);padding:calc(env(safe-area-inset-top) + 16px) 24px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+.page-title{font-family:'Instrument Serif',serif;font-size:28px;color:var(--ink)}
+
 /* LOGIN */
-.login-wrap{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 32px;background:var(--white)}
+.login-wrap{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 32px;background:var(--white)}
 .login-logo{width:80px;height:80px;background:var(--green-light);border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:38px;margin-bottom:28px;border:1.5px solid var(--green-mid)}
-.login-title{font-family:'Instrument Serif',serif;font-size:38px;color:var(--ink);letter-spacing:-0.5px;line-height:1;margin-bottom:8px}
-.login-sub{font-size:15px;color:var(--ink3);text-align:center;line-height:1.5;margin-bottom:52px}
-.google-btn{width:100%;padding:15px 20px;background:var(--white);border:1.5px solid var(--line);border-radius:var(--r);display:flex;align-items:center;justify-content:center;gap:10px;font-size:15px;font-weight:500;color:var(--ink);cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,0.07);font-family:'DM Sans',sans-serif;transition:background 0.15s}
-.google-btn:hover{background:var(--bg)}
+.google-btn{width:100%;padding:15px 20px;background:var(--white);border:1.5px solid var(--line);border-radius:var(--r);display:flex;align-items:center;justify-content:center;gap:10px;font-size:15px;font-weight:500;color:var(--ink);cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,0.07);font-family:'DM Sans',sans-serif}
 .google-btn:disabled{opacity:0.6;cursor:not-allowed}
-.login-note{font-size:11px;color:var(--ink3);text-align:center;margin-top:20px;line-height:1.6}
 
 /* DASHBOARD */
-.dash-header{background:var(--white);padding:18px 24px 16px;border-bottom:1px solid var(--line)}
-.dash-greeting{font-size:11px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--ink3);margin-bottom:2px}
-.dash-title{font-family:'Instrument Serif',serif;font-size:28px;color:var(--ink);letter-spacing:-0.3px}
-.today-section{padding:16px 24px 8px}
-.task-chips{display:flex;flex-wrap:wrap;gap:6px}
+.plant-row{background:var(--white);border-radius:var(--r);padding:14px 16px;display:flex;align-items:center;gap:14px;box-shadow:0 1px 4px rgba(0,0,0,0.05);cursor:pointer;transition:transform 0.15s}
+.plant-row:active{transform:scale(0.98)}
+.plant-avatar{width:46px;height:46px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.status-dot{width:8px;height:8px;border-radius:50%}
+.status-dot.urgent{background:var(--red)}
+.status-dot.soon{background:var(--yellow)}
+.status-dot.good{background:#4CAF70}
 .chip{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:500;cursor:pointer;transition:transform 0.1s}
 .chip:active{transform:scale(0.95)}
 .chip.urgent{background:var(--red-soft);color:var(--red)}
 .chip.soon{background:var(--yellow-soft);color:var(--yellow)}
 .chip.good{background:var(--green-light);color:var(--green)}
-.plant-list{padding:0 24px;display:flex;flex-direction:column;gap:10px}
-.plant-row{background:var(--white);border-radius:var(--r);padding:14px 16px;display:flex;align-items:center;gap:14px;box-shadow:0 1px 4px rgba(0,0,0,0.05);cursor:pointer;transition:transform 0.15s}
-.plant-row:active{transform:scale(0.98)}
-.plant-avatar{width:46px;height:46px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
-.plant-info{flex:1;min-width:0}
-.plant-name{font-size:14px;font-weight:600;color:var(--ink)}
-.plant-species{font-size:11px;color:var(--ink3);margin-top:1px;font-style:italic}
-.plant-status{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
-.status-dot{width:8px;height:8px;border-radius:50%}
-.status-dot.urgent{background:var(--red)}
-.status-dot.soon{background:var(--yellow)}
-.status-dot.good{background:#4CAF70}
-.status-text{font-size:10px;font-weight:500;color:var(--ink3)}
 
 /* DETAIL */
-.detail-hero{height:200px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;flex-shrink:0}
-.detail-hero-emoji{font-size:80px;line-height:1}
-.back-btn{position:absolute;top:16px;left:18px;width:34px;height:34px;background:rgba(255,255,255,0.88);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;backdrop-filter:blur(4px);border:none;font-family:inherit}
-.del-btn-hero{position:absolute;top:16px;right:18px;width:34px;height:34px;background:rgba(255,255,255,0.88);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;backdrop-filter:blur(4px);border:none;font-family:inherit;color:var(--red)}
-.detail-body{padding:20px 24px}
-.detail-name{font-family:'Instrument Serif',serif;font-size:30px;color:var(--ink);letter-spacing:-0.3px}
-.detail-species{font-size:12px;color:var(--ink3);margin-top:2px;margin-bottom:18px;font-style:italic}
-.env-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
-.env-chip{background:var(--green-light);color:var(--green);font-size:11px;font-weight:500;padding:5px 10px;border-radius:999px}
+.detail-hero{height:220px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;flex-shrink:0}
+.back-btn{position:absolute;top:calc(env(safe-area-inset-top) + 12px);left:18px;width:34px;height:34px;background:rgba(255,255,255,0.88);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;backdrop-filter:blur(4px);border:none;font-family:inherit;z-index:5}
+.del-btn{position:absolute;top:calc(env(safe-area-inset-top) + 12px);right:18px;width:34px;height:34px;background:rgba(255,255,255,0.88);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;backdrop-filter:blur(4px);border:none;font-family:inherit;z-index:5;color:var(--red)}
+.tab-bar{display:flex;background:var(--white);border-bottom:1px solid var(--line);flex-shrink:0}
+.tab-btn{flex:1;padding:12px 4px;border:none;background:none;font-family:inherit;font-size:12px;font-weight:600;cursor:pointer;transition:color 0.15s;white-space:nowrap}
 .care-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
 .care-tile{background:var(--bg);border-radius:var(--r-sm);padding:14px}
 .care-tile-icon{font-size:18px;margin-bottom:6px}
@@ -95,282 +79,160 @@ html,body,#root{height:100%;background:#1A1A18;font-family:'DM Sans',sans-serif;
 .care-tile-value{font-size:13px;font-weight:600;color:var(--ink)}
 .care-tile-value.urgent{color:var(--red)}
 .care-tile-next{font-size:11px;color:var(--ink3);margin-top:2px}
-.do-btn{width:100%;padding:15px;background:var(--green);color:white;border:none;border-radius:var(--r);font-size:15px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;margin-bottom:16px;transition:background 0.15s}
-.do-btn:active{background:var(--accent)}
-.log-label{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--ink3);margin-bottom:10px}
+.do-btn{width:100%;padding:15px;background:var(--green);color:white;border:none;border-radius:var(--r);font-size:15px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;margin-bottom:16px}
+.do-btn:active{opacity:0.85}
 .log-item{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(--line)}
 .log-item:last-child{border-bottom:none}
 .log-dot{width:6px;height:6px;border-radius:50%;background:var(--green-mid);margin-top:5px;flex-shrink:0}
-.log-text{font-size:12px;color:var(--ink2);flex:1}
-.log-date{font-size:11px;color:var(--ink3)}
 
-/* ADD PLANT */
-.add-header{background:var(--white);padding:16px 24px 14px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px}
-.add-back{width:34px;height:34px;background:var(--bg);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;border:none;font-family:inherit;flex-shrink:0}
-.add-title{font-family:'Instrument Serif',serif;font-size:22px;color:var(--ink)}
-.add-body{padding:20px 24px;display:flex;flex-direction:column;gap:20px}
+/* FIELDS */
 .field-group{display:flex;flex-direction:column;gap:6px}
 .field-label{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--ink3)}
 .field-input{background:var(--bg);border:1.5px solid transparent;border-radius:var(--r-sm);padding:12px 14px;font-size:14px;color:var(--ink);font-family:'DM Sans',sans-serif;outline:none;width:100%;transition:border-color 0.15s}
 .field-input:focus{border-color:var(--accent);background:var(--white)}
-.search-results{background:var(--bg);border-radius:var(--r-sm);overflow:hidden;margin-top:2px}
-.search-result{padding:11px 14px;display:flex;align-items:center;gap:10px;background:var(--white);border-bottom:1px solid var(--bg);cursor:pointer;transition:background 0.1s}
-.search-result:last-child{border-bottom:none}
-.search-result:hover,.search-result.selected{background:var(--green-light)}
-.result-emoji{font-size:20px}
-.result-name{font-size:13px;font-weight:500;color:var(--ink)}
-.result-species{font-size:11px;color:var(--ink3)}
 .env-selector{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
 .env-opt{background:var(--bg);border-radius:var(--r-sm);padding:12px 8px;text-align:center;cursor:pointer;border:1.5px solid transparent;transition:all 0.15s}
 .env-opt.selected{background:var(--green-light);border-color:var(--accent)}
 .env-opt-icon{font-size:20px;margin-bottom:5px}
 .env-opt-label{font-size:11px;font-weight:500;color:var(--ink2)}
-.submit-btn{width:100%;padding:15px;background:var(--green);color:white;border:none;border-radius:var(--r);font-size:15px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;transition:background 0.15s}
+.search-results{background:var(--bg);border-radius:var(--r-sm);overflow:hidden;margin-top:2px}
+.search-result{padding:11px 14px;display:flex;align-items:center;gap:10px;background:var(--white);border-bottom:1px solid var(--bg);cursor:pointer;transition:background 0.1s}
+.search-result:last-child{border-bottom:none}
+.search-result:hover,.search-result.sel{background:var(--green-light)}
+.submit-btn{width:100%;padding:15px;background:var(--green);color:white;border:none;border-radius:var(--r);font-size:15px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer}
 .submit-btn:disabled{opacity:0.4;cursor:not-allowed}
 
 /* ALERTS */
-.page-header{background:var(--white);padding:20px 24px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
-.page-title{font-family:'Instrument Serif',serif;font-size:28px;color:var(--ink)}
-.badge-pill{background:var(--red);color:white;font-size:11px;font-weight:600;padding:3px 8px;border-radius:999px}
-.alerts-body{padding:14px 24px;display:flex;flex-direction:column;gap:8px}
-.day-label{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--ink3);padding:6px 0 4px}
 .alert-card{background:var(--white);border-radius:var(--r);padding:12px 14px;display:flex;align-items:center;gap:10px;box-shadow:0 1px 3px rgba(0,0,0,0.05);position:relative;overflow:hidden}
 .alert-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px}
 .alert-card.urgent::before{background:var(--red)}
 .alert-card.soon::before{background:var(--yellow)}
 .alert-card.done{opacity:0.45}
 .alert-card.done::before{background:var(--green-mid)}
-.alert-icon{width:38px;height:38px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.alert-info{flex:1;min-width:0}
-.alert-title{font-size:13px;font-weight:500;color:var(--ink)}
-.alert-sub{font-size:11px;color:var(--ink3);margin-top:2px}
-.alert-actions{display:flex;gap:4px;flex-shrink:0}
-.alert-btn{padding:5px 10px;border-radius:999px;font-size:11px;font-weight:600;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;transition:opacity 0.15s}
-.alert-btn:active{opacity:0.7}
+.alert-btn{padding:5px 10px;border-radius:999px;font-size:11px;font-weight:600;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
 .alert-btn.urgent{background:var(--red-soft);color:var(--red)}
 .alert-btn.soon{background:var(--yellow-soft);color:var(--yellow)}
-.alert-btn.done-btn{background:var(--bg2);color:var(--ink3)}
 .alert-btn.snooze{background:var(--blue-soft);color:var(--blue)}
+.alert-btn.done-btn{background:var(--bg2);color:var(--ink3)}
 .alert-btn.undo{background:var(--green-light);color:var(--green)}
 
 /* SCHEMA */
-.schema-header{background:var(--white);padding:20px 24px 16px;border-bottom:1px solid var(--line)}
-.schema-title{font-family:'Instrument Serif',serif;font-size:28px;color:var(--ink);margin-bottom:12px}
-.month-nav{display:flex;align-items:center;justify-content:space-between}
-.month-arrow{width:30px;height:30px;background:var(--bg);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--ink2);cursor:pointer;border:none;font-family:inherit}
-.month-label{font-size:14px;font-weight:600;color:var(--ink)}
-.cal-wrap{padding:14px 24px 0}
-.cal-days-row{display:grid;grid-template-columns:repeat(7,1fr);margin-bottom:4px}
-.cal-day-name{text-align:center;font-size:10px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;color:var(--ink3);padding:4px 0}
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
 .cal-cell{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:var(--r-xs);cursor:pointer}
 .cal-num{font-size:13px;color:var(--ink);line-height:1}
 .cal-cell.today{background:var(--green)}
 .cal-cell.today .cal-num{color:white;font-weight:700}
 .cal-cell.other .cal-num{color:var(--ink3)}
-.cal-dots{display:flex;gap:2px;margin-top:2px}
 .dot{width:4px;height:4px;border-radius:50%}
 .dot.water{background:#6BAED6}
 .dot.feed{background:#74C476}
-.dot.rotate{background:var(--yellow)}
-.cal-legend{display:flex;gap:14px;padding:10px 0 4px;align-items:center}
-.legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--ink3)}
-.upcoming-list{padding:14px 24px}
-.upcoming-item{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
-.upcoming-item:last-child{border-bottom:none}
-.up-date{width:36px;text-align:center;flex-shrink:0}
-.up-day-num{font-family:'Instrument Serif',serif;font-size:22px;color:var(--ink);line-height:1}
-.up-day-name{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:0.8px;color:var(--ink3)}
-.up-divider{width:1px;height:32px;background:var(--line);flex-shrink:0}
-.up-info{flex:1}
-.up-action{font-size:13px;font-weight:500;color:var(--ink)}
-.up-plant{font-size:11px;color:var(--ink3);margin-top:2px}
-.up-chip{font-size:10px;font-weight:600;padding:3px 8px;border-radius:999px;flex-shrink:0}
-.up-chip.water{background:var(--blue-soft);color:var(--blue)}
-.up-chip.feed{background:var(--green-light);color:var(--green)}
-.up-chip.rotate{background:var(--yellow-soft);color:var(--yellow)}
 
 /* PROFIEL */
-.profiel-header{background:var(--white);padding:24px 24px 20px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;align-items:center;gap:8px}
-.avatar{width:68px;height:68px;border-radius:50%;background:var(--green-light);display:flex;align-items:center;justify-content:center;font-size:30px;border:2px solid var(--green-mid);overflow:hidden}
-.avatar img{width:100%;height:100%;object-fit:cover}
-.profiel-name{font-family:'Instrument Serif',serif;font-size:22px;color:var(--ink)}
-.profiel-email{font-size:12px;color:var(--ink3);margin-top:-4px}
-.stats-row{display:flex;justify-content:center;gap:36px;padding:16px 24px;background:var(--white);border-bottom:1px solid var(--line)}
-.stat{display:flex;flex-direction:column;align-items:center;gap:2px}
-.stat-num{font-family:'Instrument Serif',serif;font-size:26px;color:var(--ink);line-height:1}
-.stat-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.8px;color:var(--ink3)}
-.settings-wrap{padding:16px 24px 0}
 .settings-block{background:var(--white);border-radius:var(--r);overflow:hidden;margin-bottom:12px}
 .settings-row{display:flex;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line);gap:12px;cursor:pointer}
 .settings-row:last-child{border-bottom:none}
 .s-icon{width:34px;height:34px;border-radius:var(--r-xs);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
-.s-text{flex:1}
-.s-label{font-size:14px;color:var(--ink)}
-.s-sub{font-size:11px;color:var(--ink3);margin-top:1px}
-.s-arrow{font-size:13px;color:var(--ink3)}
 .toggle{width:44px;height:26px;border-radius:999px;position:relative;flex-shrink:0;transition:background 0.2s;cursor:pointer}
 .toggle.on{background:var(--green)}
 .toggle.off{background:var(--bg2)}
 .toggle::after{content:'';position:absolute;width:20px;height:20px;background:white;border-radius:50%;top:3px;box-shadow:0 1px 3px rgba(0,0,0,0.2);transition:left 0.2s}
 .toggle.on::after{left:calc(100% - 23px)}
 .toggle.off::after{left:3px}
-.logout-btn{width:calc(100% - 48px);margin:0 24px 20px;padding:14px;background:var(--red-soft);border:none;border-radius:var(--r);color:var(--red);font-size:14px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer}
 
 /* MODAL */
-.modal-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.4);z-index:200;display:flex;align-items:flex-end;backdrop-filter:blur(2px)}
-.modal{background:var(--white);border-radius:24px 24px 0 0;padding:24px 24px 36px;width:100%}
-.modal-title{font-family:'Instrument Serif',serif;font-size:22px;color:var(--ink);margin-bottom:8px}
-.modal-sub{font-size:13px;color:var(--ink3);margin-bottom:24px;line-height:1.5}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:200;display:flex;align-items:flex-end;backdrop-filter:blur(2px)}
+.modal{background:var(--white);border-radius:24px 24px 0 0;padding:24px 24px calc(36px + env(safe-area-inset-bottom));width:100%;max-width:430px;margin:0 auto}
 .modal-btn{width:100%;padding:14px;border:none;border-radius:var(--r);font-size:15px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;margin-bottom:8px}
 .modal-btn.danger{background:var(--red);color:white}
 .modal-btn.cancel{background:var(--bg2);color:var(--ink)}
 
-/* EMPTY STATE */
+/* EMPTY */
 .empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 32px;text-align:center;gap:12px}
-.empty-emoji{font-size:52px}
-.empty-title{font-family:'Instrument Serif',serif;font-size:24px;color:var(--ink)}
-.empty-sub{font-size:14px;color:var(--ink3);line-height:1.6}
 .empty-btn{margin-top:8px;padding:12px 24px;background:var(--green);color:white;border:none;border-radius:var(--r);font-size:14px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer}
 
 /* TOAST */
-.toast{position:absolute;bottom:92px;left:16px;right:16px;background:var(--ink);color:white;padding:12px 16px;border-radius:var(--r-sm);font-size:13px;font-weight:500;z-index:300;animation:toastIn 0.2s ease;text-align:center}
-@keyframes toastIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.toast{position:fixed;bottom:calc(84px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);background:var(--ink);color:white;padding:12px 20px;border-radius:var(--r-sm);font-size:13px;font-weight:500;z-index:300;animation:toastIn 0.2s ease;white-space:nowrap;max-width:calc(100vw - 32px)}
+@keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(8px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
 
 /* LOADING */
-.loading-wrap{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:var(--white)}
-.loading-spinner{width:32px;height:32px;border:3px solid var(--green-light);border-top-color:var(--green);border-radius:50%;animation:spin 0.8s linear infinite}
+.loading-wrap{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:var(--white)}
+.spinner{width:32px;height:32px;border:3px solid var(--green-light);border-top-color:var(--green);border-radius:50%;animation:spin 0.8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-.loading-text{font-size:14px;color:var(--ink3)}
 </style>
 </head>
 <body>
 <div id="root"></div>
 <script type="text/babel">
-const { useState, useEffect, useCallback } = React;
+const { useState, useEffect } = React;
 
-// ── SUPABASE ──
 const supabase = window.supabase.createClient(
   'https://macwxoefrmlrhnbaukzq.supabase.co',
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1hY3d4b2Vmcm1scmhuYmF1a3pxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc5MDY4OTEsImV4cCI6MjA5MzQ4Mjg5MX0.J-xtpnCtH5CW9nOuQK9B0NPZ4--0T7bqJkZniO0gSm4'
 );
+const PERENUAL_KEY = 'sk-wthp69f8dd4e6eeaf16978';
 
-// ── PLANT DATABASE ──
+// ── PLANT DB ──
 const PLANT_DB = [
-  {name:'Monstera',species:'Monstera deliciosa',emoji:'🌿',waterEvery:8,feedEvery:28,light:'Fel indirect',humidity:'Medium',
-   care:{water:true,feed:true,mist:true,repot:true,rotate:false,prune:false},
-   tips:'Geef water als de bovenste 3cm grond droog is. Houd de bladeren schoon met een vochtig doekje.'},
-  {name:'Monstera adansonii',species:'Gatenplant klein',emoji:'🍃',waterEvery:7,feedEvery:28,light:'Indirect',humidity:'Hoog',
-   care:{water:true,feed:true,mist:true,repot:true,rotate:false,prune:false},
-   tips:'Houdt van vocht en luchtvochtigheid. Benevelen helpt.'},
-  {name:'Pothos',species:'Epipremnum aureum',emoji:'🪴',waterEvery:10,feedEvery:30,light:'Weinig tot indirect',humidity:'Laag',
-   care:{water:true,feed:true,mist:false,repot:true,rotate:false,prune:true},
-   tips:'Zeer robuust. Laat de grond goed opdrogen. Knip lange ranken in voor dichtere groei.'},
-  {name:'Snake Plant',species:'Dracaena trifasciata',emoji:'🌵',waterEvery:21,feedEvery:60,light:'Weinig',humidity:'Laag',
-   care:{water:true,feed:true,mist:false,repot:false,rotate:false,prune:false},
-   tips:'Overwateren is de grootste vijand. Geef heel weinig water in de winter.'},
-  {name:'Calathea',species:'Calathea ornata',emoji:'🌺',waterEvery:7,feedEvery:28,light:'Indirect',humidity:'Hoog',
-   care:{water:true,feed:true,mist:true,repot:true,rotate:false,prune:false},
-   tips:'Gebruik regenwater of gefilterd water. Bladeren rollen op bij stress.'},
-  {name:'Fiddle Leaf',species:'Ficus lyrata',emoji:'🌳',waterEvery:10,feedEvery:28,light:'Fel indirect',humidity:'Medium',
-   care:{water:true,feed:true,mist:false,repot:true,rotate:true,prune:false},
-   tips:'Niet verplaatsen als hij eenmaal staat. Draai 1x per maand een kwartslag voor gelijkmatige groei.'},
-  {name:'Peace Lily',species:'Spathiphyllum',emoji:'🌸',waterEvery:7,feedEvery:30,light:'Weinig',humidity:'Medium',
-   care:{water:true,feed:true,mist:true,repot:true,rotate:false,prune:true},
-   tips:'Hangt letterlijk slap als hij water nodig heeft — goede indicator. Verwijder verdroogde bloemen.'},
-  {name:'ZZ Plant',species:'Zamioculcas zamiifolia',emoji:'🌱',waterEvery:21,feedEvery:60,light:'Weinig',humidity:'Laag',
-   care:{water:true,feed:false,mist:false,repot:false,rotate:false,prune:false},
-   tips:'Bijna onverwoestbaar. Overwateren is het enige dat hem kan doden.'},
-  {name:'Rubber Plant',species:'Ficus elastica',emoji:'🍀',waterEvery:10,feedEvery:28,light:'Fel indirect',humidity:'Medium',
-   care:{water:true,feed:true,mist:false,repot:true,rotate:true,prune:false},
-   tips:'Veeg de bladeren af met een vochtig doekje voor meer glans. Draai voor symmetrische groei.'},
-  {name:'Cactus',species:'Cactaceae',emoji:'🌵',waterEvery:30,feedEvery:90,light:'Direct',humidity:'Laag',
-   care:{water:true,feed:false,mist:false,repot:false,rotate:false,prune:false},
-   tips:'Geef in de zomer water, in de winter bijna niet. Heeft veel direct zonlicht nodig.'},
-  {name:'Orchidee',species:'Phalaenopsis',emoji:'🌷',waterEvery:10,feedEvery:14,light:'Indirect',humidity:'Medium',
-   care:{water:true,feed:true,mist:false,repot:false,rotate:false,prune:true},
-   tips:'Zet de pot even in water en laat goed uitlekken. Knip verdroogde bloemstelen af.'},
-  {name:'Aloe Vera',species:'Aloe barbadensis',emoji:'🌵',waterEvery:14,feedEvery:60,light:'Direct',humidity:'Laag',
-   care:{water:true,feed:false,mist:false,repot:false,rotate:false,prune:false},
-   tips:'Laat de grond volledig drogen voor je water geeft. Haat natte voeten.'},
-  {name:'Basil',species:'Ocimum basilicum',emoji:'🌿',waterEvery:2,feedEvery:14,light:'Direct',humidity:'Medium',
-   care:{water:true,feed:true,mist:false,repot:false,rotate:false,prune:true},
-   tips:'Elke dag in de gaten houden. Snij regelmatig de toppen af om bloei te voorkomen.'},
-  {name:'Fern',species:'Nephrolepis exaltata',emoji:'🌿',waterEvery:3,feedEvery:21,light:'Indirect',humidity:'Hoog',
-   care:{water:true,feed:true,mist:true,repot:true,rotate:false,prune:true},
-   tips:'Houdt van vochtige lucht. Benevelen of op een schoteltje met kiezelstenen en water zetten.'},
-  {name:'Lavender',species:'Lavandula',emoji:'💜',waterEvery:10,feedEvery:30,light:'Direct',humidity:'Laag',
-   care:{water:true,feed:false,mist:false,repot:false,rotate:false,prune:true},
-   tips:'Houdt van droge grond en veel zon. Knip na de bloei in voor compacte groei.'},
+  {name:'Monstera',species:'Monstera deliciosa',emoji:'🌿',waterEvery:8,feedEvery:28,light:'Fel indirect',humidity:'Medium',care:{water:true,feed:true,mist:true,repot:true,rotate:false,prune:false},tips:'Geef water als de bovenste 3cm grond droog is. Houd de bladeren schoon.'},
+  {name:'Monstera adansonii',species:'Gatenplant klein',emoji:'🍃',waterEvery:7,feedEvery:28,light:'Indirect',humidity:'Hoog',care:{water:true,feed:true,mist:true,repot:true,rotate:false,prune:false},tips:'Houdt van hoge luchtvochtigheid. Benevelen helpt.'},
+  {name:'Pothos',species:'Epipremnum aureum',emoji:'🪴',waterEvery:10,feedEvery:30,light:'Weinig tot indirect',humidity:'Laag',care:{water:true,feed:true,mist:false,repot:true,rotate:false,prune:true},tips:'Zeer robuust. Laat de grond goed opdrogen. Knip voor dichtere groei.'},
+  {name:'Snake Plant',species:'Dracaena trifasciata',emoji:'🌵',waterEvery:21,feedEvery:60,light:'Weinig',humidity:'Laag',care:{water:true,feed:false,mist:false,repot:false,rotate:false,prune:false},tips:'Overwateren is de grootste vijand. Weinig water in de winter.'},
+  {name:'Calathea',species:'Calathea ornata',emoji:'🌺',waterEvery:7,feedEvery:28,light:'Indirect',humidity:'Hoog',care:{water:true,feed:true,mist:true,repot:true,rotate:false,prune:false},tips:'Gebruik regenwater. Bladeren rollen op bij stress.'},
+  {name:'Fiddle Leaf',species:'Ficus lyrata',emoji:'🌳',waterEvery:10,feedEvery:28,light:'Fel indirect',humidity:'Medium',care:{water:true,feed:true,mist:false,repot:true,rotate:true,prune:false},tips:'Niet verplaatsen. Draai maandelijks voor gelijkmatige groei.'},
+  {name:'Peace Lily',species:'Spathiphyllum',emoji:'🌸',waterEvery:7,feedEvery:30,light:'Weinig',humidity:'Medium',care:{water:true,feed:true,mist:true,repot:true,rotate:false,prune:true},tips:'Hangt slap als hij water nodig heeft. Verwijder verdroogde bloemen.'},
+  {name:'ZZ Plant',species:'Zamioculcas zamiifolia',emoji:'🌱',waterEvery:21,feedEvery:60,light:'Weinig',humidity:'Laag',care:{water:true,feed:false,mist:false,repot:false,rotate:false,prune:false},tips:'Bijna onverwoestbaar. Overwateren is het enige gevaar.'},
+  {name:'Rubber Plant',species:'Ficus elastica',emoji:'🍀',waterEvery:10,feedEvery:28,light:'Fel indirect',humidity:'Medium',care:{water:true,feed:true,mist:false,repot:true,rotate:true,prune:false},tips:'Veeg bladeren af voor meer glans. Draai voor symmetrische groei.'},
+  {name:'Cactus',species:'Cactaceae',emoji:'🌵',waterEvery:30,feedEvery:90,light:'Direct',humidity:'Laag',care:{water:true,feed:false,mist:false,repot:false,rotate:false,prune:false},tips:'Zomer: water, winter: bijna niet. Veel direct zonlicht nodig.'},
+  {name:'Orchidee',species:'Phalaenopsis',emoji:'🌷',waterEvery:10,feedEvery:14,light:'Indirect',humidity:'Medium',care:{water:true,feed:true,mist:false,repot:false,rotate:false,prune:true},tips:'Even in water zetten en goed laten uitlekken. Nooit stilstaand water.'},
+  {name:'Aloe Vera',species:'Aloe barbadensis',emoji:'🌵',waterEvery:14,feedEvery:60,light:'Direct',humidity:'Laag',care:{water:true,feed:false,mist:false,repot:false,rotate:false,prune:false},tips:'Grond volledig laten drogen voor water. Haat natte voeten.'},
+  {name:'Fern',species:'Nephrolepis exaltata',emoji:'🌿',waterEvery:3,feedEvery:21,light:'Indirect',humidity:'Hoog',care:{water:true,feed:true,mist:true,repot:true,rotate:false,prune:true},tips:'Houdt van vochtige lucht. Benevelen of op kiezelstenen met water.'},
+  {name:'Lavender',species:'Lavandula',emoji:'💜',waterEvery:10,feedEvery:30,light:'Direct',humidity:'Laag',care:{water:true,feed:false,mist:false,repot:false,rotate:false,prune:true},tips:'Droge grond en veel zon. Knip na bloei in voor compacte groei.'},
 ];
 
 const CARE_LABELS = {
-  water: {icon:'💧', label:'Water'},
-  feed:  {icon:'🌿', label:'Voeding'},
-  mist:  {icon:'💦', label:'Benevelen'},
-  repot: {icon:'🪴', label:'Verpotten'},
-  rotate:{icon:'🔄', label:'Draaien'},
-  prune: {icon:'✂️', label:'Snoeien'},
+  water:{icon:'💧',label:'Water'}, feed:{icon:'🌿',label:'Voeding'},
+  mist:{icon:'💦',label:'Benevelen'}, repot:{icon:'🪴',label:'Verpotten'},
+  rotate:{icon:'🔄',label:'Draaien'}, prune:{icon:'✂️',label:'Snoeien'},
+};
+
+const WINDOW_INFO = {
+  'Noord':{sun:'Geen direct zonlicht',desc:'Minste licht. Goed voor schaduwplanten.',icon:'🌑'},
+  'Oost':{sun:'Ochtendzon (zacht)',desc:'Zachte ochtendzon. Ideaal voor indirecte lichtplanten.',icon:'🌅'},
+  'Zuid':{sun:'Volle dagzon',desc:'Meeste licht. Perfect voor cactussen en zonminnende planten.',icon:'☀️'},
+  'West':{sun:'Middagzon (intens)',desc:'Felle middagzon. Goed voor lichtbehoeftige planten.',icon:'🌇'},
 };
 
 // ── HELPERS ──
-const today = () => new Date().toISOString().split('T')[0];
+const todayStr = () => new Date().toISOString().split('T')[0];
 const addDays = (date, n) => { const d = new Date(date); d.setDate(d.getDate()+n); return d.toISOString().split('T')[0]; };
 const daysDiff = (date) => { const d = new Date(date); const t = new Date(); t.setHours(0,0,0,0); return Math.ceil((d-t)/(1000*60*60*24)); };
-const formatNext = (date) => {
-  const diff = daysDiff(date);
-  if(diff < 0) return `${Math.abs(diff)}d te laat`;
-  if(diff === 0) return 'Vandaag';
-  if(diff === 1) return 'Morgen';
-  return `Over ${diff}d`;
-};
-const getStatus = (plant) => {
-  const diff = daysDiff(plant.next_water);
-  if(diff < 0) return 'urgent';
-  if(diff <= 2) return 'soon';
-  return 'good';
-};
-const getStatusText = (plant) => {
-  const diff = daysDiff(plant.next_water);
-  if(diff < 0) return `${Math.abs(diff)}d te laat`;
-  if(diff === 0) return 'Water vandaag';
-  if(diff <= 2) return `${diff}d`;
-  return 'Prima';
-};
-const getBg = (emoji) => {
-  const map = {'🌿':'#EAF1EC','🍃':'#E8F0EC','🪴':'#F0EDE8','🌵':'#F0F4EE','🌺':'#F5EEED','🌳':'#EDF0EA','🌸':'#F5EEF5','🌱':'#EEF5EE','🍀':'#EBF0E8','💜':'#F0EEF8','🌷':'#F5EEFA'};
-  return map[emoji] || '#EAF1EC';
-};
+const formatNext = (date) => { const d = daysDiff(date); if(d<0) return `${Math.abs(d)}d te laat`; if(d===0) return 'Vandaag'; if(d===1) return 'Morgen'; return `Over ${d}d`; };
+const getStatus = (p) => { const d = daysDiff(p.next_water); if(d<0) return 'urgent'; if(d<=2) return 'soon'; return 'good'; };
+const getStatusText = (p) => { const d = daysDiff(p.next_water); if(d<0) return `${Math.abs(d)}d te laat`; if(d===0) return 'Vandaag'; if(d<=2) return `${d}d`; return 'Prima'; };
+const getBg = (e) => ({'🌿':'#EAF1EC','🍃':'#E8F0EC','🪴':'#F0EDE8','🌵':'#F0F4EE','🌺':'#F5EEED','🌳':'#EDF0EA','🌸':'#F5EEF5','🌱':'#EEF5EE','🍀':'#EBF0E8','💜':'#F0EEF8','🌷':'#F5EEFA'}[e]||'#EAF1EC');
+const nlDate = (iso) => new Date(iso).toLocaleDateString('nl-NL',{day:'numeric',month:'short',year:'numeric'});
 
 // ── TOAST ──
 function Toast({msg}){ return msg ? <div className="toast">{msg}</div> : null; }
 
 // ── LOGIN ──
-function LoginScreen({loading}){
+function LoginScreen(){
   const [busy, setBusy] = useState(false);
-  const handleLogin = async () => {
+  const login = async () => {
     setBusy(true);
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: 'google',
-      options: { redirectTo: window.location.href }
-    });
-    if(error){ alert('Login mislukt: ' + error.message); setBusy(false); }
+    const {error} = await supabase.auth.signInWithOAuth({provider:'google',options:{redirectTo:window.location.href}});
+    if(error){ alert('Login mislukt: '+error.message); setBusy(false); }
   };
   return (
-    <div className="login-wrap screen-enter">
+    <div className="login-wrap enter">
       <div className="login-logo">🌿</div>
-      <div className="login-title serif">PlantApp</div>
-      <div className="login-sub">Houd je planten gezond.<br/>Slim en automatisch.</div>
-      <button className="google-btn" onClick={handleLogin} disabled={busy||loading}>
-        <svg width="18" height="18" viewBox="0 0 18 18">
-          <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908C16.658 14.013 17.64 11.705 17.64 9.2z" fill="#4285F4"/>
-          <path d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z" fill="#34A853"/>
-          <path d="M3.964 10.707A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.707V4.961H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.039l3.007-2.332z" fill="#FBBC05"/>
-          <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.961L3.964 7.293C4.672 5.163 6.656 3.58 9 3.58z" fill="#EA4335"/>
-        </svg>
+      <div className="serif" style={{fontSize:38,color:'var(--ink)',letterSpacing:'-0.5px',marginBottom:8}}>PlantApp</div>
+      <div style={{fontSize:15,color:'var(--ink3)',textAlign:'center',lineHeight:1.5,marginBottom:52}}>Houd je planten gezond.<br/>Slim en automatisch.</div>
+      <button className="google-btn" onClick={login} disabled={busy}>
+        <svg width="18" height="18" viewBox="0 0 18 18"><path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908C16.658 14.013 17.64 11.705 17.64 9.2z" fill="#4285F4"/><path d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z" fill="#34A853"/><path d="M3.964 10.707A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.707V4.961H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.039l3.007-2.332z" fill="#FBBC05"/><path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.961L3.964 7.293C4.672 5.163 6.656 3.58 9 3.58z" fill="#EA4335"/></svg>
         {busy ? 'Laden...' : 'Doorgaan met Google'}
       </button>
-      <p className="login-note">Door in te loggen ga je akkoord met onze<br/>gebruikersvoorwaarden en privacybeleid.</p>
+      <p style={{fontSize:11,color:'var(--ink3)',textAlign:'center',marginTop:20,lineHeight:1.6}}>Door in te loggen ga je akkoord met onze<br/>gebruikersvoorwaarden en privacybeleid.</p>
     </div>
   );
 }
@@ -386,448 +248,269 @@ function Dashboard({plants, onPlantClick, onAdd}){
   const soon = plants.filter(p=>getStatus(p)==='soon');
   const good = plants.filter(p=>getStatus(p)==='good');
   return (
-    <div className="screen-enter">
-      <div className="dash-header">
-        <div className="dash-greeting">{cap}</div>
-        <div className="dash-title serif">Mijn tuin</div>
+    <div className="enter">
+      <div style={{background:'var(--white)',padding:`calc(env(safe-area-inset-top) + 16px) 24px 16px`,borderBottom:'1px solid var(--line)'}}>
+        <div style={{fontSize:11,fontWeight:500,letterSpacing:'1px',textTransform:'uppercase',color:'var(--ink3)',marginBottom:2}}>{cap}</div>
+        <div className="serif" style={{fontSize:28,color:'var(--ink)'}}>Mijn tuin</div>
       </div>
-      {plants.length === 0 ? (
+      {plants.length===0 ? (
         <div className="empty-state">
-          <div className="empty-emoji">🌱</div>
-          <div className="empty-title serif">Nog geen planten</div>
-          <div className="empty-sub">Voeg je eerste plant toe en begin met verzorgen.</div>
+          <div style={{fontSize:52}}>🌱</div>
+          <div className="serif" style={{fontSize:24,color:'var(--ink)'}}>Nog geen planten</div>
+          <div style={{fontSize:14,color:'var(--ink3)',lineHeight:1.6}}>Voeg je eerste plant toe en begin met verzorgen.</div>
           <button className="empty-btn" onClick={onAdd}>Plant toevoegen</button>
         </div>
-      ) : (
-        <>
-          <div className="today-section">
-            <div className="section-label">Vandaag</div>
-            <div className="task-chips">
-              {urgent.map(p=><span key={p.id} className="chip urgent" onClick={()=>onPlantClick(p)}>💧 {p.name}</span>)}
-              {soon.map(p=><span key={p.id} className="chip soon" onClick={()=>onPlantClick(p)}>🌿 {p.name}</span>)}
-              {good.map(p=><span key={p.id} className="chip good" onClick={()=>onPlantClick(p)}>✓ {p.name}</span>)}
-            </div>
+      ) : (<>
+        <div style={{padding:'16px 24px 8px'}}>
+          <div className="sec-label">Vandaag</div>
+          <div style={{display:'flex',flexWrap:'wrap',gap:6}}>
+            {urgent.map(p=><span key={p.id} className="chip urgent" onClick={()=>onPlantClick(p)}>💧 {p.name}</span>)}
+            {soon.map(p=><span key={p.id} className="chip soon" onClick={()=>onPlantClick(p)}>🌿 {p.name}</span>)}
+            {good.map(p=><span key={p.id} className="chip good" onClick={()=>onPlantClick(p)}>✓ {p.name}</span>)}
           </div>
-          <div style={{padding:'8px 24px 8px'}}>
-            <div className="section-label">Alle planten ({plants.length})</div>
-          </div>
-          <div className="plant-list">
-            {plants.map(p=>(
-              <div key={p.id} className="plant-row" onClick={()=>onPlantClick(p)}>
-                <div className="plant-avatar" style={{background:getBg(p.emoji)}}>{p.emoji}</div>
-                <div className="plant-info">
-                  <div className="plant-name">{p.name}</div>
-                  <div className="plant-species">{p.species}</div>
-                </div>
-                <div className="plant-status">
-                  <div className={`status-dot ${getStatus(p)}`}></div>
-                  <div className="status-text">{getStatusText(p)}</div>
-                </div>
+        </div>
+        <div style={{padding:'8px 24px 8px'}}><div className="sec-label">Alle planten ({plants.length})</div></div>
+        <div style={{padding:'0 24px',display:'flex',flexDirection:'column',gap:10}}>
+          {plants.map(p=>(
+            <div key={p.id} className="plant-row" onClick={()=>onPlantClick(p)}>
+              <div className="plant-avatar" style={{background:getBg(p.emoji)}}>{p.emoji}</div>
+              <div style={{flex:1,minWidth:0}}>
+                <div style={{fontSize:14,fontWeight:600,color:'var(--ink)'}}>{p.name}</div>
+                <div style={{fontSize:11,color:'var(--ink3)',marginTop:1,fontStyle:'italic'}}>{p.species}</div>
               </div>
-            ))}
-          </div>
-          <div style={{height:16}}/>
-        </>
-      )}
-    </div>
-  );
-}
-
-// ── WINDOW DIRECTION INFO ──
-const WINDOW_INFO = {
-  'Noord': {sun:'Geen direct zonlicht', desc:'Het minste licht. Geschikt voor schaduwplanten zoals Pothos en Snake Plant.', icon:'🌑'},
-  'Oost':  {sun:'Ochtendzon (zacht)', desc:'Zachte ochtendzon. Ideaal voor planten die fel indirect licht nodig hebben.', icon:'🌅'},
-  'Zuid':  {sun:'Volledige dag zon', desc:'Meeste licht en warmte. Perfect voor cactussen, succulenten en zonneminnende planten.', icon:'☀️'},
-  'West':  {sun:'Middagzon (intens)', desc:'Felle middagzon. Goed voor planten die veel licht aankunnen maar geen volle zon.', icon:'🌇'},
-};
-
-// ── INFO TAB ──
-function InfoTab({plant, dbPlant, care, careItems, status, onWater, onUpdate, showToast}){
-  const [weather, setWeather] = useState(null);
-  const [weatherLoading, setWeatherLoading] = useState(false);
-  const [weatherCity, setWeatherCity] = useState('');
-  const [windows, setWindows] = useState(plant.windows||[]);
-  const [savingWindows, setSavingWindows] = useState(false);
-
-  useEffect(()=>{ fetchWeather(); },[]);
-
-  const fetchWeather = async () => {
-    setWeatherLoading(true);
-    try {
-      const pos = await new Promise((res,rej)=>navigator.geolocation.getCurrentPosition(res,rej,{timeout:8000}));
-      const {latitude:lat, longitude:lon} = pos.coords;
-      const [wRes, gRes] = await Promise.all([
-        fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m,uv_index&hourly=direct_radiation&daily=sunrise,sunset,uv_index_max&timezone=auto&forecast_days=1`),
-        fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`)
-      ]);
-      const wData = await wRes.json();
-      const gData = await gRes.json();
-      setWeather(wData);
-      setWeatherCity(gData.address?.city || gData.address?.town || gData.address?.village || '');
-    } catch(e){ setWeather(null); }
-    setWeatherLoading(false);
-  };
-
-  const toggleWindow = async (dir) => {
-    const newW = windows.includes(dir) ? windows.filter(w=>w!==dir) : [...windows, dir];
-    setWindows(newW);
-    setSavingWindows(true);
-    await supabase.from('plants').update({windows:newW}).eq('id',plant.id);
-    onUpdate({...plant, windows:newW});
-    setSavingWindows(false);
-  };
-
-  const getWeatherIcon = (code) => {
-    if(code===0) return '☀️';
-    if(code<=2) return '🌤';
-    if(code<=48) return '☁️';
-    if(code<=67) return '🌧';
-    if(code<=77) return '❄️';
-    if(code<=82) return '🌦';
-    return '⛈';
-  };
-
-  const getSunAdvice = () => {
-    if(!windows.length) return null;
-    const hasSouth = windows.includes('Zuid');
-    const hasEast = windows.includes('Oost');
-    const hasWest = windows.includes('West');
-    const dbLight = dbPlant.light || plant.light;
-    if(dbLight?.includes('Direct') && hasSouth) return {ok:true, msg:'✅ Perfect! Zuid-raam geeft genoeg direct zonlicht voor deze plant.'};
-    if(dbLight?.includes('Direct') && !hasSouth) return {ok:false, msg:'⚠️ Deze plant heeft direct zonlicht nodig. Een Zuid-raam is ideaal.'};
-    if(dbLight?.includes('indirect') && hasSouth) return {ok:false, msg:'⚠️ Zuid-raam kan te intens zijn. Gebruik een vitrage of zet verder van het raam.'};
-    if(dbLight?.includes('indirect') && (hasEast||hasWest)) return {ok:true, msg:'✅ Oost- of West-raam geeft mooie indirecte belichting voor deze plant.'};
-    if(dbLight?.includes('Weinig') && windows.includes('Noord')) return {ok:true, msg:'✅ Noord-raam is perfect voor deze schaduwplant.'};
-    return {ok:true, msg:'✅ De raamrichting lijkt geschikt voor deze plant.'};
-  };
-
-  const sunAdvice = getSunAdvice();
-  const cur = weather?.current;
-  const sunrise = weather?.daily?.sunrise?.[0]?.split('T')[1];
-  const sunset = weather?.daily?.sunset?.[0]?.split('T')[1];
-  const uvMax = weather?.daily?.uv_index_max?.[0];
-
-  return (
-    <div className="detail-body">
-      {/* VERZORGING KNOPPEN */}
-      <button className="do-btn" style={{marginTop:16}} onClick={()=>onWater(plant)}>💧 Water geven — markeer als gedaan</button>
-
-      {/* ENV CHIPS */}
-      <div className="env-chips">
-        <span className="env-chip">☀️ {plant.light}</span>
-        <span className="env-chip">💧 {plant.humidity}</span>
-      </div>
-
-      {/* BEHOEFTES */}
-      <div className="section-label" style={{marginBottom:8}}>Behoeftes</div>
-      <div style={{display:'flex',flexWrap:'wrap',gap:6,marginBottom:20}}>
-        {careItems.map(c=>(
-          <span key={c.key} style={{display:'inline-flex',alignItems:'center',gap:4,background:'var(--green-light)',color:'var(--green)',fontSize:12,fontWeight:500,padding:'5px 10px',borderRadius:999}}>
-            {c.icon} {c.label}
-          </span>
-        ))}
-      </div>
-
-      {/* SCHEMA */}
-      <div className="section-label" style={{marginBottom:8}}>Schema</div>
-      <div className="care-grid" style={{marginBottom:20}}>
-        <div className="care-tile">
-          <div className="care-tile-icon">💧</div>
-          <div className="care-tile-label">Water</div>
-          <div className={`care-tile-value ${status==='urgent'?'urgent':''}`}>{formatNext(plant.next_water)}</div>
-          <div className="care-tile-next">elke ~{plant.water_every} dagen</div>
-        </div>
-        <div className="care-tile">
-          <div className="care-tile-icon">🌿</div>
-          <div className="care-tile-label">Voeding</div>
-          <div className="care-tile-value">{formatNext(plant.next_feed)}</div>
-          <div className="care-tile-next">elke {plant.feed_every} dagen</div>
-        </div>
-        {care.mist && <div className="care-tile"><div className="care-tile-icon">💦</div><div className="care-tile-label">Benevelen</div><div className="care-tile-value">Wekelijks</div><div className="care-tile-next">bij droge lucht</div></div>}
-        {care.repot && <div className="care-tile"><div className="care-tile-icon">🪴</div><div className="care-tile-label">Verpotten</div><div className="care-tile-value">Over 1 jaar</div><div className="care-tile-next">per jaar</div></div>}
-        {care.prune && <div className="care-tile"><div className="care-tile-icon">✂️</div><div className="care-tile-label">Snoeien</div><div className="care-tile-value">Naar behoefte</div><div className="care-tile-next">bij groei</div></div>}
-        {care.rotate && <div className="care-tile"><div className="care-tile-icon">🔄</div><div className="care-tile-label">Draaien</div><div className="care-tile-value">Maandelijks</div><div className="care-tile-next">voor groei</div></div>}
-      </div>
-
-      {/* PLANT INFO */}
-      {(dbPlant.tips || plant.api_data?.description) && <>
-        <div className="section-label" style={{marginBottom:8}}>Over deze plant</div>
-        {plant.api_data?.description && (
-          <div style={{fontSize:13,color:'var(--ink2)',lineHeight:1.7,marginBottom:12}}>{plant.api_data.description}</div>
-        )}
-        {dbPlant.tips && (
-          <div style={{background:'var(--green-light)',borderRadius:'var(--r-sm)',padding:'12px 14px',marginBottom:20}}>
-            <div style={{fontSize:10,fontWeight:600,letterSpacing:'0.8px',textTransform:'uppercase',color:'var(--green)',marginBottom:4}}>Tips</div>
-            <div style={{fontSize:13,color:'var(--ink2)',lineHeight:1.5}}>{dbPlant.tips}</div>
-          </div>
-        )}
-        {plant.api_data?.care_level && (
-          <div style={{display:'flex',gap:8,marginBottom:20,flexWrap:'wrap'}}>
-            <span style={{background:'var(--bg2)',color:'var(--ink2)',fontSize:12,fontWeight:500,padding:'5px 10px',borderRadius:999}}>🌿 Verzorging: {plant.api_data.care_level}</span>
-            {plant.api_data?.watering && <span style={{background:'var(--bg2)',color:'var(--ink2)',fontSize:12,fontWeight:500,padding:'5px 10px',borderRadius:999}}>💧 {plant.api_data.watering}</span>}
-          </div>
-        )}
-      </>}
-
-      {/* RAAMRICHTING */}
-      <div className="section-label" style={{marginBottom:8}}>🪟 Raamrichting {savingWindows && <span style={{color:'var(--green)',fontWeight:400}}>· opslaan...</span>}</div>
-      <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:8,marginBottom:12}}>
-        {['Noord','Oost','Zuid','West'].map(dir=>(
-          <div key={dir} onClick={()=>toggleWindow(dir)} style={{
-            background: windows.includes(dir) ? 'var(--green-light)' : 'var(--bg)',
-            border: windows.includes(dir) ? '1.5px solid var(--accent)' : '1.5px solid transparent',
-            borderRadius:'var(--r-sm)', padding:'12px', cursor:'pointer', transition:'all 0.15s'
-          }}>
-            <div style={{fontSize:18,marginBottom:4}}>{WINDOW_INFO[dir].icon}</div>
-            <div style={{fontSize:13,fontWeight:600,color: windows.includes(dir)?'var(--green)':'var(--ink)'}}>{dir}</div>
-            <div style={{fontSize:11,color:'var(--ink3)',marginTop:2}}>{WINDOW_INFO[dir].sun}</div>
-          </div>
-        ))}
-      </div>
-      {windows.length>0 && (
-        <div style={{marginBottom:8}}>
-          {windows.map(dir=>(
-            <div key={dir} style={{fontSize:12,color:'var(--ink2)',lineHeight:1.6,marginBottom:4,paddingLeft:8,borderLeft:'2px solid var(--green-mid)'}}>
-              <strong>{dir}:</strong> {WINDOW_INFO[dir].desc}
+              <div style={{display:'flex',flexDirection:'column',alignItems:'flex-end',gap:4}}>
+                <div className={`status-dot ${getStatus(p)}`}/>
+                <div style={{fontSize:10,fontWeight:500,color:'var(--ink3)'}}>{getStatusText(p)}</div>
+              </div>
             </div>
           ))}
         </div>
-      )}
-      {sunAdvice && (
-        <div style={{background: sunAdvice.ok ? 'var(--green-light)' : 'var(--yellow-soft)', borderRadius:'var(--r-sm)', padding:'10px 14px', marginBottom:20, fontSize:12, color: sunAdvice.ok ? 'var(--green)' : 'var(--yellow)', fontWeight:500, lineHeight:1.5}}>
-          {sunAdvice.msg}
-        </div>
-      )}
-
-      {/* WEER */}
-      <div className="section-label" style={{marginBottom:8}}>🌤 Weer bij jou{weatherCity ? ` — ${weatherCity}` : ''}</div>
-      {weatherLoading && <div style={{fontSize:13,color:'var(--ink3)',marginBottom:16}}>Locatie ophalen...</div>}
-      {!weatherLoading && !weather && (
-        <div style={{background:'var(--bg)',borderRadius:'var(--r-sm)',padding:'12px 14px',marginBottom:20}}>
-          <div style={{fontSize:13,color:'var(--ink3)',marginBottom:8}}>Geen toegang tot locatie.</div>
-          <button onClick={fetchWeather} style={{background:'var(--green)',color:'white',border:'none',borderRadius:'var(--r-xs)',padding:'8px 14px',fontSize:12,fontWeight:600,fontFamily:'inherit',cursor:'pointer'}}>Opnieuw proberen</button>
-        </div>
-      )}
-      {cur && (
-        <div style={{marginBottom:20}}>
-          <div style={{background:'var(--white)',borderRadius:'var(--r)',padding:'16px',boxShadow:'0 1px 4px rgba(0,0,0,0.06)',marginBottom:10}}>
-            <div style={{display:'flex',alignItems:'center',gap:12,marginBottom:12}}>
-              <div style={{fontSize:40}}>{getWeatherIcon(cur.weather_code)}</div>
-              <div>
-                <div style={{fontFamily:"'Instrument Serif',serif",fontSize:32,color:'var(--ink)',lineHeight:1}}>{Math.round(cur.temperature_2m)}°C</div>
-                <div style={{fontSize:12,color:'var(--ink3)',marginTop:2}}>Vochtigheid {cur.relative_humidity_2m}% · Wind {Math.round(cur.wind_speed_10m)} km/u</div>
-              </div>
-            </div>
-            <div style={{display:'grid',gridTemplateColumns:'1fr 1fr 1fr',gap:8}}>
-              <div style={{background:'var(--bg)',borderRadius:'var(--r-sm)',padding:'10px',textAlign:'center'}}>
-                <div style={{fontSize:16,marginBottom:2}}>🌅</div>
-                <div style={{fontSize:11,fontWeight:600,color:'var(--ink3)',textTransform:'uppercase',letterSpacing:'0.5px'}}>Zonsopgang</div>
-                <div style={{fontSize:13,fontWeight:600,color:'var(--ink)'}}>{sunrise||'–'}</div>
-              </div>
-              <div style={{background:'var(--bg)',borderRadius:'var(--r-sm)',padding:'10px',textAlign:'center'}}>
-                <div style={{fontSize:16,marginBottom:2}}>🌇</div>
-                <div style={{fontSize:11,fontWeight:600,color:'var(--ink3)',textTransform:'uppercase',letterSpacing:'0.5px'}}>Zonsonder</div>
-                <div style={{fontSize:13,fontWeight:600,color:'var(--ink)'}}>{sunset||'–'}</div>
-              </div>
-              <div style={{background:'var(--bg)',borderRadius:'var(--r-sm)',padding:'10px',textAlign:'center'}}>
-                <div style={{fontSize:16,marginBottom:2}}>🔆</div>
-                <div style={{fontSize:11,fontWeight:600,color:'var(--ink3)',textTransform:'uppercase',letterSpacing:'0.5px'}}>UV index</div>
-                <div style={{fontSize:13,fontWeight:600,color: uvMax>6?'var(--red)':uvMax>3?'var(--yellow)':'var(--green)'}}>{uvMax!=null?Math.round(uvMax):'–'}</div>
-              </div>
-            </div>
-          </div>
-          {/* Plantadvies op basis van weer */}
-          <div style={{background:'var(--blue-soft)',borderRadius:'var(--r-sm)',padding:'10px 14px',fontSize:12,color:'var(--blue)',lineHeight:1.6}}>
-            {cur.relative_humidity_2m < 40 && care.mist ? '💦 De lucht is droog vandaag — benevelen aanbevolen. ' : ''}
-            {cur.temperature_2m > 28 ? '🌡️ Warm weer: meer water verdampt, eerder water controleren. ' : ''}
-            {cur.temperature_2m < 10 ? '🥶 Koud buiten: minder water nodig, let op tocht. ' : ''}
-            {cur.relative_humidity_2m >= 40 && cur.temperature_2m >= 10 && cur.temperature_2m <= 28 ? '✅ Goede omstandigheden voor je plant vandaag.' : ''}
-          </div>
-        </div>
-      )}
-
-      {/* GESCHIEDENIS */}
-      <div className="log-label">Geschiedenis</div>
-      {(plant.log||[]).length===0 ? (
-        <div style={{fontSize:13,color:'var(--ink3)',padding:'8px 0'}}>Nog geen acties geregistreerd.</div>
-      ) : (plant.log||[]).slice(0,10).map((l,i)=>(
-        <div key={i} className="log-item">
-          <div className="log-dot"></div>
-          <div className="log-text">{l.type} {l.text}</div>
-          <div className="log-date">{l.date}</div>
-        </div>
-      ))}
+        <div style={{height:16}}/>
+      </>)}
     </div>
   );
 }
 
 // ── PLANT DETAIL ──
 function PlantDetail({plant, onBack, onDelete, onWater, onUpdate, showToast, userId}){
+  const [tab, setTab] = useState('info');
   const [showConfirm, setShowConfirm] = useState(false);
-  const [editingName, setEditingName] = useState(false);
+  const [editName, setEditName] = useState(false);
   const [nameVal, setNameVal] = useState(plant.name);
-  const [uploading, setUploading] = useState(false);
   const [photos, setPhotos] = useState(plant.photos||[]);
-  const [editingPhoto, setEditingPhoto] = useState(null); // {index, date}
-  const [activeTab, setActiveTab] = useState('info'); // info | fotos
+  const [pendingFile, setPendingFile] = useState(null);
+  const [pendingDate, setPendingDate] = useState(todayStr());
+  const [uploading, setUploading] = useState(false);
+  const [editingPhoto, setEditingPhoto] = useState(null);
+  // instellingen
+  const [windows, setWindows] = useState(plant.windows||[]);
+  const [light, setLight] = useState(plant.light||'Indirect');
+  const [humidity, setHumidity] = useState(plant.humidity||'Normaal');
+  const [savingSettings, setSavingSettings] = useState(false);
+
+  const dbPlant = PLANT_DB.find(p=>p.name===plant.name)||{};
+  const care = dbPlant.care||{water:true,feed:true};
+  const careItems = Object.entries(care).filter(([,v])=>v).map(([k])=>({key:k,...CARE_LABELS[k]}));
   const status = getStatus(plant);
-  const dbPlant = PLANT_DB.find(p=>p.name===plant.name) || {};
-  const care = dbPlant.care || {water:true,feed:true};
 
   const saveName = async () => {
     if(!nameVal.trim()) return;
-    const {error} = await supabase.from('plants').update({name:nameVal.trim()}).eq('id',plant.id);
-    if(!error){ onUpdate({...plant,name:nameVal.trim()}); showToast('✏️ Naam opgeslagen'); }
-    setEditingName(false);
+    await supabase.from('plants').update({name:nameVal.trim()}).eq('id',plant.id);
+    onUpdate({...plant,name:nameVal.trim()});
+    showToast('✏️ Naam opgeslagen');
+    setEditName(false);
   };
 
-  const [pendingFile, setPendingFile] = useState(null);
-  const [pendingDate, setPendingDate] = useState(today());
-
-  const handleFileSelect = (e) => {
-    const file = e.target.files[0];
-    if(!file) return;
-    setPendingFile(file);
-    setPendingDate(today());
-  };
+  const selectFile = (e) => { const f=e.target.files[0]; if(f){setPendingFile(f);setPendingDate(todayStr());} };
 
   const uploadPhoto = async () => {
     if(!pendingFile) return;
     setUploading(true);
     const path = `${userId}/${plant.id}/${Date.now()}.jpg`;
-    const {error:upErr} = await supabase.storage.from('plant-photos').upload(path, pendingFile);
-    if(upErr){ showToast('❌ Upload mislukt'); setUploading(false); return; }
+    const {error} = await supabase.storage.from('plant-photos').upload(path, pendingFile);
+    if(error){ showToast('❌ Upload mislukt'); setUploading(false); return; }
     const {data} = supabase.storage.from('plant-photos').getPublicUrl(path);
-    const d = new Date(pendingDate);
-    const dateStr = d.toLocaleDateString('nl-NL',{day:'numeric',month:'short',year:'numeric'});
-    const newPhotos = [{url:data.publicUrl, date:dateStr, isoDate:pendingDate},...photos];
+    const dateStr = nlDate(pendingDate);
+    const newPhotos = [{url:data.publicUrl,date:dateStr,isoDate:pendingDate},...photos];
     const newLog = [{type:'📸',text:'Foto toegevoegd',date:dateStr},...(plant.log||[])].slice(0,20);
     await supabase.from('plants').update({photos:newPhotos,log:newLog}).eq('id',plant.id);
-    setPhotos(newPhotos);
-    onUpdate({...plant,photos:newPhotos,log:newLog});
-    showToast('📸 Foto toegevoegd!');
-    setUploading(false);
-    setPendingFile(null);
+    setPhotos(newPhotos); onUpdate({...plant,photos:newPhotos,log:newLog});
+    showToast('📸 Foto toegevoegd!'); setUploading(false); setPendingFile(null);
   };
 
-  const savePhotoDate = async (index, newIsoDate) => {
-    const d = new Date(newIsoDate);
-    const dateStr = d.toLocaleDateString('nl-NL',{day:'numeric',month:'short',year:'numeric'});
-    const newPhotos = photos.map((p,i)=> i===index ? {...p, date:dateStr, isoDate:newIsoDate} : p);
+  const savePhotoDate = async (i, newIso) => {
+    const dateStr = nlDate(newIso);
+    const newPhotos = photos.map((p,idx)=>idx===i?{...p,date:dateStr,isoDate:newIso}:p);
     await supabase.from('plants').update({photos:newPhotos}).eq('id',plant.id);
-    setPhotos(newPhotos);
-    onUpdate({...plant,photos:newPhotos});
-    setEditingPhoto(null);
-    showToast('📅 Datum aangepast');
+    setPhotos(newPhotos); onUpdate({...plant,photos:newPhotos});
+    setEditingPhoto(null); showToast('📅 Datum aangepast');
   };
 
-  const careItems = Object.entries(care).filter(([,v])=>v).map(([k])=>({
-    key:k, ...CARE_LABELS[k]
-  }));
+  const toggleWindow = (dir) => setWindows(prev=>prev.includes(dir)?prev.filter(w=>w!==dir):[...prev,dir]);
+
+  const saveSettings = async () => {
+    setSavingSettings(true);
+    await supabase.from('plants').update({light,humidity,windows}).eq('id',plant.id);
+    onUpdate({...plant,light,humidity,windows});
+    showToast('⚙️ Instellingen opgeslagen');
+    setSavingSettings(false);
+  };
+
+  const getSunAdvice = () => {
+    if(!windows.length) return null;
+    const dbLight = dbPlant.light||plant.light||'';
+    if(dbLight.includes('Direct')&&windows.includes('Zuid')) return {ok:true,msg:'✅ Zuid-raam geeft genoeg direct zonlicht voor deze plant.'};
+    if(dbLight.includes('Direct')&&!windows.includes('Zuid')) return {ok:false,msg:'⚠️ Deze plant heeft direct zonlicht nodig. Zuid-raam is ideaal.'};
+    if(dbLight.includes('indirect')&&windows.includes('Zuid')) return {ok:false,msg:'⚠️ Zuid-raam kan te intens zijn. Gebruik een vitrage of zet verder weg.'};
+    if(dbLight.includes('indirect')&&(windows.includes('Oost')||windows.includes('West'))) return {ok:true,msg:'✅ Oost- of West-raam geeft mooie indirecte belichting.'};
+    if(dbLight.includes('Weinig')&&windows.includes('Noord')) return {ok:true,msg:'✅ Noord-raam is perfect voor deze schaduwplant.'};
+    return null;
+  };
+
+  const sunAdvice = getSunAdvice();
+  const TABS = [{id:'info',label:'ℹ️ Info'},{id:'fotos',label:`📸${photos.length>0?` (${photos.length})`:''}`},{id:'instellingen',label:'⚙️ Instellingen'}];
 
   return (
-    <div className="screen-enter" style={{display:'flex',flexDirection:'column',minHeight:'100vh'}}>
-      <div className="detail-hero" style={{background:getBg(plant.emoji),flexShrink:0}}>
+    <div className="enter" style={{display:'flex',flexDirection:'column',minHeight:'100vh'}}>
+      {/* HERO */}
+      <div className="detail-hero" style={{background:getBg(plant.emoji)}}>
         <button className="back-btn" onClick={onBack}>←</button>
-        <button className="del-btn-hero" onClick={()=>setShowConfirm(true)}>🗑</button>
-        {photos.length>0 && (
-          <img src={photos[0].url} style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover',opacity:0.3}} alt=""/>
-        )}
-        <div className="detail-hero-emoji" style={{position:'relative',zIndex:1}}>{plant.emoji}</div>
+        <button className="del-btn" onClick={()=>setShowConfirm(true)}>🗑</button>
+        {photos.length>0 && <img src={photos[0].url} style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover',opacity:0.25}} alt=""/>}
+        <div style={{position:'relative',zIndex:1,fontSize:72}}>{plant.emoji}</div>
       </div>
 
-      <div style={{padding:'16px 24px 0',background:'var(--white)',borderBottom:'1px solid var(--line)',flexShrink:0}}>
-        {editingName ? (
+      {/* NAME + TABS */}
+      <div style={{background:'var(--white)',borderBottom:'1px solid var(--line)',flexShrink:0,padding:'14px 24px 0'}}>
+        {editName ? (
           <div style={{display:'flex',gap:8,alignItems:'center',marginBottom:8}}>
-            <input className="field-input" value={nameVal} onChange={e=>setNameVal(e.target.value)}
-              style={{fontSize:20,fontFamily:"'Instrument Serif',serif",padding:'6px 10px'}} autoFocus/>
+            <input className="field-input" value={nameVal} onChange={e=>setNameVal(e.target.value)} style={{fontSize:20,fontFamily:"'Instrument Serif',serif",padding:'6px 10px'}} autoFocus/>
             <button onClick={saveName} style={{background:'var(--green)',color:'white',border:'none',borderRadius:'var(--r-sm)',padding:'8px 14px',fontWeight:600,fontFamily:'inherit',cursor:'pointer',flexShrink:0}}>✓</button>
-            <button onClick={()=>setEditingName(false)} style={{background:'var(--bg2)',color:'var(--ink2)',border:'none',borderRadius:'var(--r-sm)',padding:'8px 10px',cursor:'pointer'}}>✕</button>
+            <button onClick={()=>setEditName(false)} style={{background:'var(--bg2)',border:'none',borderRadius:'var(--r-sm)',padding:'8px 10px',cursor:'pointer'}}>✕</button>
           </div>
         ) : (
           <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:2}}>
-            <div className="detail-name serif" style={{fontSize:26}}>{plant.name}</div>
-            <button onClick={()=>setEditingName(true)} style={{background:'var(--bg2)',border:'none',borderRadius:'var(--r-xs)',padding:'4px 8px',fontSize:12,color:'var(--ink3)',cursor:'pointer'}}>✏️</button>
+            <div className="serif" style={{fontSize:26,color:'var(--ink)'}}>{plant.name}</div>
+            <button onClick={()=>setEditName(true)} style={{background:'var(--bg2)',border:'none',borderRadius:'var(--r-xs)',padding:'4px 8px',fontSize:12,color:'var(--ink3)',cursor:'pointer'}}>✏️</button>
           </div>
         )}
-        <div className="detail-species" style={{marginBottom:12}}>{plant.species}</div>
-        <div style={{display:'flex',gap:0,borderBottom:'none'}}>
-          {['info','fotos'].map(t=>(
-            <button key={t} onClick={()=>setActiveTab(t)} style={{
-              flex:1,padding:'10px 0',border:'none',background:'none',
-              fontFamily:'inherit',fontSize:13,fontWeight:600,cursor:'pointer',
-              color:activeTab===t?'var(--green)':'var(--ink3)',
-              borderBottom:activeTab===t?'2px solid var(--green)':'2px solid transparent',
-            }}>
-              {t==='info'?'ℹ️ Info':'📸 Foto\'s '+(photos.length>0?`(${photos.length})`:'') }
+        <div style={{fontSize:12,color:'var(--ink3)',marginBottom:10,fontStyle:'italic'}}>{plant.species}</div>
+        <div className="tab-bar" style={{margin:'0 -24px',borderTop:'1px solid var(--line)'}}>
+          {TABS.map(t=>(
+            <button key={t.id} className="tab-btn" onClick={()=>setTab(t.id)} style={{color:tab===t.id?'var(--green)':'var(--ink3)',borderBottom:tab===t.id?'2px solid var(--green)':'2px solid transparent'}}>
+              {t.label}
             </button>
           ))}
         </div>
       </div>
 
-      <div className="screen-content" style={{paddingBottom:24,paddingTop:0}}>
-        {activeTab==='info' && (
-          <InfoTab plant={plant} dbPlant={dbPlant} care={care} careItems={careItems} status={status} onWater={onWater} onUpdate={onUpdate} showToast={showToast}/>
+      {/* CONTENT */}
+      <div className="screen-content-notab" style={{paddingBottom:'calc(env(safe-area-inset-bottom) + 24px)'}}>
+
+        {/* ── INFO TAB ── */}
+        {tab==='info' && (
+          <div style={{padding:'20px 24px'}}>
+            <button className="do-btn" onClick={()=>onWater(plant)}>💧 Water geven — markeer als gedaan</button>
+
+            <div style={{display:'flex',flexWrap:'wrap',gap:6,marginBottom:20}}>
+              <span style={{background:'var(--green-light)',color:'var(--green)',fontSize:11,fontWeight:500,padding:'5px 10px',borderRadius:999}}>☀️ {plant.light}</span>
+              <span style={{background:'var(--green-light)',color:'var(--green)',fontSize:11,fontWeight:500,padding:'5px 10px',borderRadius:999}}>💧 {plant.humidity}</span>
+              {(plant.windows||[]).map(w=><span key={w} style={{background:'var(--blue-soft)',color:'var(--blue)',fontSize:11,fontWeight:500,padding:'5px 10px',borderRadius:999}}>🪟 {w}</span>)}
+            </div>
+
+            <div className="sec-label" style={{marginBottom:8}}>Behoeftes</div>
+            <div style={{display:'flex',flexWrap:'wrap',gap:6,marginBottom:20}}>
+              {careItems.map(c=><span key={c.key} style={{display:'inline-flex',alignItems:'center',gap:4,background:'var(--green-light)',color:'var(--green)',fontSize:12,fontWeight:500,padding:'5px 10px',borderRadius:999}}>{c.icon} {c.label}</span>)}
+            </div>
+
+            <div className="sec-label" style={{marginBottom:8}}>Schema</div>
+            <div className="care-grid">
+              <div className="care-tile"><div className="care-tile-icon">💧</div><div className="care-tile-label">Water</div><div className={`care-tile-value ${status==='urgent'?'urgent':''}`}>{formatNext(plant.next_water)}</div><div className="care-tile-next">elke ~{plant.water_every} dagen</div></div>
+              <div className="care-tile"><div className="care-tile-icon">🌿</div><div className="care-tile-label">Voeding</div><div className="care-tile-value">{formatNext(plant.next_feed)}</div><div className="care-tile-next">elke {plant.feed_every} dagen</div></div>
+              {care.mist&&<div className="care-tile"><div className="care-tile-icon">💦</div><div className="care-tile-label">Benevelen</div><div className="care-tile-value">Wekelijks</div><div className="care-tile-next">bij droge lucht</div></div>}
+              {care.repot&&<div className="care-tile"><div className="care-tile-icon">🪴</div><div className="care-tile-label">Verpotten</div><div className="care-tile-value">Over ~1 jaar</div><div className="care-tile-next">per jaar</div></div>}
+              {care.prune&&<div className="care-tile"><div className="care-tile-icon">✂️</div><div className="care-tile-label">Snoeien</div><div className="care-tile-value">Naar behoefte</div><div className="care-tile-next">bij groei</div></div>}
+              {care.rotate&&<div className="care-tile"><div className="care-tile-icon">🔄</div><div className="care-tile-label">Draaien</div><div className="care-tile-value">Maandelijks</div><div className="care-tile-next">voor groei</div></div>}
+            </div>
+
+            {(plant.api_data?.description||dbPlant.tips) && <>
+              <div className="sec-label" style={{marginBottom:8}}>Over deze plant</div>
+              {plant.api_data?.description&&<div style={{fontSize:13,color:'var(--ink2)',lineHeight:1.7,marginBottom:12}}>{plant.api_data.description}</div>}
+              {dbPlant.tips&&<div style={{background:'var(--green-light)',borderRadius:'var(--r-sm)',padding:'12px 14px',marginBottom:16}}>
+                <div style={{fontSize:10,fontWeight:600,letterSpacing:'0.8px',textTransform:'uppercase',color:'var(--green)',marginBottom:4}}>Tips</div>
+                <div style={{fontSize:13,color:'var(--ink2)',lineHeight:1.5}}>{dbPlant.tips}</div>
+              </div>}
+              {plant.api_data?.care_level&&<div style={{display:'flex',gap:8,marginBottom:16,flexWrap:'wrap'}}>
+                <span style={{background:'var(--bg2)',color:'var(--ink2)',fontSize:12,fontWeight:500,padding:'5px 10px',borderRadius:999}}>🌿 {plant.api_data.care_level}</span>
+                {plant.api_data?.watering&&<span style={{background:'var(--bg2)',color:'var(--ink2)',fontSize:12,fontWeight:500,padding:'5px 10px',borderRadius:999}}>💧 {plant.api_data.watering}</span>}
+              </div>}
+            </>}
+
+            {sunAdvice&&<div style={{background:sunAdvice.ok?'var(--green-light)':'var(--yellow-soft)',borderRadius:'var(--r-sm)',padding:'10px 14px',marginBottom:16,fontSize:12,color:sunAdvice.ok?'var(--green)':'var(--yellow)',fontWeight:500,lineHeight:1.5}}>{sunAdvice.msg}</div>}
+
+            <div className="sec-label" style={{marginBottom:8}}>Geschiedenis</div>
+            {(plant.log||[]).length===0
+              ? <div style={{fontSize:13,color:'var(--ink3)',padding:'8px 0'}}>Nog geen acties.</div>
+              : (plant.log||[]).slice(0,10).map((l,i)=>(
+                <div key={i} className="log-item">
+                  <div className="log-dot"/>
+                  <div style={{fontSize:12,color:'var(--ink2)',flex:1}}>{l.type} {l.text}</div>
+                  <div style={{fontSize:11,color:'var(--ink3)'}}>{l.date}</div>
+                </div>
+              ))}
+          </div>
         )}
 
-        {activeTab==='fotos' && (
+        {/* ── FOTO TAB ── */}
+        {tab==='fotos' && (
           <div style={{padding:'16px 24px'}}>
             {pendingFile ? (
-              <div style={{background:'var(--white)',borderRadius:'var(--r)',padding:16,marginBottom:16,boxShadow:'0 1px 4px rgba(0,0,0,0.06)'}}>
+              <div className="card" style={{padding:16,marginBottom:16}}>
                 <div style={{aspectRatio:'4/3',borderRadius:'var(--r-sm)',overflow:'hidden',background:'var(--bg)',marginBottom:12}}>
                   <img src={URL.createObjectURL(pendingFile)} style={{width:'100%',height:'100%',objectFit:'cover'}} alt="preview"/>
                 </div>
-                <div style={{fontSize:10,fontWeight:600,letterSpacing:'1px',textTransform:'uppercase',color:'var(--ink3)',marginBottom:6}}>Datum foto</div>
+                <div className="field-label" style={{marginBottom:6}}>Datum foto</div>
                 <input type="date" value={pendingDate} onChange={e=>setPendingDate(e.target.value)}
                   style={{width:'100%',background:'var(--bg)',border:'1.5px solid var(--line)',borderRadius:'var(--r-sm)',padding:'10px 12px',fontSize:14,fontFamily:'inherit',color:'var(--ink)',marginBottom:12,outline:'none'}}/>
                 <div style={{display:'flex',gap:8}}>
-                  <button onClick={uploadPhoto} disabled={uploading}
-                    style={{flex:1,padding:'12px',background:'var(--green)',color:'white',border:'none',borderRadius:'var(--r-sm)',fontSize:14,fontWeight:600,fontFamily:'inherit',cursor:'pointer'}}>
+                  <button onClick={uploadPhoto} disabled={uploading} style={{flex:1,padding:'12px',background:'var(--green)',color:'white',border:'none',borderRadius:'var(--r-sm)',fontSize:14,fontWeight:600,fontFamily:'inherit',cursor:'pointer'}}>
                     {uploading?'Uploaden...':'📸 Opslaan'}
                   </button>
-                  <button onClick={()=>setPendingFile(null)}
-                    style={{padding:'12px 16px',background:'var(--bg2)',border:'none',borderRadius:'var(--r-sm)',fontSize:14,cursor:'pointer'}}>✕</button>
+                  <button onClick={()=>setPendingFile(null)} style={{padding:'12px 16px',background:'var(--bg2)',border:'none',borderRadius:'var(--r-sm)',fontSize:14,cursor:'pointer'}}>✕</button>
                 </div>
               </div>
             ) : (
               <label style={{display:'flex',alignItems:'center',gap:8,background:'var(--bg)',borderRadius:'var(--r-sm)',padding:'14px',cursor:'pointer',marginBottom:16,border:'1.5px dashed var(--line)'}}>
                 <span style={{fontSize:22}}>📸</span>
                 <span style={{fontSize:14,color:'var(--ink2)',fontWeight:500}}>Foto toevoegen</span>
-                <input type="file" accept="image/*" style={{display:'none'}} onChange={handleFileSelect}/>
+                <input type="file" accept="image/*" style={{display:'none'}} onChange={selectFile}/>
               </label>
             )}
-
             {photos.length===0 ? (
               <div className="empty-state" style={{padding:'40px 0'}}>
-                <div className="empty-emoji">📷</div>
-                <div className="empty-title serif">Nog geen foto's</div>
-                <div className="empty-sub">Voeg een foto toe om de groei van je plant bij te houden.</div>
+                <div style={{fontSize:52}}>📷</div>
+                <div className="serif" style={{fontSize:22,color:'var(--ink)'}}>Nog geen foto's</div>
+                <div style={{fontSize:14,color:'var(--ink3)',lineHeight:1.6}}>Voeg een foto toe om de groei bij te houden.</div>
               </div>
             ) : (
               <div style={{display:'flex',flexDirection:'column',gap:16}}>
                 {photos.map((photo,i)=>(
-                  <div key={i} style={{background:'var(--white)',borderRadius:'var(--r)',overflow:'hidden',boxShadow:'0 1px 4px rgba(0,0,0,0.06)'}}>
-                    <div style={{aspectRatio:'4/3',overflow:'hidden',background:'var(--bg)'}}>
-                      <img src={photo.url} style={{width:'100%',height:'100%',objectFit:'cover'}} alt={`foto ${i+1}`}/>
+                  <div key={i} className="card" style={{overflow:'hidden'}}>
+                    <div style={{aspectRatio:'4/3',background:'var(--bg)'}}>
+                      <img src={photo.url||photo} style={{width:'100%',height:'100%',objectFit:'cover'}} alt={`foto ${i+1}`}/>
                     </div>
                     <div style={{padding:'10px 14px',display:'flex',alignItems:'center',justifyContent:'space-between'}}>
                       {editingPhoto===i ? (
                         <div style={{display:'flex',gap:8,alignItems:'center',flex:1}}>
-                          <input type="date" defaultValue={photo.isoDate||today()}
-                            style={{flex:1,background:'var(--bg)',border:'1.5px solid var(--accent)',borderRadius:'var(--r-xs)',padding:'6px 8px',fontSize:13,fontFamily:'inherit',color:'var(--ink)'}}
-                            onChange={e=>e.target.dataset.val=e.target.value}
-                            ref={el=>{ if(el) el.dataset.val=photo.isoDate||today(); }}
-                          />
-                          <button onClick={e=>{ const inp=e.target.closest('div').querySelector('input'); savePhotoDate(i,inp.value); }}
-                            style={{background:'var(--green)',color:'white',border:'none',borderRadius:'var(--r-xs)',padding:'6px 10px',fontSize:12,fontWeight:600,cursor:'pointer'}}>✓</button>
-                          <button onClick={()=>setEditingPhoto(null)}
-                            style={{background:'var(--bg2)',border:'none',borderRadius:'var(--r-xs)',padding:'6px 8px',fontSize:12,cursor:'pointer'}}>✕</button>
+                          <input type="date" defaultValue={photo.isoDate||todayStr()} id={`photo-date-${i}`}
+                            style={{flex:1,background:'var(--bg)',border:'1.5px solid var(--accent)',borderRadius:'var(--r-xs)',padding:'6px 8px',fontSize:13,fontFamily:'inherit',color:'var(--ink)'}}/>
+                          <button onClick={()=>{ const el=document.getElementById(`photo-date-${i}`); savePhotoDate(i,el.value); }} style={{background:'var(--green)',color:'white',border:'none',borderRadius:'var(--r-xs)',padding:'6px 10px',fontSize:12,fontWeight:600,cursor:'pointer'}}>✓</button>
+                          <button onClick={()=>setEditingPhoto(null)} style={{background:'var(--bg2)',border:'none',borderRadius:'var(--r-xs)',padding:'6px 8px',fontSize:12,cursor:'pointer'}}>✕</button>
                         </div>
                       ) : (
                         <>
-                          <span style={{fontSize:12,color:'var(--ink3)',fontWeight:500}}>{photo.date || photo}</span>
-                          <button onClick={()=>setEditingPhoto(i)}
-                            style={{background:'var(--bg)',border:'none',borderRadius:'var(--r-xs)',padding:'4px 8px',fontSize:11,color:'var(--ink3)',cursor:'pointer'}}>✏️ datum</button>
+                          <span style={{fontSize:12,color:'var(--ink3)',fontWeight:500}}>{photo.date||'Geen datum'}</span>
+                          <button onClick={()=>setEditingPhoto(i)} style={{background:'var(--bg)',border:'none',borderRadius:'var(--r-xs)',padding:'4px 8px',fontSize:11,color:'var(--ink3)',cursor:'pointer'}}>✏️ datum</button>
                         </>
                       )}
                     </div>
@@ -837,148 +520,72 @@ function PlantDetail({plant, onBack, onDelete, onWater, onUpdate, showToast, use
             )}
           </div>
         )}
+
+        {/* ── INSTELLINGEN TAB ── */}
+        {tab==='instellingen' && (
+          <div style={{padding:'20px 24px',display:'flex',flexDirection:'column',gap:20}}>
+
+            {/* RAAMRICHTING */}
+            <div>
+              <div className="sec-label" style={{marginBottom:8}}>🪟 Raamrichting</div>
+              <div style={{fontSize:12,color:'var(--ink3)',marginBottom:12,lineHeight:1.5}}>Vink aan welke ramen deze plant heeft. Je kunt meerdere ramen aanvinken.</div>
+              <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:10,marginBottom:12}}>
+                {['Noord','Oost','Zuid','West'].map(dir=>(
+                  <div key={dir} onClick={()=>toggleWindow(dir)} style={{
+                    background:windows.includes(dir)?'var(--green-light)':'var(--bg)',
+                    border:windows.includes(dir)?'1.5px solid var(--accent)':'1.5px solid transparent',
+                    borderRadius:'var(--r-sm)',padding:'14px 12px',cursor:'pointer',transition:'all 0.15s'
+                  }}>
+                    <div style={{fontSize:22,marginBottom:4}}>{WINDOW_INFO[dir].icon}</div>
+                    <div style={{fontSize:14,fontWeight:600,color:windows.includes(dir)?'var(--green)':'var(--ink)',marginBottom:2}}>{dir}</div>
+                    <div style={{fontSize:11,color:'var(--ink3)'}}>{WINDOW_INFO[dir].sun}</div>
+                    {windows.includes(dir)&&<div style={{fontSize:11,color:'var(--green)',marginTop:4,lineHeight:1.4}}>{WINDOW_INFO[dir].desc}</div>}
+                  </div>
+                ))}
+              </div>
+              {sunAdvice&&<div style={{background:sunAdvice.ok?'var(--green-light)':'var(--yellow-soft)',borderRadius:'var(--r-sm)',padding:'10px 14px',fontSize:12,color:sunAdvice.ok?'var(--green)':'var(--yellow)',fontWeight:500,lineHeight:1.5}}>{sunAdvice.msg}</div>}
+            </div>
+
+            {/* LICHT */}
+            <div className="field-group">
+              <div className="field-label">Lichtomstandigheden</div>
+              <div className="env-selector">
+                {[{v:'Weinig',icon:'🌑'},{v:'Indirect',icon:'🌤'},{v:'Direct',icon:'☀️'}].map(o=>(
+                  <div key={o.v} className={`env-opt ${light===o.v?'selected':''}`} onClick={()=>setLight(o.v)}>
+                    <div className="env-opt-icon">{o.icon}</div>
+                    <div className="env-opt-label">{o.v}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* VOCHTIGHEID */}
+            <div className="field-group">
+              <div className="field-label">Luchtvochtigheid</div>
+              <div className="env-selector">
+                {[{v:'Droog',icon:'🏜'},{v:'Normaal',icon:'🌿'},{v:'Vochtig',icon:'💦'}].map(o=>(
+                  <div key={o.v} className={`env-opt ${humidity===o.v?'selected':''}`} onClick={()=>setHumidity(o.v)}>
+                    <div className="env-opt-icon">{o.icon}</div>
+                    <div className="env-opt-label">{o.v}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <button className="submit-btn" onClick={saveSettings} disabled={savingSettings}>
+              {savingSettings?'Opslaan...':'⚙️ Instellingen opslaan'}
+            </button>
+          </div>
+        )}
       </div>
 
-      {showConfirm && (
+      {/* DELETE MODAL */}
+      {showConfirm&&(
         <div className="modal-overlay">
           <div className="modal">
-            <div className="modal-title serif">Plant verwijderen?</div>
-            <div className="modal-sub">"{plant.name}" wordt permanent verwijderd.</div>
-            <button className="modal-btn danger" onClick={()=>{ onDelete(plant.id); setShowConfirm(false); }}>Ja, verwijderen</button>
-            <button className="modal-btn cancel" onClick={()=>setShowConfirm(false)}>Annuleren</button>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
-  const [showConfirm, setShowConfirm] = useState(false);
-  const [editingName, setEditingName] = useState(false);
-  const [nameVal, setNameVal] = useState(plant.name);
-  const [uploading, setUploading] = useState(false);
-  const [photos, setPhotos] = useState(plant.photos||[]);
-  const status = getStatus(plant);
-  const dbPlant = PLANT_DB.find(p=>p.name===plant.name) || {};
-
-  const saveName = async () => {
-    if(!nameVal.trim()) return;
-    const {error} = await supabase.from('plants').update({name:nameVal.trim()}).eq('id',plant.id);
-    if(!error){ onUpdate({...plant,name:nameVal.trim()}); showToast('✏️ Naam opgeslagen'); }
-    setEditingName(false);
-  };
-
-  const uploadPhoto = async (e) => {
-    const file = e.target.files[0];
-    if(!file) return;
-    setUploading(true);
-    const path = `${userId}/${plant.id}/${Date.now()}.jpg`;
-    const {error:upErr} = await supabase.storage.from('plant-photos').upload(path, file);
-    if(upErr){ showToast('❌ Upload mislukt'); setUploading(false); return; }
-    const {data} = supabase.storage.from('plant-photos').getPublicUrl(path);
-    const newPhotos = [data.publicUrl,...photos].slice(0,10);
-    const date = new Date().toLocaleDateString('nl-NL',{day:'numeric',month:'short'});
-    const newLog = [{type:'📸',text:'Foto toegevoegd',date},...(plant.log||[])].slice(0,20);
-    await supabase.from('plants').update({photos:newPhotos,log:newLog}).eq('id',plant.id);
-    setPhotos(newPhotos);
-    onUpdate({...plant,photos:newPhotos,log:newLog});
-    showToast('📸 Foto toegevoegd!');
-    setUploading(false);
-  };
-
-  return (
-    <div className="screen-enter">
-      <div className="detail-hero" style={{background:getBg(plant.emoji)}}>
-        <button className="back-btn" onClick={onBack}>←</button>
-        <button className="del-btn-hero" onClick={()=>setShowConfirm(true)}>🗑</button>
-        <div className="detail-hero-emoji">{plant.emoji}</div>
-      </div>
-      <div className="screen-content" style={{paddingBottom:20}}>
-        <div className="detail-body">
-          {editingName ? (
-            <div style={{display:'flex',gap:8,alignItems:'center',marginBottom:4}}>
-              <input className="field-input" value={nameVal} onChange={e=>setNameVal(e.target.value)} style={{fontSize:22,fontFamily:'Instrument Serif,serif',padding:'8px 12px'}} autoFocus/>
-              <button onClick={saveName} style={{background:'var(--green)',color:'white',border:'none',borderRadius:'var(--r-sm)',padding:'8px 14px',fontWeight:600,fontFamily:'DM Sans,sans-serif',cursor:'pointer',flexShrink:0}}>✓</button>
-            </div>
-          ) : (
-            <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:4}}>
-              <div className="detail-name serif">{plant.name}</div>
-              <button onClick={()=>setEditingName(true)} style={{background:'var(--bg2)',border:'none',borderRadius:'var(--r-xs)',padding:'4px 8px',fontSize:12,color:'var(--ink3)',cursor:'pointer',fontFamily:'DM Sans,sans-serif'}}>✏️</button>
-            </div>
-          )}
-          <div className="detail-species">{plant.species}</div>
-          <div className="env-chips">
-            <span className="env-chip">☀️ {plant.light}</span>
-            <span className="env-chip">💧 {plant.humidity}</span>
-          </div>
-          {dbPlant.tips && (
-            <div style={{background:'var(--green-light)',borderRadius:'var(--r-sm)',padding:'12px 14px',marginBottom:20}}>
-              <div style={{fontSize:10,fontWeight:600,letterSpacing:'0.8px',textTransform:'uppercase',color:'var(--green)',marginBottom:4}}>Tips</div>
-              <div style={{fontSize:13,color:'var(--ink2)',lineHeight:1.5}}>{dbPlant.tips}</div>
-            </div>
-          )}
-          <button className="do-btn" onClick={()=>onWater(plant)}>💧 Water geven — markeer als gedaan</button>
-          <div className="care-grid">
-            <div className="care-tile">
-              <div className="care-tile-icon">💧</div>
-              <div className="care-tile-label">Water</div>
-              <div className={`care-tile-value ${status==='urgent'?'urgent':''}`}>{formatNext(plant.next_water)}</div>
-              <div className="care-tile-next">elke ~{plant.water_every} dagen</div>
-            </div>
-            <div className="care-tile">
-              <div className="care-tile-icon">🌿</div>
-              <div className="care-tile-label">Voeding</div>
-              <div className="care-tile-value">{formatNext(plant.next_feed)}</div>
-              <div className="care-tile-next">elke {plant.feed_every} dagen</div>
-            </div>
-            <div className="care-tile">
-              <div className="care-tile-icon">🔄</div>
-              <div className="care-tile-label">Draaien</div>
-              <div className="care-tile-value">Over 14d</div>
-              <div className="care-tile-next">elke 14 dagen</div>
-            </div>
-            <div className="care-tile">
-              <div className="care-tile-icon">🪴</div>
-              <div className="care-tile-label">Verpotten</div>
-              <div className="care-tile-value">Over 1 jaar</div>
-              <div className="care-tile-next">per jaar</div>
-            </div>
-          </div>
-
-          {/* FOTO SECTIE */}
-          <div className="log-label" style={{marginBottom:10}}>Foto's</div>
-          <label style={{display:'flex',alignItems:'center',gap:8,background:'var(--bg)',borderRadius:'var(--r-sm)',padding:'12px 14px',cursor:'pointer',marginBottom:12,border:'1.5px dashed var(--line)'}}>
-            <span style={{fontSize:20}}>📸</span>
-            <span style={{fontSize:13,color:'var(--ink2)',fontWeight:500}}>{uploading?'Uploaden...':'Foto toevoegen'}</span>
-            <input type="file" accept="image/*" style={{display:'none'}} onChange={uploadPhoto} disabled={uploading}/>
-          </label>
-          {photos.length>0 && (
-            <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:8,marginBottom:20}}>
-              {photos.map((url,i)=>(
-                <div key={i} style={{borderRadius:'var(--r-sm)',overflow:'hidden',aspectRatio:'1',background:'var(--bg)'}}>
-                  <img src={url} style={{width:'100%',height:'100%',objectFit:'cover'}} alt="plant foto"/>
-                </div>
-              ))}
-            </div>
-          )}
-
-          <div className="log-label">Geschiedenis</div>
-          {(plant.log||[]).length===0 ? (
-            <div style={{fontSize:13,color:'var(--ink3)',padding:'8px 0'}}>Nog geen acties geregistreerd.</div>
-          ) : (plant.log||[]).slice(0,8).map((l,i)=>(
-            <div key={i} className="log-item">
-              <div className="log-dot"></div>
-              <div className="log-text">{l.type} {l.text}</div>
-              <div className="log-date">{l.date}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-      {showConfirm && (
-        <div className="modal-overlay">
-          <div className="modal">
-            <div className="modal-title serif">Plant verwijderen?</div>
-            <div className="modal-sub">"{plant.name}" wordt permanent verwijderd.</div>
-            <button className="modal-btn danger" onClick={()=>{ onDelete(plant.id); setShowConfirm(false); }}>Ja, verwijderen</button>
+            <div className="serif" style={{fontSize:22,color:'var(--ink)',marginBottom:8}}>Plant verwijderen?</div>
+            <div style={{fontSize:13,color:'var(--ink3)',marginBottom:24,lineHeight:1.5}}>"{plant.name}" wordt permanent verwijderd.</div>
+            <button className="modal-btn danger" onClick={()=>{onDelete(plant.id);setShowConfirm(false);}}>Ja, verwijderen</button>
             <button className="modal-btn cancel" onClick={()=>setShowConfirm(false)}>Annuleren</button>
           </div>
         </div>
@@ -988,8 +595,6 @@ function PlantDetail({plant, onBack, onDelete, onWater, onUpdate, showToast, use
 }
 
 // ── ADD PLANT ──
-const PERENUAL_KEY = 'sk-wthp69f8dd4e6eeaf16978';
-
 function AddPlant({onBack, onAdd}){
   const [query, setQuery] = useState('');
   const [apiResults, setApiResults] = useState([]);
@@ -1002,17 +607,8 @@ function AddPlant({onBack, onAdd}){
   const [searching, setSearching] = useState(false);
   const [timer, setTimer] = useState(null);
 
-  const parseWatering = (w) => {
-    const map = {'Frequent':3,'Average':7,'Minimum':14,'None':30};
-    return map[w] || 10;
-  };
-  const parseSunlight = (s) => {
-    if(!s||!s.length) return 'Indirect';
-    const v = (Array.isArray(s)?s[0]:s).toLowerCase();
-    if(v.includes('full sun')) return 'Direct';
-    if(v.includes('part')||v.includes('filtered')||v.includes('indirect')) return 'Indirect';
-    return 'Weinig';
-  };
+  const parseWatering = (w) => ({'Frequent':3,'Average':7,'Minimum':14,'None':30}[w]||10);
+  const parseSunlight = (s) => { if(!s||!s.length) return 'Indirect'; const v=(Array.isArray(s)?s[0]:s).toLowerCase(); if(v.includes('full sun')) return 'Direct'; if(v.includes('shade')||v.includes('indirect')) return 'Weinig'; return 'Indirect'; };
 
   const searchApi = async (q) => {
     if(q.length<2) return;
@@ -1027,104 +623,86 @@ function AddPlant({onBack, onAdd}){
 
   const handleQuery = (val) => {
     setQuery(val); setSelected(null); setApiData(null);
-    setLocalResults(val.length>0 ? PLANT_DB.filter(p=>p.name.toLowerCase().includes(val.toLowerCase())||p.species.toLowerCase().includes(val.toLowerCase())).slice(0,3) : []);
+    setLocalResults(val.length>0?PLANT_DB.filter(p=>p.name.toLowerCase().includes(val.toLowerCase())||p.species.toLowerCase().includes(val.toLowerCase())).slice(0,3):[]);
     if(timer) clearTimeout(timer);
-    setTimer(setTimeout(()=>searchApi(val), 600));
+    setTimer(setTimeout(()=>searchApi(val),600));
   };
 
   const selectApi = async (p) => {
-    const name = p.common_name || p.scientific_name?.[0] || 'Plant';
-    const species = p.scientific_name?.[0] || '';
-    const dbMatch = PLANT_DB.find(d=>d.name.toLowerCase()===name.toLowerCase());
-    setSelected({name, species, emoji: dbMatch?.emoji||'🌿', fromApi:true});
+    const name = p.common_name||p.scientific_name?.[0]||'Plant';
+    const species = p.scientific_name?.[0]||'';
+    const db = PLANT_DB.find(d=>d.name.toLowerCase()===name.toLowerCase());
+    setSelected({name,species,emoji:db?.emoji||'🌿',fromApi:true});
     setQuery(name); setApiResults([]); setLocalResults([]);
     try {
       const res = await fetch(`https://perenual.com/api/species/details/${p.id}?key=${PERENUAL_KEY}`);
       const detail = await res.json();
       setApiData(detail);
       setLight(parseSunlight(detail.sunlight));
-      setSelected(prev=>({...prev, waterEvery:parseWatering(detail.watering), feedEvery: detail.maintenance==='Low'?60:28}));
+      setSelected(prev=>({...prev,waterEvery:parseWatering(detail.watering),feedEvery:detail.maintenance==='Low'?60:28}));
     } catch(e){}
   };
 
-  const selectLocal = (p) => {
-    setSelected(p); setQuery(p.name);
-    setApiResults([]); setLocalResults([]);
-    setLight(p.light||'Indirect');
-  };
+  const selectLocal = (p) => { setSelected(p); setQuery(p.name); setApiResults([]); setLocalResults([]); setLight(p.light||'Indirect'); };
 
   const handleAdd = async () => {
     if(!selected) return;
     setSaving(true);
-    await onAdd({
-      name: selected.name, species: selected.species, emoji: selected.emoji||'🌿',
-      light, humidity,
-      water_every: selected.waterEvery||10,
-      feed_every: selected.feedEvery||28,
-      api_data: apiData ? {watering:apiData.watering, sunlight:apiData.sunlight, care_level:apiData.care_level, description:apiData.description} : null,
-    });
+    await onAdd({name:selected.name,species:selected.species,emoji:selected.emoji||'🌿',light,humidity,water_every:selected.waterEvery||10,feed_every:selected.feedEvery||28,api_data:apiData?{watering:apiData.watering,sunlight:apiData.sunlight,care_level:apiData.care_level,description:apiData.description}:null});
     setSaving(false);
   };
 
-  const combined = [...localResults, ...apiResults.filter(a=>!localResults.find(l=>l.name.toLowerCase()===(a.common_name||'').toLowerCase()))];
+  const combined = [...localResults,...apiResults.filter(a=>!localResults.find(l=>l.name.toLowerCase()===(a.common_name||'').toLowerCase()))];
 
   return (
-    <div className="screen-enter">
-      <div className="add-header">
-        <button className="add-back" onClick={onBack}>←</button>
-        <div className="add-title serif">Plant toevoegen</div>
+    <div className="enter">
+      <div style={{background:'var(--white)',padding:`calc(env(safe-area-inset-top) + 14px) 24px 14px`,borderBottom:'1px solid var(--line)',display:'flex',alignItems:'center',gap:12}}>
+        <button onClick={onBack} style={{width:34,height:34,background:'var(--bg)',borderRadius:'50%',display:'flex',alignItems:'center',justifyContent:'center',fontSize:14,cursor:'pointer',border:'none',fontFamily:'inherit',flexShrink:0}}>←</button>
+        <div className="serif" style={{fontSize:22,color:'var(--ink)'}}>Plant toevoegen</div>
       </div>
-      <div className="add-body">
+      <div className="screen-content" style={{padding:'20px 24px',display:'flex',flexDirection:'column',gap:20}}>
         <div className="field-group">
-          <div className="field-label">Zoek plant {searching && <span style={{color:'var(--green)',fontWeight:400,letterSpacing:0}}>· zoeken...</span>}</div>
-          <input className="field-input" placeholder="bv. Monstera, Lavender, Cactus..." value={query} onChange={e=>handleQuery(e.target.value)}/>
-          {combined.length>0 && (
+          <div className="field-label">Zoek plant {searching&&<span style={{color:'var(--green)',fontWeight:400,letterSpacing:0}}>· zoeken...</span>}</div>
+          <input className="field-input" placeholder="bv. Monstera, Pothos, Lavender..." value={query} onChange={e=>handleQuery(e.target.value)}/>
+          {combined.length>0&&(
             <div className="search-results">
               {combined.map((p,i)=>{
-                const isApi = !p.waterEvery;
-                const name = isApi ? (p.common_name||p.scientific_name?.[0]||'Plant') : p.name;
-                const species = isApi ? (p.scientific_name?.[0]||'') : p.species;
-                const emoji = isApi ? (PLANT_DB.find(d=>d.name.toLowerCase()===name.toLowerCase())?.emoji||'🌿') : p.emoji;
+                const isApi=!p.waterEvery;
+                const name=isApi?(p.common_name||p.scientific_name?.[0]||'Plant'):p.name;
+                const species=isApi?(p.scientific_name?.[0]||''):p.species;
+                const emoji=isApi?(PLANT_DB.find(d=>d.name.toLowerCase()===name.toLowerCase())?.emoji||'🌿'):p.emoji;
                 return (
-                  <div key={i} className={`search-result ${selected?.name===name?'selected':''}`} onClick={()=>isApi?selectApi(p):selectLocal(p)}>
-                    <span className="result-emoji">{emoji}</span>
+                  <div key={i} className={`search-result ${selected?.name===name?'sel':''}`} onClick={()=>isApi?selectApi(p):selectLocal(p)}>
+                    <span style={{fontSize:20}}>{emoji}</span>
                     <div style={{flex:1}}>
-                      <div className="result-name">{name}</div>
-                      <div className="result-species">{species}</div>
+                      <div style={{fontSize:13,fontWeight:500,color:'var(--ink)'}}>{name}</div>
+                      <div style={{fontSize:11,color:'var(--ink3)'}}>{species}</div>
                     </div>
-                    {isApi && <span style={{fontSize:10,color:'var(--green)',fontWeight:600,background:'var(--green-light)',padding:'2px 6px',borderRadius:999}}>API</span>}
+                    {isApi&&<span style={{fontSize:10,color:'var(--green)',fontWeight:600,background:'var(--green-light)',padding:'2px 6px',borderRadius:999}}>API</span>}
                   </div>
                 );
               })}
             </div>
           )}
-          {selected && (
+          {selected&&(
             <div style={{background:'var(--green-light)',borderRadius:'var(--r-sm)',padding:'12px 14px'}}>
-              <div style={{fontSize:12,color:'var(--green)',fontWeight:600,marginBottom:6}}>✓ {selected.name} geselecteerd</div>
-              {apiData ? (
-                <div style={{display:'flex',flexDirection:'column',gap:3}}>
-                  <div style={{fontSize:11,color:'var(--ink2)'}}>💧 Water: {apiData.watering} → elke ~{selected.waterEvery} dagen</div>
-                  <div style={{fontSize:11,color:'var(--ink2)'}}>☀️ {Array.isArray(apiData.sunlight)?apiData.sunlight.join(', '):apiData.sunlight}</div>
-                  {apiData.care_level && <div style={{fontSize:11,color:'var(--ink2)'}}>🌿 Verzorging: {apiData.care_level}</div>}
-                </div>
-              ) : (
-                <div style={{fontSize:11,color:'var(--ink2)'}}>💧 Water elke ~{selected.waterEvery} dagen</div>
-              )}
+              <div style={{fontSize:12,color:'var(--green)',fontWeight:600,marginBottom:apiData?6:0}}>✓ {selected.name} geselecteerd</div>
+              {apiData&&<>
+                <div style={{fontSize:11,color:'var(--ink2)',marginBottom:2}}>💧 {apiData.watering} → elke ~{selected.waterEvery} dagen</div>
+                <div style={{fontSize:11,color:'var(--ink2)'}}>{Array.isArray(apiData.sunlight)?apiData.sunlight.join(', '):apiData.sunlight}</div>
+                {apiData.care_level&&<div style={{fontSize:11,color:'var(--ink2)',marginTop:2}}>🌿 {apiData.care_level}</div>}
+              </>}
+              {!apiData&&<div style={{fontSize:11,color:'var(--ink2)'}}>💧 Water elke ~{selected.waterEvery} dagen</div>}
             </div>
           )}
-          {apiData?.description && (
-            <div style={{background:'var(--bg)',borderRadius:'var(--r-sm)',padding:'10px 12px',fontSize:12,color:'var(--ink3)',lineHeight:1.5}}>
-              {apiData.description.slice(0,180)}...
-            </div>
-          )}
+          {apiData?.description&&<div style={{background:'var(--bg)',borderRadius:'var(--r-sm)',padding:'10px 12px',fontSize:12,color:'var(--ink3)',lineHeight:1.5}}>{apiData.description.slice(0,180)}...</div>}
         </div>
         <div className="field-group">
           <div className="field-label">Lichtomstandigheden</div>
           <div className="env-selector">
             {[{v:'Weinig',icon:'🌑'},{v:'Indirect',icon:'🌤'},{v:'Direct',icon:'☀️'}].map(o=>(
               <div key={o.v} className={`env-opt ${light===o.v?'selected':''}`} onClick={()=>setLight(o.v)}>
-                <div className="env-opt-icon">{o.icon}</div>
-                <div className="env-opt-label">{o.v}</div>
+                <div className="env-opt-icon">{o.icon}</div><div className="env-opt-label">{o.v}</div>
               </div>
             ))}
           </div>
@@ -1134,15 +712,12 @@ function AddPlant({onBack, onAdd}){
           <div className="env-selector">
             {[{v:'Droog',icon:'🏜'},{v:'Normaal',icon:'🌿'},{v:'Vochtig',icon:'💦'}].map(o=>(
               <div key={o.v} className={`env-opt ${humidity===o.v?'selected':''}`} onClick={()=>setHumidity(o.v)}>
-                <div className="env-opt-icon">{o.icon}</div>
-                <div className="env-opt-label">{o.v}</div>
+                <div className="env-opt-icon">{o.icon}</div><div className="env-opt-label">{o.v}</div>
               </div>
             ))}
           </div>
         </div>
-        <button className="submit-btn" onClick={handleAdd} disabled={!selected||saving}>
-          {saving?'Opslaan...':'Plant toevoegen →'}
-        </button>
+        <button className="submit-btn" onClick={handleAdd} disabled={!selected||saving}>{saving?'Opslaan...':'Plant toevoegen →'}</button>
       </div>
     </div>
   );
@@ -1150,74 +725,58 @@ function AddPlant({onBack, onAdd}){
 
 // ── ALERTS ──
 function AlertsScreen({plants, onWater, onSnooze, onUndo}){
-  const buildAlerts = () => {
-    return plants.map(p => {
-      const diff = daysDiff(p.next_water);
-      const type = diff < 0 ? 'urgent' : diff <= 2 ? 'soon' : null;
-      if(!type) return null;
-      return { id:p.id, plant:p, type, diff };
-    }).filter(Boolean);
-  };
-  const alerts = buildAlerts();
-  const done = plants.filter(p => {
-    const diff = daysDiff(p.next_water);
-    return diff > 2;
-  }).slice(0,3);
-  const newCount = alerts.length;
-
+  const alerts = plants.map(p=>{const d=daysDiff(p.next_water);const type=d<0?'urgent':d<=2?'soon':null;return type?{id:p.id,plant:p,type,diff:d}:null;}).filter(Boolean);
+  const done = plants.filter(p=>daysDiff(p.next_water)>2).slice(0,5);
   return (
-    <div className="screen-enter">
-      <div className="page-header">
+    <div className="enter">
+      <div className="page-hdr">
         <div className="page-title serif">Meldingen</div>
-        {newCount>0 && <span className="badge-pill">{newCount} nieuw</span>}
+        {alerts.length>0&&<span style={{background:'var(--red)',color:'white',fontSize:11,fontWeight:600,padding:'3px 8px',borderRadius:999}}>{alerts.length} nieuw</span>}
       </div>
-      <div className="alerts-body">
-        {alerts.length===0 && done.length===0 && (
+      <div style={{padding:'14px 24px',display:'flex',flexDirection:'column',gap:8}}>
+        {alerts.length===0&&done.length===0&&(
           <div className="empty-state" style={{padding:'40px 0'}}>
-            <div className="empty-emoji">✅</div>
-            <div className="empty-title serif">Alles bijgewerkt</div>
-            <div className="empty-sub">Geen openstaande taken.</div>
+            <div style={{fontSize:52}}>✅</div>
+            <div className="serif" style={{fontSize:22,color:'var(--ink)'}}>Alles bijgewerkt</div>
           </div>
         )}
-        {alerts.filter(a=>a.type==='urgent').length>0 && <div className="day-label">Te laat</div>}
+        {alerts.filter(a=>a.type==='urgent').length>0&&<div style={{fontSize:10,fontWeight:600,letterSpacing:'1px',textTransform:'uppercase',color:'var(--ink3)',padding:'6px 0 2px'}}>Te laat</div>}
         {alerts.filter(a=>a.type==='urgent').map(a=>(
           <div key={a.id} className="alert-card urgent">
-            <div className="alert-icon" style={{background:'#FFF0ED'}}>💧</div>
-            <div className="alert-info">
-              <div className="alert-title">Water geven — {a.plant.name}</div>
-              <div className="alert-sub">{Math.abs(a.diff)} dagen te laat</div>
+            <div style={{width:38,height:38,borderRadius:'var(--r-sm)',background:'#FFF0ED',display:'flex',alignItems:'center',justifyContent:'center',fontSize:18,flexShrink:0}}>💧</div>
+            <div style={{flex:1,minWidth:0}}>
+              <div style={{fontSize:13,fontWeight:500,color:'var(--ink)'}}>Water geven — {a.plant.name}</div>
+              <div style={{fontSize:11,color:'var(--ink3)',marginTop:2}}>{Math.abs(a.diff)} dagen te laat</div>
             </div>
-            <div className="alert-actions">
+            <div style={{display:'flex',gap:4}}>
               <button className="alert-btn snooze" onClick={()=>onSnooze(a.plant)}>Morgen</button>
               <button className="alert-btn urgent" onClick={()=>onWater(a.plant)}>Gedaan</button>
             </div>
           </div>
         ))}
-        {alerts.filter(a=>a.type==='soon').length>0 && <div className="day-label">Binnenkort</div>}
+        {alerts.filter(a=>a.type==='soon').length>0&&<div style={{fontSize:10,fontWeight:600,letterSpacing:'1px',textTransform:'uppercase',color:'var(--ink3)',padding:'6px 0 2px'}}>Binnenkort</div>}
         {alerts.filter(a=>a.type==='soon').map(a=>(
           <div key={a.id} className="alert-card soon">
-            <div className="alert-icon" style={{background:'#FFFBF0'}}>💧</div>
-            <div className="alert-info">
-              <div className="alert-title">Water geven — {a.plant.name}</div>
-              <div className="alert-sub">{a.diff===0?'Vandaag':`Over ${a.diff} dag${a.diff===1?'':'en'}`}</div>
+            <div style={{width:38,height:38,borderRadius:'var(--r-sm)',background:'#FFFBF0',display:'flex',alignItems:'center',justifyContent:'center',fontSize:18,flexShrink:0}}>💧</div>
+            <div style={{flex:1,minWidth:0}}>
+              <div style={{fontSize:13,fontWeight:500,color:'var(--ink)'}}>Water geven — {a.plant.name}</div>
+              <div style={{fontSize:11,color:'var(--ink3)',marginTop:2}}>{a.diff===0?'Vandaag':`Over ${a.diff} dag${a.diff===1?'':'en'}`}</div>
             </div>
-            <div className="alert-actions">
+            <div style={{display:'flex',gap:4}}>
               <button className="alert-btn snooze" onClick={()=>onSnooze(a.plant)}>Morgen</button>
               <button className="alert-btn soon" onClick={()=>onWater(a.plant)}>Gedaan</button>
             </div>
           </div>
         ))}
-        {done.length>0 && <div className="day-label">Afgerond</div>}
+        {done.length>0&&<div style={{fontSize:10,fontWeight:600,letterSpacing:'1px',textTransform:'uppercase',color:'var(--ink3)',padding:'6px 0 2px'}}>Afgerond</div>}
         {done.map(p=>(
           <div key={p.id} className="alert-card done">
-            <div className="alert-icon" style={{background:'var(--bg2)'}}>💧</div>
-            <div className="alert-info">
-              <div className="alert-title">Water geven — {p.name}</div>
-              <div className="alert-sub">Afgerond · volgende: {formatNext(p.next_water)}</div>
+            <div style={{width:38,height:38,borderRadius:'var(--r-sm)',background:'var(--bg2)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:18,flexShrink:0}}>💧</div>
+            <div style={{flex:1,minWidth:0}}>
+              <div style={{fontSize:13,fontWeight:500,color:'var(--ink)'}}>Water geven — {p.name}</div>
+              <div style={{fontSize:11,color:'var(--ink3)',marginTop:2}}>Volgende: {formatNext(p.next_water)}</div>
             </div>
-            <div className="alert-actions">
-              <button className="alert-btn undo" onClick={()=>onUndo(p)}>Ongedaan</button>
-            </div>
+            <button className="alert-btn undo" onClick={()=>onUndo(p)}>Ongedaan</button>
           </div>
         ))}
       </div>
@@ -1227,79 +786,67 @@ function AlertsScreen({plants, onWater, onSnooze, onUndo}){
 
 // ── SCHEMA ──
 function SchemaScreen({plants}){
-  const days = ['Ma','Di','Wo','Do','Vr','Za','Zo'];
-  const now = new Date();
-  const year = now.getFullYear();
-  const month = now.getMonth();
-  const months = ['Januari','Februari','Maart','April','Mei','Juni','Juli','Augustus','September','Oktober','November','December'];
-  const firstDay = new Date(year,month,1);
-  const lastDay = new Date(year,month+1,0);
-  const startDow = (firstDay.getDay()+6)%7;
+  const DAYS = ['Ma','Di','Wo','Do','Vr','Za','Zo'];
+  const MONTHS = ['Januari','Februari','Maart','April','Mei','Juni','Juli','Augustus','September','Oktober','November','December'];
+  const now = new Date(); const y=now.getFullYear(); const m=now.getMonth();
+  const first = new Date(y,m,1); const last = new Date(y,m+1,0);
+  const startDow = (first.getDay()+6)%7;
   const cells = [];
-  for(let i=0;i<startDow;i++) cells.push({n:new Date(year,month,-(startDow-1-i)).getDate(),other:true,dots:[]});
-  for(let d=1;d<=lastDay.getDate();d++){
-    const date = `${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
-    const dots = [];
-    plants.forEach(p=>{ if(p.next_water===date) dots.push('water'); if(p.next_feed===date) dots.push('feed'); });
+  for(let i=0;i<startDow;i++) cells.push({n:new Date(y,m,-startDow+1+i).getDate(),other:true,dots:[]});
+  for(let d=1;d<=last.getDate();d++){
+    const iso = `${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const dots=[];
+    plants.forEach(p=>{if(p.next_water===iso)dots.push('water');if(p.next_feed===iso)dots.push('feed');});
     cells.push({n:d,today:d===now.getDate(),dots});
   }
-  while(cells.length%7!==0) cells.push({n:cells.length-lastDay.getDate()-startDow+1,other:true,dots:[]});
-
-  const upcoming = [];
-  plants.forEach(p=>{
-    const diff = daysDiff(p.next_water);
-    if(diff>=0&&diff<=14){
-      const d = new Date(p.next_water);
-      upcoming.push({date:p.next_water,day:d.getDate(),dayName:days[(d.getDay()+6)%7],action:'💧 Water geven',plant:p.name,type:'water'});
-    }
-  });
-  upcoming.sort((a,b)=>a.date.localeCompare(b.date));
-
+  while(cells.length%7!==0) cells.push({n:cells.length-last.getDate()-startDow+1,other:true,dots:[]});
+  const upcoming = plants.flatMap(p=>{
+    const diff=daysDiff(p.next_water);
+    if(diff<0||diff>14) return [];
+    const d=new Date(p.next_water);
+    return [{date:p.next_water,day:d.getDate(),dayName:DAYS[(d.getDay()+6)%7],action:'💧 Water',plant:p.name,type:'water'}];
+  }).sort((a,b)=>a.date.localeCompare(b.date));
   return (
-    <div className="screen-enter">
-      <div className="schema-header">
-        <div className="schema-title serif">Schema</div>
-        <div className="month-nav">
-          <button className="month-arrow">‹</button>
-          <div className="month-label">{months[month]} {year}</div>
-          <button className="month-arrow">›</button>
+    <div className="enter">
+      <div className="page-hdr" style={{flexDirection:'column',alignItems:'flex-start',gap:10}}>
+        <div className="page-title serif">Schema</div>
+        <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',width:'100%'}}>
+          <button style={{width:30,height:30,background:'var(--bg)',borderRadius:'50%',border:'none',fontSize:14,cursor:'pointer'}}>‹</button>
+          <div style={{fontSize:14,fontWeight:600,color:'var(--ink)'}}>{MONTHS[m]} {y}</div>
+          <button style={{width:30,height:30,background:'var(--bg)',borderRadius:'50%',border:'none',fontSize:14,cursor:'pointer'}}>›</button>
         </div>
       </div>
-      <div className="cal-wrap">
-        <div className="cal-days-row">{days.map(d=><div key={d} className="cal-day-name">{d}</div>)}</div>
+      <div style={{padding:'14px 24px 0'}}>
+        <div style={{display:'grid',gridTemplateColumns:'repeat(7,1fr)',marginBottom:4}}>
+          {DAYS.map(d=><div key={d} style={{textAlign:'center',fontSize:10,fontWeight:600,letterSpacing:'0.8px',textTransform:'uppercase',color:'var(--ink3)',padding:'4px 0'}}>{d}</div>)}
+        </div>
         <div className="cal-grid">
           {cells.map((c,i)=>(
             <div key={i} className={`cal-cell ${c.today?'today':''} ${c.other?'other':''}`}>
               <div className="cal-num">{c.n}</div>
-              {c.dots&&c.dots.length>0&&(
-                <div className="cal-dots">
-                  {c.dots.slice(0,3).map((d,j)=><div key={j} className={`dot ${d}`} style={c.today?{background:'rgba(255,255,255,0.7)'}:{}}/>)}
-                </div>
-              )}
+              {c.dots?.length>0&&<div style={{display:'flex',gap:2,marginTop:2}}>{c.dots.slice(0,3).map((d,j)=><div key={j} className={`dot ${d}`} style={c.today?{background:'rgba(255,255,255,0.7)'}:{}}/>)}</div>}
             </div>
           ))}
         </div>
-        <div className="cal-legend">
-          <div className="legend-item"><div className="dot water" style={{width:7,height:7}}/> Water</div>
-          <div className="legend-item"><div className="dot feed" style={{width:7,height:7}}/> Voeding</div>
+        <div style={{display:'flex',gap:14,padding:'10px 0 4px',alignItems:'center'}}>
+          <div style={{display:'flex',alignItems:'center',gap:5,fontSize:11,color:'var(--ink3)'}}><div className="dot water" style={{width:7,height:7}}/> Water</div>
+          <div style={{display:'flex',alignItems:'center',gap:5,fontSize:11,color:'var(--ink3)'}}><div className="dot feed" style={{width:7,height:7}}/> Voeding</div>
         </div>
       </div>
-      <div className="upcoming-list">
-        <div className="section-label" style={{padding:'4px 0 8px'}}>Aankomend</div>
-        {upcoming.length===0 ? (
-          <div style={{fontSize:13,color:'var(--ink3)',padding:'8px 0'}}>Geen geplande taken de komende 2 weken.</div>
-        ) : upcoming.slice(0,6).map((u,i)=>(
-          <div key={i} className="upcoming-item">
-            <div className="up-date">
-              <div className="up-day-num serif">{u.day}</div>
-              <div className="up-day-name">{u.dayName}</div>
+      <div style={{padding:'14px 24px'}}>
+        <div className="sec-label" style={{marginBottom:8}}>Aankomend</div>
+        {upcoming.length===0?<div style={{fontSize:13,color:'var(--ink3)'}}>Geen taken de komende 2 weken.</div>:upcoming.slice(0,6).map((u,i)=>(
+          <div key={i} style={{display:'flex',alignItems:'center',gap:12,padding:'11px 0',borderBottom:'1px solid var(--line)'}}>
+            <div style={{width:36,textAlign:'center',flexShrink:0}}>
+              <div className="serif" style={{fontSize:22,color:'var(--ink)',lineHeight:1}}>{u.day}</div>
+              <div style={{fontSize:9,fontWeight:600,textTransform:'uppercase',letterSpacing:'0.8px',color:'var(--ink3)'}}>{u.dayName}</div>
             </div>
-            <div className="up-divider"/>
-            <div className="up-info">
-              <div className="up-action">{u.action}</div>
-              <div className="up-plant">{u.plant}</div>
+            <div style={{width:1,height:32,background:'var(--line)',flexShrink:0}}/>
+            <div style={{flex:1}}>
+              <div style={{fontSize:13,fontWeight:500,color:'var(--ink)'}}>{u.action}</div>
+              <div style={{fontSize:11,color:'var(--ink3)',marginTop:2}}>{u.plant}</div>
             </div>
-            <span className={`up-chip ${u.type}`}>{u.type==='water'?'Water':'Voeding'}</span>
+            <span style={{fontSize:10,fontWeight:600,padding:'3px 8px',borderRadius:999,background:'var(--blue-soft)',color:'var(--blue)',flexShrink:0}}>Water</span>
           </div>
         ))}
       </div>
@@ -1313,85 +860,75 @@ function ProfielScreen({user, plants, onLogout, onDeleteAll}){
   const [digest, setDigest] = useState(false);
   const [showDeleteAll, setShowDeleteAll] = useState(false);
   const [showSummary, setShowSummary] = useState(false);
-
-  const urgentCount = plants.filter(p=>getStatus(p)==='urgent').length;
-  const soonCount = plants.filter(p=>getStatus(p)==='soon').length;
-
+  const urgent = plants.filter(p=>getStatus(p)==='urgent').length;
+  const soon = plants.filter(p=>getStatus(p)==='soon').length;
   return (
-    <div className="screen-enter">
-      <div className="profiel-header">
-        <div className="avatar">
-          {user?.user_metadata?.avatar_url ? <img src={user.user_metadata.avatar_url} alt="avatar"/> : '🌿'}
+    <div className="enter">
+      <div style={{background:'var(--white)',padding:`calc(env(safe-area-inset-top) + 20px) 24px 20px`,borderBottom:'1px solid var(--line)',display:'flex',flexDirection:'column',alignItems:'center',gap:8}}>
+        <div style={{width:68,height:68,borderRadius:'50%',background:'var(--green-light)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:30,border:'2px solid var(--green-mid)',overflow:'hidden'}}>
+          {user?.user_metadata?.avatar_url?<img src={user.user_metadata.avatar_url} style={{width:'100%',height:'100%',objectFit:'cover'}} alt="avatar"/>:'🌿'}
         </div>
-        <div className="profiel-name serif">{user?.user_metadata?.full_name || 'Gebruiker'}</div>
-        <div className="profiel-email">{user?.email}</div>
+        <div className="serif" style={{fontSize:22,color:'var(--ink)'}}>{user?.user_metadata?.full_name||'Gebruiker'}</div>
+        <div style={{fontSize:12,color:'var(--ink3)',marginTop:-4}}>{user?.email}</div>
       </div>
-      <div className="stats-row">
-        <div className="stat"><div className="stat-num serif">{plants.length}</div><div className="stat-label">Planten</div></div>
-        <div className="stat"><div className="stat-num serif">{plants.reduce((s,p)=>(p.log||[]).length+s,0)}</div><div className="stat-label">Acties</div></div>
-        <div className="stat"><div className="stat-num serif">{plants.filter(p=>getStatus(p)==='good').length}</div><div className="stat-label">Gezond</div></div>
+      <div style={{display:'flex',justifyContent:'center',gap:36,padding:'16px 24px',background:'var(--white)',borderBottom:'1px solid var(--line)'}}>
+        {[{n:plants.length,l:'Planten'},{n:plants.reduce((s,p)=>(p.log||[]).length+s,0),l:'Acties'},{n:plants.filter(p=>getStatus(p)==='good').length,l:'Gezond'}].map(s=>(
+          <div key={s.l} style={{display:'flex',flexDirection:'column',alignItems:'center',gap:2}}>
+            <div className="serif" style={{fontSize:26,color:'var(--ink)',lineHeight:1}}>{s.n}</div>
+            <div style={{fontSize:10,fontWeight:600,textTransform:'uppercase',letterSpacing:'0.8px',color:'var(--ink3)'}}>{s.l}</div>
+          </div>
+        ))}
       </div>
-      <div className="settings-wrap">
-        <div className="section-label" style={{paddingBottom:8}}>Meldingen</div>
+      <div style={{padding:'16px 24px 0'}}>
+        <div className="sec-label" style={{paddingBottom:8}}>Meldingen</div>
         <div className="settings-block">
           <div className="settings-row">
             <div className="s-icon" style={{background:'#EAF1EC'}}>🔔</div>
-            <div className="s-text"><div className="s-label">Push meldingen</div><div className="s-sub">Herinneringen per plant</div></div>
+            <div style={{flex:1}}><div style={{fontSize:14,color:'var(--ink)'}}>Push meldingen</div><div style={{fontSize:11,color:'var(--ink3)',marginTop:1}}>Herinneringen per plant</div></div>
             <div className={`toggle ${notifs?'on':'off'}`} onClick={()=>setNotifs(!notifs)}/>
           </div>
-          <div className="settings-row" onClick={()=>{ setDigest(!digest); if(!digest) setShowSummary(true); }}>
+          <div className="settings-row" onClick={()=>{setDigest(!digest);if(!digest)setShowSummary(true);}}>
             <div className="s-icon" style={{background:'#FBF3E2'}}>📅</div>
-            <div className="s-text"><div className="s-label">Dagelijkse samenvatting</div><div className="s-sub">Overzicht van vandaag</div></div>
+            <div style={{flex:1}}><div style={{fontSize:14,color:'var(--ink)'}}>Dagelijkse samenvatting</div><div style={{fontSize:11,color:'var(--ink3)',marginTop:1}}>Overzicht van vandaag</div></div>
             <div className={`toggle ${digest?'on':'off'}`}/>
           </div>
         </div>
-        <div className="section-label" style={{padding:'4px 0 8px'}}>Account</div>
+        <div className="sec-label" style={{padding:'4px 0 8px'}}>Account</div>
         <div className="settings-block">
           <div className="settings-row" onClick={()=>setShowDeleteAll(true)}>
             <div className="s-icon" style={{background:'#F5EAE8'}}>🗑</div>
-            <div className="s-text"><div className="s-label">Alle planten verwijderen</div><div className="s-sub">Niet te herstellen</div></div>
-            <div className="s-arrow" style={{color:'var(--red)'}}>›</div>
+            <div style={{flex:1}}><div style={{fontSize:14,color:'var(--ink)'}}>Alle planten verwijderen</div><div style={{fontSize:11,color:'var(--ink3)',marginTop:1}}>Niet te herstellen</div></div>
+            <div style={{fontSize:13,color:'var(--red)'}}>›</div>
           </div>
         </div>
         <div style={{height:12}}/>
-        <button className="logout-btn" onClick={onLogout}>Uitloggen</button>
+        <button onClick={onLogout} style={{width:'100%',padding:14,background:'var(--red-soft)',border:'none',borderRadius:'var(--r)',color:'var(--red)',fontSize:14,fontWeight:600,fontFamily:'inherit',cursor:'pointer'}}>Uitloggen</button>
       </div>
-
-      {/* DELETE ALL MODAL */}
-      {showDeleteAll && (
+      {showDeleteAll&&(
         <div className="modal-overlay">
           <div className="modal">
-            <div className="modal-title serif">Alle planten verwijderen?</div>
-            <div className="modal-sub">Je verwijdert {plants.length} plant{plants.length!==1?'en':''}. Dit kan niet ongedaan worden gemaakt.</div>
-            <button className="modal-btn danger" onClick={()=>{ onDeleteAll(); setShowDeleteAll(false); }}>Ja, alles verwijderen</button>
+            <div className="serif" style={{fontSize:22,color:'var(--ink)',marginBottom:8}}>Alle planten verwijderen?</div>
+            <div style={{fontSize:13,color:'var(--ink3)',marginBottom:24,lineHeight:1.5}}>Je verwijdert {plants.length} plant{plants.length!==1?'en':''}. Niet te herstellen.</div>
+            <button className="modal-btn danger" onClick={()=>{onDeleteAll();setShowDeleteAll(false);}}>Ja, alles verwijderen</button>
             <button className="modal-btn cancel" onClick={()=>setShowDeleteAll(false)}>Annuleren</button>
           </div>
         </div>
       )}
-
-      {/* DAILY SUMMARY MODAL */}
-      {showSummary && (
+      {showSummary&&(
         <div className="modal-overlay" onClick={()=>setShowSummary(false)}>
           <div className="modal" onClick={e=>e.stopPropagation()}>
-            <div className="modal-title serif">🌿 Dagelijkse samenvatting</div>
-            <div style={{fontSize:13,color:'var(--ink2)',marginBottom:16,lineHeight:1.6}}>
-              Je hebt <strong>{plants.length} plant{plants.length!==1?'en':''}</strong> in je tuin.
-            </div>
-            {urgentCount>0 && <div style={{background:'var(--red-soft)',borderRadius:'var(--r-sm)',padding:'10px 14px',marginBottom:8,fontSize:13,color:'var(--red)',fontWeight:500}}>⚠️ {urgentCount} plant{urgentCount!==1?'en':''} hebben dringend water nodig</div>}
-            {soonCount>0 && <div style={{background:'var(--yellow-soft)',borderRadius:'var(--r-sm)',padding:'10px 14px',marginBottom:8,fontSize:13,color:'var(--yellow)',fontWeight:500}}>⏰ {soonCount} plant{soonCount!==1?'en':''} binnenkort water nodig</div>}
-            {urgentCount===0&&soonCount===0 && <div style={{background:'var(--green-light)',borderRadius:'var(--r-sm)',padding:'10px 14px',marginBottom:8,fontSize:13,color:'var(--green)',fontWeight:500}}>✅ Alle planten zijn in goede staat!</div>}
-            <div style={{marginTop:8}}>
-              {plants.map(p=>(
-                <div key={p.id} style={{display:'flex',alignItems:'center',gap:10,padding:'8px 0',borderBottom:'1px solid var(--line)'}}>
-                  <span style={{fontSize:20}}>{p.emoji}</span>
-                  <div style={{flex:1}}>
-                    <div style={{fontSize:13,fontWeight:500,color:'var(--ink)'}}>{p.name}</div>
-                    <div style={{fontSize:11,color:'var(--ink3)'}}>{formatNext(p.next_water)}</div>
-                  </div>
-                  <div className={`status-dot ${getStatus(p)}`}></div>
-                </div>
-              ))}
-            </div>
+            <div className="serif" style={{fontSize:22,color:'var(--ink)',marginBottom:8}}>🌿 Dagelijkse samenvatting</div>
+            <div style={{fontSize:13,color:'var(--ink2)',marginBottom:16,lineHeight:1.6}}>Je hebt <strong>{plants.length}</strong> plant{plants.length!==1?'en':''} in je tuin.</div>
+            {urgent>0&&<div style={{background:'var(--red-soft)',borderRadius:'var(--r-sm)',padding:'10px 14px',marginBottom:8,fontSize:13,color:'var(--red)',fontWeight:500}}>⚠️ {urgent} plant{urgent!==1?'en':''} hebben dringend water nodig</div>}
+            {soon>0&&<div style={{background:'var(--yellow-soft)',borderRadius:'var(--r-sm)',padding:'10px 14px',marginBottom:8,fontSize:13,color:'var(--yellow)',fontWeight:500}}>⏰ {soon} plant{soon!==1?'en':''} binnenkort water nodig</div>}
+            {urgent===0&&soon===0&&<div style={{background:'var(--green-light)',borderRadius:'var(--r-sm)',padding:'10px 14px',marginBottom:8,fontSize:13,color:'var(--green)',fontWeight:500}}>✅ Alle planten zijn in goede staat!</div>}
+            {plants.map(p=>(
+              <div key={p.id} style={{display:'flex',alignItems:'center',gap:10,padding:'8px 0',borderBottom:'1px solid var(--line)'}}>
+                <span style={{fontSize:20}}>{p.emoji}</span>
+                <div style={{flex:1}}><div style={{fontSize:13,fontWeight:500,color:'var(--ink)'}}>{p.name}</div><div style={{fontSize:11,color:'var(--ink3)'}}>{formatNext(p.next_water)}</div></div>
+                <div className={`status-dot ${getStatus(p)}`}/>
+              </div>
+            ))}
             <button className="modal-btn cancel" style={{marginTop:16}} onClick={()=>setShowSummary(false)}>Sluiten</button>
           </div>
         </div>
@@ -1412,140 +949,94 @@ function App(){
 
   const showToast = (msg) => { setToast(msg); setTimeout(()=>setToast(''),3000); };
 
-  // Auth
   useEffect(()=>{
-    supabase.auth.getSession().then(({data:{session}})=>{ setSession(session); setLoading(false); });
-    const {data:{subscription}} = supabase.auth.onAuthStateChange((_,session)=>{ setSession(session); setLoading(false); });
+    supabase.auth.getSession().then(({data:{session}})=>{setSession(session);setLoading(false);});
+    const {data:{subscription}} = supabase.auth.onAuthStateChange((_,s)=>{setSession(s);setLoading(false);});
     return ()=>subscription.unsubscribe();
   },[]);
 
-  // Load plants
-  useEffect(()=>{
-    if(!session) return;
-    loadPlants();
-  },[session]);
+  useEffect(()=>{ if(session) loadPlants(); },[session]);
 
   const loadPlants = async () => {
-    const {data,error} = await supabase.from('plants').select('*').order('created_at',{ascending:true});
-    if(!error) setPlants(data||[]);
+    const {data} = await supabase.from('plants').select('*').order('created_at',{ascending:true});
+    if(data) setPlants(data);
   };
 
-  // Add plant
   const handleAdd = async (plant) => {
-    const t = today();
-    const newPlant = {
-      user_id: session.user.id,
-      name: plant.name,
-      species: plant.species,
-      emoji: plant.emoji,
-      light: plant.light,
-      humidity: plant.humidity,
-      water_every: plant.water_every,
-      feed_every: plant.feed_every,
-      next_water: t,
-      next_feed: addDays(t, plant.feed_every),
-      log: []
-    };
-    const {data,error} = await supabase.from('plants').insert([newPlant]).select();
+    const t = todayStr();
+    const {data,error} = await supabase.from('plants').insert([{user_id:session.user.id,...plant,next_water:t,next_feed:addDays(t,plant.feed_every),log:[],photos:[],windows:[]}]).select();
     if(!error){ setPlants(prev=>[...prev,...data]); setShowAdd(false); setTab('home'); showToast('🌿 Plant toegevoegd!'); }
     else alert('Fout: '+error.message);
   };
 
-  // Water plant
   const handleWater = async (plant) => {
-    const newNext = addDays(today(), plant.water_every);
-    const newLog = [{type:'💧',text:'Water gegeven',date:new Date().toLocaleDateString('nl-NL',{day:'numeric',month:'short'})},...(plant.log||[])].slice(0,10);
-    const {error} = await supabase.from('plants').update({next_water:newNext,log:newLog}).eq('id',plant.id);
-    if(!error){
-      setPlants(prev=>prev.map(p=>p.id===plant.id?{...p,next_water:newNext,log:newLog}:p));
-      if(selectedPlant?.id===plant.id) setSelectedPlant(prev=>({...prev,next_water:newNext,log:newLog}));
-      showToast('💧 Water gegeven!');
-    }
+    const newNext = addDays(todayStr(),plant.water_every);
+    const date = new Date().toLocaleDateString('nl-NL',{day:'numeric',month:'short'});
+    const newLog = [{type:'💧',text:'Water gegeven',date},...(plant.log||[])].slice(0,20);
+    await supabase.from('plants').update({next_water:newNext,log:newLog}).eq('id',plant.id);
+    const updated = {...plant,next_water:newNext,log:newLog};
+    setPlants(prev=>prev.map(p=>p.id===plant.id?updated:p));
+    if(selectedPlant?.id===plant.id) setSelectedPlant(updated);
+    showToast('💧 Water gegeven!');
   };
 
-  // Snooze (push next_water 1 day)
   const handleSnooze = async (plant) => {
-    const newNext = addDays(plant.next_water, 1);
-    const {error} = await supabase.from('plants').update({next_water:newNext}).eq('id',plant.id);
-    if(!error){ setPlants(prev=>prev.map(p=>p.id===plant.id?{...p,next_water:newNext}:p)); showToast('⏰ Uitgesteld tot morgen'); }
+    const newNext = addDays(plant.next_water,1);
+    await supabase.from('plants').update({next_water:newNext}).eq('id',plant.id);
+    setPlants(prev=>prev.map(p=>p.id===plant.id?{...p,next_water:newNext}:p));
+    showToast('⏰ Uitgesteld tot morgen');
   };
 
-  // Undo water (reset next_water to today)
   const handleUndo = async (plant) => {
-    const {error} = await supabase.from('plants').update({next_water:today()}).eq('id',plant.id);
-    if(!error){ setPlants(prev=>prev.map(p=>p.id===plant.id?{...p,next_water:today()}:p)); showToast('↩️ Taak teruggezet'); }
+    await supabase.from('plants').update({next_water:todayStr()}).eq('id',plant.id);
+    setPlants(prev=>prev.map(p=>p.id===plant.id?{...p,next_water:todayStr()}:p));
+    showToast('↩️ Taak teruggezet');
   };
 
-  // Delete plant
   const handleDelete = async (id) => {
-    const {error} = await supabase.from('plants').delete().eq('id',id);
-    if(!error){ setPlants(prev=>prev.filter(p=>p.id!==id)); setSelectedPlant(null); showToast('🗑 Plant verwijderd'); }
+    await supabase.from('plants').delete().eq('id',id);
+    setPlants(prev=>prev.filter(p=>p.id!==id));
+    setSelectedPlant(null);
+    showToast('🗑 Plant verwijderd');
   };
 
-  // Update plant locally
-  const handleUpdate = (updatedPlant) => {
-    setPlants(prev=>prev.map(p=>p.id===updatedPlant.id?updatedPlant:p));
-    setSelectedPlant(updatedPlant);
-  };
-
-  // Delete all plants
   const handleDeleteAll = async () => {
-    const {error} = await supabase.from('plants').delete().eq('user_id', session.user.id);
-    if(!error){ setPlants([]); showToast('🗑 Alle planten verwijderd'); }
+    await supabase.from('plants').delete().eq('user_id',session.user.id);
+    setPlants([]); showToast('🗑 Alle planten verwijderd');
   };
 
-  // Logout
+  const handleUpdate = (updated) => {
+    setPlants(prev=>prev.map(p=>p.id===updated.id?updated:p));
+    setSelectedPlant(updated);
+  };
+
   const handleLogout = async () => { await supabase.auth.signOut(); setSession(null); setPlants([]); };
+
+  if(loading) return <div className="app"><div className="loading-wrap"><div className="spinner"/><div style={{fontSize:14,color:'var(--ink3)'}}>Laden...</div></div></div>;
+  if(!session) return <div className="app"><LoginScreen/></div>;
 
   const showNav = !selectedPlant && !showAdd;
 
-  if(loading) return (
-    <div className="shell"><div className="phone">
-      <div className="status-bar"><span>9:41</span><div className="notch"/><span>●●●</span></div>
-      <div className="loading-wrap"><div className="loading-spinner"/><div className="loading-text">Laden...</div></div>
-    </div></div>
-  );
-
-  if(!session) return (
-    <div className="shell"><div className="phone">
-      <div className="status-bar"><span>9:41</span><div className="notch"/><span>●●●</span></div>
-      <div className="screen-content" style={{paddingBottom:0}}><LoginScreen loading={loading}/></div>
-    </div></div>
-  );
-
-  const renderScreen = () => {
-    if(selectedPlant) return <PlantDetail plant={selectedPlant} onBack={()=>setSelectedPlant(null)} onDelete={handleDelete} onWater={handleWater} onUpdate={handleUpdate} showToast={showToast} userId={session.user.id}/>;
-    if(showAdd) return <AddPlant onBack={()=>setShowAdd(false)} onAdd={handleAdd}/>;
-    if(tab==='home') return <Dashboard plants={plants} onPlantClick={setSelectedPlant} onAdd={()=>setShowAdd(true)}/>;
-    if(tab==='schema') return <SchemaScreen plants={plants}/>;
-    if(tab==='alerts') return <AlertsScreen plants={plants} onWater={handleWater} onSnooze={handleSnooze} onUndo={handleUndo}/>;
-    if(tab==='profiel') return <ProfielScreen user={session.user} plants={plants} onLogout={handleLogout} onDeleteAll={handleDeleteAll}/>;
-  };
-
   return (
-    <div className="shell">
-      <div className="phone">
-        <div className="status-bar"><span>9:41</span><div className="notch"/><span>●●●</span></div>
-        <div className="screen-content">{renderScreen()}</div>
-        {showNav && (
-          <div className="bottom-nav">
-            <div className={`nav-item ${tab==='home'?'active':''}`} onClick={()=>setTab('home')}>
-              <div className="nav-icon">🏡</div><div className="nav-label">Tuin</div>
-            </div>
-            <div className={`nav-item ${tab==='schema'?'active':''}`} onClick={()=>setTab('schema')}>
-              <div className="nav-icon">📅</div><div className="nav-label">Schema</div>
-            </div>
-            <div className="nav-add" onClick={()=>setShowAdd(true)}>+</div>
-            <div className={`nav-item ${tab==='alerts'?'active':''}`} onClick={()=>setTab('alerts')}>
-              <div className="nav-icon">🔔</div><div className="nav-label">Alerts</div>
-            </div>
-            <div className={`nav-item ${tab==='profiel'?'active':''}`} onClick={()=>setTab('profiel')}>
-              <div className="nav-icon">👤</div><div className="nav-label">Profiel</div>
-            </div>
-          </div>
-        )}
-        <Toast msg={toast}/>
+    <div className="app">
+      <div className="screen-content">
+        {selectedPlant && <PlantDetail plant={selectedPlant} onBack={()=>setSelectedPlant(null)} onDelete={handleDelete} onWater={handleWater} onUpdate={handleUpdate} showToast={showToast} userId={session.user.id}/>}
+        {!selectedPlant && showAdd && <AddPlant onBack={()=>setShowAdd(false)} onAdd={handleAdd}/>}
+        {!selectedPlant && !showAdd && tab==='home' && <Dashboard plants={plants} onPlantClick={setSelectedPlant} onAdd={()=>setShowAdd(true)}/>}
+        {!selectedPlant && !showAdd && tab==='schema' && <SchemaScreen plants={plants}/>}
+        {!selectedPlant && !showAdd && tab==='alerts' && <AlertsScreen plants={plants} onWater={handleWater} onSnooze={handleSnooze} onUndo={handleUndo}/>}
+        {!selectedPlant && !showAdd && tab==='profiel' && <ProfielScreen user={session.user} plants={plants} onLogout={handleLogout} onDeleteAll={handleDeleteAll}/>}
       </div>
+      {showNav && (
+        <div className="bottom-nav">
+          <div className={`nav-item ${tab==='home'?'active':''}`} onClick={()=>setTab('home')}><div className="nav-icon">🏡</div><div className="nav-label">Tuin</div></div>
+          <div className={`nav-item ${tab==='schema'?'active':''}`} onClick={()=>setTab('schema')}><div className="nav-icon">📅</div><div className="nav-label">Schema</div></div>
+          <div className="nav-add" onClick={()=>setShowAdd(true)}>+</div>
+          <div className={`nav-item ${tab==='alerts'?'active':''}`} onClick={()=>setTab('alerts')}><div className="nav-icon">🔔</div><div className="nav-label">Alerts</div></div>
+          <div className={`nav-item ${tab==='profiel'?'active':''}`} onClick={()=>setTab('profiel')}><div className="nav-icon">👤</div><div className="nav-label">Profiel</div></div>
+        </div>
+      )}
+      <Toast msg={toast}/>
     </div>
   );
 }
