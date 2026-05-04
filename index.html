@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
 <title>PlantApp</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -248,7 +248,7 @@ html,body,#root{height:100%;background:#1A1A18;font-family:'DM Sans',sans-serif;
 const { useState, useEffect, useCallback } = React;
 
 // ── SUPABASE ──
-const supabase = supabaseJs.createClient(
+const supabase = window.supabase.createClient(
   'https://macwxoefrmlrhnbaukzq.supabase.co',
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1hY3d4b2Vmcm1scmhuYmF1a3pxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc5MDY4OTEsImV4cCI6MjA5MzQ4Mjg5MX0.J-xtpnCtH5CW9nOuQK9B0NPZ4--0T7bqJkZniO0gSm4'
 );
