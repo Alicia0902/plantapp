@@ -257,22 +257,61 @@ const supabase = window.supabase.createClient(
 
 // ── PLANT DATABASE ──
 const PLANT_DB = [
-  {name:'Monstera',species:'Monstera deliciosa',emoji:'🌿',waterEvery:8,feedEvery:28,light:'Fel indirect',humidity:'Medium',tips:'Houd de bladeren schoon. Geef water als de bovenste 3cm grond droog is.'},
-  {name:'Monstera adansonii',species:'Gatenplant klein',emoji:'🍃',waterEvery:7,feedEvery:28,light:'Indirect',humidity:'Hoog',tips:'Houdt van vocht. Benevelen helpt.'},
-  {name:'Pothos',species:'Epipremnum aureum',emoji:'🪴',waterEvery:10,feedEvery:30,light:'Weinig tot indirect',humidity:'Laag',tips:'Zeer robuust. Laat de grond goed opdrogen tussen het water geven.'},
-  {name:'Snake Plant',species:'Dracaena trifasciata',emoji:'🌵',waterEvery:21,feedEvery:60,light:'Weinig',humidity:'Laag',tips:'Overwateren is de grootste vijand. Geef heel weinig water in de winter.'},
-  {name:'Calathea',species:'Calathea ornata',emoji:'🌺',waterEvery:7,feedEvery:28,light:'Indirect',humidity:'Hoog',tips:'Gebruikt regenwater of gefilterd water. Bladeren rollen op bij stress.'},
-  {name:'Fiddle Leaf',species:'Ficus lyrata',emoji:'🌳',waterEvery:10,feedEvery:28,light:'Fel indirect',humidity:'Medium',tips:'Niet verplaatsen als hij eenmaal staat. Houdt van stabiliteit.'},
-  {name:'Peace Lily',species:'Spathiphyllum',emoji:'🌸',waterEvery:7,feedEvery:30,light:'Weinig',humidity:'Medium',tips:'Hangt letterlijk slap als hij water nodig heeft. Goede indicator.'},
-  {name:'ZZ Plant',species:'Zamioculcas zamiifolia',emoji:'🌱',waterEvery:21,feedEvery:60,light:'Weinig',humidity:'Laag',tips:'Bijna onverwoestbaar. Overwateren is het enige dat hem kan doden.'},
-  {name:'Rubber Plant',species:'Ficus elastica',emoji:'🍀',waterEvery:10,feedEvery:28,light:'Fel indirect',humidity:'Medium',tips:'Veeg de bladeren af met een vochtig doekje voor meer glans.'},
-  {name:'Cactus',species:'Cactaceae',emoji:'🌵',waterEvery:30,feedEvery:90,light:'Direct',humidity:'Laag',tips:'Geef in de zomer water, in de winter bijna niet.'},
-  {name:'Orchidee',species:'Phalaenopsis',emoji:'🌷',waterEvery:10,feedEvery:14,light:'Indirect',humidity:'Medium',tips:'Zet de pot even in water en laat goed uitlekken. Nooit in stilstaand water.'},
-  {name:'Aloe Vera',species:'Aloe barbadensis',emoji:'🌵',waterEvery:14,feedEvery:60,light:'Direct',humidity:'Laag',tips:'Laat de grond volledig drogen voor je water geeft.'},
-  {name:'Basil',species:'Ocimum basilicum',emoji:'🌿',waterEvery:2,feedEvery:14,light:'Direct',humidity:'Medium',tips:'Elke dag in de gaten houden. Snij regelmatig de toppen af.'},
-  {name:'Fern',species:'Nephrolepis exaltata',emoji:'🌿',waterEvery:3,feedEvery:21,light:'Indirect',humidity:'Hoog',tips:'Houdt van vochtige lucht. Benevelen of op een schoteltje met water zetten.'},
-  {name:'Lavender',species:'Lavandula',emoji:'💜',waterEvery:10,feedEvery:30,light:'Direct',humidity:'Laag',tips:'Houdt van droge grond en veel zon.'},
+  {name:'Monstera',species:'Monstera deliciosa',emoji:'🌿',waterEvery:8,feedEvery:28,light:'Fel indirect',humidity:'Medium',
+   care:{water:true,feed:true,mist:true,repot:true,rotate:false,prune:false},
+   tips:'Geef water als de bovenste 3cm grond droog is. Houd de bladeren schoon met een vochtig doekje.'},
+  {name:'Monstera adansonii',species:'Gatenplant klein',emoji:'🍃',waterEvery:7,feedEvery:28,light:'Indirect',humidity:'Hoog',
+   care:{water:true,feed:true,mist:true,repot:true,rotate:false,prune:false},
+   tips:'Houdt van vocht en luchtvochtigheid. Benevelen helpt.'},
+  {name:'Pothos',species:'Epipremnum aureum',emoji:'🪴',waterEvery:10,feedEvery:30,light:'Weinig tot indirect',humidity:'Laag',
+   care:{water:true,feed:true,mist:false,repot:true,rotate:false,prune:true},
+   tips:'Zeer robuust. Laat de grond goed opdrogen. Knip lange ranken in voor dichtere groei.'},
+  {name:'Snake Plant',species:'Dracaena trifasciata',emoji:'🌵',waterEvery:21,feedEvery:60,light:'Weinig',humidity:'Laag',
+   care:{water:true,feed:true,mist:false,repot:false,rotate:false,prune:false},
+   tips:'Overwateren is de grootste vijand. Geef heel weinig water in de winter.'},
+  {name:'Calathea',species:'Calathea ornata',emoji:'🌺',waterEvery:7,feedEvery:28,light:'Indirect',humidity:'Hoog',
+   care:{water:true,feed:true,mist:true,repot:true,rotate:false,prune:false},
+   tips:'Gebruik regenwater of gefilterd water. Bladeren rollen op bij stress.'},
+  {name:'Fiddle Leaf',species:'Ficus lyrata',emoji:'🌳',waterEvery:10,feedEvery:28,light:'Fel indirect',humidity:'Medium',
+   care:{water:true,feed:true,mist:false,repot:true,rotate:true,prune:false},
+   tips:'Niet verplaatsen als hij eenmaal staat. Draai 1x per maand een kwartslag voor gelijkmatige groei.'},
+  {name:'Peace Lily',species:'Spathiphyllum',emoji:'🌸',waterEvery:7,feedEvery:30,light:'Weinig',humidity:'Medium',
+   care:{water:true,feed:true,mist:true,repot:true,rotate:false,prune:true},
+   tips:'Hangt letterlijk slap als hij water nodig heeft — goede indicator. Verwijder verdroogde bloemen.'},
+  {name:'ZZ Plant',species:'Zamioculcas zamiifolia',emoji:'🌱',waterEvery:21,feedEvery:60,light:'Weinig',humidity:'Laag',
+   care:{water:true,feed:false,mist:false,repot:false,rotate:false,prune:false},
+   tips:'Bijna onverwoestbaar. Overwateren is het enige dat hem kan doden.'},
+  {name:'Rubber Plant',species:'Ficus elastica',emoji:'🍀',waterEvery:10,feedEvery:28,light:'Fel indirect',humidity:'Medium',
+   care:{water:true,feed:true,mist:false,repot:true,rotate:true,prune:false},
+   tips:'Veeg de bladeren af met een vochtig doekje voor meer glans. Draai voor symmetrische groei.'},
+  {name:'Cactus',species:'Cactaceae',emoji:'🌵',waterEvery:30,feedEvery:90,light:'Direct',humidity:'Laag',
+   care:{water:true,feed:false,mist:false,repot:false,rotate:false,prune:false},
+   tips:'Geef in de zomer water, in de winter bijna niet. Heeft veel direct zonlicht nodig.'},
+  {name:'Orchidee',species:'Phalaenopsis',emoji:'🌷',waterEvery:10,feedEvery:14,light:'Indirect',humidity:'Medium',
+   care:{water:true,feed:true,mist:false,repot:false,rotate:false,prune:true},
+   tips:'Zet de pot even in water en laat goed uitlekken. Knip verdroogde bloemstelen af.'},
+  {name:'Aloe Vera',species:'Aloe barbadensis',emoji:'🌵',waterEvery:14,feedEvery:60,light:'Direct',humidity:'Laag',
+   care:{water:true,feed:false,mist:false,repot:false,rotate:false,prune:false},
+   tips:'Laat de grond volledig drogen voor je water geeft. Haat natte voeten.'},
+  {name:'Basil',species:'Ocimum basilicum',emoji:'🌿',waterEvery:2,feedEvery:14,light:'Direct',humidity:'Medium',
+   care:{water:true,feed:true,mist:false,repot:false,rotate:false,prune:true},
+   tips:'Elke dag in de gaten houden. Snij regelmatig de toppen af om bloei te voorkomen.'},
+  {name:'Fern',species:'Nephrolepis exaltata',emoji:'🌿',waterEvery:3,feedEvery:21,light:'Indirect',humidity:'Hoog',
+   care:{water:true,feed:true,mist:true,repot:true,rotate:false,prune:true},
+   tips:'Houdt van vochtige lucht. Benevelen of op een schoteltje met kiezelstenen en water zetten.'},
+  {name:'Lavender',species:'Lavandula',emoji:'💜',waterEvery:10,feedEvery:30,light:'Direct',humidity:'Laag',
+   care:{water:true,feed:false,mist:false,repot:false,rotate:false,prune:true},
+   tips:'Houdt van droge grond en veel zon. Knip na de bloei in voor compacte groei.'},
 ];
+
+const CARE_LABELS = {
+  water: {icon:'💧', label:'Water'},
+  feed:  {icon:'🌿', label:'Voeding'},
+  mist:  {icon:'💦', label:'Benevelen'},
+  repot: {icon:'🪴', label:'Verpotten'},
+  rotate:{icon:'🔄', label:'Draaien'},
+  prune: {icon:'✂️', label:'Snoeien'},
+};
 
 // ── HELPERS ──
 const today = () => new Date().toISOString().split('T')[0];
@@ -394,11 +433,458 @@ function Dashboard({plants, onPlantClick, onAdd}){
   );
 }
 
+// ── WINDOW DIRECTION INFO ──
+const WINDOW_INFO = {
+  'Noord': {sun:'Geen direct zonlicht', desc:'Het minste licht. Geschikt voor schaduwplanten zoals Pothos en Snake Plant.', icon:'🌑'},
+  'Oost':  {sun:'Ochtendzon (zacht)', desc:'Zachte ochtendzon. Ideaal voor planten die fel indirect licht nodig hebben.', icon:'🌅'},
+  'Zuid':  {sun:'Volledige dag zon', desc:'Meeste licht en warmte. Perfect voor cactussen, succulenten en zonneminnende planten.', icon:'☀️'},
+  'West':  {sun:'Middagzon (intens)', desc:'Felle middagzon. Goed voor planten die veel licht aankunnen maar geen volle zon.', icon:'🌇'},
+};
+
+// ── INFO TAB ──
+function InfoTab({plant, dbPlant, care, careItems, status, onWater, onUpdate, showToast}){
+  const [weather, setWeather] = useState(null);
+  const [weatherLoading, setWeatherLoading] = useState(false);
+  const [weatherCity, setWeatherCity] = useState('');
+  const [windows, setWindows] = useState(plant.windows||[]);
+  const [savingWindows, setSavingWindows] = useState(false);
+
+  useEffect(()=>{ fetchWeather(); },[]);
+
+  const fetchWeather = async () => {
+    setWeatherLoading(true);
+    try {
+      const pos = await new Promise((res,rej)=>navigator.geolocation.getCurrentPosition(res,rej,{timeout:8000}));
+      const {latitude:lat, longitude:lon} = pos.coords;
+      const [wRes, gRes] = await Promise.all([
+        fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m,uv_index&hourly=direct_radiation&daily=sunrise,sunset,uv_index_max&timezone=auto&forecast_days=1`),
+        fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`)
+      ]);
+      const wData = await wRes.json();
+      const gData = await gRes.json();
+      setWeather(wData);
+      setWeatherCity(gData.address?.city || gData.address?.town || gData.address?.village || '');
+    } catch(e){ setWeather(null); }
+    setWeatherLoading(false);
+  };
+
+  const toggleWindow = async (dir) => {
+    const newW = windows.includes(dir) ? windows.filter(w=>w!==dir) : [...windows, dir];
+    setWindows(newW);
+    setSavingWindows(true);
+    await supabase.from('plants').update({windows:newW}).eq('id',plant.id);
+    onUpdate({...plant, windows:newW});
+    setSavingWindows(false);
+  };
+
+  const getWeatherIcon = (code) => {
+    if(code===0) return '☀️';
+    if(code<=2) return '🌤';
+    if(code<=48) return '☁️';
+    if(code<=67) return '🌧';
+    if(code<=77) return '❄️';
+    if(code<=82) return '🌦';
+    return '⛈';
+  };
+
+  const getSunAdvice = () => {
+    if(!windows.length) return null;
+    const hasSouth = windows.includes('Zuid');
+    const hasEast = windows.includes('Oost');
+    const hasWest = windows.includes('West');
+    const dbLight = dbPlant.light || plant.light;
+    if(dbLight?.includes('Direct') && hasSouth) return {ok:true, msg:'✅ Perfect! Zuid-raam geeft genoeg direct zonlicht voor deze plant.'};
+    if(dbLight?.includes('Direct') && !hasSouth) return {ok:false, msg:'⚠️ Deze plant heeft direct zonlicht nodig. Een Zuid-raam is ideaal.'};
+    if(dbLight?.includes('indirect') && hasSouth) return {ok:false, msg:'⚠️ Zuid-raam kan te intens zijn. Gebruik een vitrage of zet verder van het raam.'};
+    if(dbLight?.includes('indirect') && (hasEast||hasWest)) return {ok:true, msg:'✅ Oost- of West-raam geeft mooie indirecte belichting voor deze plant.'};
+    if(dbLight?.includes('Weinig') && windows.includes('Noord')) return {ok:true, msg:'✅ Noord-raam is perfect voor deze schaduwplant.'};
+    return {ok:true, msg:'✅ De raamrichting lijkt geschikt voor deze plant.'};
+  };
+
+  const sunAdvice = getSunAdvice();
+  const cur = weather?.current;
+  const sunrise = weather?.daily?.sunrise?.[0]?.split('T')[1];
+  const sunset = weather?.daily?.sunset?.[0]?.split('T')[1];
+  const uvMax = weather?.daily?.uv_index_max?.[0];
+
+  return (
+    <div className="detail-body">
+      {/* VERZORGING KNOPPEN */}
+      <button className="do-btn" style={{marginTop:16}} onClick={()=>onWater(plant)}>💧 Water geven — markeer als gedaan</button>
+
+      {/* ENV CHIPS */}
+      <div className="env-chips">
+        <span className="env-chip">☀️ {plant.light}</span>
+        <span className="env-chip">💧 {plant.humidity}</span>
+      </div>
+
+      {/* BEHOEFTES */}
+      <div className="section-label" style={{marginBottom:8}}>Behoeftes</div>
+      <div style={{display:'flex',flexWrap:'wrap',gap:6,marginBottom:20}}>
+        {careItems.map(c=>(
+          <span key={c.key} style={{display:'inline-flex',alignItems:'center',gap:4,background:'var(--green-light)',color:'var(--green)',fontSize:12,fontWeight:500,padding:'5px 10px',borderRadius:999}}>
+            {c.icon} {c.label}
+          </span>
+        ))}
+      </div>
+
+      {/* SCHEMA */}
+      <div className="section-label" style={{marginBottom:8}}>Schema</div>
+      <div className="care-grid" style={{marginBottom:20}}>
+        <div className="care-tile">
+          <div className="care-tile-icon">💧</div>
+          <div className="care-tile-label">Water</div>
+          <div className={`care-tile-value ${status==='urgent'?'urgent':''}`}>{formatNext(plant.next_water)}</div>
+          <div className="care-tile-next">elke ~{plant.water_every} dagen</div>
+        </div>
+        <div className="care-tile">
+          <div className="care-tile-icon">🌿</div>
+          <div className="care-tile-label">Voeding</div>
+          <div className="care-tile-value">{formatNext(plant.next_feed)}</div>
+          <div className="care-tile-next">elke {plant.feed_every} dagen</div>
+        </div>
+        {care.mist && <div className="care-tile"><div className="care-tile-icon">💦</div><div className="care-tile-label">Benevelen</div><div className="care-tile-value">Wekelijks</div><div className="care-tile-next">bij droge lucht</div></div>}
+        {care.repot && <div className="care-tile"><div className="care-tile-icon">🪴</div><div className="care-tile-label">Verpotten</div><div className="care-tile-value">Over 1 jaar</div><div className="care-tile-next">per jaar</div></div>}
+        {care.prune && <div className="care-tile"><div className="care-tile-icon">✂️</div><div className="care-tile-label">Snoeien</div><div className="care-tile-value">Naar behoefte</div><div className="care-tile-next">bij groei</div></div>}
+        {care.rotate && <div className="care-tile"><div className="care-tile-icon">🔄</div><div className="care-tile-label">Draaien</div><div className="care-tile-value">Maandelijks</div><div className="care-tile-next">voor groei</div></div>}
+      </div>
+
+      {/* PLANT INFO */}
+      {(dbPlant.tips || plant.api_data?.description) && <>
+        <div className="section-label" style={{marginBottom:8}}>Over deze plant</div>
+        {plant.api_data?.description && (
+          <div style={{fontSize:13,color:'var(--ink2)',lineHeight:1.7,marginBottom:12}}>{plant.api_data.description}</div>
+        )}
+        {dbPlant.tips && (
+          <div style={{background:'var(--green-light)',borderRadius:'var(--r-sm)',padding:'12px 14px',marginBottom:20}}>
+            <div style={{fontSize:10,fontWeight:600,letterSpacing:'0.8px',textTransform:'uppercase',color:'var(--green)',marginBottom:4}}>Tips</div>
+            <div style={{fontSize:13,color:'var(--ink2)',lineHeight:1.5}}>{dbPlant.tips}</div>
+          </div>
+        )}
+        {plant.api_data?.care_level && (
+          <div style={{display:'flex',gap:8,marginBottom:20,flexWrap:'wrap'}}>
+            <span style={{background:'var(--bg2)',color:'var(--ink2)',fontSize:12,fontWeight:500,padding:'5px 10px',borderRadius:999}}>🌿 Verzorging: {plant.api_data.care_level}</span>
+            {plant.api_data?.watering && <span style={{background:'var(--bg2)',color:'var(--ink2)',fontSize:12,fontWeight:500,padding:'5px 10px',borderRadius:999}}>💧 {plant.api_data.watering}</span>}
+          </div>
+        )}
+      </>}
+
+      {/* RAAMRICHTING */}
+      <div className="section-label" style={{marginBottom:8}}>🪟 Raamrichting {savingWindows && <span style={{color:'var(--green)',fontWeight:400}}>· opslaan...</span>}</div>
+      <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:8,marginBottom:12}}>
+        {['Noord','Oost','Zuid','West'].map(dir=>(
+          <div key={dir} onClick={()=>toggleWindow(dir)} style={{
+            background: windows.includes(dir) ? 'var(--green-light)' : 'var(--bg)',
+            border: windows.includes(dir) ? '1.5px solid var(--accent)' : '1.5px solid transparent',
+            borderRadius:'var(--r-sm)', padding:'12px', cursor:'pointer', transition:'all 0.15s'
+          }}>
+            <div style={{fontSize:18,marginBottom:4}}>{WINDOW_INFO[dir].icon}</div>
+            <div style={{fontSize:13,fontWeight:600,color: windows.includes(dir)?'var(--green)':'var(--ink)'}}>{dir}</div>
+            <div style={{fontSize:11,color:'var(--ink3)',marginTop:2}}>{WINDOW_INFO[dir].sun}</div>
+          </div>
+        ))}
+      </div>
+      {windows.length>0 && (
+        <div style={{marginBottom:8}}>
+          {windows.map(dir=>(
+            <div key={dir} style={{fontSize:12,color:'var(--ink2)',lineHeight:1.6,marginBottom:4,paddingLeft:8,borderLeft:'2px solid var(--green-mid)'}}>
+              <strong>{dir}:</strong> {WINDOW_INFO[dir].desc}
+            </div>
+          ))}
+        </div>
+      )}
+      {sunAdvice && (
+        <div style={{background: sunAdvice.ok ? 'var(--green-light)' : 'var(--yellow-soft)', borderRadius:'var(--r-sm)', padding:'10px 14px', marginBottom:20, fontSize:12, color: sunAdvice.ok ? 'var(--green)' : 'var(--yellow)', fontWeight:500, lineHeight:1.5}}>
+          {sunAdvice.msg}
+        </div>
+      )}
+
+      {/* WEER */}
+      <div className="section-label" style={{marginBottom:8}}>🌤 Weer bij jou{weatherCity ? ` — ${weatherCity}` : ''}</div>
+      {weatherLoading && <div style={{fontSize:13,color:'var(--ink3)',marginBottom:16}}>Locatie ophalen...</div>}
+      {!weatherLoading && !weather && (
+        <div style={{background:'var(--bg)',borderRadius:'var(--r-sm)',padding:'12px 14px',marginBottom:20}}>
+          <div style={{fontSize:13,color:'var(--ink3)',marginBottom:8}}>Geen toegang tot locatie.</div>
+          <button onClick={fetchWeather} style={{background:'var(--green)',color:'white',border:'none',borderRadius:'var(--r-xs)',padding:'8px 14px',fontSize:12,fontWeight:600,fontFamily:'inherit',cursor:'pointer'}}>Opnieuw proberen</button>
+        </div>
+      )}
+      {cur && (
+        <div style={{marginBottom:20}}>
+          <div style={{background:'var(--white)',borderRadius:'var(--r)',padding:'16px',boxShadow:'0 1px 4px rgba(0,0,0,0.06)',marginBottom:10}}>
+            <div style={{display:'flex',alignItems:'center',gap:12,marginBottom:12}}>
+              <div style={{fontSize:40}}>{getWeatherIcon(cur.weather_code)}</div>
+              <div>
+                <div style={{fontFamily:"'Instrument Serif',serif",fontSize:32,color:'var(--ink)',lineHeight:1}}>{Math.round(cur.temperature_2m)}°C</div>
+                <div style={{fontSize:12,color:'var(--ink3)',marginTop:2}}>Vochtigheid {cur.relative_humidity_2m}% · Wind {Math.round(cur.wind_speed_10m)} km/u</div>
+              </div>
+            </div>
+            <div style={{display:'grid',gridTemplateColumns:'1fr 1fr 1fr',gap:8}}>
+              <div style={{background:'var(--bg)',borderRadius:'var(--r-sm)',padding:'10px',textAlign:'center'}}>
+                <div style={{fontSize:16,marginBottom:2}}>🌅</div>
+                <div style={{fontSize:11,fontWeight:600,color:'var(--ink3)',textTransform:'uppercase',letterSpacing:'0.5px'}}>Zonsopgang</div>
+                <div style={{fontSize:13,fontWeight:600,color:'var(--ink)'}}>{sunrise||'–'}</div>
+              </div>
+              <div style={{background:'var(--bg)',borderRadius:'var(--r-sm)',padding:'10px',textAlign:'center'}}>
+                <div style={{fontSize:16,marginBottom:2}}>🌇</div>
+                <div style={{fontSize:11,fontWeight:600,color:'var(--ink3)',textTransform:'uppercase',letterSpacing:'0.5px'}}>Zonsonder</div>
+                <div style={{fontSize:13,fontWeight:600,color:'var(--ink)'}}>{sunset||'–'}</div>
+              </div>
+              <div style={{background:'var(--bg)',borderRadius:'var(--r-sm)',padding:'10px',textAlign:'center'}}>
+                <div style={{fontSize:16,marginBottom:2}}>🔆</div>
+                <div style={{fontSize:11,fontWeight:600,color:'var(--ink3)',textTransform:'uppercase',letterSpacing:'0.5px'}}>UV index</div>
+                <div style={{fontSize:13,fontWeight:600,color: uvMax>6?'var(--red)':uvMax>3?'var(--yellow)':'var(--green)'}}>{uvMax!=null?Math.round(uvMax):'–'}</div>
+              </div>
+            </div>
+          </div>
+          {/* Plantadvies op basis van weer */}
+          <div style={{background:'var(--blue-soft)',borderRadius:'var(--r-sm)',padding:'10px 14px',fontSize:12,color:'var(--blue)',lineHeight:1.6}}>
+            {cur.relative_humidity_2m < 40 && care.mist ? '💦 De lucht is droog vandaag — benevelen aanbevolen. ' : ''}
+            {cur.temperature_2m > 28 ? '🌡️ Warm weer: meer water verdampt, eerder water controleren. ' : ''}
+            {cur.temperature_2m < 10 ? '🥶 Koud buiten: minder water nodig, let op tocht. ' : ''}
+            {cur.relative_humidity_2m >= 40 && cur.temperature_2m >= 10 && cur.temperature_2m <= 28 ? '✅ Goede omstandigheden voor je plant vandaag.' : ''}
+          </div>
+        </div>
+      )}
+
+      {/* GESCHIEDENIS */}
+      <div className="log-label">Geschiedenis</div>
+      {(plant.log||[]).length===0 ? (
+        <div style={{fontSize:13,color:'var(--ink3)',padding:'8px 0'}}>Nog geen acties geregistreerd.</div>
+      ) : (plant.log||[]).slice(0,10).map((l,i)=>(
+        <div key={i} className="log-item">
+          <div className="log-dot"></div>
+          <div className="log-text">{l.type} {l.text}</div>
+          <div className="log-date">{l.date}</div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 // ── PLANT DETAIL ──
-function PlantDetail({plant, onBack, onDelete, onWater, showToast}){
+function PlantDetail({plant, onBack, onDelete, onWater, onUpdate, showToast, userId}){
   const [showConfirm, setShowConfirm] = useState(false);
+  const [editingName, setEditingName] = useState(false);
+  const [nameVal, setNameVal] = useState(plant.name);
+  const [uploading, setUploading] = useState(false);
+  const [photos, setPhotos] = useState(plant.photos||[]);
+  const [editingPhoto, setEditingPhoto] = useState(null); // {index, date}
+  const [activeTab, setActiveTab] = useState('info'); // info | fotos
   const status = getStatus(plant);
   const dbPlant = PLANT_DB.find(p=>p.name===plant.name) || {};
+  const care = dbPlant.care || {water:true,feed:true};
+
+  const saveName = async () => {
+    if(!nameVal.trim()) return;
+    const {error} = await supabase.from('plants').update({name:nameVal.trim()}).eq('id',plant.id);
+    if(!error){ onUpdate({...plant,name:nameVal.trim()}); showToast('✏️ Naam opgeslagen'); }
+    setEditingName(false);
+  };
+
+  const [pendingFile, setPendingFile] = useState(null);
+  const [pendingDate, setPendingDate] = useState(today());
+
+  const handleFileSelect = (e) => {
+    const file = e.target.files[0];
+    if(!file) return;
+    setPendingFile(file);
+    setPendingDate(today());
+  };
+
+  const uploadPhoto = async () => {
+    if(!pendingFile) return;
+    setUploading(true);
+    const path = `${userId}/${plant.id}/${Date.now()}.jpg`;
+    const {error:upErr} = await supabase.storage.from('plant-photos').upload(path, pendingFile);
+    if(upErr){ showToast('❌ Upload mislukt'); setUploading(false); return; }
+    const {data} = supabase.storage.from('plant-photos').getPublicUrl(path);
+    const d = new Date(pendingDate);
+    const dateStr = d.toLocaleDateString('nl-NL',{day:'numeric',month:'short',year:'numeric'});
+    const newPhotos = [{url:data.publicUrl, date:dateStr, isoDate:pendingDate},...photos];
+    const newLog = [{type:'📸',text:'Foto toegevoegd',date:dateStr},...(plant.log||[])].slice(0,20);
+    await supabase.from('plants').update({photos:newPhotos,log:newLog}).eq('id',plant.id);
+    setPhotos(newPhotos);
+    onUpdate({...plant,photos:newPhotos,log:newLog});
+    showToast('📸 Foto toegevoegd!');
+    setUploading(false);
+    setPendingFile(null);
+  };
+
+  const savePhotoDate = async (index, newIsoDate) => {
+    const d = new Date(newIsoDate);
+    const dateStr = d.toLocaleDateString('nl-NL',{day:'numeric',month:'short',year:'numeric'});
+    const newPhotos = photos.map((p,i)=> i===index ? {...p, date:dateStr, isoDate:newIsoDate} : p);
+    await supabase.from('plants').update({photos:newPhotos}).eq('id',plant.id);
+    setPhotos(newPhotos);
+    onUpdate({...plant,photos:newPhotos});
+    setEditingPhoto(null);
+    showToast('📅 Datum aangepast');
+  };
+
+  const careItems = Object.entries(care).filter(([,v])=>v).map(([k])=>({
+    key:k, ...CARE_LABELS[k]
+  }));
+
+  return (
+    <div className="screen-enter" style={{display:'flex',flexDirection:'column',minHeight:'100vh'}}>
+      <div className="detail-hero" style={{background:getBg(plant.emoji),flexShrink:0}}>
+        <button className="back-btn" onClick={onBack}>←</button>
+        <button className="del-btn-hero" onClick={()=>setShowConfirm(true)}>🗑</button>
+        {photos.length>0 && (
+          <img src={photos[0].url} style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover',opacity:0.3}} alt=""/>
+        )}
+        <div className="detail-hero-emoji" style={{position:'relative',zIndex:1}}>{plant.emoji}</div>
+      </div>
+
+      <div style={{padding:'16px 24px 0',background:'var(--white)',borderBottom:'1px solid var(--line)',flexShrink:0}}>
+        {editingName ? (
+          <div style={{display:'flex',gap:8,alignItems:'center',marginBottom:8}}>
+            <input className="field-input" value={nameVal} onChange={e=>setNameVal(e.target.value)}
+              style={{fontSize:20,fontFamily:"'Instrument Serif',serif",padding:'6px 10px'}} autoFocus/>
+            <button onClick={saveName} style={{background:'var(--green)',color:'white',border:'none',borderRadius:'var(--r-sm)',padding:'8px 14px',fontWeight:600,fontFamily:'inherit',cursor:'pointer',flexShrink:0}}>✓</button>
+            <button onClick={()=>setEditingName(false)} style={{background:'var(--bg2)',color:'var(--ink2)',border:'none',borderRadius:'var(--r-sm)',padding:'8px 10px',cursor:'pointer'}}>✕</button>
+          </div>
+        ) : (
+          <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:2}}>
+            <div className="detail-name serif" style={{fontSize:26}}>{plant.name}</div>
+            <button onClick={()=>setEditingName(true)} style={{background:'var(--bg2)',border:'none',borderRadius:'var(--r-xs)',padding:'4px 8px',fontSize:12,color:'var(--ink3)',cursor:'pointer'}}>✏️</button>
+          </div>
+        )}
+        <div className="detail-species" style={{marginBottom:12}}>{plant.species}</div>
+        <div style={{display:'flex',gap:0,borderBottom:'none'}}>
+          {['info','fotos'].map(t=>(
+            <button key={t} onClick={()=>setActiveTab(t)} style={{
+              flex:1,padding:'10px 0',border:'none',background:'none',
+              fontFamily:'inherit',fontSize:13,fontWeight:600,cursor:'pointer',
+              color:activeTab===t?'var(--green)':'var(--ink3)',
+              borderBottom:activeTab===t?'2px solid var(--green)':'2px solid transparent',
+            }}>
+              {t==='info'?'ℹ️ Info':'📸 Foto\'s '+(photos.length>0?`(${photos.length})`:'') }
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="screen-content" style={{paddingBottom:24,paddingTop:0}}>
+        {activeTab==='info' && (
+          <InfoTab plant={plant} dbPlant={dbPlant} care={care} careItems={careItems} status={status} onWater={onWater} onUpdate={onUpdate} showToast={showToast}/>
+        )}
+
+        {activeTab==='fotos' && (
+          <div style={{padding:'16px 24px'}}>
+            {pendingFile ? (
+              <div style={{background:'var(--white)',borderRadius:'var(--r)',padding:16,marginBottom:16,boxShadow:'0 1px 4px rgba(0,0,0,0.06)'}}>
+                <div style={{aspectRatio:'4/3',borderRadius:'var(--r-sm)',overflow:'hidden',background:'var(--bg)',marginBottom:12}}>
+                  <img src={URL.createObjectURL(pendingFile)} style={{width:'100%',height:'100%',objectFit:'cover'}} alt="preview"/>
+                </div>
+                <div style={{fontSize:10,fontWeight:600,letterSpacing:'1px',textTransform:'uppercase',color:'var(--ink3)',marginBottom:6}}>Datum foto</div>
+                <input type="date" value={pendingDate} onChange={e=>setPendingDate(e.target.value)}
+                  style={{width:'100%',background:'var(--bg)',border:'1.5px solid var(--line)',borderRadius:'var(--r-sm)',padding:'10px 12px',fontSize:14,fontFamily:'inherit',color:'var(--ink)',marginBottom:12,outline:'none'}}/>
+                <div style={{display:'flex',gap:8}}>
+                  <button onClick={uploadPhoto} disabled={uploading}
+                    style={{flex:1,padding:'12px',background:'var(--green)',color:'white',border:'none',borderRadius:'var(--r-sm)',fontSize:14,fontWeight:600,fontFamily:'inherit',cursor:'pointer'}}>
+                    {uploading?'Uploaden...':'📸 Opslaan'}
+                  </button>
+                  <button onClick={()=>setPendingFile(null)}
+                    style={{padding:'12px 16px',background:'var(--bg2)',border:'none',borderRadius:'var(--r-sm)',fontSize:14,cursor:'pointer'}}>✕</button>
+                </div>
+              </div>
+            ) : (
+              <label style={{display:'flex',alignItems:'center',gap:8,background:'var(--bg)',borderRadius:'var(--r-sm)',padding:'14px',cursor:'pointer',marginBottom:16,border:'1.5px dashed var(--line)'}}>
+                <span style={{fontSize:22}}>📸</span>
+                <span style={{fontSize:14,color:'var(--ink2)',fontWeight:500}}>Foto toevoegen</span>
+                <input type="file" accept="image/*" style={{display:'none'}} onChange={handleFileSelect}/>
+              </label>
+            )}
+
+            {photos.length===0 ? (
+              <div className="empty-state" style={{padding:'40px 0'}}>
+                <div className="empty-emoji">📷</div>
+                <div className="empty-title serif">Nog geen foto's</div>
+                <div className="empty-sub">Voeg een foto toe om de groei van je plant bij te houden.</div>
+              </div>
+            ) : (
+              <div style={{display:'flex',flexDirection:'column',gap:16}}>
+                {photos.map((photo,i)=>(
+                  <div key={i} style={{background:'var(--white)',borderRadius:'var(--r)',overflow:'hidden',boxShadow:'0 1px 4px rgba(0,0,0,0.06)'}}>
+                    <div style={{aspectRatio:'4/3',overflow:'hidden',background:'var(--bg)'}}>
+                      <img src={photo.url} style={{width:'100%',height:'100%',objectFit:'cover'}} alt={`foto ${i+1}`}/>
+                    </div>
+                    <div style={{padding:'10px 14px',display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+                      {editingPhoto===i ? (
+                        <div style={{display:'flex',gap:8,alignItems:'center',flex:1}}>
+                          <input type="date" defaultValue={photo.isoDate||today()}
+                            style={{flex:1,background:'var(--bg)',border:'1.5px solid var(--accent)',borderRadius:'var(--r-xs)',padding:'6px 8px',fontSize:13,fontFamily:'inherit',color:'var(--ink)'}}
+                            onChange={e=>e.target.dataset.val=e.target.value}
+                            ref={el=>{ if(el) el.dataset.val=photo.isoDate||today(); }}
+                          />
+                          <button onClick={e=>{ const inp=e.target.closest('div').querySelector('input'); savePhotoDate(i,inp.value); }}
+                            style={{background:'var(--green)',color:'white',border:'none',borderRadius:'var(--r-xs)',padding:'6px 10px',fontSize:12,fontWeight:600,cursor:'pointer'}}>✓</button>
+                          <button onClick={()=>setEditingPhoto(null)}
+                            style={{background:'var(--bg2)',border:'none',borderRadius:'var(--r-xs)',padding:'6px 8px',fontSize:12,cursor:'pointer'}}>✕</button>
+                        </div>
+                      ) : (
+                        <>
+                          <span style={{fontSize:12,color:'var(--ink3)',fontWeight:500}}>{photo.date || photo}</span>
+                          <button onClick={()=>setEditingPhoto(i)}
+                            style={{background:'var(--bg)',border:'none',borderRadius:'var(--r-xs)',padding:'4px 8px',fontSize:11,color:'var(--ink3)',cursor:'pointer'}}>✏️ datum</button>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+
+      {showConfirm && (
+        <div className="modal-overlay">
+          <div className="modal">
+            <div className="modal-title serif">Plant verwijderen?</div>
+            <div className="modal-sub">"{plant.name}" wordt permanent verwijderd.</div>
+            <button className="modal-btn danger" onClick={()=>{ onDelete(plant.id); setShowConfirm(false); }}>Ja, verwijderen</button>
+            <button className="modal-btn cancel" onClick={()=>setShowConfirm(false)}>Annuleren</button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+  const [showConfirm, setShowConfirm] = useState(false);
+  const [editingName, setEditingName] = useState(false);
+  const [nameVal, setNameVal] = useState(plant.name);
+  const [uploading, setUploading] = useState(false);
+  const [photos, setPhotos] = useState(plant.photos||[]);
+  const status = getStatus(plant);
+  const dbPlant = PLANT_DB.find(p=>p.name===plant.name) || {};
+
+  const saveName = async () => {
+    if(!nameVal.trim()) return;
+    const {error} = await supabase.from('plants').update({name:nameVal.trim()}).eq('id',plant.id);
+    if(!error){ onUpdate({...plant,name:nameVal.trim()}); showToast('✏️ Naam opgeslagen'); }
+    setEditingName(false);
+  };
+
+  const uploadPhoto = async (e) => {
+    const file = e.target.files[0];
+    if(!file) return;
+    setUploading(true);
+    const path = `${userId}/${plant.id}/${Date.now()}.jpg`;
+    const {error:upErr} = await supabase.storage.from('plant-photos').upload(path, file);
+    if(upErr){ showToast('❌ Upload mislukt'); setUploading(false); return; }
+    const {data} = supabase.storage.from('plant-photos').getPublicUrl(path);
+    const newPhotos = [data.publicUrl,...photos].slice(0,10);
+    const date = new Date().toLocaleDateString('nl-NL',{day:'numeric',month:'short'});
+    const newLog = [{type:'📸',text:'Foto toegevoegd',date},...(plant.log||[])].slice(0,20);
+    await supabase.from('plants').update({photos:newPhotos,log:newLog}).eq('id',plant.id);
+    setPhotos(newPhotos);
+    onUpdate({...plant,photos:newPhotos,log:newLog});
+    showToast('📸 Foto toegevoegd!');
+    setUploading(false);
+  };
+
   return (
     <div className="screen-enter">
       <div className="detail-hero" style={{background:getBg(plant.emoji)}}>
@@ -408,7 +894,17 @@ function PlantDetail({plant, onBack, onDelete, onWater, showToast}){
       </div>
       <div className="screen-content" style={{paddingBottom:20}}>
         <div className="detail-body">
-          <div className="detail-name serif">{plant.name}</div>
+          {editingName ? (
+            <div style={{display:'flex',gap:8,alignItems:'center',marginBottom:4}}>
+              <input className="field-input" value={nameVal} onChange={e=>setNameVal(e.target.value)} style={{fontSize:22,fontFamily:'Instrument Serif,serif',padding:'8px 12px'}} autoFocus/>
+              <button onClick={saveName} style={{background:'var(--green)',color:'white',border:'none',borderRadius:'var(--r-sm)',padding:'8px 14px',fontWeight:600,fontFamily:'DM Sans,sans-serif',cursor:'pointer',flexShrink:0}}>✓</button>
+            </div>
+          ) : (
+            <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:4}}>
+              <div className="detail-name serif">{plant.name}</div>
+              <button onClick={()=>setEditingName(true)} style={{background:'var(--bg2)',border:'none',borderRadius:'var(--r-xs)',padding:'4px 8px',fontSize:12,color:'var(--ink3)',cursor:'pointer',fontFamily:'DM Sans,sans-serif'}}>✏️</button>
+            </div>
+          )}
           <div className="detail-species">{plant.species}</div>
           <div className="env-chips">
             <span className="env-chip">☀️ {plant.light}</span>
@@ -420,9 +916,7 @@ function PlantDetail({plant, onBack, onDelete, onWater, showToast}){
               <div style={{fontSize:13,color:'var(--ink2)',lineHeight:1.5}}>{dbPlant.tips}</div>
             </div>
           )}
-          <button className="do-btn" onClick={()=>onWater(plant)}>
-            💧 Water geven — markeer als gedaan
-          </button>
+          <button className="do-btn" onClick={()=>onWater(plant)}>💧 Water geven — markeer als gedaan</button>
           <div className="care-grid">
             <div className="care-tile">
               <div className="care-tile-icon">💧</div>
@@ -449,10 +943,28 @@ function PlantDetail({plant, onBack, onDelete, onWater, showToast}){
               <div className="care-tile-next">per jaar</div>
             </div>
           </div>
+
+          {/* FOTO SECTIE */}
+          <div className="log-label" style={{marginBottom:10}}>Foto's</div>
+          <label style={{display:'flex',alignItems:'center',gap:8,background:'var(--bg)',borderRadius:'var(--r-sm)',padding:'12px 14px',cursor:'pointer',marginBottom:12,border:'1.5px dashed var(--line)'}}>
+            <span style={{fontSize:20}}>📸</span>
+            <span style={{fontSize:13,color:'var(--ink2)',fontWeight:500}}>{uploading?'Uploaden...':'Foto toevoegen'}</span>
+            <input type="file" accept="image/*" style={{display:'none'}} onChange={uploadPhoto} disabled={uploading}/>
+          </label>
+          {photos.length>0 && (
+            <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:8,marginBottom:20}}>
+              {photos.map((url,i)=>(
+                <div key={i} style={{borderRadius:'var(--r-sm)',overflow:'hidden',aspectRatio:'1',background:'var(--bg)'}}>
+                  <img src={url} style={{width:'100%',height:'100%',objectFit:'cover'}} alt="plant foto"/>
+                </div>
+              ))}
+            </div>
+          )}
+
           <div className="log-label">Geschiedenis</div>
-          {(plant.log||[]).length === 0 ? (
+          {(plant.log||[]).length===0 ? (
             <div style={{fontSize:13,color:'var(--ink3)',padding:'8px 0'}}>Nog geen acties geregistreerd.</div>
-          ) : (plant.log||[]).slice(0,5).map((l,i)=>(
+          ) : (plant.log||[]).slice(0,8).map((l,i)=>(
             <div key={i} className="log-item">
               <div className="log-dot"></div>
               <div className="log-text">{l.type} {l.text}</div>
@@ -465,7 +977,7 @@ function PlantDetail({plant, onBack, onDelete, onWater, showToast}){
         <div className="modal-overlay">
           <div className="modal">
             <div className="modal-title serif">Plant verwijderen?</div>
-            <div className="modal-sub">"{plant.name}" wordt permanent verwijderd. Dit kan niet ongedaan worden gemaakt.</div>
+            <div className="modal-sub">"{plant.name}" wordt permanent verwijderd.</div>
             <button className="modal-btn danger" onClick={()=>{ onDelete(plant.id); setShowConfirm(false); }}>Ja, verwijderen</button>
             <button className="modal-btn cancel" onClick={()=>setShowConfirm(false)}>Annuleren</button>
           </div>
@@ -476,19 +988,86 @@ function PlantDetail({plant, onBack, onDelete, onWater, showToast}){
 }
 
 // ── ADD PLANT ──
+const PERENUAL_KEY = 'sk-wthp69f8dd4e6eeaf16978';
+
 function AddPlant({onBack, onAdd}){
   const [query, setQuery] = useState('');
+  const [apiResults, setApiResults] = useState([]);
+  const [localResults, setLocalResults] = useState([]);
   const [selected, setSelected] = useState(null);
+  const [apiData, setApiData] = useState(null);
   const [light, setLight] = useState('Indirect');
   const [humidity, setHumidity] = useState('Normaal');
   const [saving, setSaving] = useState(false);
-  const results = query.length>0 ? PLANT_DB.filter(p=>p.name.toLowerCase().includes(query.toLowerCase())||p.species.toLowerCase().includes(query.toLowerCase())).slice(0,5) : [];
+  const [searching, setSearching] = useState(false);
+  const [timer, setTimer] = useState(null);
+
+  const parseWatering = (w) => {
+    const map = {'Frequent':3,'Average':7,'Minimum':14,'None':30};
+    return map[w] || 10;
+  };
+  const parseSunlight = (s) => {
+    if(!s||!s.length) return 'Indirect';
+    const v = (Array.isArray(s)?s[0]:s).toLowerCase();
+    if(v.includes('full sun')) return 'Direct';
+    if(v.includes('part')||v.includes('filtered')||v.includes('indirect')) return 'Indirect';
+    return 'Weinig';
+  };
+
+  const searchApi = async (q) => {
+    if(q.length<2) return;
+    setSearching(true);
+    try {
+      const res = await fetch(`https://perenual.com/api/species-list?key=${PERENUAL_KEY}&q=${encodeURIComponent(q)}`);
+      const data = await res.json();
+      if(data.data) setApiResults(data.data.slice(0,6));
+    } catch(e){}
+    setSearching(false);
+  };
+
+  const handleQuery = (val) => {
+    setQuery(val); setSelected(null); setApiData(null);
+    setLocalResults(val.length>0 ? PLANT_DB.filter(p=>p.name.toLowerCase().includes(val.toLowerCase())||p.species.toLowerCase().includes(val.toLowerCase())).slice(0,3) : []);
+    if(timer) clearTimeout(timer);
+    setTimer(setTimeout(()=>searchApi(val), 600));
+  };
+
+  const selectApi = async (p) => {
+    const name = p.common_name || p.scientific_name?.[0] || 'Plant';
+    const species = p.scientific_name?.[0] || '';
+    const dbMatch = PLANT_DB.find(d=>d.name.toLowerCase()===name.toLowerCase());
+    setSelected({name, species, emoji: dbMatch?.emoji||'🌿', fromApi:true});
+    setQuery(name); setApiResults([]); setLocalResults([]);
+    try {
+      const res = await fetch(`https://perenual.com/api/species/details/${p.id}?key=${PERENUAL_KEY}`);
+      const detail = await res.json();
+      setApiData(detail);
+      setLight(parseSunlight(detail.sunlight));
+      setSelected(prev=>({...prev, waterEvery:parseWatering(detail.watering), feedEvery: detail.maintenance==='Low'?60:28}));
+    } catch(e){}
+  };
+
+  const selectLocal = (p) => {
+    setSelected(p); setQuery(p.name);
+    setApiResults([]); setLocalResults([]);
+    setLight(p.light||'Indirect');
+  };
+
   const handleAdd = async () => {
     if(!selected) return;
     setSaving(true);
-    await onAdd({name:selected.name, species:selected.species, emoji:selected.emoji, light, humidity, water_every:selected.waterEvery, feed_every:selected.feedEvery});
+    await onAdd({
+      name: selected.name, species: selected.species, emoji: selected.emoji||'🌿',
+      light, humidity,
+      water_every: selected.waterEvery||10,
+      feed_every: selected.feedEvery||28,
+      api_data: apiData ? {watering:apiData.watering, sunlight:apiData.sunlight, care_level:apiData.care_level, description:apiData.description} : null,
+    });
     setSaving(false);
   };
+
+  const combined = [...localResults, ...apiResults.filter(a=>!localResults.find(l=>l.name.toLowerCase()===(a.common_name||'').toLowerCase()))];
+
   return (
     <div className="screen-enter">
       <div className="add-header">
@@ -497,24 +1076,45 @@ function AddPlant({onBack, onAdd}){
       </div>
       <div className="add-body">
         <div className="field-group">
-          <div className="field-label">Zoek plant</div>
-          <input className="field-input" placeholder="bv. Monstera, Pothos..." value={query} onChange={e=>{setQuery(e.target.value);setSelected(null);}}/>
-          {results.length>0 && (
+          <div className="field-label">Zoek plant {searching && <span style={{color:'var(--green)',fontWeight:400,letterSpacing:0}}>· zoeken...</span>}</div>
+          <input className="field-input" placeholder="bv. Monstera, Lavender, Cactus..." value={query} onChange={e=>handleQuery(e.target.value)}/>
+          {combined.length>0 && (
             <div className="search-results">
-              {results.map((p,i)=>(
-                <div key={i} className={`search-result ${selected?.name===p.name?'selected':''}`} onClick={()=>{setSelected(p);setQuery(p.name);}}>
-                  <span className="result-emoji">{p.emoji}</span>
-                  <div>
-                    <div className="result-name">{p.name}</div>
-                    <div className="result-species">{p.species}</div>
+              {combined.map((p,i)=>{
+                const isApi = !p.waterEvery;
+                const name = isApi ? (p.common_name||p.scientific_name?.[0]||'Plant') : p.name;
+                const species = isApi ? (p.scientific_name?.[0]||'') : p.species;
+                const emoji = isApi ? (PLANT_DB.find(d=>d.name.toLowerCase()===name.toLowerCase())?.emoji||'🌿') : p.emoji;
+                return (
+                  <div key={i} className={`search-result ${selected?.name===name?'selected':''}`} onClick={()=>isApi?selectApi(p):selectLocal(p)}>
+                    <span className="result-emoji">{emoji}</span>
+                    <div style={{flex:1}}>
+                      <div className="result-name">{name}</div>
+                      <div className="result-species">{species}</div>
+                    </div>
+                    {isApi && <span style={{fontSize:10,color:'var(--green)',fontWeight:600,background:'var(--green-light)',padding:'2px 6px',borderRadius:999}}>API</span>}
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           )}
           {selected && (
-            <div style={{background:'var(--green-light)',borderRadius:'var(--r-sm)',padding:'10px 12px',fontSize:12,color:'var(--green)',fontWeight:500}}>
-              ✓ {selected.name} geselecteerd — water elke {selected.waterEvery} dagen
+            <div style={{background:'var(--green-light)',borderRadius:'var(--r-sm)',padding:'12px 14px'}}>
+              <div style={{fontSize:12,color:'var(--green)',fontWeight:600,marginBottom:6}}>✓ {selected.name} geselecteerd</div>
+              {apiData ? (
+                <div style={{display:'flex',flexDirection:'column',gap:3}}>
+                  <div style={{fontSize:11,color:'var(--ink2)'}}>💧 Water: {apiData.watering} → elke ~{selected.waterEvery} dagen</div>
+                  <div style={{fontSize:11,color:'var(--ink2)'}}>☀️ {Array.isArray(apiData.sunlight)?apiData.sunlight.join(', '):apiData.sunlight}</div>
+                  {apiData.care_level && <div style={{fontSize:11,color:'var(--ink2)'}}>🌿 Verzorging: {apiData.care_level}</div>}
+                </div>
+              ) : (
+                <div style={{fontSize:11,color:'var(--ink2)'}}>💧 Water elke ~{selected.waterEvery} dagen</div>
+              )}
+            </div>
+          )}
+          {apiData?.description && (
+            <div style={{background:'var(--bg)',borderRadius:'var(--r-sm)',padding:'10px 12px',fontSize:12,color:'var(--ink3)',lineHeight:1.5}}>
+              {apiData.description.slice(0,180)}...
             </div>
           )}
         </div>
@@ -541,7 +1141,7 @@ function AddPlant({onBack, onAdd}){
           </div>
         </div>
         <button className="submit-btn" onClick={handleAdd} disabled={!selected||saving}>
-          {saving ? 'Opslaan...' : 'Plant toevoegen →'}
+          {saving?'Opslaan...':'Plant toevoegen →'}
         </button>
       </div>
     </div>
@@ -708,9 +1308,15 @@ function SchemaScreen({plants}){
 }
 
 // ── PROFIEL ──
-function ProfielScreen({user, plants, onLogout}){
+function ProfielScreen({user, plants, onLogout, onDeleteAll}){
   const [notifs, setNotifs] = useState(true);
   const [digest, setDigest] = useState(false);
+  const [showDeleteAll, setShowDeleteAll] = useState(false);
+  const [showSummary, setShowSummary] = useState(false);
+
+  const urgentCount = plants.filter(p=>getStatus(p)==='urgent').length;
+  const soonCount = plants.filter(p=>getStatus(p)==='soon').length;
+
   return (
     <div className="screen-enter">
       <div className="profiel-header">
@@ -733,15 +1339,15 @@ function ProfielScreen({user, plants, onLogout}){
             <div className="s-text"><div className="s-label">Push meldingen</div><div className="s-sub">Herinneringen per plant</div></div>
             <div className={`toggle ${notifs?'on':'off'}`} onClick={()=>setNotifs(!notifs)}/>
           </div>
-          <div className="settings-row">
+          <div className="settings-row" onClick={()=>{ setDigest(!digest); if(!digest) setShowSummary(true); }}>
             <div className="s-icon" style={{background:'#FBF3E2'}}>📅</div>
-            <div className="s-text"><div className="s-label">Dagelijkse samenvatting</div><div className="s-sub">Overzicht elke ochtend</div></div>
-            <div className={`toggle ${digest?'on':'off'}`} onClick={()=>setDigest(!digest)}/>
+            <div className="s-text"><div className="s-label">Dagelijkse samenvatting</div><div className="s-sub">Overzicht van vandaag</div></div>
+            <div className={`toggle ${digest?'on':'off'}`}/>
           </div>
         </div>
         <div className="section-label" style={{padding:'4px 0 8px'}}>Account</div>
         <div className="settings-block">
-          <div className="settings-row">
+          <div className="settings-row" onClick={()=>setShowDeleteAll(true)}>
             <div className="s-icon" style={{background:'#F5EAE8'}}>🗑</div>
             <div className="s-text"><div className="s-label">Alle planten verwijderen</div><div className="s-sub">Niet te herstellen</div></div>
             <div className="s-arrow" style={{color:'var(--red)'}}>›</div>
@@ -750,6 +1356,46 @@ function ProfielScreen({user, plants, onLogout}){
         <div style={{height:12}}/>
         <button className="logout-btn" onClick={onLogout}>Uitloggen</button>
       </div>
+
+      {/* DELETE ALL MODAL */}
+      {showDeleteAll && (
+        <div className="modal-overlay">
+          <div className="modal">
+            <div className="modal-title serif">Alle planten verwijderen?</div>
+            <div className="modal-sub">Je verwijdert {plants.length} plant{plants.length!==1?'en':''}. Dit kan niet ongedaan worden gemaakt.</div>
+            <button className="modal-btn danger" onClick={()=>{ onDeleteAll(); setShowDeleteAll(false); }}>Ja, alles verwijderen</button>
+            <button className="modal-btn cancel" onClick={()=>setShowDeleteAll(false)}>Annuleren</button>
+          </div>
+        </div>
+      )}
+
+      {/* DAILY SUMMARY MODAL */}
+      {showSummary && (
+        <div className="modal-overlay" onClick={()=>setShowSummary(false)}>
+          <div className="modal" onClick={e=>e.stopPropagation()}>
+            <div className="modal-title serif">🌿 Dagelijkse samenvatting</div>
+            <div style={{fontSize:13,color:'var(--ink2)',marginBottom:16,lineHeight:1.6}}>
+              Je hebt <strong>{plants.length} plant{plants.length!==1?'en':''}</strong> in je tuin.
+            </div>
+            {urgentCount>0 && <div style={{background:'var(--red-soft)',borderRadius:'var(--r-sm)',padding:'10px 14px',marginBottom:8,fontSize:13,color:'var(--red)',fontWeight:500}}>⚠️ {urgentCount} plant{urgentCount!==1?'en':''} hebben dringend water nodig</div>}
+            {soonCount>0 && <div style={{background:'var(--yellow-soft)',borderRadius:'var(--r-sm)',padding:'10px 14px',marginBottom:8,fontSize:13,color:'var(--yellow)',fontWeight:500}}>⏰ {soonCount} plant{soonCount!==1?'en':''} binnenkort water nodig</div>}
+            {urgentCount===0&&soonCount===0 && <div style={{background:'var(--green-light)',borderRadius:'var(--r-sm)',padding:'10px 14px',marginBottom:8,fontSize:13,color:'var(--green)',fontWeight:500}}>✅ Alle planten zijn in goede staat!</div>}
+            <div style={{marginTop:8}}>
+              {plants.map(p=>(
+                <div key={p.id} style={{display:'flex',alignItems:'center',gap:10,padding:'8px 0',borderBottom:'1px solid var(--line)'}}>
+                  <span style={{fontSize:20}}>{p.emoji}</span>
+                  <div style={{flex:1}}>
+                    <div style={{fontSize:13,fontWeight:500,color:'var(--ink)'}}>{p.name}</div>
+                    <div style={{fontSize:11,color:'var(--ink3)'}}>{formatNext(p.next_water)}</div>
+                  </div>
+                  <div className={`status-dot ${getStatus(p)}`}></div>
+                </div>
+              ))}
+            </div>
+            <button className="modal-btn cancel" style={{marginTop:16}} onClick={()=>setShowSummary(false)}>Sluiten</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -836,6 +1482,18 @@ function App(){
     if(!error){ setPlants(prev=>prev.filter(p=>p.id!==id)); setSelectedPlant(null); showToast('🗑 Plant verwijderd'); }
   };
 
+  // Update plant locally
+  const handleUpdate = (updatedPlant) => {
+    setPlants(prev=>prev.map(p=>p.id===updatedPlant.id?updatedPlant:p));
+    setSelectedPlant(updatedPlant);
+  };
+
+  // Delete all plants
+  const handleDeleteAll = async () => {
+    const {error} = await supabase.from('plants').delete().eq('user_id', session.user.id);
+    if(!error){ setPlants([]); showToast('🗑 Alle planten verwijderd'); }
+  };
+
   // Logout
   const handleLogout = async () => { await supabase.auth.signOut(); setSession(null); setPlants([]); };
 
@@ -856,12 +1514,12 @@ function App(){
   );
 
   const renderScreen = () => {
-    if(selectedPlant) return <PlantDetail plant={selectedPlant} onBack={()=>setSelectedPlant(null)} onDelete={handleDelete} onWater={handleWater} showToast={showToast}/>;
+    if(selectedPlant) return <PlantDetail plant={selectedPlant} onBack={()=>setSelectedPlant(null)} onDelete={handleDelete} onWater={handleWater} onUpdate={handleUpdate} showToast={showToast} userId={session.user.id}/>;
     if(showAdd) return <AddPlant onBack={()=>setShowAdd(false)} onAdd={handleAdd}/>;
     if(tab==='home') return <Dashboard plants={plants} onPlantClick={setSelectedPlant} onAdd={()=>setShowAdd(true)}/>;
     if(tab==='schema') return <SchemaScreen plants={plants}/>;
     if(tab==='alerts') return <AlertsScreen plants={plants} onWater={handleWater} onSnooze={handleSnooze} onUndo={handleUndo}/>;
-    if(tab==='profiel') return <ProfielScreen user={session.user} plants={plants} onLogout={handleLogout}/>;
+    if(tab==='profiel') return <ProfielScreen user={session.user} plants={plants} onLogout={handleLogout} onDeleteAll={handleDeleteAll}/>;
   };
 
   return (
