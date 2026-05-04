@@ -292,7 +292,7 @@ function Dashboard({plants, onPlantClick, onAdd}){
 }
 
 // ── PLANT DETAIL ──
-function PlantDetail({plant, onBack, onDelete, onWater, onUpdate, showToast, userId}){
+function PlantDetail({plant, onBack, onDelete, onWater, onFeed, onUpdate, showToast, userId}){
   const [tab, setTab] = useState('info');
   const [showConfirm, setShowConfirm] = useState(false);
   const [editName, setEditName] = useState(false);
@@ -302,11 +302,87 @@ function PlantDetail({plant, onBack, onDelete, onWater, onUpdate, showToast, use
   const [pendingDate, setPendingDate] = useState(todayStr());
   const [uploading, setUploading] = useState(false);
   const [editingPhoto, setEditingPhoto] = useState(null);
+  const [fetchingApi, setFetchingApi] = useState(false);
   // instellingen
   const [windows, setWindows] = useState(plant.windows||[]);
   const [light, setLight] = useState(plant.light||'Indirect');
   const [humidity, setHumidity] = useState(plant.humidity||'Normaal');
   const [savingSettings, setSavingSettings] = useState(false);
+
+  // Auto-fetch API data als die er nog niet is
+  useEffect(()=>{
+    if(!plant.api_data && plant.name) {
+      fetchApiData();
+    }
+  }, [plant.id]);
+
+  const fetchApiData = async () => {
+    setFetchingApi(true);
+    try {
+      const searchRes = await fetch(`https://perenual.com/api/species-list?key=${PERENUAL_KEY}&q=${encodeURIComponent(plant.name)}`);
+      const searchData = await searchRes.json();
+      if(!searchData.data || searchData.data.length === 0) { setFetchingApi(false); return; }
+      const match = searchData.data[0];
+      const detailRes = await fetch(`https://perenual.com/api/species/details/${match.id}?key=${PERENUAL_KEY}`);
+      const detail = await detailRes.json();
+      const api_data = {
+        // Basis
+        common_name: detail.common_name,
+        scientific_name: detail.scientific_name,
+        other_name: detail.other_name,
+        family: detail.family,
+        description: detail.description,
+        // Herkomst
+        origin: detail.origin,
+        // Verzorging
+        watering: detail.watering,
+        watering_period: detail.watering_period,
+        watering_general_benchmark: detail.watering_general_benchmark,
+        sunlight: detail.sunlight,
+        care_level: detail.care_level,
+        maintenance: detail.maintenance,
+        // Groei
+        type: detail.type,
+        cycle: detail.cycle,
+        growth_rate: detail.growth_rate,
+        plant_anatomy: detail.plant_anatomy,
+        // Omgeving
+        indoor: detail.indoor,
+        hardiness: detail.hardiness,
+        hardiness_location: detail.hardiness_location,
+        soil: detail.soil,
+        // Kenmerken
+        leaf: detail.leaf,
+        leaf_color: detail.leaf_color,
+        flowers: detail.flowers,
+        flower_color: detail.flower_color,
+        flowering_season: detail.flowering_season,
+        fruits: detail.fruits,
+        fruit_color: detail.fruit_color,
+        edible_fruit: detail.edible_fruit,
+        edible_leaf: detail.edible_leaf,
+        // Veiligheid
+        poisonous_to_humans: detail.poisonous_to_humans,
+        poisonous_to_pets: detail.poisonous_to_pets,
+        // Extra
+        drought_tolerant: detail.drought_tolerant,
+        salt_tolerant: detail.salt_tolerant,
+        thorny: detail.thorny,
+        invasive: detail.invasive,
+        rare: detail.rare,
+        tropical: detail.tropical,
+        cuisine: detail.cuisine,
+        medicinal: detail.medicinal,
+        // Afmetingen
+        dimension: detail.dimension,
+        volume_water_requirement: detail.volume_water_requirement,
+      };
+      await supabase.from('plants').update({api_data}).eq('id', plant.id);
+      onUpdate({...plant, api_data});
+      showToast('🌿 Plantinfo opgehaald!');
+    } catch(e) {}
+    setFetchingApi(false);
+  };
 
   const dbPlant = PLANT_DB.find(p=>p.name===plant.name)||{};
   const care = dbPlant.care||{water:true,feed:true};
@@ -410,19 +486,26 @@ function PlantDetail({plant, onBack, onDelete, onWater, onUpdate, showToast, use
         {/* ── INFO TAB ── */}
         {tab==='info' && (
           <div style={{padding:'20px 24px'}}>
-            <button className="do-btn" onClick={()=>onWater(plant)}>💧 Water geven — markeer als gedaan</button>
+            <div style={{display:'flex',gap:8,marginBottom:16}}>
+              <button className="do-btn" style={{margin:0,flex:1}} onClick={()=>onWater(plant)}>💧 Water</button>
+              <button className="do-btn" style={{margin:0,flex:1,background:'var(--accent)'}} onClick={()=>onFeed(plant)}>🌿 Voeding</button>
+            </div>
 
+            {fetchingApi && (
+              <div style={{background:'var(--green-light)',borderRadius:'var(--r-sm)',padding:'10px 14px',marginBottom:16,fontSize:12,color:'var(--green)',display:'flex',alignItems:'center',gap:8}}>
+                <div className="spinner" style={{width:14,height:14,borderWidth:2}}/>
+                Plantinfo ophalen via API...
+              </div>
+            )}
+
+            {/* ENV CHIPS */}
             <div style={{display:'flex',flexWrap:'wrap',gap:6,marginBottom:20}}>
               <span style={{background:'var(--green-light)',color:'var(--green)',fontSize:11,fontWeight:500,padding:'5px 10px',borderRadius:999}}>☀️ {plant.light}</span>
               <span style={{background:'var(--green-light)',color:'var(--green)',fontSize:11,fontWeight:500,padding:'5px 10px',borderRadius:999}}>💧 {plant.humidity}</span>
               {(plant.windows||[]).map(w=><span key={w} style={{background:'var(--blue-soft)',color:'var(--blue)',fontSize:11,fontWeight:500,padding:'5px 10px',borderRadius:999}}>🪟 {w}</span>)}
             </div>
 
-            <div className="sec-label" style={{marginBottom:8}}>Behoeftes</div>
-            <div style={{display:'flex',flexWrap:'wrap',gap:6,marginBottom:20}}>
-              {careItems.map(c=><span key={c.key} style={{display:'inline-flex',alignItems:'center',gap:4,background:'var(--green-light)',color:'var(--green)',fontSize:12,fontWeight:500,padding:'5px 10px',borderRadius:999}}>{c.icon} {c.label}</span>)}
-            </div>
-
+            {/* SCHEMA */}
             <div className="sec-label" style={{marginBottom:8}}>Schema</div>
             <div className="care-grid">
               <div className="care-tile"><div className="care-tile-icon">💧</div><div className="care-tile-label">Water</div><div className={`care-tile-value ${status==='urgent'?'urgent':''}`}>{formatNext(plant.next_water)}</div><div className="care-tile-next">elke ~{plant.water_every} dagen</div></div>
@@ -433,21 +516,154 @@ function PlantDetail({plant, onBack, onDelete, onWater, onUpdate, showToast, use
               {care.rotate&&<div className="care-tile"><div className="care-tile-icon">🔄</div><div className="care-tile-label">Draaien</div><div className="care-tile-value">Maandelijks</div><div className="care-tile-next">voor groei</div></div>}
             </div>
 
-            {(plant.api_data?.description||dbPlant.tips) && <>
+            {/* OVER DEZE PLANT */}
+            {plant.api_data?.description && <>
               <div className="sec-label" style={{marginBottom:8}}>Over deze plant</div>
-              {plant.api_data?.description&&<div style={{fontSize:13,color:'var(--ink2)',lineHeight:1.7,marginBottom:12}}>{plant.api_data.description}</div>}
-              {dbPlant.tips&&<div style={{background:'var(--green-light)',borderRadius:'var(--r-sm)',padding:'12px 14px',marginBottom:16}}>
+              <div style={{fontSize:13,color:'var(--ink2)',lineHeight:1.7,marginBottom:20}}>{plant.api_data.description}</div>
+            </>}
+            {dbPlant.tips && (
+              <div style={{background:'var(--green-light)',borderRadius:'var(--r-sm)',padding:'12px 14px',marginBottom:20}}>
                 <div style={{fontSize:10,fontWeight:600,letterSpacing:'0.8px',textTransform:'uppercase',color:'var(--green)',marginBottom:4}}>Tips</div>
                 <div style={{fontSize:13,color:'var(--ink2)',lineHeight:1.5}}>{dbPlant.tips}</div>
-              </div>}
-              {plant.api_data?.care_level&&<div style={{display:'flex',gap:8,marginBottom:16,flexWrap:'wrap'}}>
-                <span style={{background:'var(--bg2)',color:'var(--ink2)',fontSize:12,fontWeight:500,padding:'5px 10px',borderRadius:999}}>🌿 {plant.api_data.care_level}</span>
-                {plant.api_data?.watering&&<span style={{background:'var(--bg2)',color:'var(--ink2)',fontSize:12,fontWeight:500,padding:'5px 10px',borderRadius:999}}>💧 {plant.api_data.watering}</span>}
-              </div>}
+              </div>
+            )}
+
+            {/* HERKOMST */}
+            {plant.api_data?.origin?.length>0 && <>
+              <div className="sec-label" style={{marginBottom:8}}>🌍 Herkomst</div>
+              <div style={{display:'flex',flexWrap:'wrap',gap:6,marginBottom:20}}>
+                {(Array.isArray(plant.api_data.origin)?plant.api_data.origin:[plant.api_data.origin]).map((o,i)=>(
+                  <span key={i} style={{background:'var(--bg2)',color:'var(--ink2)',fontSize:12,fontWeight:500,padding:'5px 10px',borderRadius:999}}>{o}</span>
+                ))}
+              </div>
             </>}
+
+            {/* GROEI & KENMERKEN */}
+            {plant.api_data && (
+              <>
+                <div className="sec-label" style={{marginBottom:8}}>🌱 Groei & kenmerken</div>
+                <div style={{background:'var(--white)',borderRadius:'var(--r)',overflow:'hidden',marginBottom:20,boxShadow:'0 1px 4px rgba(0,0,0,0.05)'}}>
+                  {[
+                    {label:'Type', val: plant.api_data.type},
+                    {label:'Groeicyclus', val: plant.api_data.cycle},
+                    {label:'Groeisnelheid', val: plant.api_data.growth_rate},
+                    {label:'Familie', val: plant.api_data.family},
+                    {label:'Binnenshuis', val: plant.api_data.indoor===true?'Ja':plant.api_data.indoor===false?'Nee':null},
+                    {label:'Tropisch', val: plant.api_data.tropical===true?'Ja':null},
+                    {label:'Afmeting', val: plant.api_data.dimension},
+                    {label:'Hardiness zone', val: plant.api_data.hardiness ? `${plant.api_data.hardiness.min} – ${plant.api_data.hardiness.max}` : null},
+                  ].filter(r=>r.val).map((r,i,arr)=>(
+                    <div key={i} style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'11px 16px',borderBottom:i<arr.length-1?'1px solid var(--line)':'none'}}>
+                      <span style={{fontSize:13,color:'var(--ink3)'}}>{r.label}</span>
+                      <span style={{fontSize:13,fontWeight:500,color:'var(--ink)',textAlign:'right',maxWidth:'60%'}}>{r.val}</span>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
+
+            {/* BLOEM & VRUCHT */}
+            {plant.api_data && (plant.api_data.flowers||plant.api_data.fruits) && (
+              <>
+                <div className="sec-label" style={{marginBottom:8}}>🌸 Bloem & vrucht</div>
+                <div style={{background:'var(--white)',borderRadius:'var(--r)',overflow:'hidden',marginBottom:20,boxShadow:'0 1px 4px rgba(0,0,0,0.05)'}}>
+                  {[
+                    {label:'Bloemen', val: plant.api_data.flowers===true?'Ja':null},
+                    {label:'Bloemkleur', val: Array.isArray(plant.api_data.flower_color)?plant.api_data.flower_color.join(', '):plant.api_data.flower_color},
+                    {label:'Bloeitijd', val: plant.api_data.flowering_season},
+                    {label:'Vruchten', val: plant.api_data.fruits===true?'Ja':null},
+                    {label:'Vruchtkleur', val: Array.isArray(plant.api_data.fruit_color)?plant.api_data.fruit_color.join(', '):plant.api_data.fruit_color},
+                    {label:'Eetbare vrucht', val: plant.api_data.edible_fruit===true?'Ja':plant.api_data.edible_fruit===false?'Nee':null},
+                    {label:'Eetbaar blad', val: plant.api_data.edible_leaf===true?'Ja':plant.api_data.edible_leaf===false?'Nee':null},
+                  ].filter(r=>r.val).map((r,i,arr)=>(
+                    <div key={i} style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'11px 16px',borderBottom:i<arr.length-1?'1px solid var(--line)':'none'}}>
+                      <span style={{fontSize:13,color:'var(--ink3)'}}>{r.label}</span>
+                      <span style={{fontSize:13,fontWeight:500,color:'var(--ink)'}}>{r.val}</span>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
+
+            {/* BLAD */}
+            {plant.api_data?.leaf && (
+              <>
+                <div className="sec-label" style={{marginBottom:8}}>🍃 Blad</div>
+                <div style={{background:'var(--white)',borderRadius:'var(--r)',overflow:'hidden',marginBottom:20,boxShadow:'0 1px 4px rgba(0,0,0,0.05)'}}>
+                  {[
+                    {label:'Bladkleur', val: Array.isArray(plant.api_data.leaf_color)?plant.api_data.leaf_color.join(', '):plant.api_data.leaf_color},
+                  ].filter(r=>r.val).map((r,i,arr)=>(
+                    <div key={i} style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'11px 16px',borderBottom:i<arr.length-1?'1px solid var(--line)':'none'}}>
+                      <span style={{fontSize:13,color:'var(--ink3)'}}>{r.label}</span>
+                      <span style={{fontSize:13,fontWeight:500,color:'var(--ink)'}}>{r.val}</span>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
+
+            {/* GROND & WATER */}
+            {plant.api_data && (
+              <>
+                <div className="sec-label" style={{marginBottom:8}}>💧 Verzorging details</div>
+                <div style={{background:'var(--white)',borderRadius:'var(--r)',overflow:'hidden',marginBottom:20,boxShadow:'0 1px 4px rgba(0,0,0,0.05)'}}>
+                  {[
+                    {label:'Waterbehoefte', val: plant.api_data.watering},
+                    {label:'Waterperiode', val: plant.api_data.watering_period},
+                    {label:'Watervolume', val: plant.api_data.volume_water_requirement?.unit ? `${plant.api_data.volume_water_requirement.value} ${plant.api_data.volume_water_requirement.unit}` : null},
+                    {label:'Onderhoud', val: plant.api_data.maintenance},
+                    {label:'Verzorgingsniveau', val: plant.api_data.care_level},
+                    {label:'Grondtype', val: Array.isArray(plant.api_data.soil)?plant.api_data.soil.join(', '):plant.api_data.soil},
+                    {label:'Droogtebestendig', val: plant.api_data.drought_tolerant===true?'Ja':plant.api_data.drought_tolerant===false?'Nee':null},
+                    {label:'Zoutbestendig', val: plant.api_data.salt_tolerant===true?'Ja':null},
+                  ].filter(r=>r.val).map((r,i,arr)=>(
+                    <div key={i} style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'11px 16px',borderBottom:i<arr.length-1?'1px solid var(--line)':'none'}}>
+                      <span style={{fontSize:13,color:'var(--ink3)'}}>{r.label}</span>
+                      <span style={{fontSize:13,fontWeight:500,color:'var(--ink)',textAlign:'right',maxWidth:'60%'}}>{r.val}</span>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
+
+            {/* VEILIGHEID */}
+            {plant.api_data && (plant.api_data.poisonous_to_humans!=null || plant.api_data.poisonous_to_pets!=null) && (
+              <>
+                <div className="sec-label" style={{marginBottom:8}}>⚠️ Veiligheid</div>
+                <div style={{background:'var(--white)',borderRadius:'var(--r)',overflow:'hidden',marginBottom:20,boxShadow:'0 1px 4px rgba(0,0,0,0.05)'}}>
+                  {[
+                    {label:'Giftig voor mensen', val: plant.api_data.poisonous_to_humans===1||plant.api_data.poisonous_to_humans===true?'⚠️ Ja':'✅ Nee'},
+                    {label:'Giftig voor huisdieren', val: plant.api_data.poisonous_to_pets===1||plant.api_data.poisonous_to_pets===true?'⚠️ Ja':'✅ Nee'},
+                    {label:'Doornen', val: plant.api_data.thorny===true?'Ja':plant.api_data.thorny===false?'Nee':null},
+                    {label:'Medicinaal', val: plant.api_data.medicinal===true?'Ja':null},
+                    {label:'Culinair gebruik', val: plant.api_data.cuisine===true?'Ja':null},
+                    {label:'Invasief', val: plant.api_data.invasive===true?'⚠️ Ja':null},
+                    {label:'Zeldzaam', val: plant.api_data.rare===true?'Ja':null},
+                  ].filter(r=>r.val).map((r,i,arr)=>(
+                    <div key={i} style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'11px 16px',borderBottom:i<arr.length-1?'1px solid var(--line)':'none'}}>
+                      <span style={{fontSize:13,color:'var(--ink3)'}}>{r.label}</span>
+                      <span style={{fontSize:13,fontWeight:500,color:'var(--ink)'}}>{r.val}</span>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
+
+            {/* ANDERE NAMEN */}
+            {plant.api_data?.other_name?.length>0 && (
+              <>
+                <div className="sec-label" style={{marginBottom:8}}>📛 Andere namen</div>
+                <div style={{display:'flex',flexWrap:'wrap',gap:6,marginBottom:20}}>
+                  {(Array.isArray(plant.api_data.other_name)?plant.api_data.other_name:[plant.api_data.other_name]).map((n,i)=>(
+                    <span key={i} style={{background:'var(--bg2)',color:'var(--ink2)',fontSize:12,padding:'5px 10px',borderRadius:999}}>{n}</span>
+                  ))}
+                </div>
+              </>
+            )}
 
             {sunAdvice&&<div style={{background:sunAdvice.ok?'var(--green-light)':'var(--yellow-soft)',borderRadius:'var(--r-sm)',padding:'10px 14px',marginBottom:16,fontSize:12,color:sunAdvice.ok?'var(--green)':'var(--yellow)',fontWeight:500,lineHeight:1.5}}>{sunAdvice.msg}</div>}
 
+            {/* GESCHIEDENIS */}
             <div className="sec-label" style={{marginBottom:8}}>Geschiedenis</div>
             {(plant.log||[]).length===0
               ? <div style={{fontSize:13,color:'var(--ink3)',padding:'8px 0'}}>Nog geen acties.</div>
@@ -980,6 +1196,17 @@ function App(){
     showToast('💧 Water gegeven!');
   };
 
+  const handleFeed = async (plant) => {
+    const newNext = addDays(todayStr(),plant.feed_every);
+    const date = new Date().toLocaleDateString('nl-NL',{day:'numeric',month:'short'});
+    const newLog = [{type:'🌿',text:'Voeding gegeven',date},...(plant.log||[])].slice(0,20);
+    await supabase.from('plants').update({next_feed:newNext,log:newLog}).eq('id',plant.id);
+    const updated = {...plant,next_feed:newNext,log:newLog};
+    setPlants(prev=>prev.map(p=>p.id===plant.id?updated:p));
+    if(selectedPlant?.id===plant.id) setSelectedPlant(updated);
+    showToast('🌿 Voeding gegeven!');
+  };
+
   const handleSnooze = async (plant) => {
     const newNext = addDays(plant.next_water,1);
     await supabase.from('plants').update({next_water:newNext}).eq('id',plant.id);
@@ -1020,7 +1247,7 @@ function App(){
   return (
     <div className="app">
       <div className="screen-content">
-        {selectedPlant && <PlantDetail plant={selectedPlant} onBack={()=>setSelectedPlant(null)} onDelete={handleDelete} onWater={handleWater} onUpdate={handleUpdate} showToast={showToast} userId={session.user.id}/>}
+        {selectedPlant && <PlantDetail plant={selectedPlant} onBack={()=>setSelectedPlant(null)} onDelete={handleDelete} onWater={handleWater} onFeed={handleFeed} onUpdate={handleUpdate} showToast={showToast} userId={session.user.id}/>}
         {!selectedPlant && showAdd && <AddPlant onBack={()=>setShowAdd(false)} onAdd={handleAdd}/>}
         {!selectedPlant && !showAdd && tab==='home' && <Dashboard plants={plants} onPlantClick={setSelectedPlant} onAdd={()=>setShowAdd(true)}/>}
         {!selectedPlant && !showAdd && tab==='schema' && <SchemaScreen plants={plants}/>}
