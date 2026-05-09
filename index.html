@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="nl">
 <head>
 <meta charset="UTF-8"/>
@@ -46,122 +47,123 @@ html,body,#root{height:100%;background:var(--bg);font-family:'DM Sans',sans-seri
 @keyframes slideUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 
 /* PAGE HEADER */
-.page-hdr{background:var(--white);padding:calc(env(safe-area-inset-top) + 16px) 24px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
-.page-title{font-family:'Instrument Serif',serif;font-size:28px;color:var(--ink)}
+.page-hdr{background:var(–white);padding:calc(env(safe-area-inset-top) + 16px) 24px 16px;border-bottom:1px solid var(–line);display:flex;align-items:center;justify-content:space-between}
+.page-title{font-family:‘Instrument Serif’,serif;font-size:28px;color:var(–ink)}
 
 /* LOGIN */
-.login-wrap{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 32px;background:var(--white)}
-.login-logo{width:80px;height:80px;background:var(--green-light);border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:38px;margin-bottom:28px;border:1.5px solid var(--green-mid)}
-.google-btn{width:100%;padding:15px 20px;background:var(--white);border:1.5px solid var(--line);border-radius:var(--r);display:flex;align-items:center;justify-content:center;gap:10px;font-size:15px;font-weight:500;color:var(--ink);cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,0.07);font-family:'DM Sans',sans-serif}
+.login-wrap{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 32px;background:var(–white)}
+.login-logo{width:80px;height:80px;background:var(–green-light);border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:38px;margin-bottom:28px;border:1.5px solid var(–green-mid)}
+.google-btn{width:100%;padding:15px 20px;background:var(–white);border:1.5px solid var(–line);border-radius:var(–r);display:flex;align-items:center;justify-content:center;gap:10px;font-size:15px;font-weight:500;color:var(–ink);cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,0.07);font-family:‘DM Sans’,sans-serif}
 .google-btn:disabled{opacity:0.6;cursor:not-allowed}
 
 /* DASHBOARD */
-.plant-row{background:var(--white);border-radius:var(--r);padding:14px 16px;display:flex;align-items:center;gap:14px;box-shadow:0 1px 4px rgba(0,0,0,0.05);cursor:pointer;transition:transform 0.15s}
+.plant-row{background:var(–white);border-radius:var(–r);padding:14px 16px;display:flex;align-items:center;gap:14px;box-shadow:0 1px 4px rgba(0,0,0,0.05);cursor:pointer;transition:transform 0.15s}
 .plant-row:active{transform:scale(0.98)}
-.plant-avatar{width:46px;height:46px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.plant-avatar{width:46px;height:46px;border-radius:var(–r-sm);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
 .status-dot{width:8px;height:8px;border-radius:50%}
-.status-dot.urgent{background:var(--red)}
-.status-dot.soon{background:var(--yellow)}
+.status-dot.urgent{background:var(–red)}
+.status-dot.soon{background:var(–yellow)}
 .status-dot.good{background:#4CAF70}
 .chip{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:500;cursor:pointer;transition:transform 0.1s}
 .chip:active{transform:scale(0.95)}
-.chip.urgent{background:var(--red-soft);color:var(--red)}
-.chip.soon{background:var(--yellow-soft);color:var(--yellow)}
-.chip.good{background:var(--green-light);color:var(--green)}
+.chip.urgent{background:var(–red-soft);color:var(–red)}
+.chip.soon{background:var(–yellow-soft);color:var(–yellow)}
+.chip.good{background:var(–green-light);color:var(–green)}
 
 /* DETAIL */
 .detail-hero{height:220px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;flex-shrink:0}
 .back-btn{position:absolute;top:calc(env(safe-area-inset-top) + 12px);left:18px;width:34px;height:34px;background:rgba(255,255,255,0.88);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;backdrop-filter:blur(4px);border:none;font-family:inherit;z-index:5}
-.del-btn{position:absolute;top:calc(env(safe-area-inset-top) + 12px);right:18px;width:34px;height:34px;background:rgba(255,255,255,0.88);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;backdrop-filter:blur(4px);border:none;font-family:inherit;z-index:5;color:var(--red)}
-.tab-bar{display:flex;background:var(--white);border-bottom:1px solid var(--line);flex-shrink:0}
+.del-btn{position:absolute;top:calc(env(safe-area-inset-top) + 12px);right:18px;width:34px;height:34px;background:rgba(255,255,255,0.88);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;backdrop-filter:blur(4px);border:none;font-family:inherit;z-index:5;color:var(–red)}
+.tab-bar{display:flex;background:var(–white);border-bottom:1px solid var(–line);flex-shrink:0}
 .tab-btn{flex:1;padding:12px 4px;border:none;background:none;font-family:inherit;font-size:12px;font-weight:600;cursor:pointer;transition:color 0.15s;white-space:nowrap}
 .care-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
-.care-tile{background:var(--bg);border-radius:var(--r-sm);padding:14px}
+.care-tile{background:var(–bg);border-radius:var(–r-sm);padding:14px}
 .care-tile-icon{font-size:18px;margin-bottom:6px}
-.care-tile-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.8px;color:var(--ink3);margin-bottom:2px}
-.care-tile-value{font-size:13px;font-weight:600;color:var(--ink)}
-.care-tile-value.urgent{color:var(--red)}
-.care-tile-next{font-size:11px;color:var(--ink3);margin-top:2px}
-.do-btn{width:100%;padding:15px;background:var(--green);color:white;border:none;border-radius:var(--r);font-size:15px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;margin-bottom:16px}
+.care-tile-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.8px;color:var(–ink3);margin-bottom:2px}
+.care-tile-value{font-size:13px;font-weight:600;color:var(–ink)}
+.care-tile-value.urgent{color:var(–red)}
+.care-tile-next{font-size:11px;color:var(–ink3);margin-top:2px}
+.do-btn{width:100%;padding:15px;background:var(–green);color:white;border:none;border-radius:var(–r);font-size:15px;font-weight:600;font-family:‘DM Sans’,sans-serif;cursor:pointer;margin-bottom:16px}
 .do-btn:active{opacity:0.85}
-.log-item{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(--line)}
+.log-item{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(–line)}
 .log-item:last-child{border-bottom:none}
-.log-dot{width:6px;height:6px;border-radius:50%;background:var(--green-mid);margin-top:5px;flex-shrink:0}
+.log-dot{width:6px;height:6px;border-radius:50%;background:var(–green-mid);margin-top:5px;flex-shrink:0}
 
 /* FIELDS */
 .field-group{display:flex;flex-direction:column;gap:6px}
-.field-label{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--ink3)}
-.field-input{background:var(--bg);border:1.5px solid transparent;border-radius:var(--r-sm);padding:12px 14px;font-size:14px;color:var(--ink);font-family:'DM Sans',sans-serif;outline:none;width:100%;transition:border-color 0.15s}
-.field-input:focus{border-color:var(--accent);background:var(--white)}
+.field-label{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(–ink3)}
+.field-input{background:var(–bg);border:1.5px solid transparent;border-radius:var(–r-sm);padding:12px 14px;font-size:14px;color:var(–ink);font-family:‘DM Sans’,sans-serif;outline:none;width:100%;transition:border-color 0.15s}
+.field-input:focus{border-color:var(–accent);background:var(–white)}
 .env-selector{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
-.env-opt{background:var(--bg);border-radius:var(--r-sm);padding:12px 8px;text-align:center;cursor:pointer;border:1.5px solid transparent;transition:all 0.15s}
-.env-opt.selected{background:var(--green-light);border-color:var(--accent)}
+.env-opt{background:var(–bg);border-radius:var(–r-sm);padding:12px 8px;text-align:center;cursor:pointer;border:1.5px solid transparent;transition:all 0.15s}
+.env-opt.selected{background:var(–green-light);border-color:var(–accent)}
 .env-opt-icon{font-size:20px;margin-bottom:5px}
-.env-opt-label{font-size:11px;font-weight:500;color:var(--ink2)}
-.search-results{background:var(--bg);border-radius:var(--r-sm);overflow:hidden;margin-top:2px}
-.search-result{padding:11px 14px;display:flex;align-items:center;gap:10px;background:var(--white);border-bottom:1px solid var(--bg);cursor:pointer;transition:background 0.1s}
+.env-opt-label{font-size:11px;font-weight:500;color:var(–ink2)}
+.search-results{background:var(–bg);border-radius:var(–r-sm);overflow:hidden;margin-top:2px}
+.search-result{padding:11px 14px;display:flex;align-items:center;gap:10px;background:var(–white);border-bottom:1px solid var(–bg);cursor:pointer;transition:background 0.1s}
 .search-result:last-child{border-bottom:none}
-.search-result:hover,.search-result.sel{background:var(--green-light)}
-.submit-btn{width:100%;padding:15px;background:var(--green);color:white;border:none;border-radius:var(--r);font-size:15px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer}
+.search-result:hover,.search-result.sel{background:var(–green-light)}
+.submit-btn{width:100%;padding:15px;background:var(–green);color:white;border:none;border-radius:var(–r);font-size:15px;font-weight:600;font-family:‘DM Sans’,sans-serif;cursor:pointer}
 .submit-btn:disabled{opacity:0.4;cursor:not-allowed}
 
 /* ALERTS */
-.alert-card{background:var(--white);border-radius:var(--r);padding:12px 14px;display:flex;align-items:center;gap:10px;box-shadow:0 1px 3px rgba(0,0,0,0.05);position:relative;overflow:hidden}
-.alert-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px}
-.alert-card.urgent::before{background:var(--red)}
-.alert-card.soon::before{background:var(--yellow)}
+.alert-card{background:var(–white);border-radius:var(–r);padding:12px 14px;display:flex;align-items:center;gap:10px;box-shadow:0 1px 3px rgba(0,0,0,0.05);position:relative;overflow:hidden}
+.alert-card::before{content:’’;position:absolute;left:0;top:0;bottom:0;width:3px}
+.alert-card.urgent::before{background:var(–red)}
+.alert-card.soon::before{background:var(–yellow)}
 .alert-card.done{opacity:0.45}
-.alert-card.done::before{background:var(--green-mid)}
-.alert-btn{padding:5px 10px;border-radius:999px;font-size:11px;font-weight:600;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
-.alert-btn.urgent{background:var(--red-soft);color:var(--red)}
-.alert-btn.soon{background:var(--yellow-soft);color:var(--yellow)}
-.alert-btn.snooze{background:var(--blue-soft);color:var(--blue)}
-.alert-btn.done-btn{background:var(--bg2);color:var(--ink3)}
-.alert-btn.undo{background:var(--green-light);color:var(--green)}
+.alert-card.done::before{background:var(–green-mid)}
+.alert-btn{padding:5px 10px;border-radius:999px;font-size:11px;font-weight:600;border:none;cursor:pointer;font-family:‘DM Sans’,sans-serif}
+.alert-btn.urgent{background:var(–red-soft);color:var(–red)}
+.alert-btn.soon{background:var(–yellow-soft);color:var(–yellow)}
+.alert-btn.snooze{background:var(–blue-soft);color:var(–blue)}
+.alert-btn.done-btn{background:var(–bg2);color:var(–ink3)}
+.alert-btn.undo{background:var(–green-light);color:var(–green)}
 
 /* SCHEMA */
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
-.cal-cell{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:var(--r-xs);cursor:pointer}
-.cal-num{font-size:13px;color:var(--ink);line-height:1}
-.cal-cell.today{background:var(--green)}
+.cal-cell{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:var(–r-xs);cursor:pointer}
+.cal-num{font-size:13px;color:var(–ink);line-height:1}
+.cal-cell.today{background:var(–green)}
 .cal-cell.today .cal-num{color:white;font-weight:700}
-.cal-cell.other .cal-num{color:var(--ink3)}
+.cal-cell.other .cal-num{color:var(–ink3)}
 .dot{width:4px;height:4px;border-radius:50%}
 .dot.water{background:#6BAED6}
 .dot.feed{background:#74C476}
 
 /* PROFIEL */
-.settings-block{background:var(--white);border-radius:var(--r);overflow:hidden;margin-bottom:12px}
-.settings-row{display:flex;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line);gap:12px;cursor:pointer}
+.settings-block{background:var(–white);border-radius:var(–r);overflow:hidden;margin-bottom:12px}
+.settings-row{display:flex;align-items:center;padding:14px 16px;border-bottom:1px solid var(–line);gap:12px;cursor:pointer}
 .settings-row:last-child{border-bottom:none}
-.s-icon{width:34px;height:34px;border-radius:var(--r-xs);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.s-icon{width:34px;height:34px;border-radius:var(–r-xs);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
 .toggle{width:44px;height:26px;border-radius:999px;position:relative;flex-shrink:0;transition:background 0.2s;cursor:pointer}
-.toggle.on{background:var(--green)}
-.toggle.off{background:var(--bg2)}
-.toggle::after{content:'';position:absolute;width:20px;height:20px;background:white;border-radius:50%;top:3px;box-shadow:0 1px 3px rgba(0,0,0,0.2);transition:left 0.2s}
+.toggle.on{background:var(–green)}
+.toggle.off{background:var(–bg2)}
+.toggle::after{content:’’;position:absolute;width:20px;height:20px;background:white;border-radius:50%;top:3px;box-shadow:0 1px 3px rgba(0,0,0,0.2);transition:left 0.2s}
 .toggle.on::after{left:calc(100% - 23px)}
 .toggle.off::after{left:3px}
 
 /* MODAL */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:200;display:flex;align-items:flex-end;backdrop-filter:blur(2px)}
-.modal{background:var(--white);border-radius:24px 24px 0 0;padding:24px 24px calc(36px + env(safe-area-inset-bottom));width:100%;max-width:430px;margin:0 auto}
-.modal-btn{width:100%;padding:14px;border:none;border-radius:var(--r);font-size:15px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;margin-bottom:8px}
-.modal-btn.danger{background:var(--red);color:white}
-.modal-btn.cancel{background:var(--bg2);color:var(--ink)}
+.modal{background:var(–white);border-radius:24px 24px 0 0;padding:24px 24px calc(36px + env(safe-area-inset-bottom));width:100%;max-width:430px;margin:0 auto}
+.modal-btn{width:100%;padding:14px;border:none;border-radius:var(–r);font-size:15px;font-weight:600;font-family:‘DM Sans’,sans-serif;cursor:pointer;margin-bottom:8px}
+.modal-btn.danger{background:var(–red);color:white}
+.modal-btn.cancel{background:var(–bg2);color:var(–ink)}
 
 /* EMPTY */
 .empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 32px;text-align:center;gap:12px}
-.empty-btn{margin-top:8px;padding:12px 24px;background:var(--green);color:white;border:none;border-radius:var(--r);font-size:14px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer}
+.empty-btn{margin-top:8px;padding:12px 24px;background:var(–green);color:white;border:none;border-radius:var(–r);font-size:14px;font-weight:600;font-family:‘DM Sans’,sans-serif;cursor:pointer}
 
 /* TOAST */
-.toast{position:fixed;bottom:calc(84px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);background:var(--ink);color:white;padding:12px 20px;border-radius:var(--r-sm);font-size:13px;font-weight:500;z-index:300;animation:toastIn 0.2s ease;white-space:nowrap;max-width:calc(100vw - 32px)}
+.toast{position:fixed;bottom:calc(84px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);background:var(–ink);color:white;padding:12px 20px;border-radius:var(–r-sm);font-size:13px;font-weight:500;z-index:300;animation:toastIn 0.2s ease;white-space:nowrap;max-width:calc(100vw - 32px)}
 @keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(8px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
 
 /* LOADING */
-.loading-wrap{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:var(--white)}
-.spinner{width:32px;height:32px;border:3px solid var(--green-light);border-top-color:var(--green);border-radius:50%;animation:spin 0.8s linear infinite}
+.loading-wrap{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:var(–white)}
+.spinner{width:32px;height:32px;border:3px solid var(–green-light);border-top-color:var(–green);border-radius:50%;animation:spin 0.8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 </style>
+
 </head>
 <body>
 <div id="root"></div>
@@ -169,1264 +171,1359 @@ html,body,#root{height:100%;background:var(--bg);font-family:'DM Sans',sans-seri
 const { useState, useEffect } = React;
 
 const supabase = window.supabase.createClient(
-  "https://macwxoefrmlrhnbaukzq.supabase.co",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1hY3d4b2Vmcm1scmhuYmF1a3pxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc5MDY4OTEsImV4cCI6MjA5MzQ4Mjg5MX0.J-xtpnCtH5CW9nOuQK9B0NPZ4--0T7bqJkZniO0gSm4"
+“https://macwxoefrmlrhnbaukzq.supabase.co”,
+“eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1hY3d4b2Vmcm1scmhuYmF1a3pxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc5MDY4OTEsImV4cCI6MjA5MzQ4Mjg5MX0.J-xtpnCtH5CW9nOuQK9B0NPZ4–0T7bqJkZniO0gSm4”
 );
-const PERENUAL_KEY = "sk-wthp69f8dd4e6eeaf16978";
+const PERENUAL_KEY = “sk-wthp69f8dd4e6eeaf16978”;
 
 // ── PLANT DB ──
 const PLANT_DB = [
-  {name:'Monstera',species:'Monstera deliciosa',emoji:'🌿',waterEvery:8,feedEvery:28,light:'Fel indirect',humidity:'Medium',care:{water:true,feed:true,mist:true,repot:true,rotate:false,prune:false},tips:'Geef water als de bovenste 3cm grond droog is. Houd de bladeren schoon.'},
-  {name:'Monstera adansonii',species:'Gatenplant klein',emoji:'🍃',waterEvery:7,feedEvery:28,light:'Indirect',humidity:'Hoog',care:{water:true,feed:true,mist:true,repot:true,rotate:false,prune:false},tips:'Houdt van hoge luchtvochtigheid. Benevelen helpt.'},
-  {name:'Pothos',species:'Epipremnum aureum',emoji:'🪴',waterEvery:10,feedEvery:30,light:'Weinig tot indirect',humidity:'Laag',care:{water:true,feed:true,mist:false,repot:true,rotate:false,prune:true},tips:'Zeer robuust. Laat de grond goed opdrogen. Knip voor dichtere groei.'},
-  {name:'Snake Plant',species:'Dracaena trifasciata',emoji:'🌵',waterEvery:21,feedEvery:60,light:'Weinig',humidity:'Laag',care:{water:true,feed:false,mist:false,repot:false,rotate:false,prune:false},tips:'Overwateren is de grootste vijand. Weinig water in de winter.'},
-  {name:'Calathea',species:'Calathea ornata',emoji:'🌺',waterEvery:7,feedEvery:28,light:'Indirect',humidity:'Hoog',care:{water:true,feed:true,mist:true,repot:true,rotate:false,prune:false},tips:'Gebruik regenwater. Bladeren rollen op bij stress.'},
-  {name:'Fiddle Leaf',species:'Ficus lyrata',emoji:'🌳',waterEvery:10,feedEvery:28,light:'Fel indirect',humidity:'Medium',care:{water:true,feed:true,mist:false,repot:true,rotate:true,prune:false},tips:'Niet verplaatsen. Draai maandelijks voor gelijkmatige groei.'},
-  {name:'Peace Lily',species:'Spathiphyllum',emoji:'🌸',waterEvery:7,feedEvery:30,light:'Weinig',humidity:'Medium',care:{water:true,feed:true,mist:true,repot:true,rotate:false,prune:true},tips:'Hangt slap als hij water nodig heeft. Verwijder verdroogde bloemen.'},
-  {name:'ZZ Plant',species:'Zamioculcas zamiifolia',emoji:'🌱',waterEvery:21,feedEvery:60,light:'Weinig',humidity:'Laag',care:{water:true,feed:false,mist:false,repot:false,rotate:false,prune:false},tips:'Bijna onverwoestbaar. Overwateren is het enige gevaar.'},
-  {name:'Rubber Plant',species:'Ficus elastica',emoji:'🍀',waterEvery:10,feedEvery:28,light:'Fel indirect',humidity:'Medium',care:{water:true,feed:true,mist:false,repot:true,rotate:true,prune:false},tips:'Veeg bladeren af voor meer glans. Draai voor symmetrische groei.'},
-  {name:'Cactus',species:'Cactaceae',emoji:'🌵',waterEvery:30,feedEvery:90,light:'Direct',humidity:'Laag',care:{water:true,feed:false,mist:false,repot:false,rotate:false,prune:false},tips:'Zomer: water, winter: bijna niet. Veel direct zonlicht nodig.'},
-  {name:'Orchidee',species:'Phalaenopsis',emoji:'🌷',waterEvery:10,feedEvery:14,light:'Indirect',humidity:'Medium',care:{water:true,feed:true,mist:false,repot:false,rotate:false,prune:true},tips:'Even in water zetten en goed laten uitlekken. Nooit stilstaand water.'},
-  {name:'Aloe Vera',species:'Aloe barbadensis',emoji:'🌵',waterEvery:14,feedEvery:60,light:'Direct',humidity:'Laag',care:{water:true,feed:false,mist:false,repot:false,rotate:false,prune:false},tips:'Grond volledig laten drogen voor water. Haat natte voeten.'},
-  {name:'Fern',species:'Nephrolepis exaltata',emoji:'🌿',waterEvery:3,feedEvery:21,light:'Indirect',humidity:'Hoog',care:{water:true,feed:true,mist:true,repot:true,rotate:false,prune:true},tips:'Houdt van vochtige lucht. Benevelen of op kiezelstenen met water.'},
-  {name:'Lavender',species:'Lavandula',emoji:'💜',waterEvery:10,feedEvery:30,light:'Direct',humidity:'Laag',care:{water:true,feed:false,mist:false,repot:false,rotate:false,prune:true},tips:'Droge grond en veel zon. Knip na bloei in voor compacte groei.'},
+{name:‘Monstera’,species:‘Monstera deliciosa’,emoji:‘🌿’,waterEvery:8,feedEvery:28,light:‘Fel indirect’,humidity:‘Medium’,care:{water:true,feed:true,mist:true,repot:true,rotate:false,prune:false},tips:‘Geef water als de bovenste 3cm grond droog is. Houd de bladeren schoon.’},
+{name:‘Monstera adansonii’,species:‘Gatenplant klein’,emoji:‘🍃’,waterEvery:7,feedEvery:28,light:‘Indirect’,humidity:‘Hoog’,care:{water:true,feed:true,mist:true,repot:true,rotate:false,prune:false},tips:‘Houdt van hoge luchtvochtigheid. Benevelen helpt.’},
+{name:‘Pothos’,species:‘Epipremnum aureum’,emoji:‘🪴’,waterEvery:10,feedEvery:30,light:‘Weinig tot indirect’,humidity:‘Laag’,care:{water:true,feed:true,mist:false,repot:true,rotate:false,prune:true},tips:‘Zeer robuust. Laat de grond goed opdrogen. Knip voor dichtere groei.’},
+{name:‘Snake Plant’,species:‘Dracaena trifasciata’,emoji:‘🌵’,waterEvery:21,feedEvery:60,light:‘Weinig’,humidity:‘Laag’,care:{water:true,feed:false,mist:false,repot:false,rotate:false,prune:false},tips:‘Overwateren is de grootste vijand. Weinig water in de winter.’},
+{name:‘Calathea’,species:‘Calathea ornata’,emoji:‘🌺’,waterEvery:7,feedEvery:28,light:‘Indirect’,humidity:‘Hoog’,care:{water:true,feed:true,mist:true,repot:true,rotate:false,prune:false},tips:‘Gebruik regenwater. Bladeren rollen op bij stress.’},
+{name:‘Fiddle Leaf’,species:‘Ficus lyrata’,emoji:‘🌳’,waterEvery:10,feedEvery:28,light:‘Fel indirect’,humidity:‘Medium’,care:{water:true,feed:true,mist:false,repot:true,rotate:true,prune:false},tips:‘Niet verplaatsen. Draai maandelijks voor gelijkmatige groei.’},
+{name:‘Peace Lily’,species:‘Spathiphyllum’,emoji:‘🌸’,waterEvery:7,feedEvery:30,light:‘Weinig’,humidity:‘Medium’,care:{water:true,feed:true,mist:true,repot:true,rotate:false,prune:true},tips:‘Hangt slap als hij water nodig heeft. Verwijder verdroogde bloemen.’},
+{name:‘ZZ Plant’,species:‘Zamioculcas zamiifolia’,emoji:‘🌱’,waterEvery:21,feedEvery:60,light:‘Weinig’,humidity:‘Laag’,care:{water:true,feed:false,mist:false,repot:false,rotate:false,prune:false},tips:‘Bijna onverwoestbaar. Overwateren is het enige gevaar.’},
+{name:‘Rubber Plant’,species:‘Ficus elastica’,emoji:‘🍀’,waterEvery:10,feedEvery:28,light:‘Fel indirect’,humidity:‘Medium’,care:{water:true,feed:true,mist:false,repot:true,rotate:true,prune:false},tips:‘Veeg bladeren af voor meer glans. Draai voor symmetrische groei.’},
+{name:‘Cactus’,species:‘Cactaceae’,emoji:‘🌵’,waterEvery:30,feedEvery:90,light:‘Direct’,humidity:‘Laag’,care:{water:true,feed:false,mist:false,repot:false,rotate:false,prune:false},tips:‘Zomer: water, winter: bijna niet. Veel direct zonlicht nodig.’},
+{name:‘Orchidee’,species:‘Phalaenopsis’,emoji:‘🌷’,waterEvery:10,feedEvery:14,light:‘Indirect’,humidity:‘Medium’,care:{water:true,feed:true,mist:false,repot:false,rotate:false,prune:true},tips:‘Even in water zetten en goed laten uitlekken. Nooit stilstaand water.’},
+{name:‘Aloe Vera’,species:‘Aloe barbadensis’,emoji:‘🌵’,waterEvery:14,feedEvery:60,light:‘Direct’,humidity:‘Laag’,care:{water:true,feed:false,mist:false,repot:false,rotate:false,prune:false},tips:‘Grond volledig laten drogen voor water. Haat natte voeten.’},
+{name:‘Fern’,species:‘Nephrolepis exaltata’,emoji:‘🌿’,waterEvery:3,feedEvery:21,light:‘Indirect’,humidity:‘Hoog’,care:{water:true,feed:true,mist:true,repot:true,rotate:false,prune:true},tips:‘Houdt van vochtige lucht. Benevelen of op kiezelstenen met water.’},
+{name:‘Lavender’,species:‘Lavandula’,emoji:‘💜’,waterEvery:10,feedEvery:30,light:‘Direct’,humidity:‘Laag’,care:{water:true,feed:false,mist:false,repot:false,rotate:false,prune:true},tips:‘Droge grond en veel zon. Knip na bloei in voor compacte groei.’},
 ];
 
 const CARE_LABELS = {
-  water:{icon:'💧',label:'Water'}, feed:{icon:'🌿',label:'Voeding'},
-  mist:{icon:'💦',label:'Benevelen'}, repot:{icon:'🪴',label:'Verpotten'},
-  rotate:{icon:'🔄',label:'Draaien'}, prune:{icon:'✂️',label:'Snoeien'},
+water:{icon:‘💧’,label:‘Water’}, feed:{icon:‘🌿’,label:‘Voeding’},
+mist:{icon:‘💦’,label:‘Benevelen’}, repot:{icon:‘🪴’,label:‘Verpotten’},
+rotate:{icon:‘🔄’,label:‘Draaien’}, prune:{icon:‘✂️’,label:‘Snoeien’},
 };
 
 const WINDOW_INFO = {
-  'Noord':{sun:'Geen direct zonlicht',desc:'Minste licht. Goed voor schaduwplanten.',icon:'🌑'},
-  'Oost':{sun:'Ochtendzon (zacht)',desc:'Zachte ochtendzon. Ideaal voor indirecte lichtplanten.',icon:'🌅'},
-  'Zuid':{sun:'Volle dagzon',desc:'Meeste licht. Perfect voor cactussen en zonminnende planten.',icon:'☀️'},
-  'West':{sun:'Middagzon (intens)',desc:'Felle middagzon. Goed voor lichtbehoeftige planten.',icon:'🌇'},
+‘Noord’:{sun:‘Geen direct zonlicht’,desc:‘Minste licht. Goed voor schaduwplanten.’,icon:‘🌑’},
+‘Oost’:{sun:‘Ochtendzon (zacht)’,desc:‘Zachte ochtendzon. Ideaal voor indirecte lichtplanten.’,icon:‘🌅’},
+‘Zuid’:{sun:‘Volle dagzon’,desc:‘Meeste licht. Perfect voor cactussen en zonminnende planten.’,icon:‘☀️’},
+‘West’:{sun:‘Middagzon (intens)’,desc:‘Felle middagzon. Goed voor lichtbehoeftige planten.’,icon:‘🌇’},
 };
 
+// ── POTGROND ──
+const SOIL_TYPES = [
+{id:‘universeel’, name:‘Universele potgrond’, icon:‘🪱’, waterMultiplier:1.0, desc:‘Standaard mix. Houdt water goed vast. Geschikt voor de meeste kamerplanten.’},
+{id:‘kokos’, name:‘100% Kokosvezel’, icon:‘🥥’, waterMultiplier:0.75, desc:‘Droogt snel op, uitstekende luchtigheid. Vaker water nodig.’},
+{id:‘perliet_kokos’, name:‘30% Perliet + 70% Kokos’, icon:‘⚗️’, waterMultiplier:0.7, desc:‘Luchtig en snel drainend. Populair voor Monstera en Pothos.’},
+{id:‘cactus’, name:‘Cactus & Succulentenmix’, icon:‘🌵’, waterMultiplier:1.4, desc:‘Zeer goed drainerend. Droogt snel. Minder frequent water nodig.’},
+{id:‘orchidee’, name:‘Orchideeënbark’, icon:‘🌸’, waterMultiplier:0.85, desc:‘Grove schors die snel droogt. Speciaal voor orchideeën.’},
+{id:‘aarde_perliet’, name:‘70% Potgrond + 30% Perliet’, icon:‘🌱’, waterMultiplier:0.85, desc:‘Goede balans drainage en vochtvastheid. Veelzijdig.’},
+{id:‘hoogveen’, name:‘Hoogveengrond’, icon:‘🍂’, waterMultiplier:1.1, desc:‘Zuurminnende planten zoals varens en calathea. Houdt vocht goed vast.’},
+{id:‘hydrokorrels’, name:‘Hydrokorrels’, icon:‘💧’, waterMultiplier:0.5, desc:‘Semi-hydroponics. Zeer weinig water, plant staat in voedingswater.’},
+];
+
 // ── HELPERS ──
-const todayStr = () => new Date().toISOString().split('T')[0];
-const addDays = (date, n) => { const d = new Date(date); d.setDate(d.getDate()+n); return d.toISOString().split('T')[0]; };
+const todayStr = () => new Date().toISOString().split(‘T’)[0];
+const addDays = (date, n) => { const d = new Date(date); d.setDate(d.getDate()+n); return d.toISOString().split(‘T’)[0]; };
 const daysDiff = (date) => { const d = new Date(date); const t = new Date(); t.setHours(0,0,0,0); return Math.ceil((d-t)/(1000*60*60*24)); };
-const formatNext = (date) => { const d = daysDiff(date); if(d<0) return `${Math.abs(d)}d te laat`; if(d===0) return 'Vandaag'; if(d===1) return 'Morgen'; return `Over ${d}d`; };
-const getStatus = (p) => { const d = daysDiff(p.next_water); if(d<0) return 'urgent'; if(d<=2) return 'soon'; return 'good'; };
-const getStatusText = (p) => { const d = daysDiff(p.next_water); if(d<0) return `${Math.abs(d)}d te laat`; if(d===0) return 'Vandaag'; if(d<=2) return `${d}d`; return 'Prima'; };
-const getBg = (e) => ({'🌿':'#EAF1EC','🍃':'#E8F0EC','🪴':'#F0EDE8','🌵':'#F0F4EE','🌺':'#F5EEED','🌳':'#EDF0EA','🌸':'#F5EEF5','🌱':'#EEF5EE','🍀':'#EBF0E8','💜':'#F0EEF8','🌷':'#F5EEFA'}[e]||'#EAF1EC');
-const nlDate = (iso) => new Date(iso).toLocaleDateString('nl-NL',{day:'numeric',month:'short',year:'numeric'});
+const formatNext = (date) => { const d = daysDiff(date); if(d<0) return `${Math.abs(d)}d te laat`; if(d===0) return ‘Vandaag’; if(d===1) return ‘Morgen’; return `Over ${d}d`; };
+const getStatus = (p) => { const d = daysDiff(p.next_water); if(d<0) return ‘urgent’; if(d<=2) return ‘soon’; return ‘good’; };
+const getStatusText = (p) => { const d = daysDiff(p.next_water); if(d<0) return `${Math.abs(d)}d te laat`; if(d===0) return ‘Vandaag’; if(d<=2) return `${d}d`; return ‘Prima’; };
+const getBg = (e) => ({‘🌿’:’#EAF1EC’,‘🍃’:’#E8F0EC’,‘🪴’:’#F0EDE8’,‘🌵’:’#F0F4EE’,‘🌺’:’#F5EEED’,‘🌳’:’#EDF0EA’,‘🌸’:’#F5EEF5’,‘🌱’:’#EEF5EE’,‘🍀’:’#EBF0E8’,‘💜’:’#F0EEF8’,‘🌷’:’#F5EEFA’}[e]||’#EAF1EC’);
+const nlDate = (iso) => new Date(iso).toLocaleDateString(‘nl-NL’,{day:‘numeric’,month:‘short’,year:‘numeric’});
 
 // ── TOAST ──
 function Toast({msg}){ return msg ? <div className="toast">{msg}</div> : null; }
 
 // ── LOGIN ──
 function LoginScreen(){
-  const [busy, setBusy] = useState(false);
-  const login = async () => {
-    setBusy(true);
-    const {error} = await supabase.auth.signInWithOAuth({provider:'google',options:{redirectTo:window.location.href}});
-    if(error){ alert('Login mislukt: '+error.message); setBusy(false); }
-  };
-  return (
-    <div className="login-wrap enter">
-      <div className="login-logo">🌿</div>
-      <div className="serif" style={{fontSize:38,color:'var(--ink)',letterSpacing:'-0.5px',marginBottom:8}}>PlantApp</div>
-      <div style={{fontSize:15,color:'var(--ink3)',textAlign:'center',lineHeight:1.5,marginBottom:52}}>Houd je planten gezond.<br/>Slim en automatisch.</div>
-      <button className="google-btn" onClick={login} disabled={busy}>
-        <svg width="18" height="18" viewBox="0 0 18 18"><path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908C16.658 14.013 17.64 11.705 17.64 9.2z" fill="#4285F4"/><path d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z" fill="#34A853"/><path d="M3.964 10.707A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.707V4.961H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.039l3.007-2.332z" fill="#FBBC05"/><path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.961L3.964 7.293C4.672 5.163 6.656 3.58 9 3.58z" fill="#EA4335"/></svg>
-        {busy ? 'Laden...' : 'Doorgaan met Google'}
-      </button>
-      <p style={{fontSize:11,color:'var(--ink3)',textAlign:'center',marginTop:20,lineHeight:1.6}}>Door in te loggen ga je akkoord met onze<br/>gebruikersvoorwaarden en privacybeleid.</p>
-    </div>
-  );
+const [busy, setBusy] = useState(false);
+const login = async () => {
+setBusy(true);
+const {error} = await supabase.auth.signInWithOAuth({provider:‘google’,options:{redirectTo:window.location.href}});
+if(error){ alert(‘Login mislukt: ‘+error.message); setBusy(false); }
+};
+return (
+<div className="login-wrap enter">
+<div className="login-logo">🌿</div>
+<div className=“serif” style={{fontSize:38,color:‘var(–ink)’,letterSpacing:’-0.5px’,marginBottom:8}}>PlantApp</div>
+<div style={{fontSize:15,color:‘var(–ink3)’,textAlign:‘center’,lineHeight:1.5,marginBottom:52}}>Houd je planten gezond.<br/>Slim en automatisch.</div>
+<button className="google-btn" onClick={login} disabled={busy}>
+<svg width="18" height="18" viewBox="0 0 18 18"><path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908C16.658 14.013 17.64 11.705 17.64 9.2z" fill="#4285F4"/><path d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z" fill="#34A853"/><path d="M3.964 10.707A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.707V4.961H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.039l3.007-2.332z" fill="#FBBC05"/><path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.961L3.964 7.293C4.672 5.163 6.656 3.58 9 3.58z" fill="#EA4335"/></svg>
+{busy ? ‘Laden…’ : ‘Doorgaan met Google’}
+</button>
+<p style={{fontSize:11,color:‘var(–ink3)’,textAlign:‘center’,marginTop:20,lineHeight:1.6}}>Door in te loggen ga je akkoord met onze<br/>gebruikersvoorwaarden en privacybeleid.</p>
+</div>
+);
 }
 
 // ── DASHBOARD ──
 function Dashboard({plants, onPlantClick, onAdd}){
-  const d = new Date();
-  const days = ['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
-  const months = ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
-  const dateStr = `${days[d.getDay()]} ${d.getDate()} ${months[d.getMonth()]}`;
-  const cap = dateStr.charAt(0).toUpperCase()+dateStr.slice(1);
-  const urgent = plants.filter(p=>getStatus(p)==='urgent');
-  const soon = plants.filter(p=>getStatus(p)==='soon');
-  const good = plants.filter(p=>getStatus(p)==='good');
-  return (
-    <div className="enter">
-      <div style={{background:'var(--white)',padding:`calc(env(safe-area-inset-top) + 16px) 24px 16px`,borderBottom:'1px solid var(--line)'}}>
-        <div style={{fontSize:11,fontWeight:500,letterSpacing:'1px',textTransform:'uppercase',color:'var(--ink3)',marginBottom:2}}>{cap}</div>
-        <div className="serif" style={{fontSize:28,color:'var(--ink)'}}>Mijn tuin</div>
-      </div>
-      {plants.length===0 ? (
-        <div className="empty-state">
-          <div style={{fontSize:52}}>🌱</div>
-          <div className="serif" style={{fontSize:24,color:'var(--ink)'}}>Nog geen planten</div>
-          <div style={{fontSize:14,color:'var(--ink3)',lineHeight:1.6}}>Voeg je eerste plant toe en begin met verzorgen.</div>
-          <button className="empty-btn" onClick={onAdd}>Plant toevoegen</button>
-        </div>
-      ) : (<>
-        <div style={{padding:'16px 24px 8px'}}>
-          <div className="sec-label">Vandaag</div>
-          <div style={{display:'flex',flexWrap:'wrap',gap:6}}>
-            {urgent.map(p=><span key={p.id} className="chip urgent" onClick={()=>onPlantClick(p)}>💧 {p.name}</span>)}
-            {soon.map(p=><span key={p.id} className="chip soon" onClick={()=>onPlantClick(p)}>🌿 {p.name}</span>)}
-            {good.map(p=><span key={p.id} className="chip good" onClick={()=>onPlantClick(p)}>✓ {p.name}</span>)}
-          </div>
-        </div>
-        <div style={{padding:'8px 24px 8px'}}><div className="sec-label">Alle planten ({plants.length})</div></div>
-        <div style={{padding:'0 24px',display:'flex',flexDirection:'column',gap:10}}>
-          {plants.map(p=>(
-            <div key={p.id} className="plant-row" onClick={()=>onPlantClick(p)}>
-              <div className="plant-avatar" style={{background:getBg(p.emoji)}}>{p.emoji}</div>
-              <div style={{flex:1,minWidth:0}}>
-                <div style={{fontSize:14,fontWeight:600,color:'var(--ink)'}}>{p.name}</div>
-                <div style={{fontSize:11,color:'var(--ink3)',marginTop:1,fontStyle:'italic'}}>{p.species}</div>
-              </div>
-              <div style={{display:'flex',flexDirection:'column',alignItems:'flex-end',gap:4}}>
-                <div className={`status-dot ${getStatus(p)}`}/>
-                <div style={{fontSize:10,fontWeight:500,color:'var(--ink3)'}}>{getStatusText(p)}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div style={{height:16}}/>
-      </>)}
-    </div>
-  );
+const d = new Date();
+const days = [‘zondag’,‘maandag’,‘dinsdag’,‘woensdag’,‘donderdag’,‘vrijdag’,‘zaterdag’];
+const months = [‘januari’,‘februari’,‘maart’,‘april’,‘mei’,‘juni’,‘juli’,‘augustus’,‘september’,‘oktober’,‘november’,‘december’];
+const dateStr = `${days[d.getDay()]} ${d.getDate()} ${months[d.getMonth()]}`;
+const cap = dateStr.charAt(0).toUpperCase()+dateStr.slice(1);
+const urgent = plants.filter(p=>getStatus(p)===‘urgent’);
+const soon = plants.filter(p=>getStatus(p)===‘soon’);
+const good = plants.filter(p=>getStatus(p)===‘good’);
+return (
+<div className="enter">
+<div style={{background:‘var(–white)’,padding:`calc(env(safe-area-inset-top) + 16px) 24px 16px`,borderBottom:‘1px solid var(–line)’}}>
+<div style={{fontSize:11,fontWeight:500,letterSpacing:‘1px’,textTransform:‘uppercase’,color:‘var(–ink3)’,marginBottom:2}}>{cap}</div>
+<div className=“serif” style={{fontSize:28,color:‘var(–ink)’}}>Mijn tuin</div>
+</div>
+{plants.length===0 ? (
+<div className="empty-state">
+<div style={{fontSize:52}}>🌱</div>
+<div className=“serif” style={{fontSize:24,color:‘var(–ink)’}}>Nog geen planten</div>
+<div style={{fontSize:14,color:‘var(–ink3)’,lineHeight:1.6}}>Voeg je eerste plant toe en begin met verzorgen.</div>
+<button className="empty-btn" onClick={onAdd}>Plant toevoegen</button>
+</div>
+) : (<>
+<div style={{padding:‘16px 24px 8px’}}>
+<div className="sec-label">Vandaag</div>
+<div style={{display:‘flex’,flexWrap:‘wrap’,gap:6}}>
+{urgent.map(p=><span key={p.id} className=“chip urgent” onClick={()=>onPlantClick(p)}>💧 {p.name}</span>)}
+{soon.map(p=><span key={p.id} className=“chip soon” onClick={()=>onPlantClick(p)}>🌿 {p.name}</span>)}
+{good.map(p=><span key={p.id} className=“chip good” onClick={()=>onPlantClick(p)}>✓ {p.name}</span>)}
+</div>
+</div>
+<div style={{padding:‘8px 24px 8px’}}><div className="sec-label">Alle planten ({plants.length})</div></div>
+<div style={{padding:‘0 24px’,display:‘flex’,flexDirection:‘column’,gap:10}}>
+{plants.map(p=>(
+<div key={p.id} className=“plant-row” onClick={()=>onPlantClick(p)}>
+<div className="plant-avatar" style={{background:getBg(p.emoji)}}>{p.emoji}</div>
+<div style={{flex:1,minWidth:0}}>
+<div style={{fontSize:14,fontWeight:600,color:‘var(–ink)’}}>{p.name}</div>
+<div style={{fontSize:11,color:‘var(–ink3)’,marginTop:1,fontStyle:‘italic’}}>{p.species}</div>
+</div>
+<div style={{display:‘flex’,flexDirection:‘column’,alignItems:‘flex-end’,gap:4}}>
+<div className={`status-dot ${getStatus(p)}`}/>
+<div style={{fontSize:10,fontWeight:500,color:‘var(–ink3)’}}>{getStatusText(p)}</div>
+</div>
+</div>
+))}
+</div>
+<div style={{height:16}}/>
+</>)}
+</div>
+);
 }
 
 // ── PLANT DETAIL ──
 function PlantDetail({plant, onBack, onDelete, onWater, onFeed, onRepot, onUpdate, showToast, userId}){
-  const [tab, setTab] = useState('info');
-  const [showConfirm, setShowConfirm] = useState(false);
-  const [editName, setEditName] = useState(false);
-  const [nameVal, setNameVal] = useState(plant.name);
-  const [photos, setPhotos] = useState(plant.photos||[]);
-  const [pendingFile, setPendingFile] = useState(null);
-  const [pendingDate, setPendingDate] = useState(todayStr());
-  const [uploading, setUploading] = useState(false);
-  const [editingPhoto, setEditingPhoto] = useState(null);
-  const [fetchingApi, setFetchingApi] = useState(false);
-  // instellingen
-  const [windows, setWindows] = useState(plant.windows||[]);
-  const [light, setLight] = useState(plant.light||'Indirect');
-  const [humidity, setHumidity] = useState(plant.humidity||'Normaal');
-  const [savingSettings, setSavingSettings] = useState(false);
+const [tab, setTab] = useState(‘info’);
+const [showConfirm, setShowConfirm] = useState(false);
+const [editName, setEditName] = useState(false);
+const [nameVal, setNameVal] = useState(plant.name);
+const [photos, setPhotos] = useState(plant.photos||[]);
+const [pendingFile, setPendingFile] = useState(null);
+const [pendingDate, setPendingDate] = useState(todayStr());
+const [uploading, setUploading] = useState(false);
+const [editingPhoto, setEditingPhoto] = useState(null);
+const [fetchingApi, setFetchingApi] = useState(false);
+// instellingen
+const [windows, setWindows] = useState(plant.windows||[]);
+const [light, setLight] = useState(plant.light||‘Indirect’);
+const [humidity, setHumidity] = useState(plant.humidity||‘Normaal’);
+const [soil, setSoil] = useState(plant.soil||‘universeel’);
+const [savingSettings, setSavingSettings] = useState(false);
 
-  // Auto-fetch API data als die er nog niet is
-  useEffect(()=>{
-    if(!plant.api_data && plant.name) {
-      fetchApiData();
-    }
-  }, [plant.id]);
+// Auto-fetch API data als die er nog niet is
+useEffect(()=>{
+if(!plant.api_data && plant.name) {
+fetchApiData();
+}
+}, [plant.id]);
 
-  const fetchApiData = async () => {
-    setFetchingApi(true);
-    try {
-      const searchRes = await fetch(`https://perenual.com/api/species-list?key=${PERENUAL_KEY}&q=${encodeURIComponent(plant.name)}`);
-      const searchData = await searchRes.json();
-      if(!searchData.data || searchData.data.length === 0) { setFetchingApi(false); return; }
-      const match = searchData.data[0];
-      const detailRes = await fetch(`https://perenual.com/api/species/details/${match.id}?key=${PERENUAL_KEY}`);
-      const detail = await detailRes.json();
-      const api_data = {
-        // Basis
-        common_name: detail.common_name,
-        scientific_name: detail.scientific_name,
-        other_name: detail.other_name,
-        family: detail.family,
-        description: detail.description,
-        // Herkomst
-        origin: detail.origin,
-        // Verzorging
-        watering: detail.watering,
-        watering_period: detail.watering_period,
-        watering_general_benchmark: detail.watering_general_benchmark,
-        sunlight: detail.sunlight,
-        care_level: detail.care_level,
-        maintenance: detail.maintenance,
-        // Groei
-        type: detail.type,
-        cycle: detail.cycle,
-        growth_rate: detail.growth_rate,
-        plant_anatomy: detail.plant_anatomy,
-        // Omgeving
-        indoor: detail.indoor,
-        hardiness: detail.hardiness,
-        hardiness_location: detail.hardiness_location,
-        soil: detail.soil,
-        // Kenmerken
-        leaf: detail.leaf,
-        leaf_color: detail.leaf_color,
-        flowers: detail.flowers,
-        flower_color: detail.flower_color,
-        flowering_season: detail.flowering_season,
-        fruits: detail.fruits,
-        fruit_color: detail.fruit_color,
-        edible_fruit: detail.edible_fruit,
-        edible_leaf: detail.edible_leaf,
-        // Veiligheid
-        poisonous_to_humans: detail.poisonous_to_humans,
-        poisonous_to_pets: detail.poisonous_to_pets,
-        // Extra
-        drought_tolerant: detail.drought_tolerant,
-        salt_tolerant: detail.salt_tolerant,
-        thorny: detail.thorny,
-        invasive: detail.invasive,
-        rare: detail.rare,
-        tropical: detail.tropical,
-        cuisine: detail.cuisine,
-        medicinal: detail.medicinal,
-        // Afmetingen
-        dimension: detail.dimension,
-        volume_water_requirement: detail.volume_water_requirement,
-      };
-      await supabase.from('plants').update({api_data}).eq('id', plant.id);
-      onUpdate({...plant, api_data});
-      showToast('🌿 Plantinfo opgehaald!');
-    } catch(e) {}
-    setFetchingApi(false);
-  };
+const fetchApiData = async () => {
+setFetchingApi(true);
+try {
+const searchRes = await fetch(`https://perenual.com/api/species-list?key=${PERENUAL_KEY}&q=${encodeURIComponent(plant.name)}`);
+const searchData = await searchRes.json();
+if(!searchData.data || searchData.data.length === 0) { setFetchingApi(false); return; }
+const match = searchData.data[0];
+const detailRes = await fetch(`https://perenual.com/api/species/details/${match.id}?key=${PERENUAL_KEY}`);
+const detail = await detailRes.json();
+const api_data = {
+// Basis
+common_name: detail.common_name,
+scientific_name: detail.scientific_name,
+other_name: detail.other_name,
+family: detail.family,
+description: detail.description,
+// Herkomst
+origin: detail.origin,
+// Verzorging
+watering: detail.watering,
+watering_period: detail.watering_period,
+watering_general_benchmark: detail.watering_general_benchmark,
+sunlight: detail.sunlight,
+care_level: detail.care_level,
+maintenance: detail.maintenance,
+// Groei
+type: detail.type,
+cycle: detail.cycle,
+growth_rate: detail.growth_rate,
+plant_anatomy: detail.plant_anatomy,
+// Omgeving
+indoor: detail.indoor,
+hardiness: detail.hardiness,
+hardiness_location: detail.hardiness_location,
+soil: detail.soil,
+// Kenmerken
+leaf: detail.leaf,
+leaf_color: detail.leaf_color,
+flowers: detail.flowers,
+flower_color: detail.flower_color,
+flowering_season: detail.flowering_season,
+fruits: detail.fruits,
+fruit_color: detail.fruit_color,
+edible_fruit: detail.edible_fruit,
+edible_leaf: detail.edible_leaf,
+// Veiligheid
+poisonous_to_humans: detail.poisonous_to_humans,
+poisonous_to_pets: detail.poisonous_to_pets,
+// Extra
+drought_tolerant: detail.drought_tolerant,
+salt_tolerant: detail.salt_tolerant,
+thorny: detail.thorny,
+invasive: detail.invasive,
+rare: detail.rare,
+tropical: detail.tropical,
+cuisine: detail.cuisine,
+medicinal: detail.medicinal,
+// Afmetingen
+dimension: detail.dimension,
+volume_water_requirement: detail.volume_water_requirement,
+};
+await supabase.from(‘plants’).update({api_data}).eq(‘id’, plant.id);
+onUpdate({…plant, api_data});
+showToast(‘🌿 Plantinfo opgehaald!’);
+} catch(e) {}
+setFetchingApi(false);
+};
 
-  const dbPlant = PLANT_DB.find(p=>p.name===plant.name)||{};
-  const care = dbPlant.care||{water:true,feed:true};
-  const careItems = Object.entries(care).filter(([,v])=>v).map(([k])=>({key:k,...CARE_LABELS[k]}));
-  const status = getStatus(plant);
+const dbPlant = PLANT_DB.find(p=>p.name===plant.name)||{};
+const care = dbPlant.care||{water:true,feed:true};
+const careItems = Object.entries(care).filter(([,v])=>v).map(([k])=>({key:k,…CARE_LABELS[k]}));
+const status = getStatus(plant);
 
-  const saveName = async () => {
-    if(!nameVal.trim()) return;
-    await supabase.from('plants').update({name:nameVal.trim()}).eq('id',plant.id);
-    onUpdate({...plant,name:nameVal.trim()});
-    showToast('✏️ Naam opgeslagen');
-    setEditName(false);
-  };
+const saveName = async () => {
+if(!nameVal.trim()) return;
+await supabase.from(‘plants’).update({name:nameVal.trim()}).eq(‘id’,plant.id);
+onUpdate({…plant,name:nameVal.trim()});
+showToast(‘✏️ Naam opgeslagen’);
+setEditName(false);
+};
 
-  const selectFile = (e) => { const f=e.target.files[0]; if(f){setPendingFile(f);setPendingDate(todayStr());} };
+const selectFile = (e) => { const f=e.target.files[0]; if(f){setPendingFile(f);setPendingDate(todayStr());} };
 
-  const uploadPhoto = async () => {
-    if(!pendingFile) return;
-    setUploading(true);
-    const path = `${userId}/${plant.id}/${Date.now()}.jpg`;
-    const {error} = await supabase.storage.from('plant-photos').upload(path, pendingFile);
-    if(error){ showToast('❌ Upload mislukt'); setUploading(false); return; }
-    const {data} = supabase.storage.from('plant-photos').getPublicUrl(path);
-    const dateStr = nlDate(pendingDate);
-    const newPhotos = [{url:data.publicUrl,date:dateStr,isoDate:pendingDate},...photos];
-    const newLog = [{type:'📸',text:'Foto toegevoegd',date:dateStr},...(plant.log||[])].slice(0,20);
-    await supabase.from('plants').update({photos:newPhotos,log:newLog}).eq('id',plant.id);
-    setPhotos(newPhotos); onUpdate({...plant,photos:newPhotos,log:newLog});
-    showToast('📸 Foto toegevoegd!'); setUploading(false); setPendingFile(null);
-  };
+const uploadPhoto = async () => {
+if(!pendingFile) return;
+setUploading(true);
+const path = `${userId}/${plant.id}/${Date.now()}.jpg`;
+const {error} = await supabase.storage.from(‘plant-photos’).upload(path, pendingFile);
+if(error){ showToast(‘❌ Upload mislukt’); setUploading(false); return; }
+const {data} = supabase.storage.from(‘plant-photos’).getPublicUrl(path);
+const dateStr = nlDate(pendingDate);
+const newPhotos = [{url:data.publicUrl,date:dateStr,isoDate:pendingDate},…photos];
+const newLog = [{type:‘📸’,text:‘Foto toegevoegd’,date:dateStr},…(plant.log||[])].slice(0,20);
+await supabase.from(‘plants’).update({photos:newPhotos,log:newLog}).eq(‘id’,plant.id);
+setPhotos(newPhotos); onUpdate({…plant,photos:newPhotos,log:newLog});
+showToast(‘📸 Foto toegevoegd!’); setUploading(false); setPendingFile(null);
+};
 
-  const savePhotoDate = async (i, newIso) => {
-    const dateStr = nlDate(newIso);
-    const newPhotos = photos.map((p,idx)=>idx===i?{...p,date:dateStr,isoDate:newIso}:p);
-    await supabase.from('plants').update({photos:newPhotos}).eq('id',plant.id);
-    setPhotos(newPhotos); onUpdate({...plant,photos:newPhotos});
-    setEditingPhoto(null); showToast('📅 Datum aangepast');
-  };
+const savePhotoDate = async (i, newIso) => {
+const dateStr = nlDate(newIso);
+const newPhotos = photos.map((p,idx)=>idx===i?{…p,date:dateStr,isoDate:newIso}:p);
+await supabase.from(‘plants’).update({photos:newPhotos}).eq(‘id’,plant.id);
+setPhotos(newPhotos); onUpdate({…plant,photos:newPhotos});
+setEditingPhoto(null); showToast(‘📅 Datum aangepast’);
+};
 
-  const toggleWindow = (dir) => setWindows(prev=>prev.includes(dir)?prev.filter(w=>w!==dir):[...prev,dir]);
+const toggleWindow = (dir) => setWindows(prev=>prev.includes(dir)?prev.filter(w=>w!==dir):[…prev,dir]);
 
-  const saveSettings = async () => {
-    setSavingSettings(true);
-    await supabase.from('plants').update({light,humidity,windows}).eq('id',plant.id);
-    onUpdate({...plant,light,humidity,windows});
-    showToast('⚙️ Instellingen opgeslagen');
-    setSavingSettings(false);
-  };
+const saveSettings = async () => {
+setSavingSettings(true);
+const soilType = SOIL_TYPES.find(s=>s.id===soil)||SOIL_TYPES[0];
+const dbPlantData = PLANT_DB.find(p=>p.name===plant.name);
+const baseWater = dbPlantData?.waterEvery || plant.water_every;
+const newWaterEvery = Math.round(baseWater * soilType.waterMultiplier);
+await supabase.from(‘plants’).update({light,humidity,windows,soil,water_every:newWaterEvery}).eq(‘id’,plant.id);
+onUpdate({…plant,light,humidity,windows,soil,water_every:newWaterEvery});
+showToast(`⚙️ Opgeslagen — water nu elke ${newWaterEvery} dagen`);
+setSavingSettings(false);
+};
 
-  const getSunAdvice = () => {
-    if(!windows.length) return null;
-    const dbLight = dbPlant.light||plant.light||'';
-    if(dbLight.includes('Direct')&&windows.includes('Zuid')) return {ok:true,msg:'✅ Zuid-raam geeft genoeg direct zonlicht voor deze plant.'};
-    if(dbLight.includes('Direct')&&!windows.includes('Zuid')) return {ok:false,msg:'⚠️ Deze plant heeft direct zonlicht nodig. Zuid-raam is ideaal.'};
-    if(dbLight.includes('indirect')&&windows.includes('Zuid')) return {ok:false,msg:'⚠️ Zuid-raam kan te intens zijn. Gebruik een vitrage of zet verder weg.'};
-    if(dbLight.includes('indirect')&&(windows.includes('Oost')||windows.includes('West'))) return {ok:true,msg:'✅ Oost- of West-raam geeft mooie indirecte belichting.'};
-    if(dbLight.includes('Weinig')&&windows.includes('Noord')) return {ok:true,msg:'✅ Noord-raam is perfect voor deze schaduwplant.'};
-    return null;
-  };
+const getSunAdvice = () => {
+if(!windows.length) return null;
+const dbLight = dbPlant.light||plant.light||’’;
+if(dbLight.includes(‘Direct’)&&windows.includes(‘Zuid’)) return {ok:true,msg:‘✅ Zuid-raam geeft genoeg direct zonlicht voor deze plant.’};
+if(dbLight.includes(‘Direct’)&&!windows.includes(‘Zuid’)) return {ok:false,msg:‘⚠️ Deze plant heeft direct zonlicht nodig. Zuid-raam is ideaal.’};
+if(dbLight.includes(‘indirect’)&&windows.includes(‘Zuid’)) return {ok:false,msg:‘⚠️ Zuid-raam kan te intens zijn. Gebruik een vitrage of zet verder weg.’};
+if(dbLight.includes(‘indirect’)&&(windows.includes(‘Oost’)||windows.includes(‘West’))) return {ok:true,msg:‘✅ Oost- of West-raam geeft mooie indirecte belichting.’};
+if(dbLight.includes(‘Weinig’)&&windows.includes(‘Noord’)) return {ok:true,msg:‘✅ Noord-raam is perfect voor deze schaduwplant.’};
+return null;
+};
 
-  const sunAdvice = getSunAdvice();
-  const TABS = [{id:'info',label:'ℹ️ Info'},{id:'fotos',label:`📸${photos.length>0?` (${photos.length})`:''}`},{id:'instellingen',label:'⚙️ Instellingen'}];
+const sunAdvice = getSunAdvice();
+const TABS = [{id:‘info’,label:‘ℹ️ Info’},{id:‘fotos’,label:`📸${photos.length>0?` (${photos.length})`:''}`},{id:‘instellingen’,label:‘⚙️ Instellingen’}];
 
-  return (
-    <div className="enter" style={{display:'flex',flexDirection:'column',minHeight:'100vh'}}>
-      {/* HERO */}
-      <div className="detail-hero" style={{background:getBg(plant.emoji)}}>
-        <button className="back-btn" onClick={onBack}>←</button>
-        <button className="del-btn" onClick={()=>setShowConfirm(true)}>🗑</button>
-        {photos.length>0 && <img src={photos[0].url} style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover',opacity:0.25}} alt=""/>}
-        <div style={{position:'relative',zIndex:1,fontSize:72}}>{plant.emoji}</div>
+return (
+<div className=“enter” style={{display:‘flex’,flexDirection:‘column’,minHeight:‘100vh’}}>
+{/* HERO */}
+<div className="detail-hero" style={{background:getBg(plant.emoji)}}>
+<button className="back-btn" onClick={onBack}>←</button>
+<button className=“del-btn” onClick={()=>setShowConfirm(true)}>🗑</button>
+{photos.length>0 && <img src={photos[0].url} style={{position:‘absolute’,inset:0,width:‘100%’,height:‘100%’,objectFit:‘cover’,opacity:0.25}} alt=””/>}
+<div style={{position:‘relative’,zIndex:1,fontSize:72}}>{plant.emoji}</div>
+</div>
+
+```
+  {/* NAME + TABS */}
+  <div style={{background:'var(--white)',borderBottom:'1px solid var(--line)',flexShrink:0,padding:'14px 24px 0'}}>
+    {editName ? (
+      <div style={{display:'flex',gap:8,alignItems:'center',marginBottom:8}}>
+        <input className="field-input" value={nameVal} onChange={e=>setNameVal(e.target.value)} style={{fontSize:20,fontFamily:"'Instrument Serif',serif",padding:'6px 10px'}} autoFocus/>
+        <button onClick={saveName} style={{background:'var(--green)',color:'white',border:'none',borderRadius:'var(--r-sm)',padding:'8px 14px',fontWeight:600,fontFamily:'inherit',cursor:'pointer',flexShrink:0}}>✓</button>
+        <button onClick={()=>setEditName(false)} style={{background:'var(--bg2)',border:'none',borderRadius:'var(--r-sm)',padding:'8px 10px',cursor:'pointer'}}>✕</button>
       </div>
+    ) : (
+      <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:2}}>
+        <div className="serif" style={{fontSize:26,color:'var(--ink)'}}>{plant.name}</div>
+        <button onClick={()=>setEditName(true)} style={{background:'var(--bg2)',border:'none',borderRadius:'var(--r-xs)',padding:'4px 8px',fontSize:12,color:'var(--ink3)',cursor:'pointer'}}>✏️</button>
+      </div>
+    )}
+    <div style={{fontSize:12,color:'var(--ink3)',marginBottom:10,fontStyle:'italic'}}>{plant.species}</div>
+    <div className="tab-bar" style={{margin:'0 -24px',borderTop:'1px solid var(--line)'}}>
+      {TABS.map(t=>(
+        <button key={t.id} className="tab-btn" onClick={()=>setTab(t.id)} style={{color:tab===t.id?'var(--green)':'var(--ink3)',borderBottom:tab===t.id?'2px solid var(--green)':'2px solid transparent'}}>
+          {t.label}
+        </button>
+      ))}
+    </div>
+  </div>
 
-      {/* NAME + TABS */}
-      <div style={{background:'var(--white)',borderBottom:'1px solid var(--line)',flexShrink:0,padding:'14px 24px 0'}}>
-        {editName ? (
-          <div style={{display:'flex',gap:8,alignItems:'center',marginBottom:8}}>
-            <input className="field-input" value={nameVal} onChange={e=>setNameVal(e.target.value)} style={{fontSize:20,fontFamily:"'Instrument Serif',serif",padding:'6px 10px'}} autoFocus/>
-            <button onClick={saveName} style={{background:'var(--green)',color:'white',border:'none',borderRadius:'var(--r-sm)',padding:'8px 14px',fontWeight:600,fontFamily:'inherit',cursor:'pointer',flexShrink:0}}>✓</button>
-            <button onClick={()=>setEditName(false)} style={{background:'var(--bg2)',border:'none',borderRadius:'var(--r-sm)',padding:'8px 10px',cursor:'pointer'}}>✕</button>
-          </div>
-        ) : (
-          <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:2}}>
-            <div className="serif" style={{fontSize:26,color:'var(--ink)'}}>{plant.name}</div>
-            <button onClick={()=>setEditName(true)} style={{background:'var(--bg2)',border:'none',borderRadius:'var(--r-xs)',padding:'4px 8px',fontSize:12,color:'var(--ink3)',cursor:'pointer'}}>✏️</button>
+  {/* CONTENT */}
+  <div className="screen-content-notab" style={{paddingBottom:'calc(env(safe-area-inset-bottom) + 24px)'}}>
+
+    {/* ── INFO TAB ── */}
+    {tab==='info' && (
+      <div style={{padding:'20px 24px'}}>
+        <div style={{display:'flex',gap:8,marginBottom:16}}>
+          <button className="do-btn" style={{margin:0,flex:1}} onClick={()=>onWater(plant)}>💧 Water</button>
+          <button className="do-btn" style={{margin:0,flex:1,background:'var(--accent)'}} onClick={()=>onFeed(plant)}>🌿 Voeding</button>
+        </div>
+        {care.repot && (
+          <button onClick={()=>onRepot(plant)} style={{width:'100%',padding:'12px',background:'var(--bg)',border:'1.5px solid var(--line)',borderRadius:'var(--r)',fontSize:14,fontWeight:600,fontFamily:'inherit',cursor:'pointer',color:'var(--ink2)',marginBottom:16,display:'flex',alignItems:'center',justifyContent:'center',gap:8}}>
+            🪴 Verpot — {plant.next_repot ? `volgende: ${formatNext(plant.next_repot)}` : 'markeer als verpot'}
+          </button>
+        )}
+
+        {fetchingApi && (
+          <div style={{background:'var(--green-light)',borderRadius:'var(--r-sm)',padding:'10px 14px',marginBottom:16,fontSize:12,color:'var(--green)',display:'flex',alignItems:'center',gap:8}}>
+            <div className="spinner" style={{width:14,height:14,borderWidth:2}}/>
+            Plantinfo ophalen via API...
           </div>
         )}
-        <div style={{fontSize:12,color:'var(--ink3)',marginBottom:10,fontStyle:'italic'}}>{plant.species}</div>
-        <div className="tab-bar" style={{margin:'0 -24px',borderTop:'1px solid var(--line)'}}>
-          {TABS.map(t=>(
-            <button key={t.id} className="tab-btn" onClick={()=>setTab(t.id)} style={{color:tab===t.id?'var(--green)':'var(--ink3)',borderBottom:tab===t.id?'2px solid var(--green)':'2px solid transparent'}}>
-              {t.label}
-            </button>
-          ))}
+
+        {/* ENV CHIPS */}
+        <div style={{display:'flex',flexWrap:'wrap',gap:6,marginBottom:20}}>
+          <span style={{background:'var(--green-light)',color:'var(--green)',fontSize:11,fontWeight:500,padding:'5px 10px',borderRadius:999}}>☀️ {plant.light}</span>
+          <span style={{background:'var(--green-light)',color:'var(--green)',fontSize:11,fontWeight:500,padding:'5px 10px',borderRadius:999}}>💧 {plant.humidity}</span>
+          {(plant.windows||[]).map(w=><span key={w} style={{background:'var(--blue-soft)',color:'var(--blue)',fontSize:11,fontWeight:500,padding:'5px 10px',borderRadius:999}}>🪟 {w}</span>)}
         </div>
-      </div>
 
-      {/* CONTENT */}
-      <div className="screen-content-notab" style={{paddingBottom:'calc(env(safe-area-inset-bottom) + 24px)'}}>
+        {/* SCHEMA */}
+        <div className="sec-label" style={{marginBottom:8}}>Schema</div>
+        <div className="care-grid">
+          <div className="care-tile"><div className="care-tile-icon">💧</div><div className="care-tile-label">Water</div><div className={`care-tile-value ${status==='urgent'?'urgent':''}`}>{formatNext(plant.next_water)}</div><div className="care-tile-next">elke ~{plant.water_every} dagen</div></div>
+          <div className="care-tile"><div className="care-tile-icon">🌿</div><div className="care-tile-label">Voeding</div><div className="care-tile-value">{formatNext(plant.next_feed)}</div><div className="care-tile-next">elke {plant.feed_every} dagen</div></div>
+          {care.mist&&<div className="care-tile"><div className="care-tile-icon">💦</div><div className="care-tile-label">Benevelen</div><div className="care-tile-value">Wekelijks</div><div className="care-tile-next">bij droge lucht</div></div>}
+          {care.repot&&<div className="care-tile"><div className="care-tile-icon">🪴</div><div className="care-tile-label">Verpotten</div><div className={`care-tile-value ${plant.next_repot&&daysDiff(plant.next_repot)<0?'urgent':''}`}>{plant.next_repot?formatNext(plant.next_repot):'Nog niet gedaan'}</div><div className="care-tile-next">{plant.last_repotted?`Laatst: ${nlDate(plant.last_repotted)}`:'elke 12 maanden'}</div></div>}
+          {care.prune&&<div className="care-tile"><div className="care-tile-icon">✂️</div><div className="care-tile-label">Snoeien</div><div className="care-tile-value">Naar behoefte</div><div className="care-tile-next">bij groei</div></div>}
+          {care.rotate&&<div className="care-tile"><div className="care-tile-icon">🔄</div><div className="care-tile-label">Draaien</div><div className="care-tile-value">Maandelijks</div><div className="care-tile-next">voor groei</div></div>}
+        </div>
 
-        {/* ── INFO TAB ── */}
-        {tab==='info' && (
-          <div style={{padding:'20px 24px'}}>
-            <div style={{display:'flex',gap:8,marginBottom:16}}>
-              <button className="do-btn" style={{margin:0,flex:1}} onClick={()=>onWater(plant)}>💧 Water</button>
-              <button className="do-btn" style={{margin:0,flex:1,background:'var(--accent)'}} onClick={()=>onFeed(plant)}>🌿 Voeding</button>
-            </div>
-            {care.repot && (
-              <button onClick={()=>onRepot(plant)} style={{width:'100%',padding:'12px',background:'var(--bg)',border:'1.5px solid var(--line)',borderRadius:'var(--r)',fontSize:14,fontWeight:600,fontFamily:'inherit',cursor:'pointer',color:'var(--ink2)',marginBottom:16,display:'flex',alignItems:'center',justifyContent:'center',gap:8}}>
-                🪴 Verpot — {plant.next_repot ? `volgende: ${formatNext(plant.next_repot)}` : 'markeer als verpot'}
-              </button>
-            )}
+        {/* OVER DEZE PLANT */}
+        {plant.api_data?.description && <>
+          <div className="sec-label" style={{marginBottom:8}}>Over deze plant</div>
+          <div style={{fontSize:13,color:'var(--ink2)',lineHeight:1.7,marginBottom:20}}>{plant.api_data.description}</div>
+        </>}
+        {dbPlant.tips && (
+          <div style={{background:'var(--green-light)',borderRadius:'var(--r-sm)',padding:'12px 14px',marginBottom:20}}>
+            <div style={{fontSize:10,fontWeight:600,letterSpacing:'0.8px',textTransform:'uppercase',color:'var(--green)',marginBottom:4}}>Tips</div>
+            <div style={{fontSize:13,color:'var(--ink2)',lineHeight:1.5}}>{dbPlant.tips}</div>
+          </div>
+        )}
 
-            {fetchingApi && (
-              <div style={{background:'var(--green-light)',borderRadius:'var(--r-sm)',padding:'10px 14px',marginBottom:16,fontSize:12,color:'var(--green)',display:'flex',alignItems:'center',gap:8}}>
-                <div className="spinner" style={{width:14,height:14,borderWidth:2}}/>
-                Plantinfo ophalen via API...
-              </div>
-            )}
+        {/* HERKOMST */}
+        {plant.api_data?.origin?.length>0 && <>
+          <div className="sec-label" style={{marginBottom:8}}>🌍 Herkomst</div>
+          <div style={{display:'flex',flexWrap:'wrap',gap:6,marginBottom:20}}>
+            {(Array.isArray(plant.api_data.origin)?plant.api_data.origin:[plant.api_data.origin]).map((o,i)=>(
+              <span key={i} style={{background:'var(--bg2)',color:'var(--ink2)',fontSize:12,fontWeight:500,padding:'5px 10px',borderRadius:999}}>{o}</span>
+            ))}
+          </div>
+        </>}
 
-            {/* ENV CHIPS */}
-            <div style={{display:'flex',flexWrap:'wrap',gap:6,marginBottom:20}}>
-              <span style={{background:'var(--green-light)',color:'var(--green)',fontSize:11,fontWeight:500,padding:'5px 10px',borderRadius:999}}>☀️ {plant.light}</span>
-              <span style={{background:'var(--green-light)',color:'var(--green)',fontSize:11,fontWeight:500,padding:'5px 10px',borderRadius:999}}>💧 {plant.humidity}</span>
-              {(plant.windows||[]).map(w=><span key={w} style={{background:'var(--blue-soft)',color:'var(--blue)',fontSize:11,fontWeight:500,padding:'5px 10px',borderRadius:999}}>🪟 {w}</span>)}
-            </div>
-
-            {/* SCHEMA */}
-            <div className="sec-label" style={{marginBottom:8}}>Schema</div>
-            <div className="care-grid">
-              <div className="care-tile"><div className="care-tile-icon">💧</div><div className="care-tile-label">Water</div><div className={`care-tile-value ${status==='urgent'?'urgent':''}`}>{formatNext(plant.next_water)}</div><div className="care-tile-next">elke ~{plant.water_every} dagen</div></div>
-              <div className="care-tile"><div className="care-tile-icon">🌿</div><div className="care-tile-label">Voeding</div><div className="care-tile-value">{formatNext(plant.next_feed)}</div><div className="care-tile-next">elke {plant.feed_every} dagen</div></div>
-              {care.mist&&<div className="care-tile"><div className="care-tile-icon">💦</div><div className="care-tile-label">Benevelen</div><div className="care-tile-value">Wekelijks</div><div className="care-tile-next">bij droge lucht</div></div>}
-              {care.repot&&<div className="care-tile"><div className="care-tile-icon">🪴</div><div className="care-tile-label">Verpotten</div><div className={`care-tile-value ${plant.next_repot&&daysDiff(plant.next_repot)<0?'urgent':''}`}>{plant.next_repot?formatNext(plant.next_repot):'Nog niet gedaan'}</div><div className="care-tile-next">{plant.last_repotted?`Laatst: ${nlDate(plant.last_repotted)}`:'elke 12 maanden'}</div></div>}
-              {care.prune&&<div className="care-tile"><div className="care-tile-icon">✂️</div><div className="care-tile-label">Snoeien</div><div className="care-tile-value">Naar behoefte</div><div className="care-tile-next">bij groei</div></div>}
-              {care.rotate&&<div className="care-tile"><div className="care-tile-icon">🔄</div><div className="care-tile-label">Draaien</div><div className="care-tile-value">Maandelijks</div><div className="care-tile-next">voor groei</div></div>}
-            </div>
-
-            {/* OVER DEZE PLANT */}
-            {plant.api_data?.description && <>
-              <div className="sec-label" style={{marginBottom:8}}>Over deze plant</div>
-              <div style={{fontSize:13,color:'var(--ink2)',lineHeight:1.7,marginBottom:20}}>{plant.api_data.description}</div>
-            </>}
-            {dbPlant.tips && (
-              <div style={{background:'var(--green-light)',borderRadius:'var(--r-sm)',padding:'12px 14px',marginBottom:20}}>
-                <div style={{fontSize:10,fontWeight:600,letterSpacing:'0.8px',textTransform:'uppercase',color:'var(--green)',marginBottom:4}}>Tips</div>
-                <div style={{fontSize:13,color:'var(--ink2)',lineHeight:1.5}}>{dbPlant.tips}</div>
-              </div>
-            )}
-
-            {/* HERKOMST */}
-            {plant.api_data?.origin?.length>0 && <>
-              <div className="sec-label" style={{marginBottom:8}}>🌍 Herkomst</div>
-              <div style={{display:'flex',flexWrap:'wrap',gap:6,marginBottom:20}}>
-                {(Array.isArray(plant.api_data.origin)?plant.api_data.origin:[plant.api_data.origin]).map((o,i)=>(
-                  <span key={i} style={{background:'var(--bg2)',color:'var(--ink2)',fontSize:12,fontWeight:500,padding:'5px 10px',borderRadius:999}}>{o}</span>
-                ))}
-              </div>
-            </>}
-
-            {/* GROEI & KENMERKEN */}
-            {plant.api_data && (
-              <>
-                <div className="sec-label" style={{marginBottom:8}}>🌱 Groei & kenmerken</div>
-                <div style={{background:'var(--white)',borderRadius:'var(--r)',overflow:'hidden',marginBottom:20,boxShadow:'0 1px 4px rgba(0,0,0,0.05)'}}>
-                  {[
-                    {label:'Type', val: plant.api_data.type},
-                    {label:'Groeicyclus', val: plant.api_data.cycle},
-                    {label:'Groeisnelheid', val: plant.api_data.growth_rate},
-                    {label:'Familie', val: plant.api_data.family},
-                    {label:'Binnenshuis', val: plant.api_data.indoor===true?'Ja':plant.api_data.indoor===false?'Nee':null},
-                    {label:'Tropisch', val: plant.api_data.tropical===true?'Ja':null},
-                    {label:'Afmeting', val: plant.api_data.dimension},
-                    {label:'Hardiness zone', val: plant.api_data.hardiness ? `${plant.api_data.hardiness.min} – ${plant.api_data.hardiness.max}` : null},
-                  ].filter(r=>r.val).map((r,i,arr)=>(
-                    <div key={i} style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'11px 16px',borderBottom:i<arr.length-1?'1px solid var(--line)':'none'}}>
-                      <span style={{fontSize:13,color:'var(--ink3)'}}>{r.label}</span>
-                      <span style={{fontSize:13,fontWeight:500,color:'var(--ink)',textAlign:'right',maxWidth:'60%'}}>{r.val}</span>
-                    </div>
-                  ))}
-                </div>
-              </>
-            )}
-
-            {/* BLOEM & VRUCHT */}
-            {plant.api_data && (plant.api_data.flowers||plant.api_data.fruits) && (
-              <>
-                <div className="sec-label" style={{marginBottom:8}}>🌸 Bloem & vrucht</div>
-                <div style={{background:'var(--white)',borderRadius:'var(--r)',overflow:'hidden',marginBottom:20,boxShadow:'0 1px 4px rgba(0,0,0,0.05)'}}>
-                  {[
-                    {label:'Bloemen', val: plant.api_data.flowers===true?'Ja':null},
-                    {label:'Bloemkleur', val: Array.isArray(plant.api_data.flower_color)?plant.api_data.flower_color.join(', '):plant.api_data.flower_color},
-                    {label:'Bloeitijd', val: plant.api_data.flowering_season},
-                    {label:'Vruchten', val: plant.api_data.fruits===true?'Ja':null},
-                    {label:'Vruchtkleur', val: Array.isArray(plant.api_data.fruit_color)?plant.api_data.fruit_color.join(', '):plant.api_data.fruit_color},
-                    {label:'Eetbare vrucht', val: plant.api_data.edible_fruit===true?'Ja':plant.api_data.edible_fruit===false?'Nee':null},
-                    {label:'Eetbaar blad', val: plant.api_data.edible_leaf===true?'Ja':plant.api_data.edible_leaf===false?'Nee':null},
-                  ].filter(r=>r.val).map((r,i,arr)=>(
-                    <div key={i} style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'11px 16px',borderBottom:i<arr.length-1?'1px solid var(--line)':'none'}}>
-                      <span style={{fontSize:13,color:'var(--ink3)'}}>{r.label}</span>
-                      <span style={{fontSize:13,fontWeight:500,color:'var(--ink)'}}>{r.val}</span>
-                    </div>
-                  ))}
-                </div>
-              </>
-            )}
-
-            {/* BLAD */}
-            {plant.api_data?.leaf && (
-              <>
-                <div className="sec-label" style={{marginBottom:8}}>🍃 Blad</div>
-                <div style={{background:'var(--white)',borderRadius:'var(--r)',overflow:'hidden',marginBottom:20,boxShadow:'0 1px 4px rgba(0,0,0,0.05)'}}>
-                  {[
-                    {label:'Bladkleur', val: Array.isArray(plant.api_data.leaf_color)?plant.api_data.leaf_color.join(', '):plant.api_data.leaf_color},
-                  ].filter(r=>r.val).map((r,i,arr)=>(
-                    <div key={i} style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'11px 16px',borderBottom:i<arr.length-1?'1px solid var(--line)':'none'}}>
-                      <span style={{fontSize:13,color:'var(--ink3)'}}>{r.label}</span>
-                      <span style={{fontSize:13,fontWeight:500,color:'var(--ink)'}}>{r.val}</span>
-                    </div>
-                  ))}
-                </div>
-              </>
-            )}
-
-            {/* GROND & WATER */}
-            {plant.api_data && (
-              <>
-                <div className="sec-label" style={{marginBottom:8}}>💧 Verzorging details</div>
-                <div style={{background:'var(--white)',borderRadius:'var(--r)',overflow:'hidden',marginBottom:20,boxShadow:'0 1px 4px rgba(0,0,0,0.05)'}}>
-                  {[
-                    {label:'Waterbehoefte', val: plant.api_data.watering},
-                    {label:'Waterperiode', val: plant.api_data.watering_period},
-                    {label:'Watervolume', val: plant.api_data.volume_water_requirement?.unit ? `${plant.api_data.volume_water_requirement.value} ${plant.api_data.volume_water_requirement.unit}` : null},
-                    {label:'Onderhoud', val: plant.api_data.maintenance},
-                    {label:'Verzorgingsniveau', val: plant.api_data.care_level},
-                    {label:'Grondtype', val: Array.isArray(plant.api_data.soil)?plant.api_data.soil.join(', '):plant.api_data.soil},
-                    {label:'Droogtebestendig', val: plant.api_data.drought_tolerant===true?'Ja':plant.api_data.drought_tolerant===false?'Nee':null},
-                    {label:'Zoutbestendig', val: plant.api_data.salt_tolerant===true?'Ja':null},
-                  ].filter(r=>r.val).map((r,i,arr)=>(
-                    <div key={i} style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'11px 16px',borderBottom:i<arr.length-1?'1px solid var(--line)':'none'}}>
-                      <span style={{fontSize:13,color:'var(--ink3)'}}>{r.label}</span>
-                      <span style={{fontSize:13,fontWeight:500,color:'var(--ink)',textAlign:'right',maxWidth:'60%'}}>{r.val}</span>
-                    </div>
-                  ))}
-                </div>
-              </>
-            )}
-
-            {/* VEILIGHEID */}
-            {plant.api_data && (plant.api_data.poisonous_to_humans!=null || plant.api_data.poisonous_to_pets!=null) && (
-              <>
-                <div className="sec-label" style={{marginBottom:8}}>⚠️ Veiligheid</div>
-                <div style={{background:'var(--white)',borderRadius:'var(--r)',overflow:'hidden',marginBottom:20,boxShadow:'0 1px 4px rgba(0,0,0,0.05)'}}>
-                  {[
-                    {label:'Giftig voor mensen', val: plant.api_data.poisonous_to_humans===1||plant.api_data.poisonous_to_humans===true?'⚠️ Ja':'✅ Nee'},
-                    {label:'Giftig voor huisdieren', val: plant.api_data.poisonous_to_pets===1||plant.api_data.poisonous_to_pets===true?'⚠️ Ja':'✅ Nee'},
-                    {label:'Doornen', val: plant.api_data.thorny===true?'Ja':plant.api_data.thorny===false?'Nee':null},
-                    {label:'Medicinaal', val: plant.api_data.medicinal===true?'Ja':null},
-                    {label:'Culinair gebruik', val: plant.api_data.cuisine===true?'Ja':null},
-                    {label:'Invasief', val: plant.api_data.invasive===true?'⚠️ Ja':null},
-                    {label:'Zeldzaam', val: plant.api_data.rare===true?'Ja':null},
-                  ].filter(r=>r.val).map((r,i,arr)=>(
-                    <div key={i} style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'11px 16px',borderBottom:i<arr.length-1?'1px solid var(--line)':'none'}}>
-                      <span style={{fontSize:13,color:'var(--ink3)'}}>{r.label}</span>
-                      <span style={{fontSize:13,fontWeight:500,color:'var(--ink)'}}>{r.val}</span>
-                    </div>
-                  ))}
-                </div>
-              </>
-            )}
-
-            {/* ANDERE NAMEN */}
-            {plant.api_data?.other_name?.length>0 && (
-              <>
-                <div className="sec-label" style={{marginBottom:8}}>📛 Andere namen</div>
-                <div style={{display:'flex',flexWrap:'wrap',gap:6,marginBottom:20}}>
-                  {(Array.isArray(plant.api_data.other_name)?plant.api_data.other_name:[plant.api_data.other_name]).map((n,i)=>(
-                    <span key={i} style={{background:'var(--bg2)',color:'var(--ink2)',fontSize:12,padding:'5px 10px',borderRadius:999}}>{n}</span>
-                  ))}
-                </div>
-              </>
-            )}
-
-            {sunAdvice&&<div style={{background:sunAdvice.ok?'var(--green-light)':'var(--yellow-soft)',borderRadius:'var(--r-sm)',padding:'10px 14px',marginBottom:16,fontSize:12,color:sunAdvice.ok?'var(--green)':'var(--yellow)',fontWeight:500,lineHeight:1.5}}>{sunAdvice.msg}</div>}
-
-            {/* GESCHIEDENIS */}
-            <div className="sec-label" style={{marginBottom:8}}>Geschiedenis</div>
-            {(plant.log||[]).length===0
-              ? <div style={{fontSize:13,color:'var(--ink3)',padding:'8px 0'}}>Nog geen acties.</div>
-              : (plant.log||[]).slice(0,10).map((l,i)=>(
-                <div key={i} className="log-item">
-                  <div className="log-dot"/>
-                  <div style={{fontSize:12,color:'var(--ink2)',flex:1}}>{l.type} {l.text}</div>
-                  <div style={{fontSize:11,color:'var(--ink3)'}}>{l.date}</div>
+        {/* GROEI & KENMERKEN */}
+        {plant.api_data && (
+          <>
+            <div className="sec-label" style={{marginBottom:8}}>🌱 Groei & kenmerken</div>
+            <div style={{background:'var(--white)',borderRadius:'var(--r)',overflow:'hidden',marginBottom:20,boxShadow:'0 1px 4px rgba(0,0,0,0.05)'}}>
+              {[
+                {label:'Type', val: plant.api_data.type},
+                {label:'Groeicyclus', val: plant.api_data.cycle},
+                {label:'Groeisnelheid', val: plant.api_data.growth_rate},
+                {label:'Familie', val: plant.api_data.family},
+                {label:'Binnenshuis', val: plant.api_data.indoor===true?'Ja':plant.api_data.indoor===false?'Nee':null},
+                {label:'Tropisch', val: plant.api_data.tropical===true?'Ja':null},
+                {label:'Afmeting', val: plant.api_data.dimension},
+                {label:'Hardiness zone', val: plant.api_data.hardiness ? `${plant.api_data.hardiness.min} – ${plant.api_data.hardiness.max}` : null},
+              ].filter(r=>r.val).map((r,i,arr)=>(
+                <div key={i} style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'11px 16px',borderBottom:i<arr.length-1?'1px solid var(--line)':'none'}}>
+                  <span style={{fontSize:13,color:'var(--ink3)'}}>{r.label}</span>
+                  <span style={{fontSize:13,fontWeight:500,color:'var(--ink)',textAlign:'right',maxWidth:'60%'}}>{r.val}</span>
                 </div>
               ))}
-          </div>
+            </div>
+          </>
         )}
 
-        {/* ── FOTO TAB ── */}
-        {tab==='fotos' && (
-          <div style={{padding:'16px 24px'}}>
-            {pendingFile ? (
-              <div className="card" style={{padding:16,marginBottom:16}}>
-                <div style={{aspectRatio:'4/3',borderRadius:'var(--r-sm)',overflow:'hidden',background:'var(--bg)',marginBottom:12}}>
-                  <img src={URL.createObjectURL(pendingFile)} style={{width:'100%',height:'100%',objectFit:'cover'}} alt="preview"/>
+        {/* BLOEM & VRUCHT */}
+        {plant.api_data && (plant.api_data.flowers||plant.api_data.fruits) && (
+          <>
+            <div className="sec-label" style={{marginBottom:8}}>🌸 Bloem & vrucht</div>
+            <div style={{background:'var(--white)',borderRadius:'var(--r)',overflow:'hidden',marginBottom:20,boxShadow:'0 1px 4px rgba(0,0,0,0.05)'}}>
+              {[
+                {label:'Bloemen', val: plant.api_data.flowers===true?'Ja':null},
+                {label:'Bloemkleur', val: Array.isArray(plant.api_data.flower_color)?plant.api_data.flower_color.join(', '):plant.api_data.flower_color},
+                {label:'Bloeitijd', val: plant.api_data.flowering_season},
+                {label:'Vruchten', val: plant.api_data.fruits===true?'Ja':null},
+                {label:'Vruchtkleur', val: Array.isArray(plant.api_data.fruit_color)?plant.api_data.fruit_color.join(', '):plant.api_data.fruit_color},
+                {label:'Eetbare vrucht', val: plant.api_data.edible_fruit===true?'Ja':plant.api_data.edible_fruit===false?'Nee':null},
+                {label:'Eetbaar blad', val: plant.api_data.edible_leaf===true?'Ja':plant.api_data.edible_leaf===false?'Nee':null},
+              ].filter(r=>r.val).map((r,i,arr)=>(
+                <div key={i} style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'11px 16px',borderBottom:i<arr.length-1?'1px solid var(--line)':'none'}}>
+                  <span style={{fontSize:13,color:'var(--ink3)'}}>{r.label}</span>
+                  <span style={{fontSize:13,fontWeight:500,color:'var(--ink)'}}>{r.val}</span>
                 </div>
-                <div className="field-label" style={{marginBottom:6}}>Datum foto</div>
-                <input type="date" value={pendingDate} onChange={e=>setPendingDate(e.target.value)}
-                  style={{width:'100%',background:'var(--bg)',border:'1.5px solid var(--line)',borderRadius:'var(--r-sm)',padding:'10px 12px',fontSize:14,fontFamily:'inherit',color:'var(--ink)',marginBottom:12,outline:'none'}}/>
-                <div style={{display:'flex',gap:8}}>
-                  <button onClick={uploadPhoto} disabled={uploading} style={{flex:1,padding:'12px',background:'var(--green)',color:'white',border:'none',borderRadius:'var(--r-sm)',fontSize:14,fontWeight:600,fontFamily:'inherit',cursor:'pointer'}}>
-                    {uploading?'Uploaden...':'📸 Opslaan'}
-                  </button>
-                  <button onClick={()=>setPendingFile(null)} style={{padding:'12px 16px',background:'var(--bg2)',border:'none',borderRadius:'var(--r-sm)',fontSize:14,cursor:'pointer'}}>✕</button>
-                </div>
-              </div>
-            ) : (
-              <label style={{display:'flex',alignItems:'center',gap:8,background:'var(--bg)',borderRadius:'var(--r-sm)',padding:'14px',cursor:'pointer',marginBottom:16,border:'1.5px dashed var(--line)'}}>
-                <span style={{fontSize:22}}>📸</span>
-                <span style={{fontSize:14,color:'var(--ink2)',fontWeight:500}}>Foto toevoegen</span>
-                <input type="file" accept="image/*" style={{display:'none'}} onChange={selectFile}/>
-              </label>
-            )}
-            {photos.length===0 ? (
-              <div className="empty-state" style={{padding:'40px 0'}}>
-                <div style={{fontSize:52}}>📷</div>
-                <div className="serif" style={{fontSize:22,color:'var(--ink)'}}>Nog geen foto's</div>
-                <div style={{fontSize:14,color:'var(--ink3)',lineHeight:1.6}}>Voeg een foto toe om de groei bij te houden.</div>
-              </div>
-            ) : (
-              <div style={{display:'flex',flexDirection:'column',gap:16}}>
-                {photos.map((photo,i)=>(
-                  <div key={i} className="card" style={{overflow:'hidden'}}>
-                    <div style={{aspectRatio:'4/3',background:'var(--bg)'}}>
-                      <img src={photo.url||photo} style={{width:'100%',height:'100%',objectFit:'cover'}} alt={`foto ${i+1}`}/>
-                    </div>
-                    <div style={{padding:'10px 14px',display:'flex',alignItems:'center',justifyContent:'space-between'}}>
-                      {editingPhoto===i ? (
-                        <div style={{display:'flex',gap:8,alignItems:'center',flex:1}}>
-                          <input type="date" defaultValue={photo.isoDate||todayStr()} id={`photo-date-${i}`}
-                            style={{flex:1,background:'var(--bg)',border:'1.5px solid var(--accent)',borderRadius:'var(--r-xs)',padding:'6px 8px',fontSize:13,fontFamily:'inherit',color:'var(--ink)'}}/>
-                          <button onClick={()=>{ const el=document.getElementById(`photo-date-${i}`); savePhotoDate(i,el.value); }} style={{background:'var(--green)',color:'white',border:'none',borderRadius:'var(--r-xs)',padding:'6px 10px',fontSize:12,fontWeight:600,cursor:'pointer'}}>✓</button>
-                          <button onClick={()=>setEditingPhoto(null)} style={{background:'var(--bg2)',border:'none',borderRadius:'var(--r-xs)',padding:'6px 8px',fontSize:12,cursor:'pointer'}}>✕</button>
-                        </div>
-                      ) : (
-                        <>
-                          <span style={{fontSize:12,color:'var(--ink3)',fontWeight:500}}>{photo.date||'Geen datum'}</span>
-                          <button onClick={()=>setEditingPhoto(i)} style={{background:'var(--bg)',border:'none',borderRadius:'var(--r-xs)',padding:'4px 8px',fontSize:11,color:'var(--ink3)',cursor:'pointer'}}>✏️ datum</button>
-                        </>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+              ))}
+            </div>
+          </>
         )}
 
-        {/* ── INSTELLINGEN TAB ── */}
-        {tab==='instellingen' && (
-          <div style={{padding:'20px 24px',display:'flex',flexDirection:'column',gap:20}}>
-
-            {/* RAAMRICHTING */}
-            <div>
-              <div className="sec-label" style={{marginBottom:8}}>🪟 Raamrichting</div>
-              <div style={{fontSize:12,color:'var(--ink3)',marginBottom:12,lineHeight:1.5}}>Vink aan welke ramen deze plant heeft. Je kunt meerdere ramen aanvinken.</div>
-              <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:10,marginBottom:12}}>
-                {['Noord','Oost','Zuid','West'].map(dir=>(
-                  <div key={dir} onClick={()=>toggleWindow(dir)} style={{
-                    background:windows.includes(dir)?'var(--green-light)':'var(--bg)',
-                    border:windows.includes(dir)?'1.5px solid var(--accent)':'1.5px solid transparent',
-                    borderRadius:'var(--r-sm)',padding:'14px 12px',cursor:'pointer',transition:'all 0.15s'
-                  }}>
-                    <div style={{fontSize:22,marginBottom:4}}>{WINDOW_INFO[dir].icon}</div>
-                    <div style={{fontSize:14,fontWeight:600,color:windows.includes(dir)?'var(--green)':'var(--ink)',marginBottom:2}}>{dir}</div>
-                    <div style={{fontSize:11,color:'var(--ink3)'}}>{WINDOW_INFO[dir].sun}</div>
-                    {windows.includes(dir)&&<div style={{fontSize:11,color:'var(--green)',marginTop:4,lineHeight:1.4}}>{WINDOW_INFO[dir].desc}</div>}
-                  </div>
-                ))}
-              </div>
-              {sunAdvice&&<div style={{background:sunAdvice.ok?'var(--green-light)':'var(--yellow-soft)',borderRadius:'var(--r-sm)',padding:'10px 14px',fontSize:12,color:sunAdvice.ok?'var(--green)':'var(--yellow)',fontWeight:500,lineHeight:1.5}}>{sunAdvice.msg}</div>}
+        {/* BLAD */}
+        {plant.api_data?.leaf && (
+          <>
+            <div className="sec-label" style={{marginBottom:8}}>🍃 Blad</div>
+            <div style={{background:'var(--white)',borderRadius:'var(--r)',overflow:'hidden',marginBottom:20,boxShadow:'0 1px 4px rgba(0,0,0,0.05)'}}>
+              {[
+                {label:'Bladkleur', val: Array.isArray(plant.api_data.leaf_color)?plant.api_data.leaf_color.join(', '):plant.api_data.leaf_color},
+              ].filter(r=>r.val).map((r,i,arr)=>(
+                <div key={i} style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'11px 16px',borderBottom:i<arr.length-1?'1px solid var(--line)':'none'}}>
+                  <span style={{fontSize:13,color:'var(--ink3)'}}>{r.label}</span>
+                  <span style={{fontSize:13,fontWeight:500,color:'var(--ink)'}}>{r.val}</span>
+                </div>
+              ))}
             </div>
+          </>
+        )}
 
-            {/* LICHT */}
-            <div className="field-group">
-              <div className="field-label">Lichtomstandigheden</div>
-              <div className="env-selector">
-                {[{v:'Weinig',icon:'🌑'},{v:'Indirect',icon:'🌤'},{v:'Direct',icon:'☀️'}].map(o=>(
-                  <div key={o.v} className={`env-opt ${light===o.v?'selected':''}`} onClick={()=>setLight(o.v)}>
-                    <div className="env-opt-icon">{o.icon}</div>
-                    <div className="env-opt-label">{o.v}</div>
-                  </div>
-                ))}
-              </div>
+        {/* GROND & WATER */}
+        {plant.api_data && (
+          <>
+            <div className="sec-label" style={{marginBottom:8}}>💧 Verzorging details</div>
+            <div style={{background:'var(--white)',borderRadius:'var(--r)',overflow:'hidden',marginBottom:20,boxShadow:'0 1px 4px rgba(0,0,0,0.05)'}}>
+              {[
+                {label:'Waterbehoefte', val: plant.api_data.watering},
+                {label:'Waterperiode', val: plant.api_data.watering_period},
+                {label:'Watervolume', val: plant.api_data.volume_water_requirement?.unit ? `${plant.api_data.volume_water_requirement.value} ${plant.api_data.volume_water_requirement.unit}` : null},
+                {label:'Onderhoud', val: plant.api_data.maintenance},
+                {label:'Verzorgingsniveau', val: plant.api_data.care_level},
+                {label:'Grondtype', val: Array.isArray(plant.api_data.soil)?plant.api_data.soil.join(', '):plant.api_data.soil},
+                {label:'Droogtebestendig', val: plant.api_data.drought_tolerant===true?'Ja':plant.api_data.drought_tolerant===false?'Nee':null},
+                {label:'Zoutbestendig', val: plant.api_data.salt_tolerant===true?'Ja':null},
+              ].filter(r=>r.val).map((r,i,arr)=>(
+                <div key={i} style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'11px 16px',borderBottom:i<arr.length-1?'1px solid var(--line)':'none'}}>
+                  <span style={{fontSize:13,color:'var(--ink3)'}}>{r.label}</span>
+                  <span style={{fontSize:13,fontWeight:500,color:'var(--ink)',textAlign:'right',maxWidth:'60%'}}>{r.val}</span>
+                </div>
+              ))}
             </div>
+          </>
+        )}
 
-            {/* VOCHTIGHEID */}
-            <div className="field-group">
-              <div className="field-label">Luchtvochtigheid</div>
-              <div className="env-selector">
-                {[{v:'Droog',icon:'🏜'},{v:'Normaal',icon:'🌿'},{v:'Vochtig',icon:'💦'}].map(o=>(
-                  <div key={o.v} className={`env-opt ${humidity===o.v?'selected':''}`} onClick={()=>setHumidity(o.v)}>
-                    <div className="env-opt-icon">{o.icon}</div>
-                    <div className="env-opt-label">{o.v}</div>
-                  </div>
-                ))}
-              </div>
+        {/* VEILIGHEID */}
+        {plant.api_data && (plant.api_data.poisonous_to_humans!=null || plant.api_data.poisonous_to_pets!=null) && (
+          <>
+            <div className="sec-label" style={{marginBottom:8}}>⚠️ Veiligheid</div>
+            <div style={{background:'var(--white)',borderRadius:'var(--r)',overflow:'hidden',marginBottom:20,boxShadow:'0 1px 4px rgba(0,0,0,0.05)'}}>
+              {[
+                {label:'Giftig voor mensen', val: plant.api_data.poisonous_to_humans===1||plant.api_data.poisonous_to_humans===true?'⚠️ Ja':'✅ Nee'},
+                {label:'Giftig voor huisdieren', val: plant.api_data.poisonous_to_pets===1||plant.api_data.poisonous_to_pets===true?'⚠️ Ja':'✅ Nee'},
+                {label:'Doornen', val: plant.api_data.thorny===true?'Ja':plant.api_data.thorny===false?'Nee':null},
+                {label:'Medicinaal', val: plant.api_data.medicinal===true?'Ja':null},
+                {label:'Culinair gebruik', val: plant.api_data.cuisine===true?'Ja':null},
+                {label:'Invasief', val: plant.api_data.invasive===true?'⚠️ Ja':null},
+                {label:'Zeldzaam', val: plant.api_data.rare===true?'Ja':null},
+              ].filter(r=>r.val).map((r,i,arr)=>(
+                <div key={i} style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'11px 16px',borderBottom:i<arr.length-1?'1px solid var(--line)':'none'}}>
+                  <span style={{fontSize:13,color:'var(--ink3)'}}>{r.label}</span>
+                  <span style={{fontSize:13,fontWeight:500,color:'var(--ink)'}}>{r.val}</span>
+                </div>
+              ))}
             </div>
+          </>
+        )}
 
-            <button className="submit-btn" onClick={saveSettings} disabled={savingSettings}>
-              {savingSettings?'Opslaan...':'⚙️ Instellingen opslaan'}
-            </button>
+        {/* ANDERE NAMEN */}
+        {plant.api_data?.other_name?.length>0 && (
+          <>
+            <div className="sec-label" style={{marginBottom:8}}>📛 Andere namen</div>
+            <div style={{display:'flex',flexWrap:'wrap',gap:6,marginBottom:20}}>
+              {(Array.isArray(plant.api_data.other_name)?plant.api_data.other_name:[plant.api_data.other_name]).map((n,i)=>(
+                <span key={i} style={{background:'var(--bg2)',color:'var(--ink2)',fontSize:12,padding:'5px 10px',borderRadius:999}}>{n}</span>
+              ))}
+            </div>
+          </>
+        )}
+
+        {sunAdvice&&<div style={{background:sunAdvice.ok?'var(--green-light)':'var(--yellow-soft)',borderRadius:'var(--r-sm)',padding:'10px 14px',marginBottom:16,fontSize:12,color:sunAdvice.ok?'var(--green)':'var(--yellow)',fontWeight:500,lineHeight:1.5}}>{sunAdvice.msg}</div>}
+
+        {/* GESCHIEDENIS */}
+        <div className="sec-label" style={{marginBottom:8}}>Geschiedenis</div>
+        {(plant.log||[]).length===0
+          ? <div style={{fontSize:13,color:'var(--ink3)',padding:'8px 0'}}>Nog geen acties.</div>
+          : (plant.log||[]).slice(0,10).map((l,i)=>(
+            <div key={i} className="log-item">
+              <div className="log-dot"/>
+              <div style={{fontSize:12,color:'var(--ink2)',flex:1}}>{l.type} {l.text}</div>
+              <div style={{fontSize:11,color:'var(--ink3)'}}>{l.date}</div>
+            </div>
+          ))}
+      </div>
+    )}
+
+    {/* ── FOTO TAB ── */}
+    {tab==='fotos' && (
+      <div style={{padding:'16px 24px'}}>
+        {pendingFile ? (
+          <div className="card" style={{padding:16,marginBottom:16}}>
+            <div style={{aspectRatio:'4/3',borderRadius:'var(--r-sm)',overflow:'hidden',background:'var(--bg)',marginBottom:12}}>
+              <img src={URL.createObjectURL(pendingFile)} style={{width:'100%',height:'100%',objectFit:'cover'}} alt="preview"/>
+            </div>
+            <div className="field-label" style={{marginBottom:6}}>Datum foto</div>
+            <input type="date" value={pendingDate} onChange={e=>setPendingDate(e.target.value)}
+              style={{width:'100%',background:'var(--bg)',border:'1.5px solid var(--line)',borderRadius:'var(--r-sm)',padding:'10px 12px',fontSize:14,fontFamily:'inherit',color:'var(--ink)',marginBottom:12,outline:'none'}}/>
+            <div style={{display:'flex',gap:8}}>
+              <button onClick={uploadPhoto} disabled={uploading} style={{flex:1,padding:'12px',background:'var(--green)',color:'white',border:'none',borderRadius:'var(--r-sm)',fontSize:14,fontWeight:600,fontFamily:'inherit',cursor:'pointer'}}>
+                {uploading?'Uploaden...':'📸 Opslaan'}
+              </button>
+              <button onClick={()=>setPendingFile(null)} style={{padding:'12px 16px',background:'var(--bg2)',border:'none',borderRadius:'var(--r-sm)',fontSize:14,cursor:'pointer'}}>✕</button>
+            </div>
+          </div>
+        ) : (
+          <label style={{display:'flex',alignItems:'center',gap:8,background:'var(--bg)',borderRadius:'var(--r-sm)',padding:'14px',cursor:'pointer',marginBottom:16,border:'1.5px dashed var(--line)'}}>
+            <span style={{fontSize:22}}>📸</span>
+            <span style={{fontSize:14,color:'var(--ink2)',fontWeight:500}}>Foto toevoegen</span>
+            <input type="file" accept="image/*" style={{display:'none'}} onChange={selectFile}/>
+          </label>
+        )}
+        {photos.length===0 ? (
+          <div className="empty-state" style={{padding:'40px 0'}}>
+            <div style={{fontSize:52}}>📷</div>
+            <div className="serif" style={{fontSize:22,color:'var(--ink)'}}>Nog geen foto's</div>
+            <div style={{fontSize:14,color:'var(--ink3)',lineHeight:1.6}}>Voeg een foto toe om de groei bij te houden.</div>
+          </div>
+        ) : (
+          <div style={{display:'flex',flexDirection:'column',gap:16}}>
+            {photos.map((photo,i)=>(
+              <div key={i} className="card" style={{overflow:'hidden'}}>
+                <div style={{aspectRatio:'4/3',background:'var(--bg)'}}>
+                  <img src={photo.url||photo} style={{width:'100%',height:'100%',objectFit:'cover'}} alt={`foto ${i+1}`}/>
+                </div>
+                <div style={{padding:'10px 14px',display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+                  {editingPhoto===i ? (
+                    <div style={{display:'flex',gap:8,alignItems:'center',flex:1}}>
+                      <input type="date" defaultValue={photo.isoDate||todayStr()} id={`photo-date-${i}`}
+                        style={{flex:1,background:'var(--bg)',border:'1.5px solid var(--accent)',borderRadius:'var(--r-xs)',padding:'6px 8px',fontSize:13,fontFamily:'inherit',color:'var(--ink)'}}/>
+                      <button onClick={()=>{ const el=document.getElementById(`photo-date-${i}`); savePhotoDate(i,el.value); }} style={{background:'var(--green)',color:'white',border:'none',borderRadius:'var(--r-xs)',padding:'6px 10px',fontSize:12,fontWeight:600,cursor:'pointer'}}>✓</button>
+                      <button onClick={()=>setEditingPhoto(null)} style={{background:'var(--bg2)',border:'none',borderRadius:'var(--r-xs)',padding:'6px 8px',fontSize:12,cursor:'pointer'}}>✕</button>
+                    </div>
+                  ) : (
+                    <>
+                      <span style={{fontSize:12,color:'var(--ink3)',fontWeight:500}}>{photo.date||'Geen datum'}</span>
+                      <button onClick={()=>setEditingPhoto(i)} style={{background:'var(--bg)',border:'none',borderRadius:'var(--r-xs)',padding:'4px 8px',fontSize:11,color:'var(--ink3)',cursor:'pointer'}}>✏️ datum</button>
+                    </>
+                  )}
+                </div>
+              </div>
+            ))}
           </div>
         )}
       </div>
+    )}
 
-      {/* DELETE MODAL */}
-      {showConfirm&&(
-        <div className="modal-overlay">
-          <div className="modal">
-            <div className="serif" style={{fontSize:22,color:'var(--ink)',marginBottom:8}}>Plant verwijderen?</div>
-            <div style={{fontSize:13,color:'var(--ink3)',marginBottom:24,lineHeight:1.5}}>"{plant.name}" wordt permanent verwijderd.</div>
-            <button className="modal-btn danger" onClick={()=>{onDelete(plant.id);setShowConfirm(false);}}>Ja, verwijderen</button>
-            <button className="modal-btn cancel" onClick={()=>setShowConfirm(false)}>Annuleren</button>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
+    {/* ── INSTELLINGEN TAB ── */}
+    {tab==='instellingen' && (
+      <div style={{padding:'20px 24px',display:'flex',flexDirection:'column',gap:20}}>
 
-// ── ADD PLANT ──
-function AddPlant({onBack, onAdd}){
-  const [query, setQuery] = useState('');
-  const [apiResults, setApiResults] = useState([]);
-  const [localResults, setLocalResults] = useState([]);
-  const [selected, setSelected] = useState(null);
-  const [apiData, setApiData] = useState(null);
-  const [light, setLight] = useState('Indirect');
-  const [humidity, setHumidity] = useState('Normaal');
-  const [saving, setSaving] = useState(false);
-  const [searching, setSearching] = useState(false);
-  const [timer, setTimer] = useState(null);
-
-  const parseWatering = (w) => ({'Frequent':3,'Average':7,'Minimum':14,'None':30}[w]||10);
-  const parseSunlight = (s) => { if(!s||!s.length) return 'Indirect'; const v=(Array.isArray(s)?s[0]:s).toLowerCase(); if(v.includes('full sun')) return 'Direct'; if(v.includes('shade')||v.includes('indirect')) return 'Weinig'; return 'Indirect'; };
-
-  const searchApi = async (q) => {
-    if(q.length<2) return;
-    setSearching(true);
-    try {
-      const res = await fetch(`https://perenual.com/api/species-list?key=${PERENUAL_KEY}&q=${encodeURIComponent(q)}`);
-      const data = await res.json();
-      if(data.data) setApiResults(data.data.slice(0,6));
-    } catch(e){}
-    setSearching(false);
-  };
-
-  const handleQuery = (val) => {
-    setQuery(val); setSelected(null); setApiData(null);
-    setLocalResults(val.length>0?PLANT_DB.filter(p=>p.name.toLowerCase().includes(val.toLowerCase())||p.species.toLowerCase().includes(val.toLowerCase())).slice(0,3):[]);
-    if(timer) clearTimeout(timer);
-    setTimer(setTimeout(()=>searchApi(val),600));
-  };
-
-  const selectApi = async (p) => {
-    const name = p.common_name||p.scientific_name?.[0]||'Plant';
-    const species = p.scientific_name?.[0]||'';
-    const db = PLANT_DB.find(d=>d.name.toLowerCase()===name.toLowerCase());
-    setSelected({name,species,emoji:db?.emoji||'🌿',fromApi:true});
-    setQuery(name); setApiResults([]); setLocalResults([]);
-    try {
-      const res = await fetch(`https://perenual.com/api/species/details/${p.id}?key=${PERENUAL_KEY}`);
-      const detail = await res.json();
-      setApiData(detail);
-      setLight(parseSunlight(detail.sunlight));
-      setSelected(prev=>({...prev,waterEvery:parseWatering(detail.watering),feedEvery:detail.maintenance==='Low'?60:28}));
-    } catch(e){}
-  };
-
-  const selectLocal = (p) => { setSelected(p); setQuery(p.name); setApiResults([]); setLocalResults([]); setLight(p.light||'Indirect'); };
-
-  const handleAdd = async () => {
-    if(!selected) return;
-    setSaving(true);
-    await onAdd({name:selected.name,species:selected.species,emoji:selected.emoji||'🌿',light,humidity,water_every:selected.waterEvery||10,feed_every:selected.feedEvery||28,api_data:apiData?{watering:apiData.watering,sunlight:apiData.sunlight,care_level:apiData.care_level,description:apiData.description}:null});
-    setSaving(false);
-  };
-
-  const combined = [...localResults,...apiResults.filter(a=>!localResults.find(l=>l.name.toLowerCase()===(a.common_name||'').toLowerCase()))];
-
-  return (
-    <div className="enter">
-      <div style={{background:'var(--white)',padding:`calc(env(safe-area-inset-top) + 14px) 24px 14px`,borderBottom:'1px solid var(--line)',display:'flex',alignItems:'center',gap:12}}>
-        <button onClick={onBack} style={{width:34,height:34,background:'var(--bg)',borderRadius:'50%',display:'flex',alignItems:'center',justifyContent:'center',fontSize:14,cursor:'pointer',border:'none',fontFamily:'inherit',flexShrink:0}}>←</button>
-        <div className="serif" style={{fontSize:22,color:'var(--ink)'}}>Plant toevoegen</div>
-      </div>
-      <div className="screen-content" style={{padding:'20px 24px',display:'flex',flexDirection:'column',gap:20}}>
-        <div className="field-group">
-          <div className="field-label">Zoek plant {searching&&<span style={{color:'var(--green)',fontWeight:400,letterSpacing:0}}>· zoeken...</span>}</div>
-          <input className="field-input" placeholder="bv. Monstera, Pothos, Lavender..." value={query} onChange={e=>handleQuery(e.target.value)}/>
-          {combined.length>0&&(
-            <div className="search-results">
-              {combined.map((p,i)=>{
-                const isApi=!p.waterEvery;
-                const name=isApi?(p.common_name||p.scientific_name?.[0]||'Plant'):p.name;
-                const species=isApi?(p.scientific_name?.[0]||''):p.species;
-                const emoji=isApi?(PLANT_DB.find(d=>d.name.toLowerCase()===name.toLowerCase())?.emoji||'🌿'):p.emoji;
-                return (
-                  <div key={i} className={`search-result ${selected?.name===name?'sel':''}`} onClick={()=>isApi?selectApi(p):selectLocal(p)}>
-                    <span style={{fontSize:20}}>{emoji}</span>
-                    <div style={{flex:1}}>
-                      <div style={{fontSize:13,fontWeight:500,color:'var(--ink)'}}>{name}</div>
-                      <div style={{fontSize:11,color:'var(--ink3)'}}>{species}</div>
-                    </div>
-                    {isApi&&<span style={{fontSize:10,color:'var(--green)',fontWeight:600,background:'var(--green-light)',padding:'2px 6px',borderRadius:999}}>API</span>}
+        {/* POTGROND */}
+        <div>
+          <div className="sec-label" style={{marginBottom:8}}>🪴 Potgrond</div>
+          <div style={{fontSize:12,color:'var(--ink3)',marginBottom:12,lineHeight:1.5}}>Het type potgrond beïnvloedt hoe snel de grond droogt en dus hoe vaak je water moet geven.</div>
+          <div style={{display:'flex',flexDirection:'column',gap:8,marginBottom:8}}>
+            {SOIL_TYPES.map(s=>(
+              <div key={s.id} onClick={()=>setSoil(s.id)} style={{
+                background:soil===s.id?'var(--green-light)':'var(--bg)',
+                border:soil===s.id?'1.5px solid var(--accent)':'1.5px solid transparent',
+                borderRadius:'var(--r-sm)',padding:'12px 14px',cursor:'pointer',transition:'all 0.15s',
+                display:'flex',alignItems:'center',gap:12
+              }}>
+                <span style={{fontSize:22,flexShrink:0}}>{s.icon}</span>
+                <div style={{flex:1}}>
+                  <div style={{fontSize:13,fontWeight:600,color:soil===s.id?'var(--green)':'var(--ink)'}}>{s.name}</div>
+                  <div style={{fontSize:11,color:'var(--ink3)',marginTop:2,lineHeight:1.4}}>{s.desc}</div>
+                </div>
+                {soil===s.id && (
+                  <div style={{flexShrink:0,fontSize:11,fontWeight:700,color:'var(--green)',background:'var(--white)',padding:'3px 8px',borderRadius:999}}>
+                    ×{s.waterMultiplier}
                   </div>
-                );
-              })}
-            </div>
-          )}
-          {selected&&(
-            <div style={{background:'var(--green-light)',borderRadius:'var(--r-sm)',padding:'12px 14px'}}>
-              <div style={{fontSize:12,color:'var(--green)',fontWeight:600,marginBottom:apiData?6:0}}>✓ {selected.name} geselecteerd</div>
-              {apiData&&<>
-                <div style={{fontSize:11,color:'var(--ink2)',marginBottom:2}}>💧 {apiData.watering} → elke ~{selected.waterEvery} dagen</div>
-                <div style={{fontSize:11,color:'var(--ink2)'}}>{Array.isArray(apiData.sunlight)?apiData.sunlight.join(', '):apiData.sunlight}</div>
-                {apiData.care_level&&<div style={{fontSize:11,color:'var(--ink2)',marginTop:2}}>🌿 {apiData.care_level}</div>}
-              </>}
-              {!apiData&&<div style={{fontSize:11,color:'var(--ink2)'}}>💧 Water elke ~{selected.waterEvery} dagen</div>}
-            </div>
-          )}
-          {apiData?.description&&<div style={{background:'var(--bg)',borderRadius:'var(--r-sm)',padding:'10px 12px',fontSize:12,color:'var(--ink3)',lineHeight:1.5}}>{apiData.description.slice(0,180)}...</div>}
+                )}
+              </div>
+            ))}
+          </div>
+          {(() => {
+            const s = SOIL_TYPES.find(t=>t.id===soil)||SOIL_TYPES[0];
+            const db = PLANT_DB.find(p=>p.name===plant.name);
+            const base = db?.waterEvery||plant.water_every;
+            const newInterval = Math.round(base * s.waterMultiplier);
+            return (
+              <div style={{background:'var(--green-light)',borderRadius:'var(--r-sm)',padding:'10px 14px',fontSize:12,color:'var(--green)',fontWeight:500,lineHeight:1.5}}>
+                💧 Met {s.name}: water geven elke <strong>{newInterval} dagen</strong>
+                {newInterval !== base && <span style={{color:'var(--ink3)',fontWeight:400}}> (was {base} dagen)</span>}
+              </div>
+            );
+          })()}
         </div>
+
+        {/* RAAMRICHTING */}
+        <div>
+          <div className="sec-label" style={{marginBottom:8}}>🪟 Raamrichting</div>
+          <div style={{fontSize:12,color:'var(--ink3)',marginBottom:12,lineHeight:1.5}}>Vink aan welke ramen deze plant heeft. Je kunt meerdere ramen aanvinken.</div>
+          <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:10,marginBottom:12}}>
+            {['Noord','Oost','Zuid','West'].map(dir=>(
+              <div key={dir} onClick={()=>toggleWindow(dir)} style={{
+                background:windows.includes(dir)?'var(--green-light)':'var(--bg)',
+                border:windows.includes(dir)?'1.5px solid var(--accent)':'1.5px solid transparent',
+                borderRadius:'var(--r-sm)',padding:'14px 12px',cursor:'pointer',transition:'all 0.15s'
+              }}>
+                <div style={{fontSize:22,marginBottom:4}}>{WINDOW_INFO[dir].icon}</div>
+                <div style={{fontSize:14,fontWeight:600,color:windows.includes(dir)?'var(--green)':'var(--ink)',marginBottom:2}}>{dir}</div>
+                <div style={{fontSize:11,color:'var(--ink3)'}}>{WINDOW_INFO[dir].sun}</div>
+                {windows.includes(dir)&&<div style={{fontSize:11,color:'var(--green)',marginTop:4,lineHeight:1.4}}>{WINDOW_INFO[dir].desc}</div>}
+              </div>
+            ))}
+          </div>
+          {sunAdvice&&<div style={{background:sunAdvice.ok?'var(--green-light)':'var(--yellow-soft)',borderRadius:'var(--r-sm)',padding:'10px 14px',fontSize:12,color:sunAdvice.ok?'var(--green)':'var(--yellow)',fontWeight:500,lineHeight:1.5}}>{sunAdvice.msg}</div>}
+        </div>
+
+        {/* LICHT */}
         <div className="field-group">
           <div className="field-label">Lichtomstandigheden</div>
           <div className="env-selector">
             {[{v:'Weinig',icon:'🌑'},{v:'Indirect',icon:'🌤'},{v:'Direct',icon:'☀️'}].map(o=>(
               <div key={o.v} className={`env-opt ${light===o.v?'selected':''}`} onClick={()=>setLight(o.v)}>
-                <div className="env-opt-icon">{o.icon}</div><div className="env-opt-label">{o.v}</div>
+                <div className="env-opt-icon">{o.icon}</div>
+                <div className="env-opt-label">{o.v}</div>
               </div>
             ))}
           </div>
         </div>
+
+        {/* VOCHTIGHEID */}
         <div className="field-group">
           <div className="field-label">Luchtvochtigheid</div>
           <div className="env-selector">
             {[{v:'Droog',icon:'🏜'},{v:'Normaal',icon:'🌿'},{v:'Vochtig',icon:'💦'}].map(o=>(
               <div key={o.v} className={`env-opt ${humidity===o.v?'selected':''}`} onClick={()=>setHumidity(o.v)}>
-                <div className="env-opt-icon">{o.icon}</div><div className="env-opt-label">{o.v}</div>
+                <div className="env-opt-icon">{o.icon}</div>
+                <div className="env-opt-label">{o.v}</div>
               </div>
             ))}
           </div>
         </div>
-        <button className="submit-btn" onClick={handleAdd} disabled={!selected||saving}>{saving?'Opslaan...':'Plant toevoegen →'}</button>
+
+        <button className="submit-btn" onClick={saveSettings} disabled={savingSettings}>
+          {savingSettings?'Opslaan...':'⚙️ Instellingen opslaan'}
+        </button>
+      </div>
+    )}
+  </div>
+
+  {/* DELETE MODAL */}
+  {showConfirm&&(
+    <div className="modal-overlay">
+      <div className="modal">
+        <div className="serif" style={{fontSize:22,color:'var(--ink)',marginBottom:8}}>Plant verwijderen?</div>
+        <div style={{fontSize:13,color:'var(--ink3)',marginBottom:24,lineHeight:1.5}}>"{plant.name}" wordt permanent verwijderd.</div>
+        <button className="modal-btn danger" onClick={()=>{onDelete(plant.id);setShowConfirm(false);}}>Ja, verwijderen</button>
+        <button className="modal-btn cancel" onClick={()=>setShowConfirm(false)}>Annuleren</button>
       </div>
     </div>
-  );
+  )}
+</div>
+```
+
+);
+}
+
+// ── ADD PLANT ──
+function AddPlant({onBack, onAdd}){
+const [query, setQuery] = useState(’’);
+const [apiResults, setApiResults] = useState([]);
+const [localResults, setLocalResults] = useState([]);
+const [selected, setSelected] = useState(null);
+const [apiData, setApiData] = useState(null);
+const [light, setLight] = useState(‘Indirect’);
+const [humidity, setHumidity] = useState(‘Normaal’);
+const [soil, setSoil] = useState(‘universeel’);
+const [saving, setSaving] = useState(false);
+const [searching, setSearching] = useState(false);
+const [timer, setTimer] = useState(null);
+
+const parseWatering = (w) => ({‘Frequent’:3,‘Average’:7,‘Minimum’:14,‘None’:30}[w]||10);
+const parseSunlight = (s) => { if(!s||!s.length) return ‘Indirect’; const v=(Array.isArray(s)?s[0]:s).toLowerCase(); if(v.includes(‘full sun’)) return ‘Direct’; if(v.includes(‘shade’)||v.includes(‘indirect’)) return ‘Weinig’; return ‘Indirect’; };
+
+const searchApi = async (q) => {
+if(q.length<2) return;
+setSearching(true);
+try {
+const res = await fetch(`https://perenual.com/api/species-list?key=${PERENUAL_KEY}&q=${encodeURIComponent(q)}`);
+const data = await res.json();
+if(data.data) setApiResults(data.data.slice(0,6));
+} catch(e){}
+setSearching(false);
+};
+
+const handleQuery = (val) => {
+setQuery(val); setSelected(null); setApiData(null);
+setLocalResults(val.length>0?PLANT_DB.filter(p=>p.name.toLowerCase().includes(val.toLowerCase())||p.species.toLowerCase().includes(val.toLowerCase())).slice(0,3):[]);
+if(timer) clearTimeout(timer);
+setTimer(setTimeout(()=>searchApi(val),600));
+};
+
+const selectApi = async (p) => {
+const name = p.common_name||p.scientific_name?.[0]||‘Plant’;
+const species = p.scientific_name?.[0]||’’;
+const db = PLANT_DB.find(d=>d.name.toLowerCase()===name.toLowerCase());
+setSelected({name,species,emoji:db?.emoji||‘🌿’,fromApi:true});
+setQuery(name); setApiResults([]); setLocalResults([]);
+try {
+const res = await fetch(`https://perenual.com/api/species/details/${p.id}?key=${PERENUAL_KEY}`);
+const detail = await res.json();
+setApiData(detail);
+setLight(parseSunlight(detail.sunlight));
+setSelected(prev=>({…prev,waterEvery:parseWatering(detail.watering),feedEvery:detail.maintenance===‘Low’?60:28}));
+} catch(e){}
+};
+
+const selectLocal = (p) => { setSelected(p); setQuery(p.name); setApiResults([]); setLocalResults([]); setLight(p.light||‘Indirect’); };
+
+const handleAdd = async () => {
+if(!selected) return;
+setSaving(true);
+const soilType = SOIL_TYPES.find(s=>s.id===soil)||SOIL_TYPES[0];
+const baseWater = selected.waterEvery||10;
+const adjustedWater = Math.round(baseWater * soilType.waterMultiplier);
+await onAdd({name:selected.name,species:selected.species,emoji:selected.emoji||‘🌿’,light,humidity,soil,water_every:adjustedWater,feed_every:selected.feedEvery||28,api_data:apiData?{watering:apiData.watering,sunlight:apiData.sunlight,care_level:apiData.care_level,description:apiData.description}:null});
+setSaving(false);
+};
+
+const combined = […localResults,…apiResults.filter(a=>!localResults.find(l=>l.name.toLowerCase()===(a.common_name||’’).toLowerCase()))];
+
+return (
+<div className="enter">
+<div style={{background:‘var(–white)’,padding:`calc(env(safe-area-inset-top) + 14px) 24px 14px`,borderBottom:‘1px solid var(–line)’,display:‘flex’,alignItems:‘center’,gap:12}}>
+<button onClick={onBack} style={{width:34,height:34,background:‘var(–bg)’,borderRadius:‘50%’,display:‘flex’,alignItems:‘center’,justifyContent:‘center’,fontSize:14,cursor:‘pointer’,border:‘none’,fontFamily:‘inherit’,flexShrink:0}}>←</button>
+<div className=“serif” style={{fontSize:22,color:‘var(–ink)’}}>Plant toevoegen</div>
+</div>
+<div className=“screen-content” style={{padding:‘20px 24px’,display:‘flex’,flexDirection:‘column’,gap:20}}>
+<div className="field-group">
+<div className="field-label">Zoek plant {searching&&<span style={{color:‘var(–green)’,fontWeight:400,letterSpacing:0}}>· zoeken…</span>}</div>
+<input className=“field-input” placeholder=“bv. Monstera, Pothos, Lavender…” value={query} onChange={e=>handleQuery(e.target.value)}/>
+{combined.length>0&&(
+<div className="search-results">
+{combined.map((p,i)=>{
+const isApi=!p.waterEvery;
+const name=isApi?(p.common_name||p.scientific_name?.[0]||‘Plant’):p.name;
+const species=isApi?(p.scientific_name?.[0]||’’):p.species;
+const emoji=isApi?(PLANT_DB.find(d=>d.name.toLowerCase()===name.toLowerCase())?.emoji||‘🌿’):p.emoji;
+return (
+<div key={i} className={`search-result ${selected?.name===name?'sel':''}`} onClick={()=>isApi?selectApi(p):selectLocal(p)}>
+<span style={{fontSize:20}}>{emoji}</span>
+<div style={{flex:1}}>
+<div style={{fontSize:13,fontWeight:500,color:‘var(–ink)’}}>{name}</div>
+<div style={{fontSize:11,color:‘var(–ink3)’}}>{species}</div>
+</div>
+{isApi&&<span style={{fontSize:10,color:‘var(–green)’,fontWeight:600,background:‘var(–green-light)’,padding:‘2px 6px’,borderRadius:999}}>API</span>}
+</div>
+);
+})}
+</div>
+)}
+{selected&&(
+<div style={{background:‘var(–green-light)’,borderRadius:‘var(–r-sm)’,padding:‘12px 14px’}}>
+<div style={{fontSize:12,color:‘var(–green)’,fontWeight:600,marginBottom:apiData?6:0}}>✓ {selected.name} geselecteerd</div>
+{apiData&&<>
+<div style={{fontSize:11,color:‘var(–ink2)’,marginBottom:2}}>💧 {apiData.watering} → elke ~{selected.waterEvery} dagen</div>
+<div style={{fontSize:11,color:‘var(–ink2)’}}>{Array.isArray(apiData.sunlight)?apiData.sunlight.join(’, ‘):apiData.sunlight}</div>
+{apiData.care_level&&<div style={{fontSize:11,color:‘var(–ink2)’,marginTop:2}}>🌿 {apiData.care_level}</div>}
+</>}
+{!apiData&&<div style={{fontSize:11,color:‘var(–ink2)’}}>💧 Water elke ~{selected.waterEvery} dagen</div>}
+</div>
+)}
+{apiData?.description&&<div style={{background:‘var(–bg)’,borderRadius:‘var(–r-sm)’,padding:‘10px 12px’,fontSize:12,color:‘var(–ink3)’,lineHeight:1.5}}>{apiData.description.slice(0,180)}…</div>}
+</div>
+<div className="field-group">
+<div className="field-label">Lichtomstandigheden</div>
+<div className="env-selector">
+{[{v:‘Weinig’,icon:‘🌑’},{v:‘Indirect’,icon:‘🌤’},{v:‘Direct’,icon:‘☀️’}].map(o=>(
+<div key={o.v} className={`env-opt ${light===o.v?'selected':''}`} onClick={()=>setLight(o.v)}>
+<div className="env-opt-icon">{o.icon}</div><div className="env-opt-label">{o.v}</div>
+</div>
+))}
+</div>
+</div>
+<div className="field-group">
+<div className="field-label">Luchtvochtigheid</div>
+<div className="env-selector">
+{[{v:‘Droog’,icon:‘🏜’},{v:‘Normaal’,icon:‘🌿’},{v:‘Vochtig’,icon:‘💦’}].map(o=>(
+<div key={o.v} className={`env-opt ${humidity===o.v?'selected':''}`} onClick={()=>setHumidity(o.v)}>
+<div className="env-opt-icon">{o.icon}</div><div className="env-opt-label">{o.v}</div>
+</div>
+))}
+</div>
+</div>
+<div className="field-group">
+<div className="field-label">Potgrond</div>
+<div style={{display:‘flex’,flexDirection:‘column’,gap:6}}>
+{SOIL_TYPES.map(s=>(
+<div key={s.id} onClick={()=>setSoil(s.id)} style={{
+background:soil===s.id?‘var(–green-light)’:‘var(–bg)’,
+border:soil===s.id?‘1.5px solid var(–accent)’:‘1.5px solid transparent’,
+borderRadius:‘var(–r-sm)’,padding:‘10px 12px’,cursor:‘pointer’,
+display:‘flex’,alignItems:‘center’,gap:10,transition:‘all 0.15s’
+}}>
+<span style={{fontSize:18,flexShrink:0}}>{s.icon}</span>
+<div style={{flex:1}}>
+<div style={{fontSize:13,fontWeight:600,color:soil===s.id?‘var(–green)’:‘var(–ink)’}}>{s.name}</div>
+<div style={{fontSize:11,color:‘var(–ink3)’,marginTop:1}}>{s.desc}</div>
+</div>
+{soil===s.id&&<div style={{fontSize:10,fontWeight:700,color:‘var(–green)’,background:‘var(–white)’,padding:‘2px 6px’,borderRadius:999,flexShrink:0}}>✓</div>}
+</div>
+))}
+</div>
+{selected && (() => {
+const s = SOIL_TYPES.find(t=>t.id===soil)||SOIL_TYPES[0];
+const base = selected.waterEvery||10;
+const adj = Math.round(base * s.waterMultiplier);
+return <div style={{background:‘var(–green-light)’,borderRadius:‘var(–r-sm)’,padding:‘8px 12px’,fontSize:12,color:‘var(–green)’,fontWeight:500,marginTop:6}}>
+💧 Water geven elke <strong>{adj} dagen</strong>{adj!==base?` (basis: ${base} dagen)`:’ (standaard)’}
+</div>;
+})()}
+</div>
+<button className="submit-btn" onClick={handleAdd} disabled={!selected||saving}>{saving?‘Opslaan…’:‘Plant toevoegen →’}</button>
+</div>
+</div>
+);
 }
 
 // ── ALERTS ──
 function AlertsScreen({plants, onWater, onFeed, onSnooze, onUndo}){
-  const [view, setView] = useState('vandaag'); // vandaag | aankomende
+const [view, setView] = useState(‘vandaag’); // vandaag | aankomende
 
-  // Genereer alle toekomstige taken per plant (60 dagen vooruit)
-  const generateTasks = () => {
-    const tasks = [];
-    plants.forEach(p => {
-      // Water taken
-      let waterDate = p.next_water;
-      for(let i = 0; i < 8; i++){
-        const diff = daysDiff(waterDate);
-        if(diff > 60) break;
-        tasks.push({id:`${p.id}-w-${i}`, plant:p, type:'water', date:waterDate, diff, emoji:'💧', label:'Water geven'});
-        waterDate = addDays(waterDate, p.water_every);
-      }
-      // Voeding taken
-      let feedDate = p.next_feed;
-      for(let i = 0; i < 4; i++){
-        const diff = daysDiff(feedDate);
-        if(diff > 60) break;
-        if(diff >= 0) tasks.push({id:`${p.id}-f-${i}`, plant:p, type:'feed', date:feedDate, diff, emoji:'🌿', label:'Voeding geven'});
-        feedDate = addDays(feedDate, p.feed_every);
-      }
-      // Verpot
-      if(p.next_repot){
-        const diff = daysDiff(p.next_repot);
-        if(diff >= 0 && diff <= 60) tasks.push({id:`${p.id}-r`, plant:p, type:'repot', date:p.next_repot, diff, emoji:'🪴', label:'Verpotten'});
-      }
-    });
-    return tasks.sort((a,b) => a.date.localeCompare(b.date));
-  };
+// Genereer alle toekomstige taken per plant (60 dagen vooruit)
+const generateTasks = () => {
+const tasks = [];
+plants.forEach(p => {
+// Water taken
+let waterDate = p.next_water;
+for(let i = 0; i < 8; i++){
+const diff = daysDiff(waterDate);
+if(diff > 60) break;
+tasks.push({id:`${p.id}-w-${i}`, plant:p, type:‘water’, date:waterDate, diff, emoji:‘💧’, label:‘Water geven’});
+waterDate = addDays(waterDate, p.water_every);
+}
+// Voeding taken
+let feedDate = p.next_feed;
+for(let i = 0; i < 4; i++){
+const diff = daysDiff(feedDate);
+if(diff > 60) break;
+if(diff >= 0) tasks.push({id:`${p.id}-f-${i}`, plant:p, type:‘feed’, date:feedDate, diff, emoji:‘🌿’, label:‘Voeding geven’});
+feedDate = addDays(feedDate, p.feed_every);
+}
+// Verpot
+if(p.next_repot){
+const diff = daysDiff(p.next_repot);
+if(diff >= 0 && diff <= 60) tasks.push({id:`${p.id}-r`, plant:p, type:‘repot’, date:p.next_repot, diff, emoji:‘🪴’, label:‘Verpotten’});
+}
+});
+return tasks.sort((a,b) => a.date.localeCompare(b.date));
+};
 
-  const allTasks = generateTasks();
-  const overdue = allTasks.filter(t => t.diff < 0);
-  const todayTasks = allTasks.filter(t => t.diff === 0);
-  const futureTasks = allTasks.filter(t => t.diff > 0);
+const allTasks = generateTasks();
+const overdue = allTasks.filter(t => t.diff < 0);
+const todayTasks = allTasks.filter(t => t.diff === 0);
+const futureTasks = allTasks.filter(t => t.diff > 0);
 
-  // Groepeer toekomstige taken per dag
-  const grouped = {};
-  futureTasks.forEach(t => {
-    if(!grouped[t.date]) grouped[t.date] = [];
-    grouped[t.date].push(t);
-  });
+// Groepeer toekomstige taken per dag
+const grouped = {};
+futureTasks.forEach(t => {
+if(!grouped[t.date]) grouped[t.date] = [];
+grouped[t.date].push(t);
+});
 
-  const urgentCount = overdue.length + todayTasks.length;
+const urgentCount = overdue.length + todayTasks.length;
 
-  const doAction = (task) => {
-    if(task.type === 'water') onWater(task.plant);
-    else if(task.type === 'feed') onFeed(task.plant);
-  };
+const doAction = (task) => {
+if(task.type === ‘water’) onWater(task.plant);
+else if(task.type === ‘feed’) onFeed(task.plant);
+};
 
-  const TaskCard = ({task, showUndo}) => {
-    const isUrgent = task.diff < 0;
-    const isToday = task.diff === 0;
-    const photo = (task.plant.photos||[])[0]?.url;
-    return (
-      <div style={{display:'flex',alignItems:'center',gap:12,padding:'12px 0',borderBottom:'1px solid var(--line)'}}>
-        <div style={{width:44,height:44,borderRadius:'50%',overflow:'hidden',background:getBg(task.plant.emoji),flexShrink:0,display:'flex',alignItems:'center',justifyContent:'center',fontSize:20}}>
-          {photo ? <img src={photo} style={{width:'100%',height:'100%',objectFit:'cover'}} alt=""/> : task.plant.emoji}
+const TaskCard = ({task, showUndo}) => {
+const isUrgent = task.diff < 0;
+const isToday = task.diff === 0;
+const photo = (task.plant.photos||[])[0]?.url;
+return (
+<div style={{display:‘flex’,alignItems:‘center’,gap:12,padding:‘12px 0’,borderBottom:‘1px solid var(–line)’}}>
+<div style={{width:44,height:44,borderRadius:‘50%’,overflow:‘hidden’,background:getBg(task.plant.emoji),flexShrink:0,display:‘flex’,alignItems:‘center’,justifyContent:‘center’,fontSize:20}}>
+{photo ? <img src={photo} style={{width:‘100%’,height:‘100%’,objectFit:‘cover’}} alt=””/> : task.plant.emoji}
+</div>
+<div style={{flex:1,minWidth:0}}>
+<div style={{fontSize:14,fontWeight:600,color:‘var(–ink)’}}>{task.plant.name}</div>
+<div style={{fontSize:11,color:‘var(–ink3)’,marginTop:1}}>{task.plant.species||’’}</div>
+<div style={{display:‘flex’,gap:6,marginTop:6,flexWrap:‘wrap’}}>
+<span style={{background: task.type===‘water’?’#1a6fad’:task.type===‘feed’?’#2D5A3D’:’#8B6914’,color:‘white’,fontSize:11,fontWeight:500,padding:‘3px 10px’,borderRadius:999}}>{task.emoji} {task.label}</span>
+</div>
+</div>
+{showUndo ? (
+<button className=“alert-btn undo” onClick={()=>onUndo(task.plant)}>↩️</button>
+) : task.type !== ‘repot’ && (
+<div style={{display:‘flex’,gap:4,flexShrink:0}}>
+{(isUrgent||isToday) && <button className=“alert-btn snooze” onClick={()=>onSnooze(task.plant)}>Morgen</button>}
+<button className={`alert-btn ${isUrgent?'urgent':isToday?'soon':'done-btn'}`} onClick={()=>doAction(task)}>Gedaan</button>
+</div>
+)}
+</div>
+);
+};
+
+return (
+<div className="enter">
+<div className="page-hdr">
+<div className="page-title serif">Taken</div>
+{urgentCount>0&&<span style={{background:‘var(–red)’,color:‘white’,fontSize:11,fontWeight:600,padding:‘3px 8px’,borderRadius:999}}>{urgentCount}</span>}
+</div>
+
+```
+  {/* TAB TOGGLE */}
+  <div style={{display:'flex',padding:'12px 24px 0',gap:8}}>
+    {['vandaag','aankomende'].map(v=>(
+      <button key={v} onClick={()=>setView(v)} style={{padding:'8px 16px',borderRadius:999,border:'none',fontFamily:'inherit',fontSize:13,fontWeight:600,cursor:'pointer',background:view===v?'var(--ink)':'var(--bg)',color:view===v?'white':'var(--ink3)'}}>
+        {v==='vandaag'?'Vandaag':'Aankomend'}
+      </button>
+    ))}
+  </div>
+
+  <div style={{padding:'0 24px 24px'}}>
+    {view==='vandaag' && (<>
+      {overdue.length===0&&todayTasks.length===0 && (
+        <div className="empty-state" style={{padding:'40px 0'}}>
+          <div style={{fontSize:52}}>✅</div>
+          <div className="serif" style={{fontSize:22,color:'var(--ink)'}}>Alles bijgewerkt</div>
+          <div style={{fontSize:14,color:'var(--ink3)'}}>Geen taken voor vandaag.</div>
         </div>
-        <div style={{flex:1,minWidth:0}}>
-          <div style={{fontSize:14,fontWeight:600,color:'var(--ink)'}}>{task.plant.name}</div>
-          <div style={{fontSize:11,color:'var(--ink3)',marginTop:1}}>{task.plant.species||''}</div>
-          <div style={{display:'flex',gap:6,marginTop:6,flexWrap:'wrap'}}>
-            <span style={{background: task.type==='water'?'#1a6fad':task.type==='feed'?'#2D5A3D':'#8B6914',color:'white',fontSize:11,fontWeight:500,padding:'3px 10px',borderRadius:999}}>{task.emoji} {task.label}</span>
-          </div>
-        </div>
-        {showUndo ? (
-          <button className="alert-btn undo" onClick={()=>onUndo(task.plant)}>↩️</button>
-        ) : task.type !== 'repot' && (
-          <div style={{display:'flex',gap:4,flexShrink:0}}>
-            {(isUrgent||isToday) && <button className="alert-btn snooze" onClick={()=>onSnooze(task.plant)}>Morgen</button>}
-            <button className={`alert-btn ${isUrgent?'urgent':isToday?'soon':'done-btn'}`} onClick={()=>doAction(task)}>Gedaan</button>
-          </div>
-        )}
-      </div>
-    );
-  };
-
-  return (
-    <div className="enter">
-      <div className="page-hdr">
-        <div className="page-title serif">Taken</div>
-        {urgentCount>0&&<span style={{background:'var(--red)',color:'white',fontSize:11,fontWeight:600,padding:'3px 8px',borderRadius:999}}>{urgentCount}</span>}
-      </div>
-
-      {/* TAB TOGGLE */}
-      <div style={{display:'flex',padding:'12px 24px 0',gap:8}}>
-        {['vandaag','aankomende'].map(v=>(
-          <button key={v} onClick={()=>setView(v)} style={{padding:'8px 16px',borderRadius:999,border:'none',fontFamily:'inherit',fontSize:13,fontWeight:600,cursor:'pointer',background:view===v?'var(--ink)':'var(--bg)',color:view===v?'white':'var(--ink3)'}}>
-            {v==='vandaag'?'Vandaag':'Aankomend'}
-          </button>
+      )}
+      {overdue.length>0&&<>
+        <div style={{fontSize:10,fontWeight:600,letterSpacing:'1px',textTransform:'uppercase',color:'var(--red)',padding:'16px 0 4px'}}>Te laat — {overdue.length} {overdue.length===1?'taak':'taken'}</div>
+        {overdue.map(t=><TaskCard key={t.id} task={t}/>)}
+      </>}
+      {todayTasks.length>0&&<>
+        <div style={{fontSize:10,fontWeight:600,letterSpacing:'1px',textTransform:'uppercase',color:'var(--ink3)',padding:'16px 0 4px'}}>Vandaag — {todayTasks.length} {todayTasks.length===1?'taak':'taken'}</div>
+        {todayTasks.map(t=><TaskCard key={t.id} task={t}/>)}
+      </>}
+      {/* Afgerond = planten met next_water ver weg */}
+      {plants.filter(p=>daysDiff(p.next_water)>2).length>0&&<>
+        <div style={{fontSize:10,fontWeight:600,letterSpacing:'1px',textTransform:'uppercase',color:'var(--ink3)',padding:'16px 0 4px'}}>Afgerond</div>
+        {plants.filter(p=>daysDiff(p.next_water)>2).map(p=>(
+          <TaskCard key={p.id} task={{id:p.id,plant:p,type:'water',date:p.next_water,diff:daysDiff(p.next_water),emoji:'💧',label:'Water geven'}} showUndo={true}/>
         ))}
-      </div>
+      </>}
+    </>)}
 
-      <div style={{padding:'0 24px 24px'}}>
-        {view==='vandaag' && (<>
-          {overdue.length===0&&todayTasks.length===0 && (
-            <div className="empty-state" style={{padding:'40px 0'}}>
-              <div style={{fontSize:52}}>✅</div>
-              <div className="serif" style={{fontSize:22,color:'var(--ink)'}}>Alles bijgewerkt</div>
-              <div style={{fontSize:14,color:'var(--ink3)'}}>Geen taken voor vandaag.</div>
+    {view==='aankomende' && (<>
+      {Object.keys(grouped).length===0 && (
+        <div className="empty-state" style={{padding:'40px 0'}}>
+          <div style={{fontSize:52}}>🌿</div>
+          <div className="serif" style={{fontSize:22,color:'var(--ink)'}}>Geen aankomende taken</div>
+        </div>
+      )}
+      {Object.entries(grouped).map(([date, tasks])=>{
+        const d = new Date(date);
+        const DAYS = ['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+        const MONTHS = ['jan','feb','mrt','apr','mei','jun','jul','aug','sep','okt','nov','dec'];
+        const dayName = DAYS[d.getDay()];
+        const dayStr = `${dayName.charAt(0).toUpperCase()+dayName.slice(1)} ${d.getDate()} ${MONTHS[d.getMonth()]}`;
+        return (
+          <div key={date} style={{marginTop:20}}>
+            <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:4}}>
+              <div style={{fontSize:15,fontWeight:700,color:'var(--ink)'}}>{dayStr}</div>
+              <span style={{fontSize:11,color:'var(--ink3)',background:'var(--bg2)',padding:'2px 8px',borderRadius:999}}>{tasks.length} {tasks.length===1?'taak':'taken'}</span>
             </div>
-          )}
-          {overdue.length>0&&<>
-            <div style={{fontSize:10,fontWeight:600,letterSpacing:'1px',textTransform:'uppercase',color:'var(--red)',padding:'16px 0 4px'}}>Te laat — {overdue.length} {overdue.length===1?'taak':'taken'}</div>
-            {overdue.map(t=><TaskCard key={t.id} task={t}/>)}
-          </>}
-          {todayTasks.length>0&&<>
-            <div style={{fontSize:10,fontWeight:600,letterSpacing:'1px',textTransform:'uppercase',color:'var(--ink3)',padding:'16px 0 4px'}}>Vandaag — {todayTasks.length} {todayTasks.length===1?'taak':'taken'}</div>
-            {todayTasks.map(t=><TaskCard key={t.id} task={t}/>)}
-          </>}
-          {/* Afgerond = planten met next_water ver weg */}
-          {plants.filter(p=>daysDiff(p.next_water)>2).length>0&&<>
-            <div style={{fontSize:10,fontWeight:600,letterSpacing:'1px',textTransform:'uppercase',color:'var(--ink3)',padding:'16px 0 4px'}}>Afgerond</div>
-            {plants.filter(p=>daysDiff(p.next_water)>2).map(p=>(
-              <TaskCard key={p.id} task={{id:p.id,plant:p,type:'water',date:p.next_water,diff:daysDiff(p.next_water),emoji:'💧',label:'Water geven'}} showUndo={true}/>
-            ))}
-          </>}
-        </>)}
+            {tasks.map(t=><TaskCard key={t.id} task={t}/>)}
+          </div>
+        );
+      })}
+    </>)}
+  </div>
+</div>
+```
 
-        {view==='aankomende' && (<>
-          {Object.keys(grouped).length===0 && (
-            <div className="empty-state" style={{padding:'40px 0'}}>
-              <div style={{fontSize:52}}>🌿</div>
-              <div className="serif" style={{fontSize:22,color:'var(--ink)'}}>Geen aankomende taken</div>
-            </div>
-          )}
-          {Object.entries(grouped).map(([date, tasks])=>{
-            const d = new Date(date);
-            const DAYS = ['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
-            const MONTHS = ['jan','feb','mrt','apr','mei','jun','jul','aug','sep','okt','nov','dec'];
-            const dayName = DAYS[d.getDay()];
-            const dayStr = `${dayName.charAt(0).toUpperCase()+dayName.slice(1)} ${d.getDate()} ${MONTHS[d.getMonth()]}`;
-            return (
-              <div key={date} style={{marginTop:20}}>
-                <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:4}}>
-                  <div style={{fontSize:15,fontWeight:700,color:'var(--ink)'}}>{dayStr}</div>
-                  <span style={{fontSize:11,color:'var(--ink3)',background:'var(--bg2)',padding:'2px 8px',borderRadius:999}}>{tasks.length} {tasks.length===1?'taak':'taken'}</span>
-                </div>
-                {tasks.map(t=><TaskCard key={t.id} task={t}/>)}
-              </div>
-            );
-          })}
-        </>)}
-      </div>
-    </div>
-  );
+);
 }
 
 // ── SCHEMA ──
 function SchemaScreen({plants}){
-  const DAYS = ['Ma','Di','Wo','Do','Vr','Za','Zo'];
-  const MONTHS = ['Januari','Februari','Maart','April','Mei','Juni','Juli','Augustus','September','Oktober','November','December'];
-  const now = new Date();
-  const [viewYear, setViewYear] = useState(now.getFullYear());
-  const [viewMonth, setViewMonth] = useState(now.getMonth());
+const DAYS = [‘Ma’,‘Di’,‘Wo’,‘Do’,‘Vr’,‘Za’,‘Zo’];
+const MONTHS = [‘Januari’,‘Februari’,‘Maart’,‘April’,‘Mei’,‘Juni’,‘Juli’,‘Augustus’,‘September’,‘Oktober’,‘November’,‘December’];
+const now = new Date();
+const [viewYear, setViewYear] = useState(now.getFullYear());
+const [viewMonth, setViewMonth] = useState(now.getMonth());
 
-  const prevMonth = () => { if(viewMonth===0){setViewMonth(11);setViewYear(y=>y-1);}else setViewMonth(m=>m-1); };
-  const nextMonth = () => { if(viewMonth===11){setViewMonth(0);setViewYear(y=>y+1);}else setViewMonth(m=>m+1); };
+const prevMonth = () => { if(viewMonth===0){setViewMonth(11);setViewYear(y=>y-1);}else setViewMonth(m=>m-1); };
+const nextMonth = () => { if(viewMonth===11){setViewMonth(0);setViewYear(y=>y+1);}else setViewMonth(m=>m+1); };
 
-  // Genereer alle toekomstige taken (90 dagen)
-  const allTaskDates = {};
-  plants.forEach(p => {
-    const addTask = (date, type) => {
-      if(!allTaskDates[date]) allTaskDates[date] = [];
-      if(!allTaskDates[date].includes(type)) allTaskDates[date].push(type);
-    };
-    // Water
-    let wd = p.next_water;
-    for(let i=0;i<12;i++){
-      addTask(wd,'water');
-      wd = addDays(wd, p.water_every);
-      if(daysDiff(wd) > 90) break;
-    }
-    // Feed
-    let fd = p.next_feed;
-    for(let i=0;i<6;i++){
-      addTask(fd,'feed');
-      fd = addDays(fd, p.feed_every);
-      if(daysDiff(fd) > 90) break;
-    }
-    // Repot
-    if(p.next_repot) addTask(p.next_repot,'repot');
-  });
+// Genereer alle toekomstige taken (90 dagen)
+const allTaskDates = {};
+plants.forEach(p => {
+const addTask = (date, type) => {
+if(!allTaskDates[date]) allTaskDates[date] = [];
+if(!allTaskDates[date].includes(type)) allTaskDates[date].push(type);
+};
+// Water
+let wd = p.next_water;
+for(let i=0;i<12;i++){
+addTask(wd,‘water’);
+wd = addDays(wd, p.water_every);
+if(daysDiff(wd) > 90) break;
+}
+// Feed
+let fd = p.next_feed;
+for(let i=0;i<6;i++){
+addTask(fd,‘feed’);
+fd = addDays(fd, p.feed_every);
+if(daysDiff(fd) > 90) break;
+}
+// Repot
+if(p.next_repot) addTask(p.next_repot,‘repot’);
+});
 
-  const first = new Date(viewYear,viewMonth,1);
-  const last = new Date(viewYear,viewMonth+1,0);
-  const startDow = (first.getDay()+6)%7;
-  const cells = [];
-  for(let i=0;i<startDow;i++) cells.push({n:new Date(viewYear,viewMonth,-startDow+1+i).getDate(),other:true,dots:[]});
-  for(let d=1;d<=last.getDate();d++){
-    const iso = `${viewYear}-${String(viewMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
-    cells.push({n:d,today:viewYear===now.getFullYear()&&viewMonth===now.getMonth()&&d===now.getDate(),dots:allTaskDates[iso]||[],iso});
-  }
-  while(cells.length%7!==0) cells.push({n:cells.length-last.getDate()-startDow+1,other:true,dots:[]});
+const first = new Date(viewYear,viewMonth,1);
+const last = new Date(viewYear,viewMonth+1,0);
+const startDow = (first.getDay()+6)%7;
+const cells = [];
+for(let i=0;i<startDow;i++) cells.push({n:new Date(viewYear,viewMonth,-startDow+1+i).getDate(),other:true,dots:[]});
+for(let d=1;d<=last.getDate();d++){
+const iso = `${viewYear}-${String(viewMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+cells.push({n:d,today:viewYear===now.getFullYear()&&viewMonth===now.getMonth()&&d===now.getDate(),dots:allTaskDates[iso]||[],iso});
+}
+while(cells.length%7!==0) cells.push({n:cells.length-last.getDate()-startDow+1,other:true,dots:[]});
 
-  // Aankomende taken in deze maand
-  const monthTasks = [];
-  plants.forEach(p => {
-    const addMTask = (date, type, emoji, label) => {
-      const d = new Date(date);
-      if(d.getFullYear()===viewYear && d.getMonth()===viewMonth) {
-        monthTasks.push({date, day:d.getDate(), dayName:DAYS[(d.getDay()+6)%7], plant:p.name, emoji, label, type});
-      }
-    };
-    let wd = p.next_water;
-    for(let i=0;i<12;i++){ addMTask(wd,'water','💧','Water'); wd=addDays(wd,p.water_every); if(daysDiff(wd)>90) break; }
-    let fd = p.next_feed;
-    for(let i=0;i<6;i++){ addMTask(fd,'feed','🌿','Voeding'); fd=addDays(fd,p.feed_every); if(daysDiff(fd)>90) break; }
-    if(p.next_repot) addMTask(p.next_repot,'repot','🪴','Verpotten');
-  });
-  monthTasks.sort((a,b)=>a.date.localeCompare(b.date));
+// Aankomende taken in deze maand
+const monthTasks = [];
+plants.forEach(p => {
+const addMTask = (date, type, emoji, label) => {
+const d = new Date(date);
+if(d.getFullYear()===viewYear && d.getMonth()===viewMonth) {
+monthTasks.push({date, day:d.getDate(), dayName:DAYS[(d.getDay()+6)%7], plant:p.name, emoji, label, type});
+}
+};
+let wd = p.next_water;
+for(let i=0;i<12;i++){ addMTask(wd,‘water’,‘💧’,‘Water’); wd=addDays(wd,p.water_every); if(daysDiff(wd)>90) break; }
+let fd = p.next_feed;
+for(let i=0;i<6;i++){ addMTask(fd,‘feed’,‘🌿’,‘Voeding’); fd=addDays(fd,p.feed_every); if(daysDiff(fd)>90) break; }
+if(p.next_repot) addMTask(p.next_repot,‘repot’,‘🪴’,‘Verpotten’);
+});
+monthTasks.sort((a,b)=>a.date.localeCompare(b.date));
 
-  const CHIP_COLORS = {water:{bg:'var(--blue-soft)',color:'var(--blue)'},feed:{bg:'var(--green-light)',color:'var(--green)'},repot:{bg:'var(--yellow-soft)',color:'var(--yellow)'}};
+const CHIP_COLORS = {water:{bg:‘var(–blue-soft)’,color:‘var(–blue)’},feed:{bg:‘var(–green-light)’,color:‘var(–green)’},repot:{bg:‘var(–yellow-soft)’,color:‘var(–yellow)’}};
 
-  return (
-    <div className="enter">
-      <div className="page-hdr" style={{flexDirection:'column',alignItems:'flex-start',gap:10}}>
-        <div className="page-title serif">Schema</div>
-        <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',width:'100%'}}>
-          <button onClick={prevMonth} style={{width:34,height:34,background:'var(--bg)',borderRadius:'50%',border:'none',fontSize:16,cursor:'pointer'}}>‹</button>
-          <div style={{fontSize:15,fontWeight:600,color:'var(--ink)'}}>{MONTHS[viewMonth]} {viewYear}</div>
-          <button onClick={nextMonth} style={{width:34,height:34,background:'var(--bg)',borderRadius:'50%',border:'none',fontSize:16,cursor:'pointer'}}>›</button>
-        </div>
-      </div>
-      <div style={{padding:'14px 24px 0'}}>
-        <div style={{display:'grid',gridTemplateColumns:'repeat(7,1fr)',marginBottom:4}}>
-          {DAYS.map(d=><div key={d} style={{textAlign:'center',fontSize:10,fontWeight:600,letterSpacing:'0.8px',textTransform:'uppercase',color:'var(--ink3)',padding:'4px 0'}}>{d}</div>)}
-        </div>
-        <div className="cal-grid">
-          {cells.map((c,i)=>(
-            <div key={i} className={`cal-cell ${c.today?'today':''} ${c.other?'other':''}`}>
-              <div className="cal-num">{c.n}</div>
-              {c.dots?.length>0&&<div style={{display:'flex',gap:2,marginTop:2}}>
-                {c.dots.slice(0,3).map((d,j)=><div key={j} className={`dot ${d}`} style={c.today?{background:'rgba(255,255,255,0.7)'}:{}}/>)}
-              </div>}
-            </div>
-          ))}
-        </div>
-        <div style={{display:'flex',gap:14,padding:'10px 0 4px',alignItems:'center'}}>
-          <div style={{display:'flex',alignItems:'center',gap:5,fontSize:11,color:'var(--ink3)'}}><div className="dot water" style={{width:7,height:7}}/> Water</div>
-          <div style={{display:'flex',alignItems:'center',gap:5,fontSize:11,color:'var(--ink3)'}}><div className="dot feed" style={{width:7,height:7}}/> Voeding</div>
-          <div style={{display:'flex',alignItems:'center',gap:5,fontSize:11,color:'var(--ink3)'}}><div style={{width:7,height:7,borderRadius:'50%',background:'var(--yellow)'}} /> Verpotten</div>
-        </div>
-      </div>
-      <div style={{padding:'14px 24px'}}>
-        <div className="sec-label" style={{marginBottom:8}}>Taken in {MONTHS[viewMonth]}</div>
-        {monthTasks.length===0
-          ? <div style={{fontSize:13,color:'var(--ink3)'}}>Geen geplande taken deze maand.</div>
-          : monthTasks.map((u,i)=>(
-            <div key={i} style={{display:'flex',alignItems:'center',gap:12,padding:'11px 0',borderBottom:'1px solid var(--line)'}}>
-              <div style={{width:36,textAlign:'center',flexShrink:0}}>
-                <div className="serif" style={{fontSize:22,color:'var(--ink)',lineHeight:1}}>{u.day}</div>
-                <div style={{fontSize:9,fontWeight:600,textTransform:'uppercase',letterSpacing:'0.8px',color:'var(--ink3)'}}>{u.dayName}</div>
-              </div>
-              <div style={{width:1,height:32,background:'var(--line)',flexShrink:0}}/>
-              <div style={{flex:1}}>
-                <div style={{fontSize:13,fontWeight:500,color:'var(--ink)'}}>{u.emoji} {u.label}</div>
-                <div style={{fontSize:11,color:'var(--ink3)',marginTop:2}}>{u.plant}</div>
-              </div>
-              <span style={{fontSize:10,fontWeight:600,padding:'3px 8px',borderRadius:999,background:CHIP_COLORS[u.type].bg,color:CHIP_COLORS[u.type].color,flexShrink:0}}>{u.emoji}</span>
-            </div>
-          ))}
-      </div>
-    </div>
-  );
+return (
+<div className="enter">
+<div className=“page-hdr” style={{flexDirection:‘column’,alignItems:‘flex-start’,gap:10}}>
+<div className="page-title serif">Schema</div>
+<div style={{display:‘flex’,alignItems:‘center’,justifyContent:‘space-between’,width:‘100%’}}>
+<button onClick={prevMonth} style={{width:34,height:34,background:‘var(–bg)’,borderRadius:‘50%’,border:‘none’,fontSize:16,cursor:‘pointer’}}>‹</button>
+<div style={{fontSize:15,fontWeight:600,color:‘var(–ink)’}}>{MONTHS[viewMonth]} {viewYear}</div>
+<button onClick={nextMonth} style={{width:34,height:34,background:‘var(–bg)’,borderRadius:‘50%’,border:‘none’,fontSize:16,cursor:‘pointer’}}>›</button>
+</div>
+</div>
+<div style={{padding:‘14px 24px 0’}}>
+<div style={{display:‘grid’,gridTemplateColumns:‘repeat(7,1fr)’,marginBottom:4}}>
+{DAYS.map(d=><div key={d} style={{textAlign:‘center’,fontSize:10,fontWeight:600,letterSpacing:‘0.8px’,textTransform:‘uppercase’,color:‘var(–ink3)’,padding:‘4px 0’}}>{d}</div>)}
+</div>
+<div className="cal-grid">
+{cells.map((c,i)=>(
+<div key={i} className={`cal-cell ${c.today?'today':''} ${c.other?'other':''}`}>
+<div className="cal-num">{c.n}</div>
+{c.dots?.length>0&&<div style={{display:‘flex’,gap:2,marginTop:2}}>
+{c.dots.slice(0,3).map((d,j)=><div key={j} className={`dot ${d}`} style={c.today?{background:‘rgba(255,255,255,0.7)’}:{}}/>)}
+</div>}
+</div>
+))}
+</div>
+<div style={{display:‘flex’,gap:14,padding:‘10px 0 4px’,alignItems:‘center’}}>
+<div style={{display:‘flex’,alignItems:‘center’,gap:5,fontSize:11,color:‘var(–ink3)’}}><div className="dot water" style={{width:7,height:7}}/> Water</div>
+<div style={{display:‘flex’,alignItems:‘center’,gap:5,fontSize:11,color:‘var(–ink3)’}}><div className="dot feed" style={{width:7,height:7}}/> Voeding</div>
+<div style={{display:‘flex’,alignItems:‘center’,gap:5,fontSize:11,color:‘var(–ink3)’}}><div style={{width:7,height:7,borderRadius:‘50%’,background:‘var(–yellow)’}} /> Verpotten</div>
+</div>
+</div>
+<div style={{padding:‘14px 24px’}}>
+<div className="sec-label" style={{marginBottom:8}}>Taken in {MONTHS[viewMonth]}</div>
+{monthTasks.length===0
+? <div style={{fontSize:13,color:‘var(–ink3)’}}>Geen geplande taken deze maand.</div>
+: monthTasks.map((u,i)=>(
+<div key={i} style={{display:‘flex’,alignItems:‘center’,gap:12,padding:‘11px 0’,borderBottom:‘1px solid var(–line)’}}>
+<div style={{width:36,textAlign:‘center’,flexShrink:0}}>
+<div className=“serif” style={{fontSize:22,color:‘var(–ink)’,lineHeight:1}}>{u.day}</div>
+<div style={{fontSize:9,fontWeight:600,textTransform:‘uppercase’,letterSpacing:‘0.8px’,color:‘var(–ink3)’}}>{u.dayName}</div>
+</div>
+<div style={{width:1,height:32,background:‘var(–line)’,flexShrink:0}}/>
+<div style={{flex:1}}>
+<div style={{fontSize:13,fontWeight:500,color:‘var(–ink)’}}>{u.emoji} {u.label}</div>
+<div style={{fontSize:11,color:‘var(–ink3)’,marginTop:2}}>{u.plant}</div>
+</div>
+<span style={{fontSize:10,fontWeight:600,padding:‘3px 8px’,borderRadius:999,background:CHIP_COLORS[u.type].bg,color:CHIP_COLORS[u.type].color,flexShrink:0}}>{u.emoji}</span>
+</div>
+))}
+</div>
+</div>
+);
 }
 
 // ── PROFIEL ──
 function ProfielScreen({user, plants, onLogout, onDeleteAll}){
-  const [notifs, setNotifs] = useState(true);
-  const [digest, setDigest] = useState(false);
-  const [showDeleteAll, setShowDeleteAll] = useState(false);
-  const [showSummary, setShowSummary] = useState(false);
-  const urgent = plants.filter(p=>getStatus(p)==='urgent').length;
-  const soon = plants.filter(p=>getStatus(p)==='soon').length;
-  return (
-    <div className="enter">
-      <div style={{background:'var(--white)',padding:`calc(env(safe-area-inset-top) + 20px) 24px 20px`,borderBottom:'1px solid var(--line)',display:'flex',flexDirection:'column',alignItems:'center',gap:8}}>
-        <div style={{width:68,height:68,borderRadius:'50%',background:'var(--green-light)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:30,border:'2px solid var(--green-mid)',overflow:'hidden'}}>
-          {user?.user_metadata?.avatar_url?<img src={user.user_metadata.avatar_url} style={{width:'100%',height:'100%',objectFit:'cover'}} alt="avatar"/>:'🌿'}
-        </div>
-        <div className="serif" style={{fontSize:22,color:'var(--ink)'}}>{user?.user_metadata?.full_name||'Gebruiker'}</div>
-        <div style={{fontSize:12,color:'var(--ink3)',marginTop:-4}}>{user?.email}</div>
-      </div>
-      <div style={{display:'flex',justifyContent:'center',gap:36,padding:'16px 24px',background:'var(--white)',borderBottom:'1px solid var(--line)'}}>
-        {[{n:plants.length,l:'Planten'},{n:plants.reduce((s,p)=>(p.log||[]).length+s,0),l:'Acties'},{n:plants.filter(p=>getStatus(p)==='good').length,l:'Gezond'}].map(s=>(
-          <div key={s.l} style={{display:'flex',flexDirection:'column',alignItems:'center',gap:2}}>
-            <div className="serif" style={{fontSize:26,color:'var(--ink)',lineHeight:1}}>{s.n}</div>
-            <div style={{fontSize:10,fontWeight:600,textTransform:'uppercase',letterSpacing:'0.8px',color:'var(--ink3)'}}>{s.l}</div>
-          </div>
-        ))}
-      </div>
-      <div style={{padding:'16px 24px 0'}}>
-        <div className="sec-label" style={{paddingBottom:8}}>Meldingen</div>
-        <div className="settings-block">
-          <div className="settings-row">
-            <div className="s-icon" style={{background:'#EAF1EC'}}>🔔</div>
-            <div style={{flex:1}}><div style={{fontSize:14,color:'var(--ink)'}}>Push meldingen</div><div style={{fontSize:11,color:'var(--ink3)',marginTop:1}}>Herinneringen per plant</div></div>
-            <div className={`toggle ${notifs?'on':'off'}`} onClick={()=>setNotifs(!notifs)}/>
-          </div>
-          <div className="settings-row" onClick={()=>{setDigest(!digest);if(!digest)setShowSummary(true);}}>
-            <div className="s-icon" style={{background:'#FBF3E2'}}>📅</div>
-            <div style={{flex:1}}><div style={{fontSize:14,color:'var(--ink)'}}>Dagelijkse samenvatting</div><div style={{fontSize:11,color:'var(--ink3)',marginTop:1}}>Overzicht van vandaag</div></div>
-            <div className={`toggle ${digest?'on':'off'}`}/>
-          </div>
-        </div>
-        <div className="sec-label" style={{padding:'4px 0 8px'}}>Account</div>
-        <div className="settings-block">
-          <div className="settings-row" onClick={()=>setShowDeleteAll(true)}>
-            <div className="s-icon" style={{background:'#F5EAE8'}}>🗑</div>
-            <div style={{flex:1}}><div style={{fontSize:14,color:'var(--ink)'}}>Alle planten verwijderen</div><div style={{fontSize:11,color:'var(--ink3)',marginTop:1}}>Niet te herstellen</div></div>
-            <div style={{fontSize:13,color:'var(--red)'}}>›</div>
-          </div>
-        </div>
-        <div style={{height:12}}/>
-        <button onClick={onLogout} style={{width:'100%',padding:14,background:'var(--red-soft)',border:'none',borderRadius:'var(--r)',color:'var(--red)',fontSize:14,fontWeight:600,fontFamily:'inherit',cursor:'pointer'}}>Uitloggen</button>
-      </div>
-      {showDeleteAll&&(
-        <div className="modal-overlay">
-          <div className="modal">
-            <div className="serif" style={{fontSize:22,color:'var(--ink)',marginBottom:8}}>Alle planten verwijderen?</div>
-            <div style={{fontSize:13,color:'var(--ink3)',marginBottom:24,lineHeight:1.5}}>Je verwijdert {plants.length} plant{plants.length!==1?'en':''}. Niet te herstellen.</div>
-            <button className="modal-btn danger" onClick={()=>{onDeleteAll();setShowDeleteAll(false);}}>Ja, alles verwijderen</button>
-            <button className="modal-btn cancel" onClick={()=>setShowDeleteAll(false)}>Annuleren</button>
-          </div>
-        </div>
-      )}
-      {showSummary&&(
-        <div className="modal-overlay" onClick={()=>setShowSummary(false)}>
-          <div className="modal" onClick={e=>e.stopPropagation()}>
-            <div className="serif" style={{fontSize:22,color:'var(--ink)',marginBottom:8}}>🌿 Dagelijkse samenvatting</div>
-            <div style={{fontSize:13,color:'var(--ink2)',marginBottom:16,lineHeight:1.6}}>Je hebt <strong>{plants.length}</strong> plant{plants.length!==1?'en':''} in je tuin.</div>
-            {urgent>0&&<div style={{background:'var(--red-soft)',borderRadius:'var(--r-sm)',padding:'10px 14px',marginBottom:8,fontSize:13,color:'var(--red)',fontWeight:500}}>⚠️ {urgent} plant{urgent!==1?'en':''} hebben dringend water nodig</div>}
-            {soon>0&&<div style={{background:'var(--yellow-soft)',borderRadius:'var(--r-sm)',padding:'10px 14px',marginBottom:8,fontSize:13,color:'var(--yellow)',fontWeight:500}}>⏰ {soon} plant{soon!==1?'en':''} binnenkort water nodig</div>}
-            {urgent===0&&soon===0&&<div style={{background:'var(--green-light)',borderRadius:'var(--r-sm)',padding:'10px 14px',marginBottom:8,fontSize:13,color:'var(--green)',fontWeight:500}}>✅ Alle planten zijn in goede staat!</div>}
-            {plants.map(p=>(
-              <div key={p.id} style={{display:'flex',alignItems:'center',gap:10,padding:'8px 0',borderBottom:'1px solid var(--line)'}}>
-                <span style={{fontSize:20}}>{p.emoji}</span>
-                <div style={{flex:1}}><div style={{fontSize:13,fontWeight:500,color:'var(--ink)'}}>{p.name}</div><div style={{fontSize:11,color:'var(--ink3)'}}>{formatNext(p.next_water)}</div></div>
-                <div className={`status-dot ${getStatus(p)}`}/>
-              </div>
-            ))}
-            <button className="modal-btn cancel" style={{marginTop:16}} onClick={()=>setShowSummary(false)}>Sluiten</button>
-          </div>
-        </div>
-      )}
-    </div>
-  );
+const [notifs, setNotifs] = useState(true);
+const [digest, setDigest] = useState(false);
+const [showDeleteAll, setShowDeleteAll] = useState(false);
+const [showSummary, setShowSummary] = useState(false);
+const urgent = plants.filter(p=>getStatus(p)===‘urgent’).length;
+const soon = plants.filter(p=>getStatus(p)===‘soon’).length;
+return (
+<div className="enter">
+<div style={{background:‘var(–white)’,padding:`calc(env(safe-area-inset-top) + 20px) 24px 20px`,borderBottom:‘1px solid var(–line)’,display:‘flex’,flexDirection:‘column’,alignItems:‘center’,gap:8}}>
+<div style={{width:68,height:68,borderRadius:‘50%’,background:‘var(–green-light)’,display:‘flex’,alignItems:‘center’,justifyContent:‘center’,fontSize:30,border:‘2px solid var(–green-mid)’,overflow:‘hidden’}}>
+{user?.user_metadata?.avatar_url?<img src={user.user_metadata.avatar_url} style={{width:‘100%’,height:‘100%’,objectFit:‘cover’}} alt=“avatar”/>:‘🌿’}
+</div>
+<div className=“serif” style={{fontSize:22,color:‘var(–ink)’}}>{user?.user_metadata?.full_name||‘Gebruiker’}</div>
+<div style={{fontSize:12,color:‘var(–ink3)’,marginTop:-4}}>{user?.email}</div>
+</div>
+<div style={{display:‘flex’,justifyContent:‘center’,gap:36,padding:‘16px 24px’,background:‘var(–white)’,borderBottom:‘1px solid var(–line)’}}>
+{[{n:plants.length,l:‘Planten’},{n:plants.reduce((s,p)=>(p.log||[]).length+s,0),l:‘Acties’},{n:plants.filter(p=>getStatus(p)===‘good’).length,l:‘Gezond’}].map(s=>(
+<div key={s.l} style={{display:‘flex’,flexDirection:‘column’,alignItems:‘center’,gap:2}}>
+<div className=“serif” style={{fontSize:26,color:‘var(–ink)’,lineHeight:1}}>{s.n}</div>
+<div style={{fontSize:10,fontWeight:600,textTransform:‘uppercase’,letterSpacing:‘0.8px’,color:‘var(–ink3)’}}>{s.l}</div>
+</div>
+))}
+</div>
+<div style={{padding:‘16px 24px 0’}}>
+<div className="sec-label" style={{paddingBottom:8}}>Meldingen</div>
+<div className="settings-block">
+<div className="settings-row">
+<div className=“s-icon” style={{background:’#EAF1EC’}}>🔔</div>
+<div style={{flex:1}}><div style={{fontSize:14,color:‘var(–ink)’}}>Push meldingen</div><div style={{fontSize:11,color:‘var(–ink3)’,marginTop:1}}>Herinneringen per plant</div></div>
+<div className={`toggle ${notifs?'on':'off'}`} onClick={()=>setNotifs(!notifs)}/>
+</div>
+<div className=“settings-row” onClick={()=>{setDigest(!digest);if(!digest)setShowSummary(true);}}>
+<div className=“s-icon” style={{background:’#FBF3E2’}}>📅</div>
+<div style={{flex:1}}><div style={{fontSize:14,color:‘var(–ink)’}}>Dagelijkse samenvatting</div><div style={{fontSize:11,color:‘var(–ink3)’,marginTop:1}}>Overzicht van vandaag</div></div>
+<div className={`toggle ${digest?'on':'off'}`}/>
+</div>
+</div>
+<div className=“sec-label” style={{padding:‘4px 0 8px’}}>Account</div>
+<div className="settings-block">
+<div className=“settings-row” onClick={()=>setShowDeleteAll(true)}>
+<div className=“s-icon” style={{background:’#F5EAE8’}}>🗑</div>
+<div style={{flex:1}}><div style={{fontSize:14,color:‘var(–ink)’}}>Alle planten verwijderen</div><div style={{fontSize:11,color:‘var(–ink3)’,marginTop:1}}>Niet te herstellen</div></div>
+<div style={{fontSize:13,color:‘var(–red)’}}>›</div>
+</div>
+</div>
+<div style={{height:12}}/>
+<button onClick={onLogout} style={{width:‘100%’,padding:14,background:‘var(–red-soft)’,border:‘none’,borderRadius:‘var(–r)’,color:‘var(–red)’,fontSize:14,fontWeight:600,fontFamily:‘inherit’,cursor:‘pointer’}}>Uitloggen</button>
+</div>
+{showDeleteAll&&(
+<div className="modal-overlay">
+<div className="modal">
+<div className=“serif” style={{fontSize:22,color:‘var(–ink)’,marginBottom:8}}>Alle planten verwijderen?</div>
+<div style={{fontSize:13,color:‘var(–ink3)’,marginBottom:24,lineHeight:1.5}}>Je verwijdert {plants.length} plant{plants.length!==1?‘en’:’’}. Niet te herstellen.</div>
+<button className=“modal-btn danger” onClick={()=>{onDeleteAll();setShowDeleteAll(false);}}>Ja, alles verwijderen</button>
+<button className=“modal-btn cancel” onClick={()=>setShowDeleteAll(false)}>Annuleren</button>
+</div>
+</div>
+)}
+{showSummary&&(
+<div className=“modal-overlay” onClick={()=>setShowSummary(false)}>
+<div className=“modal” onClick={e=>e.stopPropagation()}>
+<div className=“serif” style={{fontSize:22,color:‘var(–ink)’,marginBottom:8}}>🌿 Dagelijkse samenvatting</div>
+<div style={{fontSize:13,color:‘var(–ink2)’,marginBottom:16,lineHeight:1.6}}>Je hebt <strong>{plants.length}</strong> plant{plants.length!==1?‘en’:’’} in je tuin.</div>
+{urgent>0&&<div style={{background:‘var(–red-soft)’,borderRadius:‘var(–r-sm)’,padding:‘10px 14px’,marginBottom:8,fontSize:13,color:‘var(–red)’,fontWeight:500}}>⚠️ {urgent} plant{urgent!==1?‘en’:’’} hebben dringend water nodig</div>}
+{soon>0&&<div style={{background:‘var(–yellow-soft)’,borderRadius:‘var(–r-sm)’,padding:‘10px 14px’,marginBottom:8,fontSize:13,color:‘var(–yellow)’,fontWeight:500}}>⏰ {soon} plant{soon!==1?‘en’:’’} binnenkort water nodig</div>}
+{urgent===0&&soon===0&&<div style={{background:‘var(–green-light)’,borderRadius:‘var(–r-sm)’,padding:‘10px 14px’,marginBottom:8,fontSize:13,color:‘var(–green)’,fontWeight:500}}>✅ Alle planten zijn in goede staat!</div>}
+{plants.map(p=>(
+<div key={p.id} style={{display:‘flex’,alignItems:‘center’,gap:10,padding:‘8px 0’,borderBottom:‘1px solid var(–line)’}}>
+<span style={{fontSize:20}}>{p.emoji}</span>
+<div style={{flex:1}}><div style={{fontSize:13,fontWeight:500,color:‘var(–ink)’}}>{p.name}</div><div style={{fontSize:11,color:‘var(–ink3)’}}>{formatNext(p.next_water)}</div></div>
+<div className={`status-dot ${getStatus(p)}`}/>
+</div>
+))}
+<button className=“modal-btn cancel” style={{marginTop:16}} onClick={()=>setShowSummary(false)}>Sluiten</button>
+</div>
+</div>
+)}
+</div>
+);
 }
 
 // ── MAIN APP ──
 function App(){
-  const [session, setSession] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [plants, setPlants] = useState([]);
-  const [tab, setTab] = useState('home');
-  const [selectedPlant, setSelectedPlant] = useState(null);
-  const [showAdd, setShowAdd] = useState(false);
-  const [toast, setToast] = useState('');
+const [session, setSession] = useState(null);
+const [loading, setLoading] = useState(true);
+const [plants, setPlants] = useState([]);
+const [tab, setTab] = useState(‘home’);
+const [selectedPlant, setSelectedPlant] = useState(null);
+const [showAdd, setShowAdd] = useState(false);
+const [toast, setToast] = useState(’’);
 
-  const showToast = (msg) => { setToast(msg); setTimeout(()=>setToast(''),3000); };
+const showToast = (msg) => { setToast(msg); setTimeout(()=>setToast(’’),3000); };
 
-  useEffect(()=>{
-    supabase.auth.getSession().then(({data:{session}})=>{setSession(session);setLoading(false);});
-    const {data:{subscription}} = supabase.auth.onAuthStateChange((_,s)=>{setSession(s);setLoading(false);});
-    return ()=>subscription.unsubscribe();
-  },[]);
+useEffect(()=>{
+supabase.auth.getSession().then(({data:{session}})=>{setSession(session);setLoading(false);});
+const {data:{subscription}} = supabase.auth.onAuthStateChange((_,s)=>{setSession(s);setLoading(false);});
+return ()=>subscription.unsubscribe();
+},[]);
 
-  useEffect(()=>{ if(session) loadPlants(); },[session]);
+useEffect(()=>{ if(session) loadPlants(); },[session]);
 
-  const loadPlants = async () => {
-    const {data} = await supabase.from('plants').select('*').order('created_at',{ascending:true});
-    if(data) setPlants(data);
-  };
+const loadPlants = async () => {
+const {data} = await supabase.from(‘plants’).select(’*’).order(‘created_at’,{ascending:true});
+if(data) setPlants(data);
+};
 
-  const handleAdd = async (plant) => {
-    const t = todayStr();
-    const {data,error} = await supabase.from('plants').insert([{user_id:session.user.id,...plant,next_water:t,next_feed:addDays(t,plant.feed_every),log:[],photos:[],windows:[]}]).select();
-    if(!error){ setPlants(prev=>[...prev,...data]); setShowAdd(false); setTab('home'); showToast('🌿 Plant toegevoegd!'); }
-    else alert('Fout: '+error.message);
-  };
+const handleAdd = async (plant) => {
+const t = todayStr();
+const {data,error} = await supabase.from(‘plants’).insert([{user_id:session.user.id,…plant,next_water:t,next_feed:addDays(t,plant.feed_every),log:[],photos:[],windows:[]}]).select();
+if(!error){ setPlants(prev=>[…prev,…data]); setShowAdd(false); setTab(‘home’); showToast(‘🌿 Plant toegevoegd!’); }
+else alert(’Fout: ’+error.message);
+};
 
-  const handleWater = async (plant) => {
-    const newNext = addDays(todayStr(),plant.water_every);
-    const date = new Date().toLocaleDateString('nl-NL',{day:'numeric',month:'short'});
-    const newLog = [{type:'💧',text:'Water gegeven',date},...(plant.log||[])].slice(0,20);
-    await supabase.from('plants').update({next_water:newNext,log:newLog}).eq('id',plant.id);
-    const updated = {...plant,next_water:newNext,log:newLog};
-    setPlants(prev=>prev.map(p=>p.id===plant.id?updated:p));
-    if(selectedPlant?.id===plant.id) setSelectedPlant(updated);
-    showToast('💧 Water gegeven!');
-  };
+const handleWater = async (plant) => {
+const newNext = addDays(todayStr(),plant.water_every);
+const date = new Date().toLocaleDateString(‘nl-NL’,{day:‘numeric’,month:‘short’});
+const newLog = [{type:‘💧’,text:‘Water gegeven’,date},…(plant.log||[])].slice(0,20);
+await supabase.from(‘plants’).update({next_water:newNext,log:newLog}).eq(‘id’,plant.id);
+const updated = {…plant,next_water:newNext,log:newLog};
+setPlants(prev=>prev.map(p=>p.id===plant.id?updated:p));
+if(selectedPlant?.id===plant.id) setSelectedPlant(updated);
+showToast(‘💧 Water gegeven!’);
+};
 
-  const handleFeed = async (plant) => {
-    const newNext = addDays(todayStr(),plant.feed_every);
-    const date = new Date().toLocaleDateString('nl-NL',{day:'numeric',month:'short'});
-    const newLog = [{type:'🌿',text:'Voeding gegeven',date},...(plant.log||[])].slice(0,20);
-    await supabase.from('plants').update({next_feed:newNext,log:newLog}).eq('id',plant.id);
-    const updated = {...plant,next_feed:newNext,log:newLog};
-    setPlants(prev=>prev.map(p=>p.id===plant.id?updated:p));
-    if(selectedPlant?.id===plant.id) setSelectedPlant(updated);
-    showToast('🌿 Voeding gegeven!');
-  };
+const handleFeed = async (plant) => {
+const newNext = addDays(todayStr(),plant.feed_every);
+const date = new Date().toLocaleDateString(‘nl-NL’,{day:‘numeric’,month:‘short’});
+const newLog = [{type:‘🌿’,text:‘Voeding gegeven’,date},…(plant.log||[])].slice(0,20);
+await supabase.from(‘plants’).update({next_feed:newNext,log:newLog}).eq(‘id’,plant.id);
+const updated = {…plant,next_feed:newNext,log:newLog};
+setPlants(prev=>prev.map(p=>p.id===plant.id?updated:p));
+if(selectedPlant?.id===plant.id) setSelectedPlant(updated);
+showToast(‘🌿 Voeding gegeven!’);
+};
 
-  const handleRepot = async (plant) => {
-    const newNext = addDays(todayStr(), 365);
-    const date = new Date().toLocaleDateString('nl-NL',{day:'numeric',month:'short',year:'numeric'});
-    const newLog = [{type:'🪴',text:'Verpot',date},...(plant.log||[])].slice(0,20);
-    await supabase.from('plants').update({next_repot:newNext,last_repotted:todayStr(),log:newLog}).eq('id',plant.id);
-    const updated = {...plant,next_repot:newNext,last_repotted:todayStr(),log:newLog};
-    setPlants(prev=>prev.map(p=>p.id===plant.id?updated:p));
-    if(selectedPlant?.id===plant.id) setSelectedPlant(updated);
-    showToast('🪴 Verpot geregistreerd!');
-  };
+const handleRepot = async (plant) => {
+const newNext = addDays(todayStr(), 365);
+const date = new Date().toLocaleDateString(‘nl-NL’,{day:‘numeric’,month:‘short’,year:‘numeric’});
+const newLog = [{type:‘🪴’,text:‘Verpot’,date},…(plant.log||[])].slice(0,20);
+await supabase.from(‘plants’).update({next_repot:newNext,last_repotted:todayStr(),log:newLog}).eq(‘id’,plant.id);
+const updated = {…plant,next_repot:newNext,last_repotted:todayStr(),log:newLog};
+setPlants(prev=>prev.map(p=>p.id===plant.id?updated:p));
+if(selectedPlant?.id===plant.id) setSelectedPlant(updated);
+showToast(‘🪴 Verpot geregistreerd!’);
+};
 
-  const handleSnooze = async (plant) => {
-    const newNext = addDays(plant.next_water,1);
-    await supabase.from('plants').update({next_water:newNext}).eq('id',plant.id);
-    setPlants(prev=>prev.map(p=>p.id===plant.id?{...p,next_water:newNext}:p));
-    showToast('⏰ Uitgesteld tot morgen');
-  };
+const handleSnooze = async (plant) => {
+const newNext = addDays(plant.next_water,1);
+await supabase.from(‘plants’).update({next_water:newNext}).eq(‘id’,plant.id);
+setPlants(prev=>prev.map(p=>p.id===plant.id?{…p,next_water:newNext}:p));
+showToast(‘⏰ Uitgesteld tot morgen’);
+};
 
-  const handleUndo = async (plant) => {
-    await supabase.from('plants').update({next_water:todayStr()}).eq('id',plant.id);
-    setPlants(prev=>prev.map(p=>p.id===plant.id?{...p,next_water:todayStr()}:p));
-    showToast('↩️ Taak teruggezet');
-  };
+const handleUndo = async (plant) => {
+await supabase.from(‘plants’).update({next_water:todayStr()}).eq(‘id’,plant.id);
+setPlants(prev=>prev.map(p=>p.id===plant.id?{…p,next_water:todayStr()}:p));
+showToast(‘↩️ Taak teruggezet’);
+};
 
-  const handleDelete = async (id) => {
-    await supabase.from('plants').delete().eq('id',id);
-    setPlants(prev=>prev.filter(p=>p.id!==id));
-    setSelectedPlant(null);
-    showToast('🗑 Plant verwijderd');
-  };
+const handleDelete = async (id) => {
+await supabase.from(‘plants’).delete().eq(‘id’,id);
+setPlants(prev=>prev.filter(p=>p.id!==id));
+setSelectedPlant(null);
+showToast(‘🗑 Plant verwijderd’);
+};
 
-  const handleDeleteAll = async () => {
-    await supabase.from('plants').delete().eq('user_id',session.user.id);
-    setPlants([]); showToast('🗑 Alle planten verwijderd');
-  };
+const handleDeleteAll = async () => {
+await supabase.from(‘plants’).delete().eq(‘user_id’,session.user.id);
+setPlants([]); showToast(‘🗑 Alle planten verwijderd’);
+};
 
-  const handleUpdate = (updated) => {
-    setPlants(prev=>prev.map(p=>p.id===updated.id?updated:p));
-    setSelectedPlant(updated);
-  };
+const handleUpdate = (updated) => {
+setPlants(prev=>prev.map(p=>p.id===updated.id?updated:p));
+setSelectedPlant(updated);
+};
 
-  const handleLogout = async () => { await supabase.auth.signOut(); setSession(null); setPlants([]); };
+const handleLogout = async () => { await supabase.auth.signOut(); setSession(null); setPlants([]); };
 
-  if(loading) return <div className="app"><div className="loading-wrap"><div className="spinner"/><div style={{fontSize:14,color:'var(--ink3)'}}>Laden...</div></div></div>;
-  if(!session) return <div className="app"><LoginScreen/></div>;
+if(loading) return <div className="app"><div className="loading-wrap"><div className="spinner"/><div style={{fontSize:14,color:‘var(–ink3)’}}>Laden…</div></div></div>;
+if(!session) return <div className="app"><LoginScreen/></div>;
 
-  const showNav = !selectedPlant && !showAdd;
+const showNav = !selectedPlant && !showAdd;
 
-  return (
-    <div className="app">
-      <div className="screen-content">
-        {selectedPlant && <PlantDetail plant={selectedPlant} onBack={()=>setSelectedPlant(null)} onDelete={handleDelete} onWater={handleWater} onFeed={handleFeed} onRepot={handleRepot} onUpdate={handleUpdate} showToast={showToast} userId={session.user.id}/>}
-        {!selectedPlant && showAdd && <AddPlant onBack={()=>setShowAdd(false)} onAdd={handleAdd}/>}
-        {!selectedPlant && !showAdd && tab==='home' && <Dashboard plants={plants} onPlantClick={setSelectedPlant} onAdd={()=>setShowAdd(true)}/>}
-        {!selectedPlant && !showAdd && tab==='schema' && <SchemaScreen plants={plants}/>}
-        {!selectedPlant && !showAdd && tab==='alerts' && <AlertsScreen plants={plants} onWater={handleWater} onFeed={handleFeed} onSnooze={handleSnooze} onUndo={handleUndo}/>}
-        {!selectedPlant && !showAdd && tab==='profiel' && <ProfielScreen user={session.user} plants={plants} onLogout={handleLogout} onDeleteAll={handleDeleteAll}/>}
-      </div>
-      {showNav && (
-        <div className="bottom-nav">
-          <div className={`nav-item ${tab==='home'?'active':''}`} onClick={()=>setTab('home')}><div className="nav-icon">🏡</div><div className="nav-label">Tuin</div></div>
-          <div className={`nav-item ${tab==='schema'?'active':''}`} onClick={()=>setTab('schema')}><div className="nav-icon">📅</div><div className="nav-label">Schema</div></div>
-          <div className="nav-add" onClick={()=>setShowAdd(true)}>+</div>
-          <div className={`nav-item ${tab==='alerts'?'active':''}`} onClick={()=>setTab('alerts')}><div className="nav-icon">🔔</div><div className="nav-label">Alerts</div></div>
-          <div className={`nav-item ${tab==='profiel'?'active':''}`} onClick={()=>setTab('profiel')}><div className="nav-icon">👤</div><div className="nav-label">Profiel</div></div>
-        </div>
-      )}
-      <Toast msg={toast}/>
-    </div>
-  );
+return (
+<div className="app">
+<div className="screen-content">
+{selectedPlant && <PlantDetail plant={selectedPlant} onBack={()=>setSelectedPlant(null)} onDelete={handleDelete} onWater={handleWater} onFeed={handleFeed} onRepot={handleRepot} onUpdate={handleUpdate} showToast={showToast} userId={session.user.id}/>}
+{!selectedPlant && showAdd && <AddPlant onBack={()=>setShowAdd(false)} onAdd={handleAdd}/>}
+{!selectedPlant && !showAdd && tab===‘home’ && <Dashboard plants={plants} onPlantClick={setSelectedPlant} onAdd={()=>setShowAdd(true)}/>}
+{!selectedPlant && !showAdd && tab===‘schema’ && <SchemaScreen plants={plants}/>}
+{!selectedPlant && !showAdd && tab===‘alerts’ && <AlertsScreen plants={plants} onWater={handleWater} onFeed={handleFeed} onSnooze={handleSnooze} onUndo={handleUndo}/>}
+{!selectedPlant && !showAdd && tab===‘profiel’ && <ProfielScreen user={session.user} plants={plants} onLogout={handleLogout} onDeleteAll={handleDeleteAll}/>}
+</div>
+{showNav && (
+<div className="bottom-nav">
+<div className={`nav-item ${tab==='home'?'active':''}`} onClick={()=>setTab(‘home’)}><div className="nav-icon">🏡</div><div className="nav-label">Tuin</div></div>
+<div className={`nav-item ${tab==='schema'?'active':''}`} onClick={()=>setTab(‘schema’)}><div className="nav-icon">📅</div><div className="nav-label">Schema</div></div>
+<div className=“nav-add” onClick={()=>setShowAdd(true)}>+</div>
+<div className={`nav-item ${tab==='alerts'?'active':''}`} onClick={()=>setTab(‘alerts’)}><div className="nav-icon">🔔</div><div className="nav-label">Alerts</div></div>
+<div className={`nav-item ${tab==='profiel'?'active':''}`} onClick={()=>setTab(‘profiel’)}><div className="nav-icon">👤</div><div className="nav-label">Profiel</div></div>
+</div>
+)}
+<Toast msg={toast}/>
+</div>
+);
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+ReactDOM.createRoot(document.getElementById(‘root’)).render(<App/>);
 </script>
+
 </body>
 </html>
