@@ -1,0 +1,38 @@
+{
+  "name": "plantapp-desktop",
+  "version": "1.0.0",
+  "description": "PlantApp – Verzorg je planten",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "nl.plantscare.plantapp",
+    "productName": "PlantApp",
+    "files": [
+      "main.js",
+      "index.html",
+      "icon.png"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "mac": {
+      "category": "public.app-category.lifestyle",
+      "icon": "icon.png",
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "icon.png"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}
